@@ -151,10 +151,10 @@ def main(format, channels, rate, chunk):
 
 
     #listening loop
-    while True:
-        
-        with cloud_speech.beta_create_Speech_stub(
+    with cloud_speech.beta_create_Speech_stub(
             make_channel('speech.googleapis.com', 443)) as service:
+        while True:
+        
             try:
                 listen_print_loop(
                     service.StreamingRecognize(
