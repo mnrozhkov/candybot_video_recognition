@@ -32,6 +32,6 @@ class Encyclopedia:
     def get_summary(self):
         '''Gets summary from Wikipedia'''
         wikipedia.set_lang(self.lang)
-        return wikipedia.summary(self.text)
+        return wikipedia.summary(self.text, sentences=1)
 
 

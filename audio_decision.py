@@ -3,10 +3,31 @@
 '''Allows to determine event name and event parameters by
 text content and to make event'''
 
+import subprocess
+
 from network.encyclopedia import Encyclopedia
 import subprocess
 
 import argparse
+
+
+class Sayer:
+    '''Says text'''
+
+    def __init__(self, text=None):
+        '''Constructor
+        Args:
+            text: text to say
+        '''
+        self.text = text
+
+    def say(self):
+        if not self.text is None:
+            echo_proc = subprocess.Popen(['echo', self.text],
+                                         stdout=subprocess.PIPE)
+            rhvoice_proc = subprocess.call(['spd-say', '-w', '-o', 'rhvoice',
+                                            '-l', 'ru', '-e', '-t', 'male1'],
+                                           stdin=echo_proc.stdout)
 
 
 def say_hello(cap=None):
@@ -14,10 +35,8 @@ def say_hello(cap=None):
     Args:
         cap=None: not use, just as cap
     '''
-    with open('adf', 'w') as file:
-        file.write('Привет')
-        
-    subprocess.Popen(['festival', '--language', 'russian', '--tts', 'adf']) 
+    sayer = Sayer('Привет, как дела, дорогОй друг?')
+    sayer.say()
     
 
 
@@ -32,22 +51,18 @@ def say_article(theme=None):
 
     encyclopedia = Encyclopedia(theme, lang='ru')
     article = encyclopedia.get_summary()
-    with open('adf', 'w') as file:
-        file.write(article)
-        
-    subprocess.Popen(['festival', '--language', 'russian', '--tts', 'adf']) 
-
+    
+    sayer = Sayer(article)
+    sayer.say()
     
 def say_unrecognized(cap=None):
     '''Says 'Repeate' in language by default
     Args:
-    cap=None: not use, just as cap
+        cap=None: not use, just as cap
     '''
-    with open('adf', 'w') as file:
-        file.write('Повторите')
-        
-    subprocess.Popen(['festival', '--language', 'russian', '--tts', 'adf']) 
-
+    sayer = Sayer('Повторите')
+    sayer.say()        
+   
 
 
 #event name associates whith functions    
