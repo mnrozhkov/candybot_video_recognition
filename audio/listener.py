@@ -55,6 +55,7 @@ def main():
             recognized_phrase = decoder.hyp().hypstr
             if len(recognized_phrase) >= keyword_len:
                 #if keyword detected
+                print(recognized_phrase)
                 if recognized_phrase.find(keyword) > -1:
                     #form sentence (substring) for sending to audio_analyzer
                     index = recognized_phrase.index(keyword)
