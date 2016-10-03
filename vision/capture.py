@@ -18,6 +18,8 @@ class PhotoCapture:
         '''Makes photo and saves it on disk
         Args:
             save_path: path to save photo
+        Returns:
+            save_path: path to save photo
         '''
         
         start_time = time.time()
@@ -29,6 +31,8 @@ class PhotoCapture:
                 
             if time.time() - start_time >= self.init_time:
                 break
+            
+        return save_path
 
     def __del__(self):
         '''Destructor'''
@@ -61,8 +65,13 @@ class VideoRecorder:
         Args:
             save_path: path to save video
             record_time: video duration in seconds
+        Returns:
+            save_path: path to save video
         '''
-        
+
+        if save_path is None:
+            save_path = 'video.avi'
+            
         out = cv2.VideoWriter(save_path,self.fourcc, self.fps,
                               (self.width,self.height))
         start_time = time.time()
@@ -70,6 +79,9 @@ class VideoRecorder:
             ret, frame = self.camera.read()
             if ret == True:
                 out.write(frame)
+
+        return save_path
+    
 
     def __del__(self):
         '''Destructor'''
