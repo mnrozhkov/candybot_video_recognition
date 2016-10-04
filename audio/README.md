@@ -10,13 +10,15 @@
 4. Create binary dictionary:
 
 	$tar -xvf cmusphinx-ru-5.2.tar.gz
+	
 	$cd cmusphinx-ru-5.2
+	
 	$sphinx_lm_convert -i ru.lm -o ru.lm.bin
 	
 	now you have to copy file to python dist-packages folder:
 	
 		copy into /usr/local/lib/python3.5/dist-packages/pocketsphinx/model:
-			ru.dic (better rename it to ru.dict)
+			ru.dic (better rename it to ru.dict), 
 			ru.lm.bin
 			
 			create here folder ru-ru
