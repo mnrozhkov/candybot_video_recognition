@@ -13,6 +13,7 @@
 	$sphinx_lm_convert -i ru.lm -o ru.lm.bin
 	
 	now you have to copy file to python dist-packages folder:
+	
 		copy into /usr/local/lib/python3.5/dist-packages/pocketsphinx/model:
 			ru.dic (better rename it to ru.dict)
 			ru.lm.bin
@@ -31,8 +32,10 @@
 			variances
 
 5. Install rhvoice - speech synthesizer:
+
 	1) install it as client-server:
 		$sudo apt-get install rhvoice rhvoice-russian
+		
 	2) install it as speech-dispatcher module:
 		$sudo apt-get install speech-dispatcher-rhvoice rhvoice-russian [rhvoice-english]
 	
