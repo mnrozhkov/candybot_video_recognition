@@ -8,6 +8,7 @@
 	choose cmusphinx-ru-5.2.tar.gz
 
 4. Create binary dictionary:
+
 	$tar -xvf cmusphinx-ru-5.2.tar.gz
 	$cd cmusphinx-ru-5.2
 	$sphinx_lm_convert -i ru.lm -o ru.lm.bin
