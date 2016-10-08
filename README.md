@@ -5,7 +5,7 @@ To run ROS package:
 
 	1. create catkin workspace (http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) *
 
-	2. copy package content to <catkin_workspace>/scr **
+	2. copy package content to <catkin_workspace>/src **
 
 	3. in terminal choose directory: $cd <catkin_workspace> 
 
