@@ -41,9 +41,9 @@ class FaceDetector:
         face_cascade = cv2.CascadeClassifier()
         smile_cascade = cv2.CascadeClassifier()
         
-        if not face_cascade.load('haarcascades/haarcascade_frontalface_default.xml'):
+        if not face_cascade.load('/home/haarcascades/haarcascade_frontalface_default.xml'):
             logging.error('frontface haarcascade does not exist!')
-        if not smile_cascade.load('haarcascades/haarcascade_smile.xml'):
+        if not smile_cascade.load('/home/haarcascades/haarcascade_smile.xml'):
             logging.error('smile haarcascade does not exist!')
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

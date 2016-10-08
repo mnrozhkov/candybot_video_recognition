@@ -22,8 +22,8 @@ def init():
     [decoder, stream, publisher]: list 
     '''
     #create ROS Publisher
-    publisher = rospy.Publisher('listening', String, queue_size=10)
-    rospy.init_node('audio', anonymous=True)
+    publisher = rospy.Publisher('audio_decision', String, queue_size=1)
+    rospy.init_node('listener', anonymous=True)
     
     model_path = get_model_path()
 
@@ -117,7 +117,7 @@ def send_task_sentense(data, publisher):
     publisher.publish(data)
 
     
-    
+
 def main(min_rms=None, keyword=None):
     '''Main function. Listens all time. If text detected it is sended to
     audio decision module
@@ -126,7 +126,9 @@ def main(min_rms=None, keyword=None):
        keyword: keyword which must be detected to make decision
     
     '''
-
+    #set listening parameter 
+    rospy.set_param('listening', True)
+    
     if min_rms is None:
         min_rms=2000
 
@@ -140,13 +142,18 @@ def main(min_rms=None, keyword=None):
     
     print('start')
     while True:
-        chunk = stream.read(1024)
-        #if sound detected record raw data until silence
-        if audioop.rms(chunk, 2) >=  min_rms:
-            buf = record(last_chunk=chunk, stream=stream, min_rms=min_rms)
-            text = recognize(buf=buf, decoder=decoder, keyword=keyword)
-            if not text is None:
-                send_task_sentense(text, publisher=publisher)
+        if rospy.get_param('listening'):
+            chunk = stream.read(1024)
+            #if sound detected record raw data until silence
+            if audioop.rms(chunk, 2) >=  min_rms:
+                buf = record(last_chunk=chunk, stream=stream, min_rms=min_rms)
+                text = recognize(buf=buf, decoder=decoder, keyword=keyword)
+                if not text is None:
+                    print(text)
+                    rospy.set_param('listening', False)
+                    rospy.set_param('viewing', False)
+                    send_task_sentense(text, publisher=publisher)
+                    
         
 
 if __name__ == '__main__':
