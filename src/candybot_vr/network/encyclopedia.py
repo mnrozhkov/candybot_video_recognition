@@ -26,12 +26,18 @@ class Encyclopedia:
 
     def get_article(self):
         '''Gets article from Wikipedia'''
-        wikipedia.set_lang(self.lang)
-        return wikipedia.page(self.text)
+        try:
+        	wikipedia.set_lang(self.lang)
+        	return wikipedia.page(self.text)
+        except:
+        	return None
 
     def get_summary(self):
         '''Gets summary from Wikipedia'''
-        wikipedia.set_lang(self.lang)
-        return wikipedia.summary(self.text, sentences=1)
+        try:
+        	wikipedia.set_lang(self.lang)
+        	return wikipedia.summary(self.text, sentences=3)
+        except:
+        	return None
 
 

@@ -30,7 +30,7 @@ def init():
     #set up decoder configuration
     config = Decoder.default_config()
     config.set_string('-hmm', os.path.join(model_path, 'ru-ru'))
-    config.set_string('-dict', os.path.join(model_path, 'ru.dict'))
+    config.set_string('-dict', os.path.join(model_path, 'rualt.dic'))
     config.set_string('-lm', os.path.join(model_path, 'ru.lm.bin'))
     
     decoder = Decoder(config)
@@ -93,18 +93,10 @@ def recognize(buf, decoder, keyword):
                 decoder.start_utt()
                 return task_sentence
             
-            else:
-                decoder.end_utt()
-                decoder.start_utt()
-                return ''
-        else:
-            decoder.end_utt()
-            decoder.start_utt()
-            return ''
-    else:
-        decoder.end_utt()
-        decoder.start_utt()
-        return ''
+          
+    decoder.end_utt()
+    decoder.start_utt()
+    return None
 
 
 def send_task_sentense(data, publisher):
@@ -118,7 +110,7 @@ def send_task_sentense(data, publisher):
 
     
 
-def main(min_rms=None, keyword=None):
+def main(keyword=None):
     '''Main function. Listens all time. If text detected it is sended to
     audio decision module
     Args:
@@ -129,37 +121,36 @@ def main(min_rms=None, keyword=None):
     #set listening parameter 
     rospy.set_param('listening', True)
     
-    if min_rms is None:
-        min_rms=2000
+    
+    #min_rms=2000
 
     if keyword is None:
         keyword='владимир'
         
-    min_rms = min_rms
-    keyword = keyword
+    #min_rms = min_rms
+    #keyword = keyword
     
     decoder, stream, publisher = init()
     
-    print('start')
+    print('start listen')
     while True:
         if rospy.get_param('listening'):
             chunk = stream.read(1024)
             #if sound detected record raw data until silence
+            try:
+            	min_rms = rospy.get_param('min_rms')
+            except:
+            	min_rms = 1500
             if audioop.rms(chunk, 2) >=  min_rms:
                 buf = record(last_chunk=chunk, stream=stream, min_rms=min_rms)
                 text = recognize(buf=buf, decoder=decoder, keyword=keyword)
+                print(text)
                 if not text is None:
-                    print(text)
-                    rospy.set_param('listening', False)
-                    rospy.set_param('viewing', False)
                     send_task_sentense(text, publisher=publisher)
-                    
-        
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--min_rms', dest='min_rms')
     parser.add_argument('--keyword', dest='keyword')
     args = parser.parse_args()
     
-    main(min_rms=args.min_rms, keyword=args.keyword)
+    main(keyword=args.keyword)

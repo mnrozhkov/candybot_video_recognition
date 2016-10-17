@@ -23,6 +23,8 @@ class FaceDetector:
 
     def __init__(self):
         self.faces = []
+        self.frontalface_cascade_path = '/home/haarcascades/haarcascade_frontalface_default.xml'
+        self.smile_cascade_path = '/home/haarcascades/haarcascade_smile.xml'
         
     def detect(self, img=None, min_neighbors=5):
         '''Detects faces and faces elements
@@ -41,10 +43,10 @@ class FaceDetector:
         face_cascade = cv2.CascadeClassifier()
         smile_cascade = cv2.CascadeClassifier()
         
-        if not face_cascade.load('/home/haarcascades/haarcascade_frontalface_default.xml'):
-            logging.error('frontface haarcascade does not exist!')
-        if not smile_cascade.load('/home/haarcascades/haarcascade_smile.xml'):
-            logging.error('smile haarcascade does not exist!')
+        if not face_cascade.load(self.frontalface_cascade_path):
+            logging.error('frontface haarcascade does not exist!' + self.frontalface_cascade_path)
+        if not smile_cascade.load(self.smile_cascade_path):
+            logging.error('smile haarcascade does not exist!' + self.smile_cascade_path) 
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=min_neighbors)
@@ -56,7 +58,10 @@ class FaceDetector:
             roi_gray = gray[y:y+h, x:x+w]
             
             #detect smile
-            smile = smile_cascade.detectMultiScale(roi_gray)
+            smile = smile_cascade.detectMultiScale(roi_gray,
+                                                   scaleFactor=1.7,
+                                                   minNeighbors=22,
+                                                   minSize=(25,25))
             if len(smile) > 0:
                 new_face.smile = True
 
