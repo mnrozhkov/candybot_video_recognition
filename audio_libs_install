@@ -1,0 +1,14 @@
+Установка библиотек для работы с аудио
+I. Pysoundfile (чтение/запись аудио-файлов, можно использовать для конвертирования из одного формата в другой):
+Установка собственно библиотеки: pip install pysoundfile
+Требуется нужна библиотека cffi: pip install cffi
+
+II. Pyglet (воспроизведение аудио):
+pip install pyglet
+Для работы требуется AVbin https://avbin.github.io/AVbin/Download.html
+
+III. PyAudio (запись звука):
+pip install pyaudio
+
+IV. gTTS (Google Text-To-Speech):
+pip install gtts
