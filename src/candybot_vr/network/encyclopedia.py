@@ -2,6 +2,10 @@
 
 import wikipedia
 
+import logging
+
+logging.basicConfig(filename='encyclopedia.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.ERROR)
 
 class Encyclopedia:
     '''Allows to import articles from Wikipedia'''
@@ -29,7 +33,8 @@ class Encyclopedia:
         try:
         	wikipedia.set_lang(self.lang)
         	return wikipedia.page(self.text)
-        except:
+        except Exception as e:
+        	logging.error(str(e))
         	return None
 
     def get_summary(self):
@@ -37,7 +42,8 @@ class Encyclopedia:
         try:
         	wikipedia.set_lang(self.lang)
         	return wikipedia.summary(self.text, sentences=3)
-        except:
+        except Exception as e:
+        	logging.error(str(e))
         	return None
 
 

@@ -8,38 +8,42 @@ from candybot_vr.msg import VisionMessage
 
 import argparse
 
+import logging
+logging.basicConfig(filename='detect_face2.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.ERROR)
+
 def main(min_neighbors=5):
     '''Main function
     Args:
         min_neighbors: minimal face number
     '''
-    
-    #set viewing parameter 
-    rospy.set_param('viewing', True)
-    
-    publisher = rospy.Publisher('vision_decision', VisionMessage, queue_size=1)
-    rospy.init_node('viewer', anonymous=True)
+    try:
+        #set viewing parameter 
+        rospy.set_param('viewing', True)
+        
+        publisher = rospy.Publisher('vision_decision', VisionMessage, queue_size=1)
+        rospy.init_node('viewer', anonymous=True)
 
-    cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(0)
 
-    detector = FaceDetector()
-    print('view start')
-    while True:
-        if rospy.get_param('viewing'):
-            ret, frame = cap.read()
-            if ret:
-                faces = detector.detect(img=frame)
-                message = VisionMessage()
-                print('vvv', message.face_count, ' ' , message.smile)
-                message.face_count = len(faces)
-                
-                for face in faces:
-                    if face.smile:
-                        message.smile = True
+        detector = FaceDetector()
+        print('view start')
+        while True:
+            if rospy.get_param('viewing'):
+                ret, frame = cap.read()
+                if ret:
+                    faces = detector.detect(img=frame)
+                    message = VisionMessage()
+                    print('vvv', message.face_count, ' ' , message.smile)
+                    message.face_count = len(faces)
+                    
+                    for face in faces:
+                        if face.smile:
+                            message.smile = True
 
-                publisher.publish(message)
-                
-
+                    publisher.publish(message)
+    except Exception as e:        
+        logging.error(str(e))
     
 
 if __name__ == '__main__':

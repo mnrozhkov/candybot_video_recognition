@@ -34,18 +34,17 @@ def say(text):
 def make_photo():
     print('photo!')
     
-def run_sensors():
+def run_processes(*args):
     '''Resumes viewing and listening'''
-    
-    rospy.set_param('listening', True)
-    rospy.set_param('viewing', True)
+    for arg in args:
+    	rospy.set_param(arg, True)
 
 
-def stop_sensors():
+def stop_processes(*args):
     '''Stops viewing and listening'''
 
-    rospy.set_param('listening', False)
-    rospy.set_param('viewing', False)
+    for arg in args:
+    	rospy.set_param(arg, False)
 
     
 def callback_listen(data):
@@ -56,7 +55,7 @@ def callback_listen(data):
     global state
     
     #stop sensors while decision and event make
-    stop_sensors()
+    stop_processes('listening', 'viewing')
     
     phrase = data.data.lower()
     
@@ -84,8 +83,8 @@ def callback_listen(data):
                         
             elif phrase.find('сделай') > -1:
                 if phrase.find('фото') > -1:
-                    state = 'ready_to_photo'
                     say('Я готов к фото')
+                    state = 'ready_to_photo'
                     
             else:
                 pass
@@ -94,9 +93,12 @@ def callback_listen(data):
         if phrase.find('фото') > -1:
             make_photo()
             state = 'ready'
+            
+    else:
+    	pass
         
     #run sensors after event mdde    
-    run_sensors()
+    run_processes('listening', 'viewing')
 
     
 def callback_view(data):
@@ -107,7 +109,7 @@ def callback_view(data):
     
     if rospy.get_param('viewing'):
         
-        stop_sensors()
+        stop_processes('listening', 'viewing')
         
         face_count = data.face_count
         smile_exists = data.smile
@@ -118,7 +120,7 @@ def callback_view(data):
         if smile_exists:
             say('Улыбка!')
 
-        run_sensors()
+        run_processes('listening', 'viewing')
     
 
 def recieve():

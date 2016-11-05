@@ -3,7 +3,10 @@
 
 import urllib.request
 import random
+import logging
 
+logging.basicConfig(filename='anekdots.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.ERROR)
 
 class Anekdot:
     '''Parses anekdots'''
@@ -34,8 +37,9 @@ class Anekdot:
                     anekdot_line = html[start + find_tag_len:end]
                     self.new_anekdots.append('\n'.join(anekdot_line.split('<br>')))
                     start = end
-        except:
-            self.new_anekdots = None
+        except Exception as e:
+        	logging.error(str(e))
+        	self.new_anekdots = None
 
     def random_anekdot(self):
         '''Returns random anekdot or None in case of an error
@@ -51,3 +55,6 @@ class Anekdot:
                 return None
         else:
             return None
+
+anekdot = Anekdot()
+print(anekdot.random_anekdot())

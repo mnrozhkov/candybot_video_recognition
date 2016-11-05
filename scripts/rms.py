@@ -6,6 +6,10 @@ import audioop
 import time
 import rospy
 
+import logging
+
+logging.basicConfig(filename='rms.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.ERROR)
 
 class RMS:
 	'''Calculates minimal audio volume (rms) value'''
@@ -17,27 +21,31 @@ class RMS:
 			rms_interval_length: length of rms interval
 			time_interval: interval of time to calculate minimal rms
 		'''
+		self.error = False
+		try:
+			self.audio = pyaudio.PyAudio()
+			self.chunk = 1024
+			self.rate = 16000
+			self.channels = 1
 		
-		self.audio = pyaudio.PyAudio()
-		self.chunk = 1024
-		self.rate = 16000
-		self.channels = 1
+			self.stream = self.audio.open(format=pyaudio.paInt16, channels=self.channels, rate=self.rate, input=True, frames_per_buffer=self.chunk)
+			self.stream.start_stream()
 		
-		self.stream = self.audio.open(format=pyaudio.paInt16, channels=self.channels, rate=self.rate, input=True, frames_per_buffer=self.chunk)
-		self.stream.start_stream()
+			if rms_intervals_number is None:
+				rms_intervals_number = 200
+			self.rms_intervals_number = rms_intervals_number
+			if rms_interval_length is None:
+				rms_interval_length = 500
+			self.rms_interval_length = rms_interval_length
+			self.intervals_bounds = [i * self.rms_interval_length for i in range(0, rms_intervals_number)]
 		
-		if rms_intervals_number is None:
-			rms_intervals_number = 200
-		self.rms_intervals_number = rms_intervals_number
-		if rms_interval_length is None:
-			rms_interval_length = 500
-		self.rms_interval_length = rms_interval_length
-		self.intervals_bounds = [i * self.rms_interval_length for i in range(0, rms_intervals_number)]
+			if time_interval is None:
+				time_interval = 1
 		
-		if time_interval is None:
-			time_interval = 1
-		
-		self.time_interval = time_interval
+			self.time_interval = time_interval
+		except Exception as e:
+			logging.error(str(e))
+			self.error = True
 		
 	def __max_key__(self, dictionary):
 		'''Finds key for dictionary max value
@@ -75,21 +83,23 @@ class RMS:
 		Returns:
 			minimal rms value
 		'''
+		if not self.error is True:
+			intervals_rating = dict.fromkeys([i for i in range(0, self.rms_intervals_number)], 0)
+			start = time.time()
+			rms = []
 		
-		intervals_rating = dict.fromkeys([i for i in range(0, self.rms_intervals_number)], 0)
-		start = time.time()
-		rms = []
-		
-		while time.time() - start < self.time_interval:
+			while time.time() - start < self.time_interval:
 
-		    chunk = self.stream.read(self.chunk)
-		    cur_rms = audioop.rms(chunk, 2)
-		    rms.append(cur_rms)
-		    rate_index = audioop.rms(chunk, 2) // self.rms_interval_length
-		    intervals_rating[rate_index] += 1
+				chunk = self.stream.read(self.chunk)
+				cur_rms = audioop.rms(chunk, 2)
+				rms.append(cur_rms)
+				rate_index = audioop.rms(chunk, 2) // self.rms_interval_length
+				intervals_rating[rate_index] += 1
 		
-		most_popular_rms_interval = self.__max_key__(intervals_rating)
-		return (most_popular_rms_interval + 3) * self.rms_interval_length
+			most_popular_rms_interval = self.__max_key__(intervals_rating)
+			return (most_popular_rms_interval + 3) * self.rms_interval_length
+		else:
+			return 0
 		
 		
 rms = RMS()
