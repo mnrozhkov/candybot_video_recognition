@@ -59,7 +59,7 @@ class FaceDetector:
             
             #detect smile
             smile = smile_cascade.detectMultiScale(roi_gray,
-                                                   scaleFactor=1.7,
+                                                   scaleFactor=4,
                                                    minNeighbors=22,
                                                    minSize=(25,25))
             if len(smile) > 0:

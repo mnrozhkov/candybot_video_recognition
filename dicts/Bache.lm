@@ -1,0 +1,45 @@
+Language model created by QuickLM on Mon Nov 21 22:39:06 EST 2016
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 5 sentences and 7 words
+
+\data\
+ngram 1=7
+ngram 2=10
+ngram 3=5
+
+\1-grams:
+-0.7782 </s> -0.3010
+-0.7782 <s> -0.2218
+-1.4771 два -0.2218
+-1.4771 компьютер -0.2218
+-1.4771 один -0.2218
+-1.4771 три -0.2218
+-1.4771 я -0.2218
+
+\2-grams:
+-1.0000 <s> два 0.0000
+-1.0000 <s> компьютер 0.0000
+-1.0000 <s> один 0.0000
+-1.0000 <s> три 0.0000
+-1.0000 <s> я 0.0000
+-0.3010 два </s> -0.3010
+-0.3010 компьютер </s> -0.3010
+-0.3010 один </s> -0.3010
+-0.3010 три </s> -0.3010
+-0.3010 я </s> -0.3010
+
+\3-grams:
+-0.3010 <s> два </s>
+-0.3010 <s> компьютер </s>
+-0.3010 <s> один </s>
+-0.3010 <s> три </s>
+-0.3010 <s> я </s>
+
+\end\
