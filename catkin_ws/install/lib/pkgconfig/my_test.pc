@@ -1,0 +1,8 @@
+prefix=/home/alex/catkin_ws/install
+
+Name: my_test
+Description: Description of my_test
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/alex/catkin_ws/install/lib 
+Requires: 
