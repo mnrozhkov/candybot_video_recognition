@@ -48,4 +48,40 @@ def celebrities_similarity(photo):
     except Exception as e:
         logging.error(str(e))
         return None
+
+
+def verify_faces(photo1, photo2):
+    '''Returns two photos similarity 
+    Args:
+        photo1: photo1 file name
+        photo2: photo2 file name
+    Returns:
+        similarity information
+    '''
+    data = [bytearray(open(photo1,'rb').read()), bytearray(open(photo2,'rb').read())]
+    client = Algorithmia.client(api_key)
+    algo = client.algo('zskurultay/ImageSimilarity/0.1.2')
+    return algo.pipe(data)
+
+
+def gender(photo):
+
+    img = bytearray(open(photo, 'rb').read())
+    data = {'image': img}
+    client = Algorithmia.client(api_key)
+    algo = client.algo('deeplearning/GenderClassification/1.0.1')
+    response = algo.pipe(img).result['results']
+    return {response[0][1]: response[0][0], response[1][1]: response[1][0]}
+
+
+def age(photo):
+    img = bytearray(open(photo, 'rb').read())
+    client = Algorithmia.client(api_key)
+    algo = client.algo('deeplearning/AgeClassification/1.0.2')
+    response = algo.pipe(img).result['results']
+    result = {}
+    for item in response:
+        result[item[1]] = item[0]
+    return result
+    
     
