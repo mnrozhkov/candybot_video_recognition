@@ -1,0 +1,8 @@
+<?xml version="1.0.1" encoding="UTF-8"?>
+<aiml>
+	
+	<category>
+		<pattern>УЛЫБКА</pattern>
+		<template><srai>ПРИВЕТ</srai></template>
+	</category>
+</aiml>

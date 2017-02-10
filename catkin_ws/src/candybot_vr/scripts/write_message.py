@@ -214,6 +214,7 @@ def view():
     out.release()
     cv2.destroyAllWindows()
 
+
 def main():
     try:
         #create folder for users folders

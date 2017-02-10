@@ -1,0 +1,51 @@
+<?xml version="1.0.1" encoding="UTF-8"?>
+<aiml>
+	<category>
+		<pattern>ПОКА</pattern>
+		<template>
+			<random>
+				<li>пока <get name="user_name"/></li>
+				<li>до свидания <get name="user_name"/></li>
+				<li>прощай <get name="user_name"/></li>
+			</random>
+			<think><set name="user_name"></set></think>
+			<think><set name="hi_was"></set></think>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПОКА *</pattern>
+		<template>
+			<srai>ПОКА</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПРОЩАЙ</pattern>
+		<template>
+			<srai>ПОКА</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПРОЩАЙ *</pattern>
+		<template>
+			<srai>ПОКА</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ДО СВИДАНИЯ</pattern>
+		<template>
+			<srai>ПОКА</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ДО СВИДАНИЯ *</pattern>
+		<template>
+			<srai>ПОКА</srai>
+		</template>
+	</category>
+</aiml>
+

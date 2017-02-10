@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 '''Allows to listen and recognize speech'''
 
+import sys
 
-from candybot_vr.audio import speech_recognizer as sr
+from candybot_vr.audio.recognizer import SpeechRecognizer
 
+'''
+DO NOT DELETE NEXT 2 LINES PLEASE - IT IS FOR DEBUGGING AND TESTING
+sys.path.insert(0, '..')
+from src.candybot_vr.audio.recognizer import SpeechRecognizer
+'''
 import rospy
 from std_msgs.msg import String
-
-import argparse
-
 import logging
 
 logging.basicConfig(filename='listener.log', format='[%(asctime)s] %(message)s\n\n',
@@ -27,7 +30,7 @@ def send_task_sentense(data, publisher):
         logging.error(str(e))
 
 
-def main(keyword=None):
+def main():
     '''Main function. Listens all time. If text detected it is sended to
     audio decision module
     Args:
@@ -37,41 +40,25 @@ def main(keyword=None):
     '''
     #set listening parameter 
     rospy.set_param('listening', True)
-    
-    
-    #min_rms=2000
-
-    if keyword is None:
-        keyword='владимир'
+    min_rms=500
+    sr = SpeechRecognizer(min_rms=min_rms)
         
-    #min_rms = min_rms
-    #keyword = keyword
+    publisher = rospy.Publisher('audio_decision', String, queue_size=1)
+    rospy.init_node('listener', anonymous=True)
     
-    if not sr.init('ru-ru','rualt.dic','ru.lm.bin') is None:
-        
-        publisher = rospy.Publisher('audio_decision', String, queue_size=1)
-        rospy.init_node('listener', anonymous=True)
-        
-        print('start listen')
-        while True:
-            if rospy.get_param('listening'):
-               
-                #if sound detected record raw data until silence
+    print('start listen')
+    while True:
+        if rospy.get_param('listening'):
+           
+            #if sound detected record raw data until silence
+            if rospy.has_param('min_rms'):
                 min_rms = rospy.get_param('min_rms')
-                if min_rms == 0:
-                    min_rms = 1500
-                sr.min_rms = min_rms
-                text = sr.listen()
-                if not text is None and text.find(keyword) > -1:
-                    print(text)
-                    keyword_pos = recognized_phrase.index(keyword)
-                    task_sentence = recognized_phrase[index + len(keyword):len(recognized_phrase)]
-                    send_task_sentense(task_sentence, publisher=publisher)
+                sr.set_min_rms(min_rms)
+            text = sr.listen('yandex')
+            if not text is None :
+                print(text)
+                send_task_sentense(text, publisher=publisher)
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--keyword', dest='keyword')
-    args = parser.parse_args()
-    
-    main(keyword=args.keyword)
+    main()
