@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+	<category>
+	<pattern>COMP</pattern>
+	<template>
+	<set name="n1">v1</set>
+	<set name="n2">v2</set>
+	
+	 <!--condition>
+	 	<name>n1</name>
+	 	<value>
+	 		<get><name>n2</name></get>
+	 	</value>
+	 	RETURN SOMETHING
+	 </condition-->
+	 
+	</template>
+	</category>
+	
+	<category>
+		<pattern>_ PLUS _</pattern>
+		<template>
+		<star index="1"/>  + <star index="2"/> = 
+			<system>python3 -c 'print(<star index="1"/>  + <star index="2"/>)' </system>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>TOBIN *</pattern>
+		<template>
+			<system>python3 -c "print(bin(<star/>)[2:])"</system>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПЕРЕВЕДИ * В ДВОИЧНУЮ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>МОЖЕШЬ ПЕРЕВЕСТИ * В ДВОИЧНУЮ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>СКОЛЬКО БУДЕТ * В ДВОИЧНОЙ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПЕРЕВЕДИ * В ДВОИЧНУЮ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ПЕРЕВЕДИ * В ДВОИЧНЫЙ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>СКОЛЬКО БУДЕТ * В ДВОИЧНОМ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>_ В ДВОИЧНОЙ *</pattern>
+		<template>
+			<srai>TOBIN <star/></srai>
+		</template>
+	</category>
+</aiml>

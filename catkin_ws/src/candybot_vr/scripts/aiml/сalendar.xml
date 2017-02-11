@@ -1,0 +1,134 @@
+<?xml version="1.0.1" encoding="UTF-8"?> 
+<aiml>
+
+<category>
+	<pattern> CALENDAR </pattern>
+	<template>
+		<srai> WEEKDAY <date format="%u"/></srai>
+		<srai>MONTH<date format="%m"/></srai>
+		
+		<think>
+			<set name="dd"><date format="%e"/></set>
+			<set name="yy"><date format="%Y"/></set>
+			
+			<set name="date_computed">true</set>
+		</think>
+	</template>
+</category>
+
+<category>
+	<pattern> WEEKDAY *</pattern>
+	<template>
+		<think>
+			<set name="daynum"><star/></set>
+			<condition name="daynum">
+				<li value="1"><set name="weekday">ПОНЕДЕЛЬНИК</set></li>
+				<li value="2"><set name="weekday">ВТОРНИК</set></li>
+				<li value="3"><set name="weekday">СРЕДА</set></li>
+				<li value="4"><set name="weekday">ЧЕТВЕРГ</set></li>
+				<li value="5"><set name="weekday">ПЯТНИЦА</set></li>
+				<li value="6"><set name="weekday">СУББОТА</set></li>
+				<li value="7"><set name="weekday">ВОСКРЕСЕНЬЕ</set></li>
+			</condition>
+		</think>
+	</template>
+</category>
+
+<category>
+	<pattern> MONTH *</pattern>
+	<template>
+		<think>
+			<set name="monnum"><star/></set>
+			<condition name="monnum">
+				<li value="01"><set name="mmm">ЯНВАРЯ</set></li>
+				<li value="02"><set name="mm">ФЕВРАЛЯ</set></li>
+				<li value="03"><set name="mm">МАРТА</set></li>
+				<li value="04"><set name="mm">АПРЕЛЯ</set></li>
+				<li value="05"><set name="mm">МАЯ</set></li>
+				<li value="06"><set name="mm">ИЮНЯ</set></li>
+				<li value="07"><set name="mm">ИЮЛЯ</set></li>
+				<li value="08"><set name="mm">АВГУСТА</set></li>
+				<li value="09"><set name="mm">СЕНТЯБРЯ</set></li>
+				<li value="10"><set name="mm">ОКТЯБРЯ</set></li>
+				<li value="11"><set name="mm">НОЯБРЯ</set></li>
+				<li value="12"><set name="mm">ДЕКАБРЯ</set></li>
+			</condition>
+		</think>
+	</template>
+</category>
+
+<category>
+	<pattern>ДЕНЬ</pattern>
+	<template>
+		<condition name="date_computed">
+			<li value="true">
+				<random>
+					<li>сегодня <get name="weekday"/></li>
+					<li><get name="weekday"/> сегодня)</li>
+				</random>
+			</li>
+			<li><srai>CALENDAR</srai><srai>ДЕНЬ</srai></li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> _ ДЕНЬ </pattern>
+	<template>
+		<srai>ДЕНЬ</srai>
+	</template>
+</category>
+
+<category>
+	<pattern> _ ДЕНЬ НЕДЕЛИ </pattern>
+	<template>
+		<srai>ДЕНЬ</srai>
+	</template>
+</category>
+
+<category>
+	<pattern> ЧИСЛО </pattern>
+	<template>
+		<condition name="date_computed">
+			<li value="true">
+				сегодня <get name="dd"/> <get name="mm"/>
+			</li>
+			<li><srai>CALENDAR</srai><srai>ЧИСЛО</srai></li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> _ ЧИСЛО </pattern>
+	<template>
+		<srai>ЧИСЛО</srai>
+	</template>
+</category>
+
+<category>
+	<pattern> ДАТА </pattern>
+	<template>
+		<condition name="date_computed">
+			<li value="true">
+				<get name="dd"/> <get name="mm"/> <get name="yy"/>
+			</li>
+			<li><srai>CALENDAR</srai><srai>ДАТА</srai></li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> _ ДАТА</pattern>
+	<template>
+		<srai>ДАТА</srai>
+	</template>
+</category>
+
+<category>
+	<pattern> _ ДАТУ</pattern>
+	<template>
+		<srai>ДАТА</srai>
+	</template>
+</category>
+
+</aiml>

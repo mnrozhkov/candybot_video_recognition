@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+	<!-- Free software (c) 2001-2003 ALICE A.I. Foundation.   -->
+	<!-- This program is open source code released under -->
+	<!-- the terms of the GNU General Public License     -->
+	<!-- as published by the Free Software Foundation.   -->
+	<!-- Complies with AIML 1.0 Tag Set Specification -->
+	<!-- as adopted by the ALICE A.I. Foundation.  -->
+	<!-- Blackjack.aiml written by Square Bear -->
+
+<category><pattern>20 В</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>ДВАДЦАТЬ ВОПРОСОВ</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>20 ВОПРОСОВ</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>_ ДВАДЦАТЬ ВОПРОСОВ</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>_ 20 ВОПРОСОВ</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>_ ДВАДЦАТЬ ВОПРОСОВ *</pattern><template><srai>20Q</srai></template></category>
+<category><pattern>_ 20 ВОПРОСОВ *</pattern><template><srai>20Q</srai></template></category>
+
+<category>
+<pattern>20Q</pattern>
+<template>
+<think>
+<set name="qnum">1</set>
+</think>
+Давай сыграем в 20 вопросов. Я задумаю какое-нибудь животное, растение или минерал,  а тебе надо будет это угадать, задавая вопросы, на которые можно ответить "да" или "нет".<br/><br/>Ты можешь задать 20 вопросов.<br/><br/>Если ты сдаешься, то скажи "Я СДАЮСЬ", и тогда я скажу, что задумал.<br/><br/>Скажи "НАЧАТЬ", чтобы начать игру 20 вопросов
+</template>
+</category>
+
+<category>
+<pattern>НАЧАТЬ</pattern>
+<that>* Скажи "НАЧАТЬ", чтобы начать игру 20 вопросов</that>
+<template>
+<think>
+<set name="topic">20Q</set>
+<random>
+<li><set name="20Qanswer">ЛОШАДЬ</set><set name="20Qcategory">животное</set></li>
+<li><set name="20Qanswer">СЛОН</set><set name="20Qcategory">животное</set></li>
+<li><set name="20Qanswer">КОШКА</set><set name="20Qcategory">животное</set></li>
+<li><set name="20Qanswer">РЫБА</set><set name="20Qcategory">животное</set></li>
+<li><set name="20Qanswer">ЛЕВ</set><set name="20Qcategory">животное</set></li>
+
+<li><set name="20Qanswer">РОЗА</set><set name="20Qcategory">растение</set></li>
+<li><set name="20Qanswer">МОРКОВЬ</set><set name="20Qcategory">растение</set></li>
+<li><set name="20Qanswer">САЛАТ</set><set name="20Qcategory">растение</set></li>
+<li><set name="20Qanswer">ЯБЛОКО</set><set name="20Qcategory">растение</set></li>
+<li><set name="20Qanswer">ЛУК</set><set name="20Qcategory">растение</set></li>
+
+<li><set name="20Qanswer">КАМЕНЬ</set><set name="20Qcategory">минерал</set></li>
+<li><set name="20Qanswer">КУСОК УГЛЯ</set><set name="20Qcategory">минерал</set></li>
+<li><set name="20Qanswer">КИРПИЧ</set><set name="20Qcategory">минерал</set></li>
+<li><set name="20Qanswer">БЕТОН</set><set name="20Qcategory">минерал</set></li>
+<li><set name="20Qanswer">КУСОК МЕЛА</set><set name="20Qcategory">минерал</set></li>
+</random>
+
+</think>
+Хорошо, объект, который я загадал, относится к классу<get name="20Qcategory"/>. Пожалуйста, твой первый вопрос.
+</template>
+</category>
+
+<topic name="20Q"> 
+<category> 
+<pattern>* *</pattern>
+<template>
+<think>
+<set name="question"><star index="1"/> <star index="2"/></set>
+<set name="topic"></set>
+<set name="qsubject"><star index="2"/></set>
+</think>
+	<condition name="question">
+		<li value="Я СДАЮСЬ"><srai>20Q GIVE UP</srai></li>
+		<li value="Я НЕ ЗНАЮ"><srai>20Q GIVE UP</srai></li>
+		<li value="Что это"><srai>20Q GIVE UP</srai></li>
+		<li><srai>20Q RANDOM</srai></li>
+	</condition>
+</template>
+</category>
+</topic>
+
+<category>
+<pattern>20Q RANDOM</pattern>
+<template>
+	<condition name="qsubject"> 
+		<li value="ЛОШАДЬ">
+			<condition name="20Qanswer">
+				<li value="ЛОШАДЬ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="СЛОН">
+			<condition name="20Qanswer">
+				<li value="СЛОН"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="КОШКА">
+			<condition name="20Qanswer">
+				<li value="КОШКА"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="РЫБА">
+			<condition name="20Qanswer">
+				<li value="РЫБА"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="ЛЕВ">
+			<condition name="20Qanswer">
+				<li value="ЛЕВ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		
+		
+		<li value="РОЗА">
+			<condition name="20Qanswer">
+				<li value="РОЗА"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="МОРКОВЬ">
+			<condition name="20Qanswer">
+				<li value="МОРКОВЬ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="САЛАТ">
+			<condition name="20Qanswer">
+				<li value="САЛАТ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="ЯБЛОКО">
+			<condition name="20Qanswer">
+				<li value="ЯБЛОКО"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="ЛУК">
+			<condition name="20Qanswer">
+				<li value="ЛУК"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		
+		<li value="КАМЕНЬ">
+			<condition name="20Qanswer">
+				<li value="КАМЕНЬ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="КУСОК УГЛЯ">
+			<condition name="20Qanswer">
+				<li value="КУСОК УГЛЯ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="КИРПИЧ">
+			<condition name="20Qanswer">
+				<li value="КИРПИЧ"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="БЕТОН">
+			<condition name="20Qanswer">
+				<li value="БЕТОН"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>
+		<li value="КУСОК МЕЛА">
+			<condition name="20Qanswer">
+				<li value="КУСОК МЕЛА"><srai>WIN</srai></li>
+				<li><srai>CONTINUE</srai></li>
+			</condition>
+		</li>		
+		
+	</condition>
+
+
+</template>
+</category>
+
+<category>
+	<pattern>CONTINUE</pattern>
+	<template>
+		
+		<br/><br/>
+		<condition name="qnum">
+			<li value="1">Какой твой второй вопрос?</li>
+			<li value="2">Какой твой третий вопрос?</li>
+			<li value="3">Пожалуйста, задай свой 4й вопрос.</li>
+			<li value="4">Какой твой 5й вопрос?</li>
+			<li value="5">Пожалуйста, задай свой 6ой вопрос</li>
+			<li value="6">Какой твой 7й вопрос?</li>
+			<li value="7">Пожалуйста, задай свой 8й вопрос.</li>
+			<li value="8">Пожалуйста, задай свой девятый вопрос.</li>
+			<li value="9">Половина пути пройдена. Какой твой 10й вопрос?</li>
+			<li value="10">Какой твой 11й вопрос please?</li>
+			<li value="11">Какой твой двеннадцаты вопрос?</li>
+			<li value="12">Какой твой тринадцатый вопрос?</li>
+			<li value="13">Пожалуйста, зада свой 14й вопрос.</li>
+			<li value="14">Какой твой 15й вопрос?</li>
+			<li value="15">Пожалуйста, задай свой 16й вопрос.</li>
+			<li value="16">Какой твой 17й вопрос?</li>
+			<li value="17">Пожалуйста, задай свой 18й вопрос.</li>
+			<li value="18">Пожалуйста, задай свой девятнадцаты вопрос.</li>
+			<li value="19">Какой твой 20й and final вопрос?</li>
+		</condition>
+			<think>
+			<srai>INCREASE QNUM</srai>
+			<set name="topic">20Q</set>
+			</think>
+			<condition name="qnum">
+				<li value="FINISHED"><think><set name="topic"></set></think><srai>ALL 20Q ASKED</srai></li>
+			</condition>
+
+		
+	</template>
+</category>
+
+<category>
+<pattern>INCREASE QNUM</pattern>
+<template>
+<think>
+<condition name="qnum">
+<li value="1"><set name="qnum">2</set></li>
+<li value="2"><set name="qnum">3</set></li>
+<li value="3"><set name="qnum">4</set></li>
+<li value="4"><set name="qnum">5</set></li>
+<li value="5"><set name="qnum">6</set></li>
+<li value="6"><set name="qnum">7</set></li>
+<li value="7"><set name="qnum">8</set></li>
+<li value="8"><set name="qnum">9</set></li>
+<li value="9"><set name="qnum">10</set></li>
+<li value="10"><set name="qnum">11</set></li>
+<li value="11"><set name="qnum">12</set></li>
+<li value="12"><set name="qnum">13</set></li>
+<li value="13"><set name="qnum">14</set></li>
+<li value="14"><set name="qnum">15</set></li>
+<li value="15"><set name="qnum">16</set></li>
+<li value="16"><set name="qnum">17</set></li>
+<li value="17"><set name="qnum">18</set></li>
+<li value="18"><set name="qnum">19</set></li>
+<li value="19"><set name="qnum">20</set></li>
+<li value="20"><set name="qnum">FINISHED</set></li>
+</condition>
+</think>
+</template>
+</category>
+
+<category>
+<pattern>20Q GIVE UP</pattern>
+<template>
+Сдаешься? Я задумал <get name="20Qanswer"/>!
+</template>
+</category>
+
+<category>
+<pattern>ALL 20Q ASKED</pattern>
+<template>
+Извини, уже 20 вопросов. Я задумал<get name="20Qanswer"/>!
+</template>
+</category>
+
+<category>
+	<pattern>WIN</pattern>
+	<template>Ты победил!</template>
+</category>
+
+</aiml>
