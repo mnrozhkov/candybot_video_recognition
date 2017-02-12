@@ -52,18 +52,3 @@ II. Non-Python libraries:
 	
 		
 -------------------------------------------------------------------------------------------------------
-To run ROS package:
-
-	1. create catkin workspace (http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) *
-
-	2. copy package content to <catkin_workspace>/src **
-
-	3. in terminal choose directory: $cd <catkin_workspace> 
-
-	4. build packages: $catkin_make **
-
-	5. run script run.sh ***
-
-* - do once
-** -  do where package is changed
-*** - do every time to run nodes
