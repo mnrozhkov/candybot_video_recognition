@@ -1,6 +1,14 @@
 # candybot_video_recognition
 Module for CandyBot to help recognise people and objects via web-cam
 
+Automatic installation:
+
+run install.sh: ./install.sh
+
+if OpenCV already installed then comment OpenCV installation section in install.sh
+
+
+Manual installation:
 
 Libraries list and intallation instruction:
 
