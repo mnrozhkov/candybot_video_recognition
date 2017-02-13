@@ -3,6 +3,7 @@
 
 
 import os
+import sys
 from pocketsphinx import get_model_path, Decoder
 import pyaudio
 import wave
@@ -37,7 +38,7 @@ class SpeechRecognizer:
             'google': self.google,
             'yandex': self.yandex
             }
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'google_credentials.json'
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/'.join([sys.path[0],'google_credentials.json'])
         try:
             self.model_path = get_model_path()
             self.min_rms = min_rms
