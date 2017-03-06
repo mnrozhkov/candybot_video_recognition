@@ -11,6 +11,7 @@ cfc2c1a63884091cb86f34c5ef922262 /home/alex/catkin_ws/devel/include/my_test/Mult
 b87d0cc2737c61e982c855a6acc6e645 /home/alex/catkin_ws/devel/share/gennodejs/ros/my_test/srv/MultTwoInts.js
 50062a4941684c47ece9ab0a92adae8a /home/alex/catkin_ws/devel/share/roseus/ros/candybot_vr/manifest.l
 acf49281543eaba01d6ede501dee5bf1 /home/alex/catkin_ws/devel/share/roseus/ros/candybot_vr/msg/VisionMessage.l
+612647a45d8e06bf99033b20667b1a10 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
 aca09feaf6c510b76f85e2a5321686a6 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/manifest.l
 b9e9db185fabbae4713e1501227ac491 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/srv/MultTwoInts.l
 4149710b7485e0744c0953f21d17c44e CMakeFiles/clean_test_results
@@ -20,3 +21,4 @@ b9e9db185fabbae4713e1501227ac491 /home/alex/catkin_ws/devel/share/roseus/ros/my_
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_lisp
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_nodejs
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_py
+efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_eus

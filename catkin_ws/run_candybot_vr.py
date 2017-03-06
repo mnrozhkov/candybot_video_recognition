@@ -10,5 +10,5 @@ while not ros_started:
 	except:
 		pass
 
-subprocess.call(['./run.sh'])
+subprocess.call(['./run_candybot_vr.sh'])
 
