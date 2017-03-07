@@ -11,6 +11,8 @@ import logging
 logging.basicConfig(filename='rms.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
+from typing import Dict
+
 class RMS:
     '''Calculates minimal audio volume (rms) value'''
     
@@ -47,7 +49,7 @@ class RMS:
             logging.error(str(e))
             self.error = True
         
-    def __max_key__(self, dictionary):
+    def __max_key__(self, dictionary:):
         '''Finds key for dictionary max value
         Args:
             dictionary: dictionary for search

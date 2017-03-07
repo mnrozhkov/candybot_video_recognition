@@ -1,13 +1,14 @@
 import apiai
 import random
 import json
+from typing import Dict
 
 class APIAIBot:
 	'''
 	simple bot class based on apiai
 	'''
 	
-	def __init__(self,client_key):
+	def __init__(self,client_key: str):
 		self.client_key = client_key
 		self._make_session_id()
 		self._connect()
@@ -27,7 +28,7 @@ class APIAIBot:
 		'''
 		self._ai = apiai.ApiAI(self.client_key)
 		
-	def request(self, msg):
+	def request(self, msg: str) -> Dict:
 		'''
 		makes request and returns response from api.ai bot
 		'''
@@ -39,11 +40,11 @@ class APIAIBot:
 		
 		return self._parse_intent(response)
 		
-	def _parse_intent(self, intent):
+	def _parse_intent(self, intent: Dict) -> Dict:
 		answer = dict()
-		#извлечь ответ бота
+		#extract bot answer
 		answer['text'] = intent['result']['fulfillment']['speech']
-		#если команда завершена (заполнены все обязательные поля), извлечь о ней информацию
+		#if command is complete (all required fields are filled), extract the command information
 		if 'actionIncomplete' in intent['result']:
 			if intent['result']['actionIncomplete'] is False:
 				answer['action'] = dict()

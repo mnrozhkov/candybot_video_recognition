@@ -21,6 +21,10 @@ import logging
 logging.basicConfig(filename='desicions.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
+from typing import List, Dict
+import json
+
+
 class Talker:
 
     def __init__(self):
@@ -30,7 +34,7 @@ class Talker:
                      'google': self._saygoogle
                      }
 
-    def _play_wav(self, wav_src):
+    def _play_wav(self, wav_src: bytes):
 
         #define stream chunk   
         chunk = 1024  
@@ -60,7 +64,7 @@ class Talker:
         p.terminate()
 
     
-    def _sayrhvoice(self, text):
+    def _sayrhvoice(self, text: str):
         '''Says text
         Args:
             text: text to say
@@ -76,7 +80,7 @@ class Talker:
             logging.error(str(e))
 
 
-    def _sayyandex(self, text):
+    def _sayyandex(self, text: str):
         try:
             url = 'https://tts.voicetech.yandex.net/generate?text='
             url += parse.quote(text)
@@ -90,17 +94,17 @@ class Talker:
             print(str(e))
         
 
-    def _saygoogle(self, text):
+    def _saygoogle(self, text: str):
         pass
 
-    def say(self, tts_name, text):
+    def say(self, tts_name: str, text: str):
         print('--say--')
         self.TTSs[tts_name](text)
 
-    def tts_names():
+    def tts_names() -> List[str]:
         return list(self.TTSs.keys())
 
-bot = APIAIBot(client_key='5f2c3014e1c6460d9714984ff5405c9a')
+bot = APIAIBot(client_key=json.load(open('coffebot.config', 'r'))['client_key'])
 
 
 def run_processes(*args):
@@ -116,9 +120,22 @@ def stop_processes(*args):
     	rospy.set_param(arg, False)
 
 
-def make_command(command, parameters):
-
+def make_command(command: str, parameters: Dict):
+	
 	print('command: ', command, 'parameters: ', parameters)
+	try:
+		#split command into parts
+		command_parts = command.split('.')
+		#get command group
+		command_group = command_parts[len(command_parts) - 2]
+		#get command name
+		command_name = command_parts[len(command_parts) - 1]
+		#import command group module from command_modules folder
+		command_module = __import__('command_modules.' + command_group)
+		#call function with command name and parameters as arguments
+		getattr(command_module, command_name)(parameters)
+	except Exception as e:
+		print(str(e))
 	
 
 def callback_listen(data):

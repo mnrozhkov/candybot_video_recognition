@@ -13,7 +13,7 @@ logging.basicConfig(filename='listener.log', format='[%(asctime)s] %(message)s\n
                     level=logging.ERROR)
 
 
-def send_task_sentense(data, publisher):
+def send_task_sentense(data: str, publisher: rospy.Publisher):
     '''Send sentence with task
     Args:
         data: data to send
@@ -27,11 +27,7 @@ def send_task_sentense(data, publisher):
 
 def main():
     '''Main function. Listens all time. If text detected it is sended to
-    audio decision module
-    Args:
-       min_rms: minimal rms value that is not silence
-       keyword: keyword which must be detected to make decision
-    
+    audio decision module       
     '''
     #set listening parameter 
     rospy.set_param('listening', True)
