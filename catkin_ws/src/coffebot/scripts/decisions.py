@@ -2,29 +2,15 @@
 '''Meke decision by recieved data'''
 
 import rospy
-import os
-import sys
 from BotClient import APIAIBot
-
-from urllib import request, parse
-#from gtts import gTTS
-import io
-import pyaudio
-import wave
-
+from typing import Dict
+import json
+from coffebot.audio.synthesizer import Talker
 import std_msgs
-
-import subprocess
-
 import logging
 
 logging.basicConfig(filename='desicions.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
-
-from typing import List, Dict
-import json
-
-from coffebot.audio.synthesizer import Talker
 
 
 class DecisionMaker:
