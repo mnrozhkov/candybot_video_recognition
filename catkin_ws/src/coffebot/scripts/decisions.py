@@ -12,7 +12,7 @@ import io
 import pyaudio
 import wave
 
-from std_msgs.msg import String
+import std_msgs
 
 import subprocess
 
@@ -24,157 +24,87 @@ logging.basicConfig(filename='desicions.log', format='[%(asctime)s] %(message)s\
 from typing import List, Dict
 import json
 
+from coffebot.audio.synthesizer import Talker
 
-class Talker:
 
+class DecisionMaker:
+    
     def __init__(self):
-
-        self.TTSs = {'rhvoice': self._sayrhvoice,
-                     'yandex': self._sayyandex,
-                     'google': self._saygoogle
-                     }
-
-    def _play_wav(self, wav_src: bytes):
-
-        #define stream chunk   
-        chunk = 1024  
-
-        #open a wav format music  
-        f = wave.Wave_read(wav_src) 
-        #instantiate PyAudio  
-        p = pyaudio.PyAudio()  
-        #open stream  
-        stream = p.open(format = p.get_format_from_width(f.getsampwidth()),  
-                        channels = f.getnchannels(),  
-                        rate = f.getframerate(),  
-                        output = True)  
-        #read data  
-        data = f.readframes(chunk)  
-
-        #play stream  
-        while data:  
-            stream.write(data)  
-            data = f.readframes(chunk)  
-
-        #stop stream  
-        stream.stop_stream()  
-        stream.close()  
-
-        #close PyAudio  
-        p.terminate()
-
-    
-    def _sayrhvoice(self, text: str):
-        '''Says text
-        Args:
-            text: text to say
-        '''
-        try:
-            echo_proc = subprocess.Popen(['echo', text],
-                                                 stdout=subprocess.PIPE)
-            rhvoice_proc = subprocess.call(['spd-say', '-w', '-o', 'rhvoice',
-                                            '-l', 'ru', '-e', '-t', 'male1'],
-                                           stdin=echo_proc.stdout)
-
-        except Exception as e:
-            logging.error(str(e))
-
-
-    def _sayyandex(self, text: str):
-        try:
-            url = 'https://tts.voicetech.yandex.net/generate?text='
-            url += parse.quote(text)
-            url += '&format=wav&lang=ru&speaker=ermil&key=49d9bb75-7419-45cc-9988-76052abc6c44'
-            req = request.urlopen(url)
-
-            self._play_wav(req)
-            print('yandex!')
-        except Exception as e:
-            logging.error(str(e))
-            print(str(e))
+        self._parse_config()
+        self.bot = APIAIBot(self._bot_client_key) #create object bot for using api.ai API
+        self.talker = Talker(self._yandex_voice_key) #create object talker for TTS
         
+    def _parse_config(self) -> None:
+        config = json.load(open('coffebot.config', 'r'))
+        self._bot_client_key = config['bot_client_key']
+        self._yandex_voice_key = config['yandex_voice_key']
 
-    def _saygoogle(self, text: str):
-        pass
+    def run_processes(self, *args) -> None:
+        '''Resumes viewing and listening'''
+        for arg in args:
+            rospy.set_param(arg, True)
 
-    def say(self, tts_name: str, text: str):
-        print('--say--')
-        self.TTSs[tts_name](text)
+    def stop_processes(self, *args) -> None:
+        '''Stops viewing and listening'''
 
-    def tts_names() -> List[str]:
-        return list(self.TTSs.keys())
+        for arg in args:
+            rospy.set_param(arg, False)
 
-bot = APIAIBot(client_key=json.load(open('coffebot.config', 'r'))['client_key'])
-
-
-def run_processes(*args):
-    '''Resumes viewing and listening'''
-    for arg in args:
-    	rospy.set_param(arg, True)
-
-
-def stop_processes(*args):
-    '''Stops viewing and listening'''
-
-    for arg in args:
-    	rospy.set_param(arg, False)
-
-
-def make_command(command: str, parameters: Dict):
-	
-	print('command: ', command, 'parameters: ', parameters)
-	try:
-		#split command into parts
-		command_parts = command.split('.')
-		#get command group
-		command_group = command_parts[len(command_parts) - 2]
-		#get command name
-		command_name = command_parts[len(command_parts) - 1]
-		#import command group module from command_modules folder
-		command_module = __import__('command_modules.' + command_group)
-		#call function with command name and parameters as arguments
-		getattr(command_module, command_name)(parameters)
-	except Exception as e:
-		print(str(e))
-	
-
-def callback_listen(data):
-    '''Listening callback function.
-    Args:
-        data: listen data, ROS String type
-    '''
-    global bot
+    def make_command(self, command: str, parameters: Dict) -> None:
     
-    if rospy.get_param('listening'):
-        stop_processes('listening')
-        d = data.data
-        print('listened: ', d)
-        answer = bot.request(d)
-        text = answer['text']
-        print('bot answer: ', text)
-        if len(text) > 0:
-            talker = Talker()
-            talker.say('yandex',text)
-        if 'action' in answer.keys():
-        	make_command(answer['action']['name'], answer['action']['parameters'])
-    run_processes('listening')
+        print('command: ', command, 'parameters: ', parameters)
+        try:
+            #split command into parts
+            command_parts = command.split('.')
+            #get command group
+            command_group = command_parts[len(command_parts) - 2]
+            #get command name
+            command_name = command_parts[len(command_parts) - 1]
+            #import command group module from command_modules folder
+            command_module = __import__('command_modules.' + command_group)
+            #call function with command name and parameters as arguments
+            getattr(command_module, command_name)(parameters)
+        except Exception as e:
+            print(str(e))
+    
 
-    if not rospy.get_param('listening'):
-        run_processes('listening')
+    def callback_listen(self, data: std_msgs.msg.String) -> None:
+        '''Listening callback function.
+        Args:
+            data: listen data, ROS String type
+        '''
+        print(type(data))
+        if rospy.get_param('listening'):
+            self.stop_processes('listening')
+            d = data.data
+            print('listened: ', d)
+            answer = self.bot.request(d)
+            text = answer['text']
+            print('bot answer: ', text)
+            if len(text) > 0:
+                self.talker.sayyandex(text)
+            if 'action' in answer.keys():
+                self.make_command(answer['action']['name'], answer['action']['parameters'])
+        self.run_processes('listening')
+
+        if not rospy.get_param('listening'):
+            self.run_processes('listening')
 
 
-def recieve():
-	'''Recieves messages from listener and viewer
-	'''
-	
-	rospy.init_node('decision_maker', anonymous=True)
-	rospy.Subscriber('audio_decision', String, callback_listen)
-	print('I ready to recieve messages')
-	rospy.spin()
+    def recieve(self):
+        '''Recieves messages from listener and viewer
+        '''
+    
+        rospy.init_node('decision_maker', anonymous=True)
+        rospy.Subscriber('audio_decision', std_msgs.msg.String, self.callback_listen)
+        print('I ready to recieve messages')
+        rospy.spin()
+
 
 def main():
     
-    recieve()
+    decision_maker = DecisionMaker()
+    decision_maker.recieve()
 
 
 if __name__ == '__main__':
