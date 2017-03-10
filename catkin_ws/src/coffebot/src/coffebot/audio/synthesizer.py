@@ -3,20 +3,20 @@ from urllib import request, parse
 import io
 import pyaudio
 import wave
-
+import http
 
 class Talker:
 
     def __init__(self, yandex_voice_key: str):
         self.yandex_voice_key = yandex_voice_key
 	
-    def _play_wav(self, wav_src: bytes) -> None:
+    def _play_wav(self, wav_src: http.client.HTTPResponse) -> None:
 
         #define stream chunk   
         chunk = 1024  
 
         #open a wav format music  
-        f = wave.Wave_read(wav_src) 
+        f = wave.Wave_read(wav_src)
         #instantiate PyAudio  
         p = pyaudio.PyAudio()  
         #open stream  
