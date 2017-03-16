@@ -10,5 +10,6 @@ while not ros_started:
 	except:
 		pass
 
+subprocess.call(['./coffebot_config.py'])
 subprocess.call(['./run_coffebot.sh'])
 

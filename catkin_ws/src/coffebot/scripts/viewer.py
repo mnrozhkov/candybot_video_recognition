@@ -5,7 +5,9 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
 
 import rospy
+from std_msgs.msg import String
 import cv2
+from coffebot import convert
 
 logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
@@ -15,22 +17,18 @@ def main():
     '''Main function
     '''
     try:
-        #set viewing parameter 
-        rospy.set_param('viewing', True)
         
-        #publisher = rospy.Publisher('vision_decision', VisionMessage, queue_size=1)
-        rospy.init_node('viewer', anonymous=True)
+        publisher = rospy.Publisher('image_capture', String, queue_size=1)
+        rospy.init_node('viewer')
 
         cap = cv2.VideoCapture(0)
 
-        #detector = FaceDetector()
         print('view start')
         while True:
-            if rospy.get_param('viewing'):
-                ret, frame = cap.read()
-                if ret:
-                    
-                    pass
+            ret, frame = cap.read()
+            if ret:
+                str_image = convert.ndarray2str(frame)
+                publisher.publish(str_image)
 
     except Exception as e:        
         logging.error(str(e))

@@ -3,10 +3,11 @@
 
 import sys
 
-from coffebot.audio.recognizer import SpeechRecognizer
+from coffebot.audio.recorder import Recorder
 
 import rospy
 from std_msgs.msg import String
+import base64
 import logging
 
 logging.basicConfig(filename='listener.log', format='[%(asctime)s] %(message)s\n\n',
@@ -30,25 +31,22 @@ def main():
     audio decision module       
     '''
     #set listening parameter 
-    rospy.set_param('listening', True)
     min_rms=500
-    sr = SpeechRecognizer(min_rms=min_rms)
+    audio_recorder = Recorder(min_rms=min_rms)
         
-    publisher = rospy.Publisher('audio_decision', String, queue_size=1)
-    rospy.init_node('listener', anonymous=True)
+    publisher = rospy.Publisher('audio_capture', String, queue_size=1)
+    rospy.init_node('listener')
     
     print('start listen')
     while True:
-        if rospy.get_param('listening'):
-           
-            #if sound detected record raw data until silence
-            if rospy.has_param('min_rms'):
-                min_rms = rospy.get_param('min_rms')
-                sr.set_min_rms(min_rms)
-            text = sr.listen('yandex')
-            if not text is None :
-                print(text)
-                send_task_sentense(text, publisher=publisher)
+        
+        #if sound detected record raw data until silence
+        if rospy.has_param('min_rms'):
+            min_rms = rospy.get_param('min_rms')
+            sr.set_min_rms(min_rms)
+        raw_audio = audio_recorder.listen()
+        str_raw_audio = base64.b64encode(raw_audio).decode('utf-8')
+        send_task_sentense(str_raw_audio, publisher=publisher)
 
 
 if __name__ == '__main__':
