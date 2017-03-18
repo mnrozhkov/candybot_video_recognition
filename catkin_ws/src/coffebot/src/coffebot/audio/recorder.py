@@ -13,7 +13,7 @@ logging.basicConfig(filename='recorder.log', format='[%(asctime)s] %(message)s\n
 class Recorder:
 
     
-    def __init__(self,  min_rms=100, pyaudio_config: dict):
+    def __init__(self, pyaudio_config: dict, min_rms=100):
         try:
             self.set_min_rms(min_rms=min_rms)
             #set up pyaudio configuration and start audio stream

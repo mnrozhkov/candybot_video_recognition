@@ -8,6 +8,8 @@ import rospy
 from std_msgs.msg import String
 import cv2
 from coffebot import convert
+import time
+import logging
 
 logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
@@ -29,6 +31,7 @@ def main():
             if ret:
                 str_image = convert.ndarray2str(frame)
                 publisher.publish(str_image)
+                time.sleep(0.1)     
 
     except Exception as e:        
         logging.error(str(e))

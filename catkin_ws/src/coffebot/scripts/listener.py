@@ -32,7 +32,7 @@ def main():
     '''
     #set listening parameter 
     min_rms=500
-    audio_recorder = Recorder(min_rms=min_rms)
+    audio_recorder = Recorder(min_rms=min_rms, pyaudio_config=rospy.get_param('pyaudio'))
         
     publisher = rospy.Publisher('audio_capture', String, queue_size=1)
     rospy.init_node('listener')
@@ -43,7 +43,7 @@ def main():
         #if sound detected record raw data until silence
         if rospy.has_param('min_rms'):
             min_rms = rospy.get_param('min_rms')
-            sr.set_min_rms(min_rms)
+            audio_recorder.set_min_rms(min_rms)
         raw_audio = audio_recorder.listen()
         str_raw_audio = base64.b64encode(raw_audio).decode('utf-8')
         send_task_sentense(str_raw_audio, publisher=publisher)

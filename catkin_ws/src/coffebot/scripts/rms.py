@@ -49,7 +49,7 @@ class RMS:
             logging.error(str(e))
             self.error = True
         
-    def __max_key__(self, dictionary:):
+    def __max_key__(self, dictionary):
         '''Finds key for dictionary max value
         Args:
             dictionary: dictionary for search

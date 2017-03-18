@@ -29,7 +29,7 @@ class Face:
     		return True
     	return False
     	
-    def __repr__(self):
+    def printface(self):
     	print('center: ', self.center)
     	print('face square: ', self.square)
 
