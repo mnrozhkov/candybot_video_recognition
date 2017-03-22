@@ -12,7 +12,7 @@ logging.basicConfig(filename='recorder.log', format='[%(asctime)s] %(message)s\n
 
 class Recorder:
 
-    
+
     def __init__(self, pyaudio_config: dict, min_rms=100):
         try:
             self.set_min_rms(min_rms=min_rms)
@@ -21,7 +21,7 @@ class Recorder:
             self.channels = pyaudio_config['channels']
             self.rate = pyaudio_config['rate']
             self.chunk_size = pyaudio_config['frames_per_buffer']
-            
+
             self.audio = pyaudio.PyAudio()
             self.stream = self.audio.open(format=self.format, channels=self.channels, rate=self.rate, input=True, frames_per_buffer=self.chunk_size)
             self.stream.start_stream()
@@ -56,7 +56,7 @@ class Recorder:
             return None
 
     def listen(self):
-               
+
         while True:
             chunk = self.stream.read(self.chunk_size)
             #if sound detected record raw data until silence

@@ -22,7 +22,7 @@ def recordMsg():
 	audio_sub = rospy.Subscriber('audio_capture', String, callback_audio)
 	
 	#record video
-	if os.path.exists(FEEDBACK_FOLDER) in not True:
+	if os.path.exists(FEEDBACK_FOLDER) is not True:
 		os.mkdir(FEEDBACK_FOLDER)
 	
 	new_msg_folder = FEEDBACK_FOLDER + '/' + str(len(os.listdir(FEEDBACK_FOLDER)) + 1)

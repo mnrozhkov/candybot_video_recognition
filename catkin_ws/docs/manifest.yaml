@@ -1,0 +1,19 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- catkin
+- roscpp
+- message_runtime
+- rospy
+- message_generation
+- std_msg
+description: The coffebot package
+license: TODO
+maintainers: alex <alex@todo.todo>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''
