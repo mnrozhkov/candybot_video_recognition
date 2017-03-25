@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-'''Meke decision by recieved data'''
+'''
+    1. recieve strings from 2 topic - audio_capture and image_capture
+    2. convert strings to adudio and image data
+    3. process theese data - analyze data and extract features:
+        2.1 by adudio - with audio recognition and api.ai bot
+        2.2 by image - with face emotions, position recognition and smile detection
+
+    4. make decision by processing information
+    5. publish decision to decision_publication topic
+'''
 
 import rospy
 import std_msgs
 
-from BotClient import APIAIBot
+from coffebot.BotClient import APIAIBot
 from typing import Dict
 import json
 
@@ -13,7 +22,8 @@ from coffebot.audio.recognizer import SpeechRecognizer
 from coffebot.vision.opencv.simple_tracker import SimpleTracker
 from coffebot.vision.algorithmia import facial
 
-from coffebot import convert
+from coffebot.vision import convert as vision_convert
+from coffebot.audio import convert as audio_convert
 import pyaudio
 import numpy as np
 import base64
@@ -55,6 +65,8 @@ class DecisionMaker:
         rospy.Subscriber('audio_capture', std_msgs.msg.String, self.callback_listen)
         rospy.Subscriber('image_capture', std_msgs.msg.String, self.callback_view)
 
+        self._decision_publisher = rospy.Publisher('decision_publication', std_msgs.msg.String, queue_size=1)
+
     def _reset_local_decisions():
         self._bot_decision = None
         self._emotion = 'neutral'
@@ -66,13 +78,13 @@ class DecisionMaker:
             print('answer:', answer)
             self._bot_decision = dict()
             self._bot_decision['text'] = answer['text']
-            self._bot_decision['command_info'] = None
+            self._bot_decision['action'] = None
 
             print('bot answer: ', answer['text'])
             if 'action' in answer.keys():
-                self._bot_decision['command_info'] = dict()
-                self._bot_decision['command_info']['name'] = answer['action']['name']
-                self._bot_decision['command_info']['parameters'] = answer['action']['parameters']
+                self._bot_decision['action'] = dict()
+                self._bot_decision['action']['name'] = answer['action']['name']
+                self._bot_decision['action']['parameters'] = answer['action']['parameters']
 
 
     def callback_listen(self, data: std_msgs.msg.String) -> None:
@@ -83,7 +95,7 @@ class DecisionMaker:
         print(type(data))
 
         raw_audio = base64.b64decode(data.data.encode('utf-8'))
-        wav = convert.raw_audio2wav(raw_audio=raw_audio, pyaudio_config=rospy.get_param('pyaudio'))
+        wav = audio_convert.raw_audio2wav(raw_audio=raw_audio, pyaudio_config=rospy.get_param('pyaudio'))
         if wav is not None:
             print(wav[:10])
             phrase = self.sr.asr_yandex(wav_data=wav)
@@ -100,9 +112,9 @@ class DecisionMaker:
         return info
 
     def callback_view(self, data: std_msgs.msg.String):
-        image = convert.str2ndarray(data.data)
+        image = vision_convert.str2ndarray(data.data)
         if image is not None:
-            png_image = convert.ndarray2format(image)
+            png_image = vision_convert.ndarray2format(image)
             if png_image is not None:
                 with open(self.faces_log, 'a') as faces_log_file:
                     face_info = self._all_image_info(png_image)
@@ -115,59 +127,40 @@ class DecisionMaker:
                 self._view_decision = closest_face
                 self._smile_exists = closest_face.smile_exists
 
-    def make_command(self, command: str, parameters: Dict) -> None:
 
-        print('command: ', command, 'parameters: ', parameters)
-        try:
-            #split command into parts
-            command_parts = command.split('.')
-            #get command group
-            command_group = command_parts[len(command_parts) - 2]
-            #get command name
-            command_name = command_parts[len(command_parts) - 1]
-            #import command group module from command_modules folder
-            command_module = __import__('command_modules.' + command_group)
-            #call function with command name and parameters as arguments
-            getattr(command_module, command_name)(parameters)
-        except Exception as e:
-            print(str(e))
 
     def make_decision(self):
+        decision = dict()
+
         if self._bot_decision is not None:
-            say_text = self._bot_decision['text']
-            command_info = self._bot_decision['command_info']
-            if len(say_text) > 0:
-                self.talker.sayyandex(say_text)
-            if command_info is not None:
-                self.make_command(command_info['name'], command_info['parameters'])
+            decision['say_text'] = self._bot_decision['text']
+            action = self._bot_decision['action']['name']
 
-            if self._bot_decision is None:
-                if self._smile_exists is True:
-                    self._request_bot('привет')
+            if action == 'action.hello.sayHello':
+                decision['hardware_actions'] = [
+                    {
+                        'name': 'headMoveToUser',
+                        'parameters': {}
+                    },
+                    {
+                        'name': 'eyebrowsMoveUpDown',
+                        'parameters': {'direction': 'up'}
+                    },
+                    {
+                        'name': 'bodyBacklightBlink',
+                        'parameters': {'times': 3}
+                    }
+                ]
 
-            #walk on decision tabel
-            for row in self._decision_table:
-                action, smile_exists, emotion = row['local_decision']
-                if( (action == 'none' or action == self._bot_decision['command_info']['name']) and
-                    (smile_exists == 'any' or (smile_exists == 'yes' and self._smile_exists is True) or (smile_exists == 'no' and self._smile_exists is False) ) and
-                    (emotion == 'any' or emotion == self._emotion)
-                  ):
-                  robot_emotion = row['decision']['robot_emotion']
-                  robot_action = row['decision']['robot_action']
+                decision['robot_emotion'] = 'surprise'
+                string_decision = json.dumps(decision)
+                self._decision_publisher.publish(string_decision)
 
-                  #set emotion
-                  command_module = __import__('command_modules.command')
-                  getattr(command_module, showEmotion)(robot_emotion)
+                self._reset_local_decisions()
 
-                  #make command
-                  self._make_command({robot_action, command_info['parameters']})
-                  break
 
-            self._reset_local_decisions()
-
-        if self._view_decision is not None:
-            self._view_decision.printface()
-            self._view_decision = None
+        elif self._smile_exists is True:
+            self._request_bot('привет')
 
 
 def main():

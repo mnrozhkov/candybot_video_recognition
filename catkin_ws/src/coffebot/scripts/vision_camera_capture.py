@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-'''Allows to view from camera and detect face and smile'''
+'''
+    1. capture image from camera
+    2. convert it to string
+    3. publish string
+'''
 import sys
 sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
@@ -7,19 +11,19 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 import rospy
 from std_msgs.msg import String
 import cv2
-from coffebot import convert
+from coffebot.vision import convert
 import time
 import logging
 
 logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
-    
+
 
 def main():
     '''Main function
     '''
     try:
-        
+
         publisher = rospy.Publisher('image_capture', String, queue_size=1)
         rospy.init_node('viewer')
 
@@ -31,12 +35,12 @@ def main():
             if ret:
                 str_image = convert.ndarray2str(frame)
                 publisher.publish(str_image)
-                time.sleep(0.1)     
+                time.sleep(0.1)
 
-    except Exception as e:        
+    except Exception as e:
         logging.error(str(e))
         print(str(e))
-    
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-'''Allows to listen and recognize speech'''
+'''
+    1. capture sound
+    2. convert it to string
+    3. publish string
+'''
 
 import sys
 
