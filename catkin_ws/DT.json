@@ -1,0 +1,13 @@
+{
+  "table":[
+
+    {
+      "local_decision": ["action.hello.sayHello", "any", "any"],
+      "decision": {
+        "robot_emotion": "surprise",
+        "robot_action": "action.hello.sayHello"
+      }
+    }
+
+  ]
+}

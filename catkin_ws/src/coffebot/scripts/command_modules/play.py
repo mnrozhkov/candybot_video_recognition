@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages') 
+sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
 import rospy
 from std_msgs.msg import String
@@ -10,10 +10,10 @@ import time
 
 def tellJokes(parameters=None):
 	pass
-	
+
 def askPuzzle(parameters=None):
 	pass
-	
+
 def makePhoto(parameters=None):
 	MAX_PHOTO_COUNT = 3
 	photo_count = 0
@@ -27,7 +27,7 @@ def makePhoto(parameters=None):
 	while photo_count < MAX_PHOTO_COUNT:
 		time.sleep(0.1)
 	sub.unregister()
-	
-	
-def playGane(parameters=None):
+
+
+def playGame(parameters=None):
 	pass

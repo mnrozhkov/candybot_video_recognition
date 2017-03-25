@@ -29,16 +29,17 @@ class DecisionMaker:
     Class DecisionMaker. Makes decisions.
     '''
 
-    def __init__(self, bot_client_key, yandex_voice_key, algorithmia_api_key):
+    def __init__(self, bot_client_key, yandex_voice_key, algorithmia_api_key, decision_table):
 
         self._bot_client_key = bot_client_key
         self._yandex_voice_key = yandex_voice_key
         self._algorithmia_api_key = algorithmia_api_key
+        self._decision_table = decision_table
 
         self.bot = APIAIBot(self._bot_client_key) #create object bot for using api.ai API
         self.talker = Talker(self._yandex_voice_key) #create object talker for TTS
         self.sr = SpeechRecognizer(self._yandex_voice_key)
-        self.tracker = SimpleTracker(face_cascade_file='haarcascade_frontalface_default.xml')
+        self.tracker = SimpleTracker(face_cascade_file='haarcascade_frontalface_default.xml', smile_cascade_file='haarcascade_smile.xml')
         facial.api_key = self._algorithmia_api_key
 
         self._set_topics()
@@ -46,11 +47,33 @@ class DecisionMaker:
         self.faces_log = 'faces.log'
 
     def _set_topics(self):
-        self._listen_decision = None
-        self._view_decision = None
+        self._bot_decision = None
+        #self._view_decision = None
+        self._emotion = 'neutral'
+        self._smile_exists = False
 
         rospy.Subscriber('audio_capture', std_msgs.msg.String, self.callback_listen)
         rospy.Subscriber('image_capture', std_msgs.msg.String, self.callback_view)
+
+    def _reset_local_decisions():
+        self._bot_decision = None
+        self._emotion = 'neutral'
+        self._smile_exists = False
+
+    def _request_bot(phrase):
+        answer = self.bot.request(phrase)
+        if answer is not None:
+            print('answer:', answer)
+            self._bot_decision = dict()
+            self._bot_decision['text'] = answer['text']
+            self._bot_decision['command_info'] = None
+
+            print('bot answer: ', answer['text'])
+            if 'action' in answer.keys():
+                self._bot_decision['command_info'] = dict()
+                self._bot_decision['command_info']['name'] = answer['action']['name']
+                self._bot_decision['command_info']['parameters'] = answer['action']['parameters']
+
 
     def callback_listen(self, data: std_msgs.msg.String) -> None:
         '''Listening callback function.
@@ -66,18 +89,7 @@ class DecisionMaker:
             phrase = self.sr.asr_yandex(wav_data=wav)
             if phrase is not None and len(phrase) > 0:
                 print('listened: ', phrase)
-                answer = self.bot.request(phrase)
-                if answer is not None:
-                    print('answer:', answer)
-                    self._listen_decision = dict()
-                    self._listen_decision['text'] = answer['text']
-                    self._listen_decision['command_info'] = None
-
-                    print('bot answer: ', answer['text'])
-                    if 'action' in answer.keys():
-                        self._listen_decision['command_info'] = dict()
-                        self._listen_decision['command_info']['name'] = answer['action']['name']
-                        self._listen_decision['command_info']['parameters'] = answer['action']['parameters']
+                self._request_bot(phrase)
 
     def _all_image_info(self, image: bytes) -> dict:
         info = dict()
@@ -101,6 +113,7 @@ class DecisionMaker:
                 faces.sort()
                 closest_face = faces[0]
                 self._view_decision = closest_face
+                self._smile_exists = closest_face.smile_exists
 
     def make_command(self, command: str, parameters: Dict) -> None:
 
@@ -120,19 +133,41 @@ class DecisionMaker:
             print(str(e))
 
     def make_decision(self):
-        if self._listen_decision is not None:
-            say_text = self._listen_decision['text']
-            command_info = self._listen_decision['command_info']
+        if self._bot_decision is not None:
+            say_text = self._bot_decision['text']
+            command_info = self._bot_decision['command_info']
             if len(say_text) > 0:
                 self.talker.sayyandex(say_text)
             if command_info is not None:
                 self.make_command(command_info['name'], command_info['parameters'])
 
-            self._listen_decision = None
+            if self._bot_decision is None:
+                if self._smile_exists is True:
+                    self._request_bot('привет')
 
-        #if self._view_decision is not None:
-            #self._view_decision.printface()
-            #self._view_decision = None
+            #walk on decision tabel
+            for row in self._decision_table:
+                action, smile_exists, emotion = row['local_decision']
+                if( (action == 'none' or action == self._bot_decision['command_info']['name']) and
+                    (smile_exists == 'any' or (smile_exists == 'yes' and self._smile_exists is True) or (smile_exists == 'no' and self._smile_exists is False) ) and
+                    (emotion == 'any' or emotion == self._emotion)
+                  ):
+                  robot_emotion = row['decision']['robot_emotion']
+                  robot_action = row['decision']['robot_action']
+
+                  #set emotion
+                  command_module = __import__('command_modules.command')
+                  getattr(command_module, showEmotion)(robot_emotion)
+
+                  #make command
+                  self._make_command({robot_action, command_info['parameters']})
+                  break
+
+            self._reset_local_decisions()
+
+        if self._view_decision is not None:
+            self._view_decision.printface()
+            self._view_decision = None
 
 
 def main():
@@ -140,7 +175,8 @@ def main():
     try:
         decision_maker = DecisionMaker(bot_client_key=rospy.get_param('bot_client_key'),
                                         yandex_voice_key=rospy.get_param('yandex_voice_key'),
-                                        algorithmia_api_key=rospy.get_param('algorithmia_api_key'))
+                                        algorithmia_api_key=rospy.get_param('algorithmia_api_key'),
+                                        decision_table=rospy.get_param('decision_table'))
     except Exception as e:
         logging.error(str(e))
         print(str(e))
