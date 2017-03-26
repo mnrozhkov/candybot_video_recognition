@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
     1. capture image from camera
-    2. convert it to string
+    2. image_format_converter it to string
     3. publish string
 '''
 import sys
@@ -11,7 +11,7 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 import rospy
 from std_msgs.msg import String
 import cv2
-from coffebot.vision import convert
+from coffebot.vision.util import image_format_converter
 import time
 import logging
 
@@ -33,7 +33,7 @@ def main():
         while True:
             ret, frame = cap.read()
             if ret:
-                str_image = convert.ndarray2str(frame)
+                str_image = image_format_converter.ndarray2str(frame)
                 publisher.publish(str_image)
                 time.sleep(0.1)
 

@@ -36,7 +36,7 @@ class Face:
     	print('face square: ', self.square)
 
 
-class SimpleTracker:
+class FaceTracker:
 
 
     def __init__(self, face_cascade_file, smile_cascade_file):

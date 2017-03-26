@@ -19,11 +19,11 @@ import json
 
 from coffebot.audio.synthesizer import Talker
 from coffebot.audio.recognizer import SpeechRecognizer
-from coffebot.vision.opencv.simple_tracker import SimpleTracker
+from coffebot.vision.opencv.face_tracker import FaceTracker
 from coffebot.vision.algorithmia import facial
 
-from coffebot.vision import convert as vision_convert
-from coffebot.audio import convert as audio_convert
+from coffebot.vision.util import convert as image_format_converter
+from coffebot.audio.util import convert as audio_format_converter
 import pyaudio
 import numpy as np
 import base64
@@ -49,7 +49,7 @@ class DecisionMaker:
         self.bot = APIAIBot(self._bot_client_key) #create object bot for using api.ai API
         self.talker = Talker(self._yandex_voice_key) #create object talker for TTS
         self.sr = SpeechRecognizer(self._yandex_voice_key)
-        self.tracker = SimpleTracker(face_cascade_file='haarcascade_frontalface_default.xml', smile_cascade_file='haarcascade_smile.xml')
+        self.tracker = FaceTracker(face_cascade_file='haarcascade_frontalface_default.xml', smile_cascade_file='haarcascade_smile.xml')
         facial.api_key = self._algorithmia_api_key
 
         self._set_topics()
@@ -95,7 +95,7 @@ class DecisionMaker:
         print(type(data))
 
         raw_audio = base64.b64decode(data.data.encode('utf-8'))
-        wav = audio_convert.raw_audio2wav(raw_audio=raw_audio, pyaudio_config=rospy.get_param('pyaudio'))
+        wav = audio_format_converter.raw_audio2wav(raw_audio=raw_audio, pyaudio_config=rospy.get_param('pyaudio'))
         if wav is not None:
             print(wav[:10])
             phrase = self.sr.asr_yandex(wav_data=wav)
@@ -112,9 +112,9 @@ class DecisionMaker:
         return info
 
     def callback_view(self, data: std_msgs.msg.String):
-        image = vision_convert.str2ndarray(data.data)
+        image = image_format_converter.str2ndarray(data.data)
         if image is not None:
-            png_image = vision_convert.ndarray2format(image)
+            png_image = image_format_converter.ndarray2format(image)
             if png_image is not None:
                 with open(self.faces_log, 'a') as faces_log_file:
                     face_info = self._all_image_info(png_image)
