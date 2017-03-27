@@ -106,8 +106,9 @@ class RMS:
         else:
             return 0
 
+if __name__ == '__main__':
 
-rms = RMS()
-#broadcasting minimal rms value
-while True:
-    rospy.set_param('min_rms',rms.get_min_rms())
+    rms = RMS()
+    #broadcasting minimal rms value
+    while True:
+        rospy.set_param('min_rms',rms.get_min_rms())

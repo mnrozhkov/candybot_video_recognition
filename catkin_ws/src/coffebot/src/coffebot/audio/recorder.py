@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-'''Allows to listen and recognize speech'''
+'''
+record audio
+'''
 
 import pyaudio
 import time
 import audioop
-
 import logging
 
 logging.basicConfig(filename='recorder.log', format='[%(asctime)s] %(message)s\n\n',
@@ -31,7 +32,7 @@ class Recorder:
     def set_min_rms(self, min_rms):
         self.min_rms = min_rms
 
-    def record(self, last_chunk):
+    def record_audio(self, last_chunk):
         print('rec')
         '''Records speech until silence
         Args:
@@ -55,7 +56,7 @@ class Recorder:
             logging.error(str(e))
             return None
 
-    def listen(self):
+    def listen_audio(self):
 
         while True:
             chunk = self.stream.read(self.chunk_size)

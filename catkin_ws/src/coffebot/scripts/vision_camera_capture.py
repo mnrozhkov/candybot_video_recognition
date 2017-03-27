@@ -19,9 +19,8 @@ logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n
                     level=logging.ERROR)
 
 
-def main():
-    '''Main function
-    '''
+
+if __name__ == '__main__':
     try:
 
         publisher = rospy.Publisher('image_capture', String, queue_size=1)
@@ -40,7 +39,3 @@ def main():
     except Exception as e:
         logging.error(str(e))
         print(str(e))
-
-
-if __name__ == '__main__':
-    main()

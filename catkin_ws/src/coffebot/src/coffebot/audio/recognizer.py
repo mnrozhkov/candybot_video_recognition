@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-'''Allows to listen and recognize speech'''
+'''
+speech recognition
+'''
 
 import pyaudio
 import wave
 import io
 import requests
-import time
 import random
-import audioop
 import xml.etree.ElementTree as ET
 
 import logging
@@ -17,7 +17,7 @@ logging.basicConfig(filename='speech_recognizer.log', format='[%(asctime)s] %(me
 
 class SpeechRecognizer:
 
-    
+
     def __init__(self, yandex_voice_key):
         self.yandex_voice_key = yandex_voice_key
 
@@ -29,18 +29,18 @@ class SpeechRecognizer:
             uuid += symbols[random.randint(0, len(symbols) - 1)]
         return uuid
 
-    def asr_yandex(self, wav_data):
+    def recognize_speech(self, wav_data: bytes) -> str:
 
         try:
             url = 'https://asr.yandex.net/asr_xml?uuid=' + self._make_uuid()
             url += '&key=' + self.yandex_voice_key + '&topic=queries'
-            
-            
+
+
             r = requests.post(url, wav_data, headers={
                     'Host': 'asr.yandex.net',
                     'Content-Type': 'audio/x-wav'
             })
-            
+
             root = ET.fromstring(r.text)
             max_conf = 0
             result = None
@@ -50,8 +50,8 @@ class SpeechRecognizer:
                     if conf > max_conf:
                         max_conf = conf
                         result = child.text
-                        
+
             return result
         except Exception as e:
             logging.error(str(e))
-        return None
+            return None

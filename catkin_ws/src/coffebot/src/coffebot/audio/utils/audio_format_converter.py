@@ -1,3 +1,6 @@
+'''
+Contains functions for converting audio data
+'''
 import sys
 sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
@@ -5,9 +8,18 @@ import io
 import pyaudio
 import wave
 import logging
+import base64
 
 logging.basicConfig(filename='audio_convert.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
+
+
+def audio2str(raw_audio: bytes) -> str:
+    return base64.b64encode(raw_audio).decode('utf-8')
+
+
+def str2audio(string: str) -> bytes:
+    return base64.b64decode(string.encode('utf-8'))
 
 
 def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes:

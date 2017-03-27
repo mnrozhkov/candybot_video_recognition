@@ -163,7 +163,8 @@ class DecisionMaker:
             self._request_bot('привет')
 
 
-def main():
+if __name__ == '__main__':
+
     rospy.init_node('decision_maker', anonymous=True)
     try:
         decision_maker = DecisionMaker(bot_client_key=rospy.get_param('bot_client_key'),
@@ -179,8 +180,3 @@ def main():
     while True:
         decision_maker.make_decision()
         time.sleep(0.1)
-
-
-
-if __name__ == '__main__':
-    main()
