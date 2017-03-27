@@ -25,6 +25,6 @@ if __name__ == '__main__':
             str_wav_data = audio_format_converter.audio2str(wav_bytes)
             synthesized_speech_publisher.publish(str_wav_data)
 
-        rospy.Subscriber('speech_text', std_msgs.msg.String, callback_synthesize)
+        rospy.Subscriber('bot_speech_text', std_msgs.msg.String, callback_synthesize)
 
         rospy.spin()

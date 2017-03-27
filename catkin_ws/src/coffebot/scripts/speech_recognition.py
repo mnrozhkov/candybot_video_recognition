@@ -18,7 +18,7 @@ if __name__ == '__main__':
     if rospy.has_param('yandex_voice_key') is True:
         sr = SpeechRecognizer(yandex_voice_key=rospy.get_param('yandex_voice_key'))
 
-        recognized_text_publisher = rospy.Publisher('speech_text', std_msgs.msg.String, queue_size=1)
+        recognized_text_publisher = rospy.Publisher('user_speech_text', std_msgs.msg.String, queue_size=1)
 
         def callback_recognize(data: std_msgs.msg.String) -> None:
             raw_audio = audio_format_converter.str2audio(data.data)

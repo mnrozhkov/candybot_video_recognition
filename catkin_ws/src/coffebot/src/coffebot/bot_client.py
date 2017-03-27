@@ -4,7 +4,7 @@ import json
 from typing import Dict
 import logging
 
-logging.basicConfig(filename='BotClient.log', format='[%(asctime)s] %(message)s\n\n',
+logging.basicConfig(filename='bot_client.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
 
@@ -33,7 +33,7 @@ class APIAIBot:
 		'''
 		self._ai = apiai.ApiAI(self.client_key)
 
-	def request(self, msg: str) -> Dict:
+	def request(self, msg: str) -> Dict or None:
 		'''
 		makes request and returns response from api.ai bot
 		'''

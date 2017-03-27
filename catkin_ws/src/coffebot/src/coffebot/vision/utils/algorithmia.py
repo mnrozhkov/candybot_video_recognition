@@ -6,7 +6,7 @@ logging.basicConfig(filename='facial_algorithms.log', format='[%(asctime)s] %(me
 
 api_key = None
 
-def get_emotions(photo: bytes) -> dict:
+def get_emotions(photo: bytes) -> dict or None:
     '''Returns emotions by face image
     Args:
         photo: bytes data
@@ -30,7 +30,7 @@ def get_emotions(photo: bytes) -> dict:
         return None
 
 
-def celebrities_similarity(photo: bytes) -> list:
+def celebrities_similarity(photo: bytes) -> list or None:
     '''Returns person similarity to some celebrity
     Args:
         photo: bytes data
@@ -50,7 +50,7 @@ def celebrities_similarity(photo: bytes) -> list:
         return None
 
 
-def verify_faces(photo1: bytes, photo2: bytes) -> float:
+def verify_faces(photo1: bytes, photo2: bytes) -> float or None:
     '''Returns two photos similarity
     Args:
         photo1: bytes data
@@ -69,7 +69,7 @@ def verify_faces(photo1: bytes, photo2: bytes) -> float:
         logging.error(str(e))
         return None
 
-def gender(photo: bytes) -> dict:
+def gender(photo: bytes) -> dict or None:
     '''Computes gender probabilities
     Args:
         photo: bytes data
@@ -89,7 +89,7 @@ def gender(photo: bytes) -> dict:
         logging.error(str(e))
         return None
 
-def age(photo: bytes) -> dict:
+def age(photo: bytes) -> dict or None:
     '''Returns age groups with probabilies
     Args:
         photo: bytes data

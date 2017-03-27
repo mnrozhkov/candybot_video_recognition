@@ -11,7 +11,7 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 import rospy
 from std_msgs.msg import String
 import cv2
-from coffebot.vision.util import image_format_converter
+from coffebot.vision.utils import image_format_converter
 import time
 import logging
 
@@ -23,7 +23,7 @@ logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n
 if __name__ == '__main__':
     try:
 
-        publisher = rospy.Publisher('image_capture', String, queue_size=1)
+        publisher = rospy.Publisher('image', String, queue_size=1)
         rospy.init_node('viewer')
 
         cap = cv2.VideoCapture(0)
