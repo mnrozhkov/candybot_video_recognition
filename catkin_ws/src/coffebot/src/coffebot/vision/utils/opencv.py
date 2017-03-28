@@ -25,7 +25,7 @@ def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[D
         return None
 
     face_cascade = cv2.CascadeClassifier()
-    if not face_cascade.load(self.FACE_HARRCASCADE_FILE):
+    if not face_cascade.load(FACE_HARRCASCADE_FILE):
         return None
 
     face_regions = list()
@@ -46,15 +46,15 @@ def detect_smile(face_image: numpy.ndarray or None = None, min_neighbors=22) -> 
     3. returns True if smile exists
     '''
 
-    if image is None:
+    if face_image is None:
         return None
 
     smile_cascade = cv2.CascadeClassifier()
-    if not face_cascade.load(self.SMILE_HARRCASCADE_FILE):
+    if not smile_cascade.load(SMILE_HARRCASCADE_FILE):
         return None
 
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    smiles = face_cascade.detectMultiScale(gray, scaleFactor=4, minNeighbors=min_neighbors, minSize=(25,25))
+    gray = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)
+    smiles = smile_cascade.detectMultiScale(gray, scaleFactor=4, minNeighbors=min_neighbors, minSize=(25,25))
     if len(smiles) > 0:
         return True
 
