@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 Contains functions for converting audio data
 '''

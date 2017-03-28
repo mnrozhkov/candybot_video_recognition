@@ -1,41 +1,53 @@
 #!/usr/bin/env python3
 '''
-    1. capture image from camera
-    2. image_format_converter it to string
-    3. publish string
+photo capture and save node
+1. take command to take video frame and to save it as image
+2. save image
 '''
-import sys
-sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
-
 
 import rospy
-from std_msgs.msg import String
-import cv2
+import std_msgs
+
+from coffebot.vision import photo_capture
 from coffebot.vision.utils import image_format_converter
-import time
-import logging
-
-logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
-
 
 
 if __name__ == '__main__':
-    try:
 
-        publisher = rospy.Publisher('image', String, queue_size=1)
-        rospy.init_node('viewer')
+    rospy.init_node('vision_photo_capture')
 
-        cap = cv2.VideoCapture(0)
+    def callback_make_photo(data: std_msgs.msg.String) -> None:
+        '''
+        data.data contains string represantation of dictionary with structure:
+        make_photo_dictionary = {
+            'make_photo': True,
+            'photo_file_name': absolute or relative path with photo file name
+        }
+        '''
+        make_photo_dictionary = json.loads(data.data)
 
-        print('view start')
-        while True:
-            ret, frame = cap.read()
-            if ret:
-                str_image = image_format_converter.ndarray2str(frame)
-                publisher.publish(str_image)
-                time.sleep(0.1)
+        if make_photo_dictionary['make_photo'] is True:
 
-    except Exception as e:
-        logging.error(str(e))
-        print(str(e))
+            photo_saved = False
+
+            def callback_get_image(data: std_msgs.msg.String) -> None:
+                '''
+                1. takes message from image topic
+                2. converts it to numpy.ndarray frame
+                3. save it as image file
+                '''
+
+                frame = image_format_converter.str2ndarray(data.data)
+                photo_capture.save_photo(frame, make_photo_dictionary['photo_file_name'])
+                photo_saved = True
+
+            image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
+
+            #if photo saved release image Subscriber
+            if photo_saved is True:
+                image_sub.unregister()
+
+
+    rospy.Subscriber('make_photo', std_msgs.msg.String, callback_make_photo)
+
+    rospy.spin()
