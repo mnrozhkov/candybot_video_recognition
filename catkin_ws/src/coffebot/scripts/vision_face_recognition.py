@@ -4,7 +4,7 @@
 face recognition node
 '''
 
-import pospy
+import rospy
 import std_msgs
 
 from coffebot.vision.utils import image_format_converter
@@ -24,6 +24,7 @@ if __name__ == '__main__':
         face_detected_publisher = rospy.Publisher('face_detected', std_msgs.msg.Bool, queue_size=1)
         smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
 
+        print('vision face recognition start')
         def callback_recognize(data: std_msgs.msg.String) -> None:
             face_image = image_format_converter.str2ndarray(data.data)
             if face_image is not None:
@@ -43,7 +44,7 @@ if __name__ == '__main__':
                 face_info['celebrities_similarity'] = face_recognition.recognize_celebrities_similarity(face_image)
                 face_info['gender'] = face_recognition.recognize_gender(face_image)
                 face_info['age'] = face_recognition.recognize_age(face_image)
-
+                print(face_info)
                 face_info_publisher.publish(json.dumps(face_info))
 
         rospy.Subscriber('face_image', std_msgs.msg.String, callback_recognize)

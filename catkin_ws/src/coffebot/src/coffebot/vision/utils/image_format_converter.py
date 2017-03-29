@@ -35,6 +35,7 @@ def ndarray2str(raw_img: numpy.ndarray, format: str='png') -> str:
         return base64.b64encode(bimg).decode('utf-8')
     except Exception as e:
         logging.error(str(e))
+        print(str(e))
         return None
 
 def str2ndarray(string: str) -> numpy.ndarray:
@@ -45,4 +46,5 @@ def str2ndarray(string: str) -> numpy.ndarray:
         return image
     except Exception as e:
         logging.error(str(e))
+        print(str(e))
         return None

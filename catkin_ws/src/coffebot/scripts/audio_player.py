@@ -4,7 +4,7 @@
 play audio node
 '''
 
-import pospy
+import rospy
 import std_msgs
 
 from coffebot.audio.player import Player
@@ -18,10 +18,9 @@ if __name__ == '__main__':
 
     player = Player()
 
-
+    print('play audio start')
     def callback_audio(data):
         pass
-
 
     def callback_speech(data: std_msgs.msg.String) -> None:
         wav_bytes = audio_format_converter.str2audio(data.data)

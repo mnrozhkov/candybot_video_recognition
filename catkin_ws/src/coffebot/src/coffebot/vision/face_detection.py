@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(filename='face_detection.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
-from utils.opencv import find_faces
+from coffebot.vision.utils.opencv import detect_faces
 from typing import Dict
 
 import numpy
@@ -24,15 +24,16 @@ class FaceTracker:
         if image is None:
             return None
 
-        faces = find_faces(image)
+        faces = detect_faces(image)
 
         closest_face = {'x': 0, 'y': 0, 'w': 0, 'h': 0}
         max_face_square = 0
-
-        for face in faces:
-            current_square = face['w'] * face['h']
-            if current_square > max_face_square:
-                closest_face = face
-                max_face_square = current_square
+        if faces is not None and len(faces) > 0:
+            print('faces!')
+            for face in faces:
+                current_square = face['w'] * face['h']
+                if current_square > max_face_square:
+                    closest_face = face
+                    max_face_square = current_square
 
         return closest_face

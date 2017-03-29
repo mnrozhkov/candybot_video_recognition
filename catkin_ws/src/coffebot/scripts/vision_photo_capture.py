@@ -11,10 +11,16 @@ import std_msgs
 from coffebot.vision import photo_capture
 from coffebot.vision.utils import image_format_converter
 
+import json
+
 
 if __name__ == '__main__':
 
     rospy.init_node('vision_photo_capture')
+
+    print('photo capture start')
+
+    clear_make_photo_pub = rospy.Publisher('make_photo', std_msgs.msg.String, queue_size=1)
 
     def callback_make_photo(data: std_msgs.msg.String) -> None:
         '''
@@ -24,28 +30,27 @@ if __name__ == '__main__':
             'photo_file_name': absolute or relative path with photo file name
         }
         '''
-        make_photo_dictionary = json.loads(data.data)
 
-        if make_photo_dictionary['make_photo'] is True:
+        if len(data.data) > 0:
+            make_photo_dictionary = json.loads(data.data)
 
-            photo_saved = False
+            if make_photo_dictionary['make_photo'] is True:
 
-            def callback_get_image(data: std_msgs.msg.String) -> None:
-                '''
-                1. takes message from image topic
-                2. converts it to numpy.ndarray frame
-                3. save it as image file
-                '''
+                photo_saved = False
 
-                frame = image_format_converter.str2ndarray(data.data)
-                photo_capture.save_photo(frame, make_photo_dictionary['photo_file_name'])
-                photo_saved = True
+                def callback_get_image(data: std_msgs.msg.String) -> None:
+                    '''
+                    1. takes message from image topic
+                    2. converts it to numpy.ndarray frame
+                    3. save it as image file
+                    '''
 
-            image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
+                    frame = image_format_converter.str2ndarray(data.data)
+                    photo_capture.save_photo(frame, make_photo_dictionary['photo_file_name'])
+                    image_sub.unregister()
 
-            #if photo saved release image Subscriber
-            if photo_saved is True:
-                image_sub.unregister()
+                image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
+
 
 
     rospy.Subscriber('make_photo', std_msgs.msg.String, callback_make_photo)

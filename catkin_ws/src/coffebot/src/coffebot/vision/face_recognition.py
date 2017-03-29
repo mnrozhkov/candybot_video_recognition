@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(filename='face_recognition.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
-from utils opencv, algorithmia
+from coffebot.vision.utils import opencv, algorithmia
 import numpy
 
 

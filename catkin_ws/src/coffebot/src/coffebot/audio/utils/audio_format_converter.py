@@ -15,7 +15,9 @@ logging.basicConfig(filename='audio_convert.log', format='[%(asctime)s] %(messag
                     level=logging.ERROR)
 
 
-def audio2str(raw_audio: bytes) -> str:
+def audio2str(raw_audio: bytes or None) -> str or None:
+    if raw_audio is None:
+        return None
     return base64.b64encode(raw_audio).decode('utf-8')
 
 
@@ -23,7 +25,7 @@ def str2audio(string: str) -> bytes:
     return base64.b64decode(string.encode('utf-8'))
 
 
-def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes:
+def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
     '''
     pyaudio_config has the next format:
     "pyaudio":{

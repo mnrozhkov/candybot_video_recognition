@@ -4,7 +4,7 @@
 conversation with bot
 '''
 
-import pospy
+import rospy
 import std_msgs
 import json
 
@@ -19,6 +19,7 @@ if __name__ == '__main__':
         bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
 
         bot_decision_publisher = rospy.Publisher('bot_decision', std_msgs.msg.String, queue_size=1)
+        print('dialog bot manager start')
 
         def callback_bot_request(data: std_msgs.msg.String) -> None:
             bot_answer = bot.request(data.data)
@@ -26,6 +27,6 @@ if __name__ == '__main__':
                 bot_decision_publisher.publish(json.dumps(bot_answer))
 
 
-        rospy.Subscriber('user_speech_text')
+        rospy.Subscriber('user_speech_text', std_msgs.msg.String, callback_bot_request)
 
         rospy.spin()

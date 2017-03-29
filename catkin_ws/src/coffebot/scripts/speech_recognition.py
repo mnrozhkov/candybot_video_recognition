@@ -4,7 +4,7 @@
 speech recognition node
 '''
 
-import pospy
+import rospy
 import std_msgs
 
 from coffebot.audio.recognizer import SpeechRecognizer
@@ -20,10 +20,12 @@ if __name__ == '__main__':
 
         recognized_text_publisher = rospy.Publisher('user_speech_text', std_msgs.msg.String, queue_size=1)
 
+        print('speech recognition start')
         def callback_recognize(data: std_msgs.msg.String) -> None:
             raw_audio = audio_format_converter.str2audio(data.data)
-            wav_data = audio_format_converter.raw_audio2wav(raw_audio)
+            wav_data = audio_format_converter.raw_audio2wav(raw_audio, rospy.get_param('pyaudio'))
             recognized_text = sr.recognize_speech(wav_data)
+            print(recognized_text)
             if recognized_text is not None:
                 recognized_text_publisher.publish(recognized_text)
 

@@ -26,6 +26,7 @@ def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[D
 
     face_cascade = cv2.CascadeClassifier()
     if not face_cascade.load(FACE_HARRCASCADE_FILE):
+        print('haarcascades not found!', BASE_PATH)
         return None
 
     face_regions = list()
@@ -34,7 +35,7 @@ def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[D
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=min_neighbors)
     for (x,y,w,h) in faces:
         #detect face location
-        face_regions.append({'x': x, 'y': y, 'w': w, 'h': h})
+        face_regions.append({'x': int(x), 'y': int(y), 'w': int(w), 'h': int(h)})
 
     return face_regions
 

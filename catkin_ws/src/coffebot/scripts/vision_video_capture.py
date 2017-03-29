@@ -9,7 +9,7 @@ video capture and save node
 5. delete temporary files
 '''
 
-import pospy
+import rospy
 import std_msgs
 
 from coffebot.vision.utils import image_format_converter
@@ -24,9 +24,8 @@ import os
 if __name__ == '__main__':
 
     rospy.init_node('vision_video_capture')
-    video_duration = 0
-    video_file_name = ''
 
+    print('vision video capture start')
     def callback_start_video_record(data: std_msgs.msg.String) -> None:
         '''
         data.data contains string represantation of dictionary with structure:
@@ -40,7 +39,7 @@ if __name__ == '__main__':
 
         if record_video_dictionary['start_video'] is True:
             frames = list()
-            audio_buffer = b''
+            audio_buffer_list = list()
 
             def callback_get_image(data: std_msgs.msg.String) -> None:
                 '''
@@ -60,7 +59,7 @@ if __name__ == '__main__':
                 '''
 
                 audio_subbufer = audio_format_converter.str2audio(data.data)
-                audio_buffer += audio_subbufer
+                audio_buffer_list.append(audio_subbufer)
 
 
             image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
@@ -77,18 +76,21 @@ if __name__ == '__main__':
             audio_sub.unregister()
 
             #make temporary wave file
-            tmp_wav_file_name = 'tmp.wav'
-            wav_binary_data = audio_format_converter.raw_audio2wav(audio_buffer)
-            wav_file = open(tmp_wav_file_name, 'wb')
-            wav_file.write(wav_binary_data)
+            audio_buffer = b''.join(audio_buffer_list)
+            if len(audio_buffer) > 0:
+                print('tmp files')
+                tmp_wav_file_name = 'tmp.wav'
+                wav_binary_data = audio_format_converter.raw_audio2wav(audio_buffer, rospy.get_param('pyaudio'))
+                wav_file = open(tmp_wav_file_name, 'wb')
+                wav_file.write(wav_binary_data)
 
-            #make temporary avi file
-            tmp_avi_file_name = video_capture.create_video(frames, 'tmp.avi')
+                #make temporary avi file
+                tmp_avi_file_name = video_capture.create_video(frames, 'tmp.avi')
 
-            #merge audio and video and delete temporary files
-            video_capture.merge_audio_video(tmp_wav_file_name, tmp_avi_file_name, record_video_dictionary['video_file_name'])
-            os.remove(tmp_wav_file_name)
-            os.remove(tmp_avi_file_name)
+                #merge audio and video and delete temporary files
+                video_capture.merge_audio_video(tmp_wav_file_name, tmp_avi_file_name, record_video_dictionary['video_file_name'])
+                os.remove(tmp_wav_file_name)
+                os.remove(tmp_avi_file_name)
 
 
     rospy.Subscriber('record_video', std_msgs.msg.String, callback_start_video_record)

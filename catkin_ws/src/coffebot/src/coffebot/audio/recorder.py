@@ -62,5 +62,5 @@ class Recorder:
             chunk = self.stream.read(self.chunk_size)
             #if sound detected record raw data until silence
             if audioop.rms(chunk, 2) >=  self.min_rms:
-                buf = self.record(last_chunk=chunk)
+                buf = self.record_audio(last_chunk=chunk)
                 return buf
