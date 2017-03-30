@@ -18,7 +18,7 @@ if __name__ == '__main__':
     if rospy.has_param('bot_client_key'):
         bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
 
-        bot_decision_publisher = rospy.Publisher('bot_decision', std_msgs.msg.String, queue_size=1)
+        bot_decision_publisher = rospy.Publisher('bot_dialog', std_msgs.msg.String, queue_size=1)
         print('dialog bot manager start')
 
         def callback_bot_request(data: std_msgs.msg.String) -> None:
