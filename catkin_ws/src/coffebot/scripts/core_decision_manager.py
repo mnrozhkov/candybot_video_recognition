@@ -11,38 +11,52 @@ import time
 class Decision:
 
     def __init__(self):
-
-        self.bot_text_answer = None
-        self.bot_action_answer = str()
-        self.bot_action_parameter_answer = dict()
-        self.smile_exists = False
-        self.user_emotion = str()
+        self._reset_vars()
 
         self._create_subscribers()
         self._create_publishers()
 
-
+    def _reset_vars(self):
+        self.bot_text_answer = None
+        self.bot_action_answer = str()
+        self.bot_action_parameter_answer = dict()
+        self.smile_exists = False
+        self.face_coords = dict()
+        self.face_info = dict()
+        self.user_emotion = str()
 
     def _create_subscribers(self):
 
         def callback_face_info(data: std_msgs.msg.String) -> None:
-            pass
+            self.face_info = json.loads(data.data)
+            emotions = self.face_info['emotions']
+            emotion_confidence = 0.0
+            self.user_emotion = None
+            for emotion_name in emotions.keys():
+                if emotions[emotion_name] > emotion_confidence:
+                    emotion_confidence = emotions[emotion_name]
+                    self.user_emotion = emotion_name
 
 
-        def callback_face_coord(data: std_msgs.msg.String) -> None:
-            pass
+        def callback_face_coords(data: std_msgs.msg.String) -> None:
+            self.face_coords = json.loads(data.data)
 
 
         def callback_smile(data: std_msgs.msg.Bool) -> None:
-            pass
+            if data.data is True:
+                self.smile_exists = True
 
 
         def callback_bot_dialog(data: std_msgs.msg.String) -> None:
-            pass
+            bot_answer = json.loads(data.data)
+            self.bot_text_answer = bot_answer['text']
+            if 'action' in bot_answer.keys():
+                self.bot_action_answer = bot_answer['action']['name']
+                self.bot_action_parameter_answer = bot_answer['action']['parameters']
 
 
         rospy.Subscriber('face_info', std_msgs.msg.String, callback_face_info)
-        rospy.Subscriber('face_coord', std_msgs.msg.String, callback_face_coord)
+        rospy.Subscriber('face_coord', std_msgs.msg.String, callback_face_coords)
         rospy.Subscriber('smile', std_msgs.msg.Bool, callback_smile)
         rospy.Subscriber('bot_dialog', std_msgs.msg.String, callback_bot_dialog)
 
@@ -51,8 +65,8 @@ class Decision:
         self.emotion_publisher = rospy.Publisher('emotion', std_msgs.msg.String, queue_size=1)
         self.make_video_publisher = rospy.Publisher('make_video', std_msgs.msg.String, queue_size=1)
         self.make_photo_publisher = rospy.Publisher('make_photo', std_msgs.msg.String, queue_size=1)
-        self.user_speech_text_publisher = rospy.Publisher('user_speech_text', std_msgs.msg.String, queue_size=1)
-        self.bot_speech_text_publisher = rospy.Publisher('bot_speech_text', std_msgs.msg.String, queue_size=1)
+        self.dialog_bot_publisher = rospy.Publisher('user_speech_text', std_msgs.msg.String, queue_size=1)
+        self.speech_synthesis_publisher = rospy.Publisher('bot_speech_text', std_msgs.msg.String, queue_size=1)
 
     def make_decision(self) -> None:
         '''
@@ -61,16 +75,17 @@ class Decision:
         '''
 
         if len(bot_text_answer) > 0:
-            decision['say_text'] = bot_text_answer
+            self.speech_synthesis_publisher.publish(bot_text_answer)
             if bot_action_answer is not None:
                 if bot_action_answer == 'action.hello.sayHello':
-                    dict['motion_pattern'] = 'sayHello'
+                    self.pattern_publisher.publish('sayHello')
 
         else:
             if bot_action_answer is None:
                 if smile_exists is True:
-                    dialog_bot_publisher = rospy.Publisher('user_speech_text', std_msgs.std.String, queue_size=1)
-                    dialog_bot_publisher.publish('привет')
+                    self.dialog_bot_publisher.publish('привет')
+
+        self._reset_vars()
 
 
 if __name__ == '__main__':
