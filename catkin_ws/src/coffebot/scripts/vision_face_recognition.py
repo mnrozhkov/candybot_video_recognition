@@ -11,6 +11,13 @@ from coffebot.vision.utils import image_format_converter
 from coffebot.vision import face_recognition
 
 import json
+import time
+
+class Lock:
+    message = None
+
+    def callback_recognize(self, data):
+        self.message = data.data
 
 
 if __name__ == '__main__':
@@ -24,29 +31,37 @@ if __name__ == '__main__':
         face_detected_publisher = rospy.Publisher('face_detected', std_msgs.msg.Bool, queue_size=1)
         smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
 
+        lock = Lock()
         print('vision face recognition start')
-        def callback_recognize(data: std_msgs.msg.String) -> None:
-            face_image = image_format_converter.str2ndarray(data.data)
-            if face_image is not None:
-                face_detected_publisher.publish(True)
 
-                face_info = dict()
+        rospy.Subscriber('face_image', std_msgs.msg.String, lock.callback_recognize)
 
-                #search smile
-                smile = face_recognition.recognize_smile(face_image)
-                if smile is None:
-                    smile = False
-                smile_detected_publisher.publish(smile)
-                face_info['smile'] = smile
+        while True:
+            msg = lock.message
+            if msg is not None:
+                face_image = image_format_converter.str2ndarray(msg)
+                print(type(face_image))
+                if face_image is not None:
+                    face_detected_publisher.publish(True)
 
-                #search other features: emotions, celebrities similarity, gender, age
-                face_info['emotions'] = face_recognition.recognize_emotions(face_image)
-                face_info['celebrities_similarity'] = face_recognition.recognize_celebrities_similarity(face_image)
-                face_info['gender'] = face_recognition.recognize_gender(face_image)
-                face_info['age'] = face_recognition.recognize_age(face_image)
-                print(face_info)
-                face_info_publisher.publish(json.dumps(face_info))
+                    face_info = dict()
 
-        rospy.Subscriber('face_image', std_msgs.msg.String, callback_recognize)
+                    #search smile
+                    smile = face_recognition.recognize_smile(face_image)
+                    if smile is None:
+                        smile = False
+                    print('smile: ', smile)
+                    smile_detected_publisher.publish(smile)
+                    face_info['smile'] = smile
 
-        rospy.spin()
+                    #search other features: emotions, celebrities similarity, gender, age
+                    binary_face_image = image_format_converter.ndarray2format(face_image)
+                    face_info['emotions'] = face_recognition.recognize_emotions(binary_face_image)
+                    face_info['celebrities_similarity'] = face_recognition.recognize_celebrities_similarity(binary_face_image)
+                    face_info['gender'] = face_recognition.recognize_gender(binary_face_image)
+                    face_info['age'] = face_recognition.recognize_age(binary_face_image)
+                    print(face_info)
+                    face_info_publisher.publish(json.dumps(face_info))
+
+                lock.message = None
+            time.sleep(0.5)

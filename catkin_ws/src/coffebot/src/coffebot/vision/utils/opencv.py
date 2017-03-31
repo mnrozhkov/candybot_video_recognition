@@ -52,6 +52,7 @@ def detect_smile(face_image: numpy.ndarray or None = None, min_neighbors=22) -> 
 
     smile_cascade = cv2.CascadeClassifier()
     if not smile_cascade.load(SMILE_HARRCASCADE_FILE):
+        print('haarcascade smile: ', BASE_PATH)
         return None
 
     gray = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)

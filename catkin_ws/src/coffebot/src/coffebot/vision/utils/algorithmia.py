@@ -27,6 +27,7 @@ def get_emotions(photo: bytes) -> dict or None:
 
     except Exception as e:
         logging.error(str(e))
+        print('Algorithmia:', str(e))
         return None
 
 
