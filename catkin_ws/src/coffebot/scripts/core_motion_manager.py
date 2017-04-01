@@ -4,10 +4,12 @@ import rospy
 import std_msgs
 
 from coffebot.motion import joint_control, head_control, body_control
-from coffebot.core import emotion_manager
 
 import json
 import yaml
+
+import time
+
 
 class MotionMaker:
 
@@ -252,41 +254,45 @@ class MotionMaker:
                     self.body.turn_backlight_dim()
 
     def make_motions(self):
-        pattern = yaml.load(open(self.pattern_name,'r'))
-        pattern_steps = pattern['steps']
-        step_count = len(pattern_steps)
-        i = 0
-        while i < step_count:
-            step = pattern_steps[i]['step']
+        try:
+            pattern = yaml.load(open(self.pattern_name,'r'))
+            pattern_steps = pattern['steps']
+            step_count = len(pattern_steps)
+            i = 0
+            while i < step_count:
+                step = pattern_steps[i]['step']
 
-            step_emotion = step.get('emotion')
-            if step_emotion is not None:
-                self.set_emotion(step[step_emotion])
+                step_emotion = step.get('emotion')
+                if step_emotion is not None:
+                    self.set_emotion(step[step_emotion])
 
-            motions = step.get('motions')
-            if motions is not None:
+                motions = step.get('motions')
+                if motions is not None:
 
-                head_motions = motions.get('head')
-                self._make_head_motions()
+                    head_motions = motions.get('head')
+                    self._make_head_motions()
 
-                eyes_motions = motions.get('eyes')
-                self._make_eyes_motions(eyes_motions)
+                    eyes_motions = motions.get('eyes')
+                    self._make_eyes_motions(eyes_motions)
 
-                eyebrows_motions = motions.get('eyebrows')
-                self._make_eyebrows_motions(eyebrows_motions)
+                    eyebrows_motions = motions.get('eyebrows')
+                    self._make_eyebrows_motions(eyebrows_motions)
 
-                body_motions = motions.get('body')
-                self._make_body_motions(body_motions)
+                    body_motions = motions.get('body')
+                    self._make_body_motions(body_motions)
 
-            i += 1
+                i += 1
 
-        self._reset_fields()
+            self._reset_fields()
+        except:
+            pass
+
 
 if __name__ == '__main__':
 
     rospy.init_node('core_motion_manager')
 
     motion_maker = MotionMaker()
-    motion_maker.make_motions()
-
-    rospy.spin()
+    while True:
+        motion_maker.make_motions()
+        time.sleep(0.5)

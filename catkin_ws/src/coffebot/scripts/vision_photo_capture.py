@@ -13,6 +13,7 @@ from coffebot.vision.utils import image_format_converter
 
 import json
 
+from coffebot.topic_controller import Lock
 
 if __name__ == '__main__':
 
@@ -21,18 +22,20 @@ if __name__ == '__main__':
     print('photo capture start')
 
     clear_make_photo_pub = rospy.Publisher('make_photo', std_msgs.msg.String, queue_size=1)
+    lock_make_photo = Lock(msg_type=std_msgs.msg.String)
+    rospy.Subscriber('make_photo', std_msgs.msg.String, lock_make_photo.callback)
 
-    def callback_make_photo(data: std_msgs.msg.String) -> None:
+    while True:
         '''
-        data.data contains string represantation of dictionary with structure:
+        lock.message contains string represantation of dictionary with structure:
         make_photo_dictionary = {
             'make_photo': True,
             'photo_file_name': absolute or relative path with photo file name
         }
         '''
-
-        if len(data.data) > 0:
-            make_photo_dictionary = json.loads(data.data)
+        msg = lock_make_photo.message
+        if msg is not None:
+            make_photo_dictionary = json.loads(msg)
 
             if make_photo_dictionary['make_photo'] is True:
 
@@ -51,8 +54,5 @@ if __name__ == '__main__':
 
                 image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
 
-
-
-    rospy.Subscriber('make_photo', std_msgs.msg.String, callback_make_photo)
-
-    rospy.spin()
+        lock_make_photo.message = None
+        time.sleep(0.5)

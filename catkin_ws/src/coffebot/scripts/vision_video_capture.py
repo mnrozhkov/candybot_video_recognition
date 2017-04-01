@@ -20,22 +20,28 @@ import time
 
 import os
 
+from coffebot.topic_controller import Lock
+
+import time
+
 
 if __name__ == '__main__':
 
     rospy.init_node('vision_video_capture')
-
+    lock_start_video_record = Lock(msg_type=std_msgs.msg.String)
+    rospy.Subscriber('record_video', std_msgs.msg.String, lock_start_video_record.callback)
     print('vision video capture start')
-    def callback_start_video_record(data: std_msgs.msg.String) -> None:
+
+    while True:
         '''
-        data.data contains string represantation of dictionary with structure:
+        lock.message contains string represantation of dictionary with structure:
         record_video_dictionary = {
             'start_video': True,
             'duration': seconds,
             'video_file_name': absolute or relative path with video file name
         }
         '''
-        record_video_dictionary = json.loads(data.data)
+        record_video_dictionary = json.loads(lock_start_video_record.message)
 
         if record_video_dictionary['start_video'] is True:
             frames = list()
@@ -92,7 +98,5 @@ if __name__ == '__main__':
                 os.remove(tmp_wav_file_name)
                 os.remove(tmp_avi_file_name)
 
-
-    rospy.Subscriber('record_video', std_msgs.msg.String, callback_start_video_record)
-
-    rospy.spin()
+        lock_start_video_record.message = None
+        time.sleep(0.5)

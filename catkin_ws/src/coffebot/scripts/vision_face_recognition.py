@@ -13,12 +13,7 @@ from coffebot.vision import face_recognition
 import json
 import time
 
-class Lock:
-    message = None
-
-    def callback_recognize(self, data):
-        self.message = data.data
-
+from coffebot.topic_controller import Lock
 
 if __name__ == '__main__':
 
@@ -30,11 +25,10 @@ if __name__ == '__main__':
         face_info_publisher = rospy.Publisher('face_info', std_msgs.msg.String, queue_size=1)
         face_detected_publisher = rospy.Publisher('face_detected', std_msgs.msg.Bool, queue_size=1)
 
-        lock = Lock()
+        lock_recognize = Lock(msg_type = std_msgs.msg.String)
+        rospy.Subscriber('face_image', std_msgs.msg.String, lock_recognize.callback)
         print('vision face recognition start')
-
-        rospy.Subscriber('face_image', std_msgs.msg.String, lock.callback_recognize)
-
+        
         while True:
             msg = lock.message
             if msg is not None:
@@ -54,5 +48,5 @@ if __name__ == '__main__':
                     print(face_info)
                     face_info_publisher.publish(json.dumps(face_info))
 
-                lock.message = None
+            lock.message = None
             time.sleep(0.5)

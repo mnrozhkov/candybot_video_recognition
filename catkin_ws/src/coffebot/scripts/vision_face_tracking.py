@@ -12,6 +12,10 @@ from coffebot.vision import face_detection
 
 import json
 
+from coffebot.topic_controller import Lock
+
+import time
+
 
 if __name__ == '__main__':
 
@@ -21,8 +25,10 @@ if __name__ == '__main__':
     face_image_publisher = rospy.Publisher('face_image', std_msgs.msg.String, queue_size=1)
     smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
     tracker = face_detection.FaceTracker()
+    lock_image = Lock(msg_type=std_msgs.msg.String)
+    rospy.Subscriber('image', std_msgs.msg.String, lock_image.callback)
 
-    def callback_image(data: std_msgs.msg.String) -> None:
+    while True:
         image = image_format_converter.str2ndarray(data.data)
 
         face_region = tracker.find_closest_face_region(image)
@@ -46,6 +52,5 @@ if __name__ == '__main__':
             smile_detected_publisher.publish(smile)
             face_image_publisher.publish(str_face_array)
 
-    rospy.Subscriber('image', std_msgs.msg.String, callback_image)
-
-    rospy.spin()
+        lock_image.message = None
+        time.sleep(0.5)
