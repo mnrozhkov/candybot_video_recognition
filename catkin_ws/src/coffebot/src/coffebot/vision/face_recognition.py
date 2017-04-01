@@ -12,14 +12,6 @@ def set_algorithmia_key(key: str):
     algorithmia.api_key = key
 
 
-def recognize_smile(face_image: numpy.ndarray or None = None) -> bool or None:
-
-    if face_image is None:
-        return None
-
-    return opencv.detect_smile(face_image)
-
-
 def recognize_emotions(face_image: numpy.ndarray or None = None) -> dict or None:
 
     if face_image is None:

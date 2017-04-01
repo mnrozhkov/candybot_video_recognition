@@ -1,10 +1,14 @@
 name: sayHello
-step:
+steps:
+ - step:
     order: 1
-    actions:
-        emotions: surprise
-        motions:
-            eyebrows:
-                move: up
-            body:
-                backlight_blink: 3
+    emotion: surprise
+    motions:
+     eyebrows:
+      move_up: defualt
+     body:
+      blink_backlight: 3
+      
+ - step:
+    order: 2
+    emotion: neutral

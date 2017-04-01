@@ -9,9 +9,6 @@ class Body:
     def blink_backlight(self, times: int):
         print('body backlight blink:', times)
 
-    def turn_on_backlight(self):
-        print('body turn on backlight')
-
     def set_backlight_color(self, color):
         print('body backlight color:', color)
         self.backlight_color = color

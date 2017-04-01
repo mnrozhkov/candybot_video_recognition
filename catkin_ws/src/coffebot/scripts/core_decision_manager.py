@@ -11,12 +11,12 @@ import time
 class Decision:
 
     def __init__(self):
-        self._reset_vars()
+        self._reset_fields()
 
         self._create_subscribers()
         self._create_publishers()
 
-    def _reset_vars(self):
+    def _reset_fields(self):
         self.bot_text_answer = None
         self.bot_action_answer = str()
         self.bot_action_parameter_answer = dict()
@@ -85,7 +85,7 @@ class Decision:
                 if smile_exists is True:
                     self.dialog_bot_publisher.publish('привет')
 
-        self._reset_vars()
+        self._reset_fields()
 
 
 if __name__ == '__main__':

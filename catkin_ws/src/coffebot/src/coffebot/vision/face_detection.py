@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(filename='face_detection.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
-from coffebot.vision.utils.opencv import detect_faces
+from coffebot.vision.utils import opencv
 from typing import Dict
 
 import numpy
@@ -24,7 +24,7 @@ class FaceTracker:
         if image is None:
             return None
 
-        faces = detect_faces(image)
+        faces = opencv.detect_faces(image)
 
         closest_face = {'x': 0, 'y': 0, 'w': 0, 'h': 0}
         max_face_square = 0
@@ -37,3 +37,10 @@ class FaceTracker:
                     max_face_square = current_square
 
         return closest_face
+
+    def detect_smile(self, face_image: numpy.ndarray or None = None) -> bool or None:
+
+        if face_image is None:
+            return None
+
+        return opencv.detect_smile(face_image)

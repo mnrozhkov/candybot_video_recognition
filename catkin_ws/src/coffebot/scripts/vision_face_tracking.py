@@ -19,6 +19,7 @@ if __name__ == '__main__':
 
     face_coord_publisher = rospy.Publisher('face_coord', std_msgs.msg.String, queue_size=1)
     face_image_publisher = rospy.Publisher('face_image', std_msgs.msg.String, queue_size=1)
+    smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
     tracker = face_detection.FaceTracker()
 
     def callback_image(data: std_msgs.msg.String) -> None:
@@ -36,6 +37,13 @@ if __name__ == '__main__':
         if w > 0 and h > 0:
             face_array = image[x:x+w, y:y+h]
             str_face_array = image_format_converter.ndarray2str(face_array)
+
+            #search smile
+            smile = tracker.detect_smile(face_image)
+            if smile is None:
+                smile = False
+            print('smile: ', smile)
+            smile_detected_publisher.publish(smile)
             face_image_publisher.publish(str_face_array)
 
     rospy.Subscriber('image', std_msgs.msg.String, callback_image)

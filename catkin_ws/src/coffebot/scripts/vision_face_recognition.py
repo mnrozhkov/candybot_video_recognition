@@ -29,7 +29,6 @@ if __name__ == '__main__':
 
         face_info_publisher = rospy.Publisher('face_info', std_msgs.msg.String, queue_size=1)
         face_detected_publisher = rospy.Publisher('face_detected', std_msgs.msg.Bool, queue_size=1)
-        smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
 
         lock = Lock()
         print('vision face recognition start')
@@ -45,14 +44,6 @@ if __name__ == '__main__':
                     face_detected_publisher.publish(True)
 
                     face_info = dict()
-
-                    #search smile
-                    smile = face_recognition.recognize_smile(face_image)
-                    if smile is None:
-                        smile = False
-                    print('smile: ', smile)
-                    smile_detected_publisher.publish(smile)
-                    face_info['smile'] = smile
 
                     #search other features: emotions, celebrities similarity, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)

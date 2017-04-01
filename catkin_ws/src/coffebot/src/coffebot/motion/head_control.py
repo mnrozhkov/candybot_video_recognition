@@ -12,10 +12,10 @@ class Head:
     def turn_right(self, angle: float=math.pi / 4):
         pritn('head turn right:', angle)
 
-    def turn_up(self, angle: float=math.pi / 4):
+    def move_up(self, angle: float=math.pi / 4):
         print('head turn up:', angle)
 
-    def turn_down(self, angle: float=math.pi / 4):
+    def move_down(self, angle: float=math.pi / 4):
         print('head turn down:', angle)
 
     def nod_to_agree(self):
@@ -28,7 +28,7 @@ class Head:
         print('head move to:', coords)
         self.coords = coords
 
-    def shake_left_right(self, times: int):
+    def shake_left_right(self, times: int=1):
         print('head shake left-right')
 
 
@@ -57,7 +57,7 @@ class Eyebrows:
         print('backlight:', color)
         self.backlight_color = color
 
-    def blink_backlight(self, times: int):
+    def blink_backlight(self, times: int=1):
         print('eyebrows backlight blink:', times)
 
 class Eyes:
