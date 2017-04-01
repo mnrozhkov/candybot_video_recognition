@@ -36,11 +36,11 @@ class MotionMaker:
 
 
         def callback_pattern(data: std_msgs.msg.String) -> None:
-            pass
+            self.pattern_name = data.data
 
 
         def callback_emotion(data: std_msgs.msg.String) -> None:
-            pass
+            self.emotion = data.data
 
 
         def callback_position(data: std_msgs.msg.String) -> None:
@@ -54,19 +54,21 @@ class MotionMaker:
 
     def _set_neutral(self) -> None:
         self.eyebrows.move_up(0)
-        self.eyebrows.turn_on_backlight()
+        self.eyebrows.turn_backlight_dim()
         self.eyebrows.set_backlight_color(color='orange')
 
-        self.body.turn_on_backlight()
+        self.body.turn_backlight_on()
         self.body.set_backlight_color(color='orange')
 
     def _set_happy(self) -> None:
         self.head.turn_up()
+        self.head.shake_left_right(5)
 
         self.eyebrows.turn_down()
-        self.eyebrows.turn_on_backlight()
+        self.eyebrows.turn_backlight_dim()
+        self.eyebrows.set_backlight_color(color='orange')
 
-        self.body.turn_on_backlight()
+        self.body.turn_backlight_dim()
         self.body.set_backlight_color(color='orange')
 
     def _set_sad(self) -> None:
@@ -74,33 +76,50 @@ class MotionMaker:
         self.head.move_down()
 
         self.eyebrows.move_up()
+        self.eyebrows.turn_backlight_off()
 
+        self.body.turn_backlight_off()
 
 
     def _set_fear(self) -> None:
         self.head.move_down()
 
-        self.eyebrows.move_down()
-        #self.eyebrows.
+        self.eyebrows.blink_backlight(30)
+        self.eyebrows.set_backlight_color(color='orange')
+
+        self.body.blink_backlight(30)
+        self.body.set_backlight_color(color='orange')
 
     def _set_surprise(self) -> None:
-        pass
+        self.head.move_up()
+
+        self.eyebrows.move_up()
+        self.eyebrows.turn_backlight_on()
+        self.eyebrows.set_backlight_color(color='blue')
+
+        self.body.turn_backlight_on()
+        self.body.set_backlight_color(color='blue')
 
     def _set_angry(self) -> None:
-        pass
+        self.head.move_down()
+        self.head.shake_left_right(30)
+
+        self.eyebrows.move_down()
+        self.eyebrows.turn_backlight_dim()
+        self.eyebrows.set_backlight_color(color='red')
+
+        self.body.turn_backlight_dim()
+        self.body.set_backlight_color(color='red')
 
     def _set_thinking(self) -> None:
         pass
 
-    def get_emotion() -> str:
+    def get_emotion(self) -> str:
         return self.emotion
 
     def set_emotion(emotion: str) -> None:
 
-        emotion_action = self.emotion_actions[emotion]
-        if callable(emotion_action) is True:
-            emotion_action()
-
+        self.emotion_actions[emotion]()
         self.emotion = emotion
 
     def load_motion_pattern(self):
@@ -114,4 +133,7 @@ if __name__ == '__main__':
 
     rospy.init_node('core_motion_manager')
 
+    motion_maker = MotionMaker()
+    motion_maker.make_motions()
+    
     rospy.spin()
