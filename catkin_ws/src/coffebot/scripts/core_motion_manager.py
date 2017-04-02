@@ -3,7 +3,7 @@
 import rospy
 import std_msgs
 
-from coffebot.motion import joint_control, head_control, body_control
+from coffebot.motion import head_control, body_control
 
 import json
 import yaml
@@ -19,10 +19,10 @@ class MotionMaker:
 
     def __init__(self):
         #create objects of robot`s parts classes
-        self.head = Head()
-        self.eyes = Eyes()
-        self.eyebrows = Eyebrows()
-        self.body = Body()
+        self.head = head_control.Head()
+        self.eyes = head_control.Eyes()
+        self.eyebrows = head_control.Eyebrows()
+        self.body = body_control.Body()
 
         #emotions-motions dictionary
         self.emotion_actions = {
@@ -76,10 +76,10 @@ class MotionMaker:
         self.body.set_backlight_color(color='orange')
 
     def _set_happy(self) -> None:
-        self.head.turn_up()
+        self.head.move_up()
         self.head.shake_left_right(5)
 
-        self.eyebrows.turn_down()
+        self.eyebrows.move_down()
         self.eyebrows.turn_backlight_dim()
         self.eyebrows.set_backlight_color(color='orange')
 
@@ -132,7 +132,7 @@ class MotionMaker:
     def get_emotion(self) -> str:
         return self.emotion
 
-    def set_emotion(emotion: str) -> None:
+    def set_emotion(self, emotion: str) -> None:
         '''
         set new robot emotion
         '''
@@ -236,17 +236,17 @@ class MotionMaker:
 
             eyebrows_turn_backlight_on = eyebrows_motions.get('turn_backlight_on')
             if eyebrows_turn_backlight_on is not None:
-                if eyebrows_turn_backlight_on is True
+                if eyebrows_turn_backlight_on is True:
                     self.eyebrows.turn_backlight_on()
 
             eyebrows_turn_backlight_off = eyebrows_motions.get('turn_backlight_off')
             if eyebrows_turn_backlight_off is not None:
-                if eyebrows_turn_backlight_off is True
+                if eyebrows_turn_backlight_off is True:
                     self.eyebrows.turn_backlight_off()
 
             eyebrows_turn_backlight_dim = eyebrows_motions.get('turn_backlight_dim')
             if eyebrows_turn_backlight_dim is not None:
-                if eyebrows_turn_backlight_dim is True
+                if eyebrows_turn_backlight_dim is True:
                     self.eyebrows.turn_backlight_dim()
 
             eyebrows_backlight_color = eyebrows_motions.get('backlight_color')
@@ -276,17 +276,17 @@ class MotionMaker:
 
             body_turn_backlight_on = body_motions.get('turn_backlight_on')
             if body_turn_backlight_on is not None:
-                if body_turn_backlight_on is True
+                if body_turn_backlight_on is True:
                     self.body.turn_backlight_on()
 
             body_turn_backlight_off = body_motions.get('turn_backlight_off')
             if body_turn_backlight_off is not None:
-                if body_turn_backlight_off is True
+                if body_turn_backlight_off is True:
                     self.body.turn_backlight_off()
 
             body_turn_backlight_dim = body_motions.get('turn_backlight_dim')
             if body_turn_backlight_dim is not None:
-                if body_turn_backlight_dim is True
+                if body_turn_backlight_dim is True:
                     self.body.turn_backlight_dim()
 
     def make_motions(self):
