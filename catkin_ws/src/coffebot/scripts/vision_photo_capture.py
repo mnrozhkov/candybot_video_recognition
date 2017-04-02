@@ -15,6 +15,7 @@ import json
 
 from coffebot.topic_controller import Lock
 
+
 if __name__ == '__main__':
 
     rospy.init_node('vision_photo_capture')

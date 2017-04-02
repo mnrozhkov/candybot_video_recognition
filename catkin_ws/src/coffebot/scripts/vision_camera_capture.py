@@ -19,7 +19,6 @@ logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n
                     level=logging.ERROR)
 
 
-
 if __name__ == '__main__':
     try:
 

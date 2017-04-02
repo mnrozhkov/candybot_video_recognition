@@ -36,6 +36,6 @@ if __name__ == '__main__':
         wav_source = io.BytesIO(wav_bytes)
         wav_source.seek(0)
         player.play_audio(wav_source)
-        lock_speech.message = None
 
+        lock_speech.message = None
         time.sleep(0.5)

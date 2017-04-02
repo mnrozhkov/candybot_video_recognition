@@ -13,6 +13,7 @@ from coffebot.audio.utils import audio_format_converter
 from coffebot.topic_controller import Lock
 import time
 
+
 if __name__ == '__main__':
 
     rospy.init_node('speech_synthesizer')

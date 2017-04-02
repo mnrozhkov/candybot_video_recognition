@@ -17,6 +17,10 @@ class Decision:
         self._create_publishers()
 
     def _reset_fields(self):
+        '''
+        define or reset class fields
+        '''
+
         self.bot_text_answer = None
         self.bot_action_answer = str()
         self.bot_action_parameter_answer = dict()
@@ -26,8 +30,16 @@ class Decision:
         self.user_emotion = str()
 
     def _create_subscribers(self):
+        '''
+        create Subscribers with theirs callbacks
+        '''
 
         def callback_face_info(data: std_msgs.msg.String) -> None:
+            '''
+            1. recieve face features information
+            2. extract user emotion from it
+            '''
+
             self.face_info = json.loads(data.data)
             emotions = self.face_info['emotions']
             emotion_confidence = 0.0
@@ -39,15 +51,28 @@ class Decision:
 
 
         def callback_face_coords(data: std_msgs.msg.String) -> None:
+            '''
+            recieve closest face coordinates
+            '''
+
             self.face_coords = json.loads(data.data)
 
 
         def callback_smile(data: std_msgs.msg.Bool) -> None:
+            '''
+            recieve information about smile at closest face existance
+            '''
+
             if data.data is True:
                 self.smile_exists = True
 
 
         def callback_bot_dialog(data: std_msgs.msg.String) -> None:
+            '''
+            1. recieve api.ai bot answer
+            2. extract from the answer speech text, action name and action parameters
+            '''
+
             bot_answer = json.loads(data.data)
             self.bot_text_answer = bot_answer['text']
             if 'action' in bot_answer.keys():

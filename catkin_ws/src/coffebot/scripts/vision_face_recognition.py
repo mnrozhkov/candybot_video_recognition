@@ -15,6 +15,7 @@ import time
 
 from coffebot.topic_controller import Lock
 
+
 if __name__ == '__main__':
 
     rospy.init_node('vision_face_recognition')
@@ -28,7 +29,7 @@ if __name__ == '__main__':
         lock_recognize = Lock(msg_type = std_msgs.msg.String)
         rospy.Subscriber('face_image', std_msgs.msg.String, lock_recognize.callback)
         print('vision face recognition start')
-        
+
         while True:
             msg = lock.message
             if msg is not None:

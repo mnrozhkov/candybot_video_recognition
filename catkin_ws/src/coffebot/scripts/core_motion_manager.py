@@ -12,14 +12,19 @@ import time
 
 
 class MotionMaker:
+    '''
+    1. recieves robot emotion name and motion pattern name
+    2. makes motions
+    '''
 
     def __init__(self):
-
+        #create objects of robot`s parts classes
         self.head = Head()
         self.eyes = Eyes()
         self.eyebrows = Eyebrows()
         self.body = Body()
 
+        #emotions-motions dictionary
         self.emotion_actions = {
             'neutral' : self._set_neutral,
             'happy'   : self._set_happy,
@@ -36,10 +41,18 @@ class MotionMaker:
 
 
         def callback_pattern(data: std_msgs.msg.String) -> None:
+            '''
+            recieve pattern name
+            '''
+
             self.pattern_name = data.data
 
 
         def callback_emotion(data: std_msgs.msg.String) -> None:
+            '''
+            recieve emotion name
+            '''
+
             self.emotion = data.data
 
         self.pattern_sub = rospy.Subscriber('pattern', std_msgs.msg.String, callback_pattern)
@@ -47,6 +60,10 @@ class MotionMaker:
 
 
     def _reset_fields(self):
+        '''
+        create or reset class fields
+        '''
+
         self.pattern_name = str()
         self.emotion = 'neutral'
 
@@ -116,11 +133,18 @@ class MotionMaker:
         return self.emotion
 
     def set_emotion(emotion: str) -> None:
+        '''
+        set new robot emotion
+        '''
 
         self.emotion_actions[emotion]()
         self.emotion = emotion
 
     def _make_head_motions(self, head_motions: dict or None):
+        '''
+        parse head motions (from motion pattern)
+        '''
+
         if head_motions is not None:
 
             head_turn_left = head_motions.get('turn_left')
@@ -176,6 +200,10 @@ class MotionMaker:
                     self.head.shake_left_right(head_shake_left_right)
 
     def _make_eyes_motions(self, eyes_motions: dict or None):
+        '''
+        parse eyes motions (from motion pattern)
+        '''
+
         if eyes_motions is not None:
 
             eyes_pupil_position = eyes_motions.get('pupil_position')
@@ -186,6 +214,10 @@ class MotionMaker:
                     self.eyes.set_pupil_position(eyes_pupil_position)
 
     def _make_eyebrows_motions(self, eyebrows_motions: dict or None):
+        '''
+        parse eyebrows motions (from motion pattern)
+        '''
+
         if eyebrows_motions is not None:
 
             eyebrows_move_up = eyebrows_motions.get('move_up')
@@ -229,6 +261,10 @@ class MotionMaker:
                     self.eyebrows.blink_backlight(eyebrows_blink_backlight)
 
     def _make_body_motions(self, body_motions: dict or None):
+        '''
+        parse body motions (from motion pattern)
+        '''
+
         if body_motions is not None:
 
             body_blink_backlight = body_motions.get('blink_backlight')
@@ -254,6 +290,10 @@ class MotionMaker:
                     self.body.turn_backlight_dim()
 
     def make_motions(self):
+        '''
+        make motions by robot emotion and pattern content
+        '''
+
         try:
             pattern = yaml.load(open(self.pattern_name,'r'))
             pattern_steps = pattern['steps']
