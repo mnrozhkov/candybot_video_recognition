@@ -38,7 +38,8 @@ class MotionMaker:
             'thinking': self._set_thinking
         }
 
-        self._reset_fields()
+        self.pattern_name = None
+        self.emotion = None
 
         self.motion_publisher = rospy.Publisher('motion', std_msgs.msg.String, queue_size=1)
 
@@ -298,12 +299,15 @@ class MotionMaker:
         make motions by robot emotion and pattern content
         '''
 
-        try:
-            if self.emotion is not None:
-                self.set_emotion(self.emotion)
+        emotion = self.emotion
+        pattern_name = self.pattern_name
 
-            if self.pattern_name is not None:
-                pattern_path = BASE_PATH + '/motion_patterns/' + self.pattern_name + '.yaml'
+        try:
+            if emotion is not None:
+                self.set_emotion(emotion)
+
+            if pattern_name is not None:
+                pattern_path = BASE_PATH + '/motion_patterns/' + pattern_name + '.yaml'
                 pattern = yaml.load(open(pattern_path,'r'))
                 pattern_steps = pattern['steps']
                 print(pattern_steps)
@@ -337,7 +341,10 @@ class MotionMaker:
         except Exception as e:
             print(str(e))
         finally:
-            self._reset_fields()
+            if self.emotion == emotion:
+                self.emotion = None
+            if self.pattern_name == pattern_name:
+                self.pattern_name = None
 
 
 if __name__ == '__main__':
@@ -351,6 +358,6 @@ if __name__ == '__main__':
             rospy.get_master().getPid()
         except:
             break
-        
+
         motion_maker.make_motions()
         time.sleep(0.5)

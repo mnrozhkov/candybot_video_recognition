@@ -11,7 +11,13 @@ import time
 class Decision:
 
     def __init__(self):
-        self._reset_fields()
+        self.bot_text_answer = None
+        self.bot_action_answer = None
+        self.bot_action_parameter_answer = dict()
+        self.smile_exists = False
+        self.face_coords = dict()
+        self.face_info = dict()
+        self.user_emotion = str()
 
         self._create_subscribers()
         self._create_publishers()
@@ -62,7 +68,7 @@ class Decision:
             '''
             recieve information about smile at closest face existance
             '''
-
+            print('callback_smile:', data.data)
             if data.data is True:
                 self.smile_exists = True
 
@@ -82,7 +88,7 @@ class Decision:
 
         rospy.Subscriber('face_info', std_msgs.msg.String, callback_face_info)
         rospy.Subscriber('face_coord', std_msgs.msg.String, callback_face_coords)
-        rospy.Subscriber('smile', std_msgs.msg.Bool, callback_smile)
+        rospy.Subscriber('smile_detected', std_msgs.msg.Bool, callback_smile)
         rospy.Subscriber('bot_dialog', std_msgs.msg.String, callback_bot_dialog)
 
     def _create_publishers(self):
@@ -98,15 +104,15 @@ class Decision:
         1. takes inputs
         2. makes decisions
         '''
-        bot_action_answer = self.bot_action_answer
         bot_text_answer = self.bot_text_answer
+        bot_action_answer = self.bot_action_answer
         smile_exists = self.smile_exists
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1', bot_action_answer)
 
         if bot_text_answer is not None and len(bot_text_answer) > 0:
             self.speech_synthesis_publisher.publish(self.bot_text_answer)
             if bot_action_answer is not None:
-                if bot_action_answer == 'action.hello.sayHello':
+                print('bot_action_answer', bot_action_answer)
+                if bot_action_answer == 'action.hello':
                     self.pattern_publisher.publish('sayHello')
 
         else:
@@ -114,7 +120,12 @@ class Decision:
                 if smile_exists is True:
                     self.dialog_bot_publisher.publish('привет')
 
-        self._reset_fields()
+        if self.bot_text_answer == bot_text_answer:
+            self.bot_text_answer = None
+        if self.bot_action_answer == bot_action_answer:
+            self.bot_action_answer = None
+        if self.smile_exists == smile_exists:
+            self.smile_exists = False
 
 
 if __name__ == '__main__':
