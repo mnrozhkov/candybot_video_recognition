@@ -41,7 +41,10 @@ if __name__ == '__main__':
 
     print('start listen')
     while True:
-
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
         #if sound detected record raw data until silence
         if rospy.has_param('min_rms'):
             min_rms = rospy.get_param('min_rms')

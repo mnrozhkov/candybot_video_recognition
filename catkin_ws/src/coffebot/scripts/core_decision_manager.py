@@ -22,7 +22,7 @@ class Decision:
         '''
 
         self.bot_text_answer = None
-        self.bot_action_answer = str()
+        self.bot_action_answer = None
         self.bot_action_parameter_answer = dict()
         self.smile_exists = False
         self.face_coords = dict()
@@ -85,7 +85,7 @@ class Decision:
         rospy.Subscriber('smile', std_msgs.msg.Bool, callback_smile)
         rospy.Subscriber('bot_dialog', std_msgs.msg.String, callback_bot_dialog)
 
-    def _create_publishers(sefl):
+    def _create_publishers(self):
         self.pattern_publisher = rospy.Publisher('pattern', std_msgs.msg.String, queue_size=1)
         self.emotion_publisher = rospy.Publisher('emotion', std_msgs.msg.String, queue_size=1)
         self.make_video_publisher = rospy.Publisher('make_video', std_msgs.msg.String, queue_size=1)
@@ -98,9 +98,13 @@ class Decision:
         1. takes inputs
         2. makes decisions
         '''
+        bot_action_answer = self.bot_action_answer
+        bot_text_answer = self.bot_text_answer
+        smile_exists = self.smile_exists
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1', bot_action_answer)
 
-        if len(bot_text_answer) > 0:
-            self.speech_synthesis_publisher.publish(bot_text_answer)
+        if bot_text_answer is not None and len(bot_text_answer) > 0:
+            self.speech_synthesis_publisher.publish(self.bot_text_answer)
             if bot_action_answer is not None:
                 if bot_action_answer == 'action.hello.sayHello':
                     self.pattern_publisher.publish('sayHello')
@@ -119,5 +123,10 @@ if __name__ == '__main__':
 
     decision = Decision()
     while True:
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+
         decision.make_decision()
         time.sleep(0.1)

@@ -111,4 +111,9 @@ if __name__ == '__main__':
     rms = RMS()
     #broadcasting minimal rms value
     while True:
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+        
         rospy.set_param('min_rms',rms.get_min_rms())

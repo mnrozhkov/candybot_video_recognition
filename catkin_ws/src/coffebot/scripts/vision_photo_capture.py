@@ -37,6 +37,11 @@ if __name__ == '__main__':
             'photo_file_name': absolute or relative path with photo file name
         }
         '''
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+
         msg = lock_make_photo.message
         if msg is not None:
             make_photo_dictionary = json.loads(msg)
@@ -58,5 +63,6 @@ if __name__ == '__main__':
 
                 image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
 
-        lock_make_photo.message = None
+        if lock_make_photo.message == msg:
+            lock_make_photo.message = None
         time.sleep(0.5)

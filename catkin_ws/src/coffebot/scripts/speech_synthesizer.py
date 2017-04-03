@@ -27,6 +27,11 @@ if __name__ == '__main__':
         print('speech synthesis start')
 
         while True:
+            try:
+                rospy.get_master().getPid()
+            except:
+                break
+
             msg = lock_synthesize.message
             print('speech synthesis data:', msg)
             if msg is not None:
@@ -36,5 +41,6 @@ if __name__ == '__main__':
                     if str_wav_data is not None:
                         synthesized_speech_publisher.publish(str_wav_data)
 
-            lock_synthesize.message = None
+            if lock_synthesize.message == msg:
+                lock_synthesize.message = None
             time.sleep(0.5)

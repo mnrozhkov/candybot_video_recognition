@@ -32,6 +32,11 @@ if __name__ == '__main__':
     rospy.Subscriber('play_audio', std_msgs.msg.String, callback_audio)
 
     while True:
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+            
         msg = lock_speech.message
         if msg is not None:
             wav_bytes = audio_format_converter.str2audio(msg)
@@ -39,5 +44,6 @@ if __name__ == '__main__':
             wav_source.seek(0)
             player.play_audio(wav_source)
 
-        lock_speech.message = None
+        if lock_speech.message == msg:
+            lock_speech.message = None
         time.sleep(0.5)

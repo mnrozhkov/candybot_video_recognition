@@ -347,5 +347,10 @@ if __name__ == '__main__':
     motion_maker = MotionMaker()
     print('motion making start')
     while True:
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+        
         motion_maker.make_motions()
         time.sleep(0.5)

@@ -7,6 +7,8 @@ echo $PYTHONPATH
 rosrun coffebot audio_capture.py & \
 rosrun coffebot audio_min_volume_detector.py & \
 rosrun coffebot audio_player.py & \
+rosrun coffebot core_decision_manager.py & \
+rosrun coffebot core_motion_manager.py & \
 rosrun coffebot dialog_bot_manager.py & \
 rosrun coffebot speech_recognition.py & \
 rosrun coffebot speech_synthesizer.py & \

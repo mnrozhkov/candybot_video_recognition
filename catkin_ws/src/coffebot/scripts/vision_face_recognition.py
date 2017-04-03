@@ -31,6 +31,11 @@ if __name__ == '__main__':
         print('vision face recognition start')
 
         while True:
+            try:
+                rospy.get_master().getPid()
+            except:
+                break
+
             msg = lock_recognize.message
             if msg is not None:
                 face_image = image_format_converter.str2ndarray(msg)
@@ -49,5 +54,6 @@ if __name__ == '__main__':
                     print(face_info)
                     face_info_publisher.publish(json.dumps(face_info))
 
-            lock_recognize.message = None
+            if lock_recognize.message == msg:
+                lock_recognize.message = None
             time.sleep(0.5)

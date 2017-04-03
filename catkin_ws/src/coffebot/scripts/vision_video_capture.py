@@ -41,8 +41,14 @@ if __name__ == '__main__':
             'video_file_name': absolute or relative path with video file name
         }
         '''
+
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
+
         msg = lock_start_video_record.message
-        
+
         if msg is not None:
             record_video_dictionary = json.loads(msg)
 
@@ -101,5 +107,6 @@ if __name__ == '__main__':
                     os.remove(tmp_wav_file_name)
                     os.remove(tmp_avi_file_name)
 
-        lock_start_video_record.message = None
+        if lock_start_video_record.message == msg:
+            lock_start_video_record.message = None
         time.sleep(0.5)

@@ -28,8 +28,13 @@ if __name__ == '__main__':
         print('speech recognition start')
 
         while True:
+            try:
+                rospy.get_master().getPid()
+            except:
+                break
+
             msg = lock_recognize.message
-            
+
             if msg is not None:
                 raw_audio = audio_format_converter.str2audio(msg)
                 wav_data = audio_format_converter.raw_audio2wav(raw_audio, rospy.get_param('pyaudio'))
@@ -38,5 +43,6 @@ if __name__ == '__main__':
                 if recognized_text is not None:
                     recognized_text_publisher.publish(recognized_text)
 
-            lock_recognize.message = None
+            if lock_recognize.message == msg:
+                lock_recognize.message = None
             time.sleep(0.5)

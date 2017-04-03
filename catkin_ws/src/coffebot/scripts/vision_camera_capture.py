@@ -29,6 +29,11 @@ if __name__ == '__main__':
 
         print('view start')
         while True:
+            try:
+                rospy.get_master().getPid()
+            except:
+                break
+            
             ret, frame = cap.read()
             if ret:
                 str_image = image_format_converter.ndarray2str(frame)

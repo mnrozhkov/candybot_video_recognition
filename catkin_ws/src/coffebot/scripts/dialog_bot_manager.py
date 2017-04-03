@@ -28,6 +28,11 @@ if __name__ == '__main__':
         print('dialog bot manager start')
 
         while True:
+            try:
+                rospy.get_master().getPid()
+            except:
+                break
+            
             msg = lock_bot_request.message
             print('user text in bot: ', msg)
             bot_answer = bot.request(msg)
