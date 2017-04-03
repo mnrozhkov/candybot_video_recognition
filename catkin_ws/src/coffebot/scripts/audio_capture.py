@@ -28,11 +28,11 @@ if __name__ == '__main__':
         pyaudio_config = rospy.get_param('pyaudio')
     else:
         pyaudio_config = {
-    		'format': 8,
-    		'channels': 1,
-    		'rate': 16000,
-    		'frames_per_buffer': 1024
-    	},
+            'format': 8,
+            'channels': 1,
+            'rate': 16000,
+            'frames_per_buffer': 1024
+        },
 
     audio_recorder = Recorder(min_rms=min_rms, pyaudio_config=pyaudio_config)
 

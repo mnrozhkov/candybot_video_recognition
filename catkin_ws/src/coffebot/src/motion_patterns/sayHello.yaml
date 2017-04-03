@@ -5,7 +5,7 @@ steps:
     emotion: surprise
     motions:
      eyebrows:
-      move_up: defualt
+      move_up: default
      body:
       blink_backlight: 3
       

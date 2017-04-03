@@ -10,6 +10,9 @@ import yaml
 
 import time
 
+import sys
+
+BASE_PATH = sys.path[0]
 
 class MotionMaker:
     '''
@@ -54,6 +57,7 @@ class MotionMaker:
             '''
 
             self.emotion = data.data
+            print(self.emotion)
 
         self.pattern_sub = rospy.Subscriber('pattern', std_msgs.msg.String, callback_pattern)
         self.emotion_sub = rospy.Subscriber('emotion', std_msgs.msg.String, callback_emotion)
@@ -64,8 +68,8 @@ class MotionMaker:
         create or reset class fields
         '''
 
-        self.pattern_name = str()
-        self.emotion = 'neutral'
+        self.pattern_name = None
+        self.emotion = None
 
     def _set_neutral(self) -> None:
         self.eyebrows.move_up(0)
@@ -295,37 +299,45 @@ class MotionMaker:
         '''
 
         try:
-            pattern = yaml.load(open(self.pattern_name,'r'))
-            pattern_steps = pattern['steps']
-            step_count = len(pattern_steps)
-            i = 0
-            while i < step_count:
-                step = pattern_steps[i]['step']
+            if self.emotion is not None:
+                self.set_emotion(self.emotion)
 
-                step_emotion = step.get('emotion')
-                if step_emotion is not None:
-                    self.set_emotion(step[step_emotion])
+            if self.pattern_name is not None:
+                pattern_path = BASE_PATH + '/motion_patterns/' + self.pattern_name + '.yaml'
+                pattern = yaml.load(open(pattern_path,'r'))
+                pattern_steps = pattern['steps']
+                print(pattern_steps)
+                step_count = len(pattern_steps)
+                i = 0
+                while i < step_count:
 
-                motions = step.get('motions')
-                if motions is not None:
+                    step = pattern_steps[i]['step']
+                    print(step)
+                    step_emotion = step.get('emotion')
+                    if step_emotion is not None:
+                        self.set_emotion(step_emotion)
 
-                    head_motions = motions.get('head')
-                    self._make_head_motions()
+                    motions = step.get('motions')
+                    if motions is not None:
 
-                    eyes_motions = motions.get('eyes')
-                    self._make_eyes_motions(eyes_motions)
+                        head_motions = motions.get('head')
+                        self._make_head_motions(head_motions)
 
-                    eyebrows_motions = motions.get('eyebrows')
-                    self._make_eyebrows_motions(eyebrows_motions)
+                        eyes_motions = motions.get('eyes')
+                        self._make_eyes_motions(eyes_motions)
 
-                    body_motions = motions.get('body')
-                    self._make_body_motions(body_motions)
+                        eyebrows_motions = motions.get('eyebrows')
+                        self._make_eyebrows_motions(eyebrows_motions)
 
-                i += 1
+                        body_motions = motions.get('body')
+                        self._make_body_motions(body_motions)
 
+                    i += 1
+
+        except Exception as e:
+            print(str(e))
+        finally:
             self._reset_fields()
-        except:
-            pass
 
 
 if __name__ == '__main__':
@@ -333,6 +345,7 @@ if __name__ == '__main__':
     rospy.init_node('core_motion_manager')
 
     motion_maker = MotionMaker()
+    print('motion making start')
     while True:
         motion_maker.make_motions()
         time.sleep(0.5)

@@ -1,6 +1,0 @@
-{
-  ['greeting', 'neutral', 'no']:  ['greeting', 'neutral', 'actions.service.command.move_head'],
-  ['greeting', 'neutral', 'yes']: ['greeting', 'happy', 'actions.service.command.move_head'],
-  [-, 'neutral', 'yes']:          ['greeting', 'neutral', 'actions.service.command.move_head'],
-  [-, 'happy', 'yes']:            ['greeting', 'happy', 'actions.service.command.move_head']
-}

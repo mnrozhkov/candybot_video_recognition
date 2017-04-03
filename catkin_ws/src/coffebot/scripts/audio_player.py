@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     player = Player()
 
-    lock_speech = Lock(msg_type=std_msgs.msg.String)
+    lock_speech = Lock()
     rospy.Subscriber('speech_audio', std_msgs.msg.String, lock_speech.callback)
     print('play audio start')
 
@@ -32,10 +32,12 @@ if __name__ == '__main__':
     rospy.Subscriber('play_audio', std_msgs.msg.String, callback_audio)
 
     while True:
-        wav_bytes = audio_format_converter.str2audio(lock_speech.message)
-        wav_source = io.BytesIO(wav_bytes)
-        wav_source.seek(0)
-        player.play_audio(wav_source)
+        msg = lock_speech.message
+        if msg is not None:
+            wav_bytes = audio_format_converter.str2audio(msg)
+            wav_source = io.BytesIO(wav_bytes)
+            wav_source.seek(0)
+            player.play_audio(wav_source)
 
         lock_speech.message = None
         time.sleep(0.5)

@@ -16,6 +16,9 @@ import json
 from coffebot.topic_controller import Lock
 
 
+import time
+
+
 if __name__ == '__main__':
 
     rospy.init_node('vision_photo_capture')
@@ -23,7 +26,7 @@ if __name__ == '__main__':
     print('photo capture start')
 
     clear_make_photo_pub = rospy.Publisher('make_photo', std_msgs.msg.String, queue_size=1)
-    lock_make_photo = Lock(msg_type=std_msgs.msg.String)
+    lock_make_photo = Lock()
     rospy.Subscriber('make_photo', std_msgs.msg.String, lock_make_photo.callback)
 
     while True:

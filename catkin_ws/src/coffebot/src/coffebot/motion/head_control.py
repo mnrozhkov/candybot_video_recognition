@@ -13,10 +13,10 @@ class Head:
         pritn('head turn right:', angle)
 
     def move_up(self, angle: float=math.pi / 4):
-        print('head turn up:', angle)
+        print('head move up:', angle)
 
     def move_down(self, angle: float=math.pi / 4):
-        print('head turn down:', angle)
+        print('head move down:', angle)
 
     def nod_to_agree(self):
         print('head nod to agree')

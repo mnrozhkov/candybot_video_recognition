@@ -23,14 +23,18 @@ if __name__ == '__main__':
         bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
 
         bot_decision_publisher = rospy.Publisher('bot_dialog', std_msgs.msg.String, queue_size=1)
-        lock_bot_request = Lock(msg_type=std_msgs.msg.String)
+        lock_bot_request = Lock()
         rospy.Subscriber('user_speech_text', std_msgs.msg.String, lock_bot_request.callback)
         print('dialog bot manager start')
 
         while True:
-            bot_answer = bot.request(lock_bot_request.message)
+            msg = lock_bot_request.message
+            print('user text in bot: ', msg)
+            bot_answer = bot.request(msg)
+            print('bot_answer:', bot_answer)
             if bot_answer is not None:
                 bot_decision_publisher.publish(json.dumps(bot_answer))
 
-            lock_bot_request.message = None
+            if lock_bot_request.message == msg:
+                lock_bot_request.message = None
             time.sleep(0.5)

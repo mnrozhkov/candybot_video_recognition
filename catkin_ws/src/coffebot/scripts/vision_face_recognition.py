@@ -26,12 +26,12 @@ if __name__ == '__main__':
         face_info_publisher = rospy.Publisher('face_info', std_msgs.msg.String, queue_size=1)
         face_detected_publisher = rospy.Publisher('face_detected', std_msgs.msg.Bool, queue_size=1)
 
-        lock_recognize = Lock(msg_type = std_msgs.msg.String)
+        lock_recognize = Lock()
         rospy.Subscriber('face_image', std_msgs.msg.String, lock_recognize.callback)
         print('vision face recognition start')
 
         while True:
-            msg = lock.message
+            msg = lock_recognize.message
             if msg is not None:
                 face_image = image_format_converter.str2ndarray(msg)
                 print(type(face_image))
@@ -49,5 +49,5 @@ if __name__ == '__main__':
                     print(face_info)
                     face_info_publisher.publish(json.dumps(face_info))
 
-            lock.message = None
+            lock_recognize.message = None
             time.sleep(0.5)
