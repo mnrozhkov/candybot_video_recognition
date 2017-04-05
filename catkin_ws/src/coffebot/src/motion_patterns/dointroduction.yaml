@@ -1,10 +1,12 @@
-name: sayHello
+name: dointroduction
 steps:
  - step:
     order: 1
-    emotion: surprise
+    emotion: happy
     motions:
      eyebrows:
       move_up: default
-     body:
       blink_backlight: 3
+      backlight_color: green
+    body:
+      blink_backlight: 6
