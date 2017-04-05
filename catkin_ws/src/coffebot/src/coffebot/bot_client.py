@@ -13,7 +13,7 @@ class APIAIBot:
 	simple bot class based on apiai
 	'''
 
-	def __init__(self,client_key: str):
+	def __init__(self, client_key: str):
 		self.client_key = client_key
 		self._make_session_id()
 		self._connect()
