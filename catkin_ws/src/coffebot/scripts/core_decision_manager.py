@@ -114,6 +114,14 @@ class Decision:
                 print('bot_action_answer', bot_action_answer)
                 if bot_action_answer == 'action.hello':
                     self.pattern_publisher.publish('sayHello')
+                elif bot_action_answer == 'action.hello.doIntroduction':
+                    self.pattern_publisher.publish('dointroduction')
+                elif bot_action_answer == 'action.service.coffeOrder':
+                    self.pattern_publisher.publish('coffeOrder')
+                elif bot_action_answer == 'action.service.promo.feedback':
+                    self.pattern_publisher.publish('feedback')
+                elif bot_action_answer == 'action.service.goodbye':
+                    self.pattern_publisher.publish('goodbye')
 
         else:
             if bot_action_answer is None:
