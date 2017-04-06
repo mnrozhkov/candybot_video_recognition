@@ -44,8 +44,6 @@ class Head:
     def shake_left_right(self, times: int=1):
         print('head shake left-right')
 
-    def set_led_mode(led_on=False, color=(255,255,255), mode='light', frequency=None):
-        print('body led_on={0},color={1}, mode={2}, frequency={3}'.format(led_on, color, mode, frequency))
 
 
 class Eyebrows:
@@ -87,7 +85,7 @@ class Eyes:
 
     def set_pupil_position(self, angle, distane_from_center_percent):
         print('eyes pupil position: angle={0}, distane from center(percent)={1}'.format(angle, distane_from_center_percent))
-        self.coords = coords
+        #self.coords = coords
 
     def get_pupil_position(self) -> dict:
         return (self.pupil_angle, self.distane_from_center_percent)
