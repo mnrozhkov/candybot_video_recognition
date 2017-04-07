@@ -7,6 +7,7 @@ photo capture and save node
 
 import rospy
 import std_msgs
+from coffebot.msg import MakePhoto
 
 from coffebot.vision import photo_capture
 from coffebot.vision.utils import image_format_converter
@@ -25,12 +26,12 @@ if __name__ == '__main__':
 
     print('photo capture start')
 
-    clear_make_photo_pub = rospy.Publisher('make_photo', std_msgs.msg.String, queue_size=1)
+    clear_make_photo_pub = rospy.Publisher('make_photo', MakePhoto, queue_size=1)
     lock_make_photo = Lock()
-    rospy.Subscriber('make_photo', std_msgs.msg.String, lock_make_photo.callback)
+    rospy.Subscriber('make_photo', MakePhoto, lock_make_photo.callback)
 
     while True:
-        '''
+        ''' REWRITE!!!
         lock.message contains string represantation of dictionary with structure:
         make_photo_dictionary = {
             'make_photo': True,
@@ -44,7 +45,9 @@ if __name__ == '__main__':
 
         msg = lock_make_photo.message
         if msg is not None:
-            make_photo_dictionary = json.loads(msg)
+            make_photo_dictionary = dict()
+            make_photo_dictionary['make_photo'] = msg.make_photo
+            make_photo_dictionary['photo_file_name'] = msg.photo_file_name
 
             if make_photo_dictionary['make_photo'] is True:
 

@@ -2,6 +2,7 @@
 
 import rospy
 import std_msgs
+from coffebot.msg import MotionPattern, Emotion
 
 from coffebot.motion import head_control, body_control
 
@@ -13,6 +14,7 @@ import time
 import sys
 
 BASE_PATH = sys.path[0]
+
 
 class MotionMaker:
     '''
@@ -44,20 +46,20 @@ class MotionMaker:
         self.motion_publisher = rospy.Publisher('motion', std_msgs.msg.String, queue_size=1)
 
 
-        def callback_pattern(data: std_msgs.msg.String) -> None:
+        def callback_pattern(data: MotionPattern) -> None:
             '''
             recieve pattern name
             '''
 
-            self.pattern_name = data.data
+            self.pattern_name = data.name
 
 
-        def callback_emotion(data: std_msgs.msg.String) -> None:
+        def callback_emotion(data: Emotion) -> None:
             '''
             recieve emotion name
             '''
 
-            self.emotion = data.data
+            self.emotion = data.name
             print(self.emotion)
 
         self.pattern_sub = rospy.Subscriber('pattern', std_msgs.msg.String, callback_pattern)

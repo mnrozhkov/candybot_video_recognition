@@ -1,17 +1,23 @@
 # Hashes of file build rules.
 c6c853eaada28d11da994d777f8e81ac /home/alex/catkin_ws/devel/include/candybot_vr/VisionMessage.h
+f4a9842c7f8482e693d60fc8ed63743c /home/alex/catkin_ws/devel/include/coffebot/Audio.h
 cfc2c1a63884091cb86f34c5ef922262 /home/alex/catkin_ws/devel/include/my_test/MultTwoInts.h
 2986f85ad1e9a4494e3f52906414d980 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/candybot_vr/msg/_VisionMessage.py
 321447c42302d8a66e8500d07a35d3ad /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/candybot_vr/msg/__init__.py
+e3c6265e4c7d0d1eee297e9fb8b033c2 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+0a4792ca9c75388024b1b79b361f5711 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
 58392f6d0ec060e9875e4ff14c9d0ce8 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/my_test/srv/_MultTwoInts.py
 96b8b137b5a140f01098cff4c45f052c /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/my_test/srv/__init__.py
 32eb93307cbebdbec271d58a98daa68d /home/alex/catkin_ws/devel/share/common-lisp/ros/candybot_vr/msg/VisionMessage.lisp
+e9a305dd59020751ce232200f619f227 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
 9b09bcf4dd80f2ed941c09b8d1af88f0 /home/alex/catkin_ws/devel/share/common-lisp/ros/my_test/srv/MultTwoInts.lisp
 34c679142eeea29197ce6154e6f05fe2 /home/alex/catkin_ws/devel/share/gennodejs/ros/candybot_vr/msg/VisionMessage.js
+7b6d512a7a60771c1663bb924b7efad1 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
 b87d0cc2737c61e982c855a6acc6e645 /home/alex/catkin_ws/devel/share/gennodejs/ros/my_test/srv/MultTwoInts.js
 50062a4941684c47ece9ab0a92adae8a /home/alex/catkin_ws/devel/share/roseus/ros/candybot_vr/manifest.l
 acf49281543eaba01d6ede501dee5bf1 /home/alex/catkin_ws/devel/share/roseus/ros/candybot_vr/msg/VisionMessage.l
 612647a45d8e06bf99033b20667b1a10 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
+9862c163f8ade0d43691a6d0d133f931 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 aca09feaf6c510b76f85e2a5321686a6 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/manifest.l
 b9e9db185fabbae4713e1501227ac491 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/srv/MultTwoInts.l
 4149710b7485e0744c0953f21d17c44e CMakeFiles/clean_test_results
@@ -21,4 +27,9 @@ b9e9db185fabbae4713e1501227ac491 /home/alex/catkin_ws/devel/share/roseus/ros/my_
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_lisp
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_nodejs
 45ed5e924008cd2968236d2b1116f472 candybot_vr/CMakeFiles/candybot_vr_generate_messages_py
+83269c8c37c5ea2c35c07cb4fb79feea coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio
+efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_cpp
 efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_eus
+efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_lisp
+efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_nodejs
+efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_py

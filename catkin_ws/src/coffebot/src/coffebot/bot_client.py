@@ -54,12 +54,14 @@ class APIAIBot:
 			answer = dict()
 			#extract bot answer
 			answer['text'] = intent['result']['fulfillment']['speech']
+            answer['action'] = dict()
+            answer['action']['name'] = str()
+            answer['action']['parameters'] = str()
 			#if command is complete (all required fields are filled), extract the command information
-			if 'actionIncomplete' in intent['result']:
-				if intent['result']['actionIncomplete'] is False:
-					answer['action'] = dict()
-					answer['action']['name'] = intent['result']['action']
-					answer['action']['parameters'] = intent['result']['parameters']
+			if 'actionIncomplete' in intent['result'] and intent['result']['actionIncomplete'] is False:
+                answer['action']['name'] = intent['result']['action']
+				answer['action']['parameters'] = intent['result']['parameters']
+
 			return answer
 		except Exception as e:
 			logging.error(str(e))

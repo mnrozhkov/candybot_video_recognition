@@ -608,30 +608,17 @@ candybot_vr_generate_messages_lisp/fast:
 .PHONY : candybot_vr_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named coffebot_gencpp
+# Target rules for targets named coffebot_generate_messages_py
 
 # Build rule for target.
-coffebot_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot_gencpp
-.PHONY : coffebot_gencpp
+coffebot_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_py
+.PHONY : coffebot_generate_messages_py
 
 # fast build rule for target.
-coffebot_gencpp/fast:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
-.PHONY : coffebot_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named coffebot_generate_messages_eus
-
-# Build rule for target.
-coffebot_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_eus
-.PHONY : coffebot_generate_messages_eus
-
-# fast build rule for target.
-coffebot_generate_messages_eus/fast:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build
-.PHONY : coffebot_generate_messages_eus/fast
+coffebot_generate_messages_py/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
+.PHONY : coffebot_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named coffebot_geneus
@@ -645,6 +632,32 @@ coffebot_geneus: cmake_check_build_system
 coffebot_geneus/fast:
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/build
 .PHONY : coffebot_geneus/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_gencpp
+
+# Build rule for target.
+coffebot_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_gencpp
+.PHONY : coffebot_gencpp
+
+# fast build rule for target.
+coffebot_gencpp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
+.PHONY : coffebot_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_Audio
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_Audio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_Audio
+.PHONY : _coffebot_generate_messages_check_deps_Audio
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_Audio/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Audio/fast
 
 #=============================================================================
 # Target rules for targets named coffebot_genpy
@@ -673,6 +686,19 @@ coffebot_generate_messages/fast:
 .PHONY : coffebot_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named coffebot_generate_messages_eus
+
+# Build rule for target.
+coffebot_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_eus
+.PHONY : coffebot_generate_messages_eus
+
+# fast build rule for target.
+coffebot_generate_messages_eus/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build
+.PHONY : coffebot_generate_messages_eus/fast
+
+#=============================================================================
 # Target rules for targets named coffebot_genlisp
 
 # Build rule for target.
@@ -686,19 +712,6 @@ coffebot_genlisp/fast:
 .PHONY : coffebot_genlisp/fast
 
 #=============================================================================
-# Target rules for targets named coffebot_generate_messages_lisp
-
-# Build rule for target.
-coffebot_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_lisp
-.PHONY : coffebot_generate_messages_lisp
-
-# fast build rule for target.
-coffebot_generate_messages_lisp/fast:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build
-.PHONY : coffebot_generate_messages_lisp/fast
-
-#=============================================================================
 # Target rules for targets named coffebot_generate_messages_cpp
 
 # Build rule for target.
@@ -710,6 +723,19 @@ coffebot_generate_messages_cpp: cmake_check_build_system
 coffebot_generate_messages_cpp/fast:
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build
 .PHONY : coffebot_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_lisp
+
+# Build rule for target.
+coffebot_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_lisp
+.PHONY : coffebot_generate_messages_lisp
+
+# fast build rule for target.
+coffebot_generate_messages_lisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build
+.PHONY : coffebot_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named coffebot_generate_messages_nodejs
@@ -736,19 +762,6 @@ coffebot_gennodejs: cmake_check_build_system
 coffebot_gennodejs/fast:
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_gennodejs.dir/build.make coffebot/CMakeFiles/coffebot_gennodejs.dir/build
 .PHONY : coffebot_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named coffebot_generate_messages_py
-
-# Build rule for target.
-coffebot_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_py
-.PHONY : coffebot_generate_messages_py
-
-# fast build rule for target.
-coffebot_generate_messages_py/fast:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
-.PHONY : coffebot_generate_messages_py/fast
 
 # Help Target
 help:
@@ -797,17 +810,18 @@ help:
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... candybot_vr_geneus"
 	@echo "... candybot_vr_generate_messages_lisp"
-	@echo "... coffebot_gencpp"
-	@echo "... coffebot_generate_messages_eus"
+	@echo "... coffebot_generate_messages_py"
 	@echo "... coffebot_geneus"
+	@echo "... coffebot_gencpp"
+	@echo "... _coffebot_generate_messages_check_deps_Audio"
 	@echo "... coffebot_genpy"
 	@echo "... coffebot_generate_messages"
+	@echo "... coffebot_generate_messages_eus"
 	@echo "... coffebot_genlisp"
-	@echo "... coffebot_generate_messages_lisp"
 	@echo "... coffebot_generate_messages_cpp"
+	@echo "... coffebot_generate_messages_lisp"
 	@echo "... coffebot_generate_messages_nodejs"
 	@echo "... coffebot_gennodejs"
-	@echo "... coffebot_generate_messages_py"
 .PHONY : help
 
 

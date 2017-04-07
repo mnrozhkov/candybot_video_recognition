@@ -1,3 +1,7 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/coffebot_generate_messages_cpp"
+  "/home/alex/catkin_ws/devel/include/coffebot/Audio.h"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

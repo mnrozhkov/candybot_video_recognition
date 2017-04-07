@@ -10,5 +10,4 @@ class Lock:
 
 
     def callback(self, data):
-        self.message = data.data
-
+        self.message = data

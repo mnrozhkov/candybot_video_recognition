@@ -53,6 +53,17 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Audio.h
+
+
+/home/alex/catkin_ws/devel/include/coffebot/Audio.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/alex/catkin_ws/devel/include/coffebot/Audio.h: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
+/home/alex/catkin_ws/devel/include/coffebot/Audio.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from coffebot/Audio.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+coffebot_generate_messages_cpp: coffebot/CMakeFiles/coffebot_generate_messages_cpp
+coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Audio.h
 coffebot_generate_messages_cpp: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make
 
 .PHONY : coffebot_generate_messages_cpp

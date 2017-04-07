@@ -8,14 +8,12 @@
 import sys
 
 import rospy
-from std_msgs.msg import String
 import base64
 import logging
 import time
 
 from coffebot.audio.recorder import Recorder
-from coffebot.audio.utils import audio_format_converter
-
+from coffebot.msg import Audio
 logging.basicConfig(filename='listener.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.ERROR)
 
@@ -36,7 +34,7 @@ if __name__ == '__main__':
 
     audio_recorder = Recorder(min_rms=min_rms, pyaudio_config=pyaudio_config)
 
-    publisher = rospy.Publisher('audio', String, queue_size=1)
+    publisher = rospy.Publisher('audio', Audio, queue_size=1)
     rospy.init_node('audio_capture')
 
     print('start listen')
@@ -51,7 +49,8 @@ if __name__ == '__main__':
             audio_recorder.set_min_rms(min_rms)
         raw_audio = audio_recorder.listen_audio()
         if raw_audio is not None:
-            str_raw_audio = audio_format_converter.audio2str(raw_audio)
-            publisher.publish(str_raw_audio)
+            msg = Audio()
+            msg.content = raw_audio
+            publisher.publish(msg)
 
         time.sleep(0.1)

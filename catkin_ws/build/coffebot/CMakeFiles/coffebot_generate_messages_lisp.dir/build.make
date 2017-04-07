@@ -53,6 +53,16 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
+
+
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from coffebot/Audio.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
+
+coffebot_generate_messages_lisp: coffebot/CMakeFiles/coffebot_generate_messages_lisp
+coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
 coffebot_generate_messages_lisp: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make
 
 .PHONY : coffebot_generate_messages_lisp

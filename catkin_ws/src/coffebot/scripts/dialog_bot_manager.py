@@ -6,6 +6,7 @@ conversation with bot
 
 import rospy
 import std_msgs
+from coffebot.msg import UserSpeechText, APIAIBotAnswer
 import json
 
 from coffebot.bot_client import APIAIBot
@@ -22,9 +23,9 @@ if __name__ == '__main__':
     if rospy.has_param('bot_client_key'):
         bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
 
-        bot_decision_publisher = rospy.Publisher('bot_dialog', std_msgs.msg.String, queue_size=1)
+        bot_decision_publisher = rospy.Publisher('bot_dialog', APIAIBotAnswer, queue_size=1)
         lock_bot_request = Lock()
-        rospy.Subscriber('user_speech_text', std_msgs.msg.String, lock_bot_request.callback)
+        rospy.Subscriber('user_speech_text', UserSpeechText, lock_bot_request.callback)
         print('dialog bot manager start')
 
         while True:
@@ -32,14 +33,19 @@ if __name__ == '__main__':
                 rospy.get_master().getPid()
             except:
                 break
-            
-            msg = lock_bot_request.message
-            print('user text in bot: ', msg)
-            bot_answer = bot.request(msg)
+
+            user_speech_text_msg = lock_bot_request.message
+            print('user text in bot: ', user_speech_text_msg.text)
+            bot_answer = bot.request(user_speech_text_msg.text)
             print('bot_answer:', bot_answer)
             if bot_answer is not None:
-                bot_decision_publisher.publish(json.dumps(bot_answer))
+                bot_answer_msg = APIAIBotAnswer()
+                bot_answer_msg.text = bot_answer['text']
+                bot_answer_msg.action_name = bot_answer['action']['name']
+                bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
+                
+                bot_decision_publisher.publish(bot_answer_msg)
 
-            if lock_bot_request.message == msg:
+            if lock_bot_request.message == user_speech_text_msg:
                 lock_bot_request.message = None
             time.sleep(0.5)

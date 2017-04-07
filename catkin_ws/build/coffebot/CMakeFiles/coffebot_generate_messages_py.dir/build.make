@@ -53,6 +53,23 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_py.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
+
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG coffebot/Audio"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for coffebot"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg --initpy
+
+coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
 coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make
 
 .PHONY : coffebot_generate_messages_py

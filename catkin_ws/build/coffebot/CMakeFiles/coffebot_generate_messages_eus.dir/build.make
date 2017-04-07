@@ -53,14 +53,21 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
 
 
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from coffebot/Audio.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
+
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for coffebot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for coffebot"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot coffebot std_msgs
 
 coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus
+coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
 coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make
 

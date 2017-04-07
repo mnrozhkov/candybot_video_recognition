@@ -53,6 +53,16 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
+
+
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from coffebot/Audio.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
+
+coffebot_generate_messages_nodejs: coffebot/CMakeFiles/coffebot_generate_messages_nodejs
+coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
 coffebot_generate_messages_nodejs: coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build.make
 
 .PHONY : coffebot_generate_messages_nodejs

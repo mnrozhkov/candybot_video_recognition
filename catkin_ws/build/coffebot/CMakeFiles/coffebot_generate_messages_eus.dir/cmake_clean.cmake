@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/coffebot_generate_messages_eus"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l"
 )
 

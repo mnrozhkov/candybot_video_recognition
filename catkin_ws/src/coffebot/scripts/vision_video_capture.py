@@ -11,6 +11,7 @@ video capture and save node
 
 import rospy
 import std_msgs
+from coffebot.msg import MakeVideo, Audio
 
 from coffebot.vision.utils import image_format_converter
 from coffebot.audio.utils import audio_format_converter
@@ -33,7 +34,7 @@ if __name__ == '__main__':
     print('vision video capture start')
 
     while True:
-        '''
+        '''REWRITE
         lock.message contains string represantation of dictionary with structure:
         record_video_dictionary = {
             'start_video': True,
@@ -50,7 +51,11 @@ if __name__ == '__main__':
         msg = lock_start_video_record.message
 
         if msg is not None:
-            record_video_dictionary = json.loads(msg)
+            record_video_dictionary = dict()
+
+            record_video_dictionary['start_video'] = msg.start_video
+            record_video_dictionary['duration'] = msg.duration
+            record_video_dictionary['video_file_name'] = msg.video_file_name
 
             if record_video_dictionary['start_video'] is True:
                 frames = list()
@@ -66,19 +71,19 @@ if __name__ == '__main__':
                     frame = image_format_converter.str2ndarray(data.data)
                     frames.append(frame)
 
-                def callback_get_audio(data: std_msgs.msg.String) -> None:
+                def callback_get_audio(data: Audio) -> None:
                     '''
                     1. takes audio from audio topic
                     2. converts it to bytes
                     3. adds it to audio buffer
                     '''
 
-                    audio_subbufer = audio_format_converter.str2audio(data.data)
+                    audio_subbufer = data.content
                     audio_buffer_list.append(audio_subbufer)
 
 
                 image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
-                audio_sub = rospy.Subscriber('audio', std_msgs.msg.String, callback_get_audio)
+                audio_sub = rospy.Subscriber('audio', Audio, callback_get_audio)
 
                 start = time.time()
 
