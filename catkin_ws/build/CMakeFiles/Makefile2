@@ -245,7 +245,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=15,16 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=65,66 "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -277,7 +277,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=17,18 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=67,68 "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1233,18 +1233,28 @@ coffebot/all: coffebot/CMakeFiles/coffebot_generate_messages.dir/all
 .PHONY : coffebot/all
 
 # Convenience name for "clean" pass in the directory.
-coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_geneus.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_gencpp.dir/clean
 coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_genpy.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
-coffebot/clean: coffebot/CMakeFiles/coffebot_genlisp.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_gencpp.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/clean
 coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/clean
 coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
 coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/clean
+coffebot/clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/clean
 coffebot/clean: coffebot/CMakeFiles/coffebot_gennodejs.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_genpy.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_geneus.dir/clean
+coffebot/clean: coffebot/CMakeFiles/coffebot_genlisp.dir/clean
 
 .PHONY : coffebot/clean
 
@@ -1252,103 +1262,6 @@ coffebot/clean: coffebot/CMakeFiles/coffebot_gennodejs.dir/clean
 coffebot/preinstall:
 
 .PHONY : coffebot/preinstall
-
-#=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages_py.dir
-
-# All Build rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_py.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=13,14 "Built target coffebot_generate_messages_py"
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
-
-# Convenience name for target.
-coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
-
-.PHONY : coffebot_generate_messages_py
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_geneus.dir
-
-# All Build rule for target.
-coffebot/CMakeFiles/coffebot_geneus.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_geneus"
-.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/all
-
-# Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_geneus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/rule
-
-# Convenience name for target.
-coffebot_geneus: coffebot/CMakeFiles/coffebot_geneus.dir/rule
-
-.PHONY : coffebot_geneus
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_geneus.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/clean
-
-# clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_geneus.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_gencpp.dir
-
-# All Build rule for target.
-coffebot/CMakeFiles/coffebot_gencpp.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_gencpp"
-.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/all
-
-# Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_gencpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/rule
-
-# Convenience name for target.
-coffebot_gencpp: coffebot/CMakeFiles/coffebot_gencpp.dir/rule
-
-.PHONY : coffebot_gencpp
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_gencpp.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/clean
-
-# clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_gencpp.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir
@@ -1383,140 +1296,365 @@ clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/clea
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_genpy.dir
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir
 
 # All Build rule for target.
-coffebot/CMakeFiles/coffebot_genpy.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_genpy"
-.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_MakeVideo"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
 
 # Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_genpy.dir/all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
 
 # Convenience name for target.
-coffebot_genpy: coffebot/CMakeFiles/coffebot_genpy.dir/rule
+_coffebot_generate_messages_check_deps_MakeVideo: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
 
-.PHONY : coffebot_genpy
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_genpy.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/clean
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideo
 
 # clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_genpy.dir/clean
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages.dir
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir
 
 # All Build rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_generate_messages"
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/all
-
-# Include target in all.
-all: coffebot/CMakeFiles/coffebot_generate_messages.dir/all
-
-.PHONY : all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_MakePhoto"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
 
 # Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages.dir/all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/rule
 
 # Convenience name for target.
-coffebot_generate_messages: coffebot/CMakeFiles/coffebot_generate_messages.dir/rule
+_coffebot_generate_messages_check_deps_MakePhoto: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/rule
 
-.PHONY : coffebot_generate_messages
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
+.PHONY : _coffebot_generate_messages_check_deps_MakePhoto
 
 # clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages_eus.dir
+# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages_py.dir
 
 # All Build rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=9,10 "Built target coffebot_generate_messages_eus"
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_py.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=53,54,55,56,57,58,59,60,61,62,63,64 "Built target coffebot_generate_messages_py"
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
 
 # Convenience name for target.
-coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule
+coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
 
-.PHONY : coffebot_generate_messages_eus
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+.PHONY : coffebot_generate_messages_py
 
 # clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target coffebot/CMakeFiles/coffebot_genlisp.dir
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir
 
 # All Build rule for target.
-coffebot/CMakeFiles/coffebot_genlisp.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/depend
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_genlisp"
-.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_Emotion"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
 
 # Build rule for subdir invocation for target.
-coffebot/CMakeFiles/coffebot_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_genlisp.dir/all
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
-.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/rule
 
 # Convenience name for target.
-coffebot_genlisp: coffebot/CMakeFiles/coffebot_genlisp.dir/rule
+_coffebot_generate_messages_check_deps_Emotion: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/rule
 
-.PHONY : coffebot_genlisp
-
-# clean rule for target.
-coffebot/CMakeFiles/coffebot_genlisp.dir/clean:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/clean
-.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/clean
+.PHONY : _coffebot_generate_messages_check_deps_Emotion
 
 # clean rule for target.
-clean: coffebot/CMakeFiles/coffebot_genlisp.dir/clean
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_APIAIBotAnswer"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_APIAIBotAnswer: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_APIAIBotAnswer
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_FaceCoordinates"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_FaceCoordinates: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_FaceCoordinates
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_UserSpeechText"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_UserSpeechText: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_UserSpeechText
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_gencpp.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_gencpp.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_gencpp"
+.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_gencpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_gencpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/rule
+
+# Convenience name for target.
+coffebot_gencpp: coffebot/CMakeFiles/coffebot_gencpp.dir/rule
+
+.PHONY : coffebot_gencpp
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_gencpp.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_gencpp.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_gencpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_MotionPattern"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_MotionPattern: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_MotionPattern
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_BotSpeechText"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_BotSpeechText: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_BotSpeechText
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_FaceFeatures"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_FaceFeatures: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_FaceFeatures
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/clean
 
 .PHONY : clean
 
@@ -1526,14 +1664,24 @@ clean: coffebot/CMakeFiles/coffebot_genlisp.dir/clean
 # All Build rule for target.
 coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/depend
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=8 "Built target coffebot_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18 "Built target coffebot_generate_messages_cpp"
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/rule
@@ -1559,14 +1707,24 @@ clean: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/clean
 # All Build rule for target.
 coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/depend
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=11 "Built target coffebot_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=31,32,33,34,35,36,37,38,39,40,41 "Built target coffebot_generate_messages_lisp"
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/rule
@@ -1587,19 +1745,70 @@ clean: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_generate_messages"
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/all
+
+# Include target in all.
+all: coffebot/CMakeFiles/coffebot_generate_messages.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 57
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/rule
+
+# Convenience name for target.
+coffebot_generate_messages: coffebot/CMakeFiles/coffebot_generate_messages.dir/rule
+
+.PHONY : coffebot_generate_messages
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_generate_messages.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_generate_messages.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir
 
 # All Build rule for target.
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/depend
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=12 "Built target coffebot_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=42,43,44,45,46,47,48,49,50,51,52 "Built target coffebot_generate_messages_nodejs"
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/rule
@@ -1620,6 +1829,38 @@ clean: coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target _coffebot_generate_messages_check_deps_SmileDetected"
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_SmileDetected: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_SmileDetected
+
+# clean rule for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/clean
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target coffebot/CMakeFiles/coffebot_gennodejs.dir
 
 # All Build rule for target.
@@ -1631,7 +1872,7 @@ coffebot/CMakeFiles/coffebot_gennodejs.dir/all: coffebot/CMakeFiles/coffebot_gen
 
 # Build rule for subdir invocation for target.
 coffebot/CMakeFiles/coffebot_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
 .PHONY : coffebot/CMakeFiles/coffebot_gennodejs.dir/rule
@@ -1648,6 +1889,145 @@ coffebot/CMakeFiles/coffebot_gennodejs.dir/clean:
 
 # clean rule for target.
 clean: coffebot/CMakeFiles/coffebot_gennodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_generate_messages_eus.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: candybot_vr/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/all
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28,29,30 "Built target coffebot_generate_messages_eus"
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/rule
+
+.PHONY : coffebot_generate_messages_eus
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_genpy.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_genpy.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_genpy"
+.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/rule
+
+# Convenience name for target.
+coffebot_genpy: coffebot/CMakeFiles/coffebot_genpy.dir/rule
+
+.PHONY : coffebot_genpy
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_genpy.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_genpy.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_genpy.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_geneus.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_geneus.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_geneus"
+.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_geneus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_geneus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/rule
+
+# Convenience name for target.
+coffebot_geneus: coffebot/CMakeFiles/coffebot_geneus.dir/rule
+
+.PHONY : coffebot_geneus
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_geneus.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_geneus.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_geneus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target coffebot/CMakeFiles/coffebot_genlisp.dir
+
+# All Build rule for target.
+coffebot/CMakeFiles/coffebot_genlisp.dir/all: coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/all
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/depend
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num= "Built target coffebot_genlisp"
+.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/all
+
+# Build rule for subdir invocation for target.
+coffebot/CMakeFiles/coffebot_genlisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 11
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_genlisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles 0
+.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/rule
+
+# Convenience name for target.
+coffebot_genlisp: coffebot/CMakeFiles/coffebot_genlisp.dir/rule
+
+.PHONY : coffebot_genlisp
+
+# clean rule for target.
+coffebot/CMakeFiles/coffebot_genlisp.dir/clean:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/clean
+.PHONY : coffebot/CMakeFiles/coffebot_genlisp.dir/clean
+
+# clean rule for target.
+clean: coffebot/CMakeFiles/coffebot_genlisp.dir/clean
 
 .PHONY : clean
 

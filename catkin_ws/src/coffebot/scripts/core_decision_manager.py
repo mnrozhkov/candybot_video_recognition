@@ -35,10 +35,10 @@ class Decision:
             '''
 
             self.face_info = dict()
-            self.face_info['emotions'] = json.loads(data.emotions)
-            self.face_info['celebrities_similarity'] = json.loads(data.celebrities_similarity)
-            self.face_info['gender'] = json.loads(data.gender)
-            self.face_info['age'] = json.loads(data.age)
+            self.face_info['emotions'] = json.loads(data.json_emotions)
+            self.face_info['celebrities_similarity'] = json.loads(data.json_celebrities_similarity)
+            self.face_info['gender'] = json.loads(data.json_gender)
+            self.face_info['age'] = json.loads(data.json_age)
 
             emotions = self.face_info['emotions']
             emotion_confidence = 0.0

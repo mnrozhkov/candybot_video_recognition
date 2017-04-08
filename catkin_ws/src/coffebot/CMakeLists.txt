@@ -47,7 +47,17 @@ catkin_python_setup()
 ## Generate messages in the 'msg' folder
 add_message_files(
    FILES
+   APIAIBotAnswer.msg
    Audio.msg
+   BotSpeechText.msg
+   Emotion.msg
+   FaceCoordinates.msg
+   FaceFeatures.msg
+   MakePhoto.msg
+   MakeVideo.msg
+   MotionPattern.msg
+   SmileDetected.msg
+   UserSpeechText.msg
  )
 
 ## Generate services in the 'srv' folder

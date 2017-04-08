@@ -33,8 +33,8 @@ if __name__ == '__main__':
                 break
 
             bot_speech_text_msg = lock_synthesize.message
-            print('speech synthesis data:', bot_speech_text_msg.text)
-            if msg is not None:
+            print('speech synthesis data:', bot_speech_text_msg)
+            if bot_speech_text_msg is not None:
                 wav_bytes = talker.text_to_speech(bot_speech_text_msg.text)
                 if wav_bytes is not None:
                     message = Audio()

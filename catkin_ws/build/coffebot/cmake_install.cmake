@@ -37,7 +37,19 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/msg" TYPE FILE FILES "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/msg" TYPE FILE FILES
+    "/home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/FaceCoordinates.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/MotionPattern.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

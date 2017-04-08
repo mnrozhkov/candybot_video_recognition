@@ -53,22 +53,102 @@ CMAKE_BINARY_DIR = /home/alex/catkin_ws/build
 # Include the progress variables for this target.
 include coffebot/CMakeFiles/coffebot_generate_messages_py.dir/progress.make
 
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideo.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_APIAIBotAnswer.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py
 coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py
+coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py
 coffebot/CMakeFiles/coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
 
 
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py: /home/alex/catkin_ws/src/coffebot/msg/MotionPattern.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG coffebot/MotionPattern"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/MotionPattern.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideo.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideo.py: /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG coffebot/MakeVideo"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py: /home/alex/catkin_ws/src/coffebot/msg/FaceCoordinates.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG coffebot/FaceCoordinates"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/FaceCoordinates.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_APIAIBotAnswer.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_APIAIBotAnswer.py: /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG coffebot/APIAIBotAnswer"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py: /home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG coffebot/MakePhoto"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py: /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG coffebot/Emotion"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py: /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG coffebot/BotSpeechText"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py: /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python from MSG coffebot/UserSpeechText"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG coffebot/Audio"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python from MSG coffebot/Audio"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
 
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py: /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python from MSG coffebot/FaceFeatures"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py: /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python from MSG coffebot/SmileDetected"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg
+
 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideo.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_APIAIBotAnswer.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py
 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for coffebot"
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py
+/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python msg __init__.py for coffebot"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg --initpy
 
 coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideo.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_APIAIBotAnswer.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py
 coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py
+coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py
 coffebot_generate_messages_py: /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
 coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make
 

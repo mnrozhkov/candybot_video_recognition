@@ -5,7 +5,6 @@ speech recognition node
 '''
 
 import rospy
-import std_msgs
 from coffebot.msg import Audio, UserSpeechText
 
 from coffebot.audio.recognizer import SpeechRecognizer
@@ -34,10 +33,10 @@ if __name__ == '__main__':
             except:
                 break
 
-            msg = lock_recognize.message
+            recognize_text_msg = lock_recognize.message
 
-            if msg is not None:
-                wav_data = audio_format_converter.raw_audio2wav(msg.content, rospy.get_param('pyaudio'))
+            if recognize_text_msg is not None:
+                wav_data = audio_format_converter.raw_audio2wav(recognize_text_msg.content, rospy.get_param('pyaudio'))
                 recognized_text = sr.recognize_speech(wav_data)
                 print(recognized_text)
                 if recognized_text is not None:
@@ -45,6 +44,6 @@ if __name__ == '__main__':
                     user_speech_text_msg.text = recognized_text
                     recognized_text_publisher.publish(user_speech_text_msg)
 
-            if lock_recognize.message == msg:
+            if lock_recognize.message == recognize_text_msg:
                 lock_recognize.message = None
             time.sleep(0.5)

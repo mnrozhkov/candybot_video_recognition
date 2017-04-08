@@ -37,8 +37,8 @@ if __name__ == '__main__':
                 break
 
             face_image_msg = lock_recognize.message
-            if msg is not None:
-                face_image = ros_numpy.msgify(face_image_msg)
+            if face_image_msg is not None:
+                face_image = ros_numpy.numpify(face_image_msg)
                 print(type(face_image))
                 if face_image is not None:
 
@@ -47,10 +47,10 @@ if __name__ == '__main__':
                     #search other features: emotions, celebrities similarity, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features_msg = FaceFeatures()
-                    face_features_msg.emotions = json.dumps(face_recognition.recognize_emotions(binary_face_image))
-                    face_features_msg.celebrities_similarity = json.dumps(face_recognition.recognize_celebrities_similarity(binary_face_image))
-                    face_features_msg.gender = json.dumps(face_recognition.recognize_gender(binary_face_image))
-                    face_features_msg.age = json.dumps(face_recognition.recognize_age(binary_face_image))
+                    face_features_msg.json_emotions = json.dumps(face_recognition.recognize_emotions(binary_face_image))
+                    face_features_msg.json_celebrities_similarity = json.dumps(face_recognition.recognize_celebrities_similarity(binary_face_image))
+                    face_features_msg.json_gender = json.dumps(face_recognition.recognize_gender(binary_face_image))
+                    face_features_msg.json_age = json.dumps(face_recognition.recognize_age(binary_face_image))
                     print(face_features_msg)
                     face_info_publisher.publish(face_features_msg)
 

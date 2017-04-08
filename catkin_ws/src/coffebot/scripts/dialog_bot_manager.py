@@ -34,16 +34,17 @@ if __name__ == '__main__':
                 break
 
             user_speech_text_msg = lock_bot_request.message
-            print('user text in bot: ', user_speech_text_msg.text)
-            bot_answer = bot.request(user_speech_text_msg.text)
-            print('bot_answer:', bot_answer)
-            if bot_answer is not None:
-                bot_answer_msg = APIAIBotAnswer()
-                bot_answer_msg.text = bot_answer['text']
-                bot_answer_msg.action_name = bot_answer['action']['name']
-                bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
+            print('user text in bot: ', user_speech_text_msg)
+            if user_speech_text_msg is not None:
+                bot_answer = bot.request(user_speech_text_msg.text)
+                print('bot_answer:', bot_answer)
+                if bot_answer is not None:
+                    bot_answer_msg = APIAIBotAnswer()
+                    bot_answer_msg.text = bot_answer['text']
+                    bot_answer_msg.action_name = bot_answer['action']['name']
+                    bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
 
-                bot_decision_publisher.publish(bot_answer_msg)
+                    bot_decision_publisher.publish(bot_answer_msg)
 
             if lock_bot_request.message == user_speech_text_msg:
                 lock_bot_request.message = None

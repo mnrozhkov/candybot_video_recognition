@@ -67,6 +67,6 @@ if __name__ == '__main__':
 
                 image_sub = rospy.Subscriber('image', Image, callback_get_image)
 
-        if lock_make_photo.message == msg:
+        if lock_make_photo.message == img_msg:
             lock_make_photo.message = None
         time.sleep(0.5)
