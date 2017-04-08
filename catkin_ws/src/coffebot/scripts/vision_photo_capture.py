@@ -6,8 +6,9 @@ photo capture and save node
 '''
 
 import rospy
-import std_msgs
 from coffebot.msg import MakePhoto
+import ros_numpy
+from sensor_msgs.msg import Image
 
 from coffebot.vision import photo_capture
 from coffebot.vision.utils import image_format_converter
@@ -43,28 +44,28 @@ if __name__ == '__main__':
         except:
             break
 
-        msg = lock_make_photo.message
-        if msg is not None:
+        img_msg = lock_make_photo.message
+        if img_msg is not None:
             make_photo_dictionary = dict()
-            make_photo_dictionary['make_photo'] = msg.make_photo
-            make_photo_dictionary['photo_file_name'] = msg.photo_file_name
+            make_photo_dictionary['make_photo'] = img_msg.make_photo
+            make_photo_dictionary['photo_file_name'] = img_msg.photo_file_name
 
             if make_photo_dictionary['make_photo'] is True:
 
                 photo_saved = False
 
-                def callback_get_image(data: std_msgs.msg.String) -> None:
+                def callback_get_image(data: Image) -> None:
                     '''
                     1. takes message from image topic
                     2. converts it to numpy.ndarray frame
                     3. save it as image file
                     '''
 
-                    frame = image_format_converter.str2ndarray(data.data)
+                    frame = ros_numpy.numpify(data)
                     photo_capture.save_photo(frame, make_photo_dictionary['photo_file_name'])
                     image_sub.unregister()
 
-                image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
+                image_sub = rospy.Subscriber('image', Image, callback_get_image)
 
         if lock_make_photo.message == msg:
             lock_make_photo.message = None

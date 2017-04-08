@@ -5,7 +5,6 @@ conversation with bot
 '''
 
 import rospy
-import std_msgs
 from coffebot.msg import UserSpeechText, APIAIBotAnswer
 import json
 
@@ -43,7 +42,7 @@ if __name__ == '__main__':
                 bot_answer_msg.text = bot_answer['text']
                 bot_answer_msg.action_name = bot_answer['action']['name']
                 bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
-                
+
                 bot_decision_publisher.publish(bot_answer_msg)
 
             if lock_bot_request.message == user_speech_text_msg:

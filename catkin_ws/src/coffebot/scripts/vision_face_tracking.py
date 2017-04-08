@@ -5,8 +5,9 @@ tracking face node
 '''
 
 import rospy
-import std_msgs
-from coffebot.msg import FaceCoordinates
+from coffebot.msg import FaceCoordinates, SmileDetected
+import ros_numpy
+from sensor_msgs.msg import Image
 
 from coffebot.vision.utils import image_format_converter
 from coffebot.vision import face_detection
@@ -23,11 +24,11 @@ if __name__ == '__main__':
     rospy.init_node('vision_face_tracking')
 
     face_coord_publisher = rospy.Publisher('face_coord', FaceCoordinates, queue_size=1)
-    face_image_publisher = rospy.Publisher('face_image', std_msgs.msg.String, queue_size=1)
-    smile_detected_publisher = rospy.Publisher('smile_detected', std_msgs.msg.Bool, queue_size=1)
+    face_image_publisher = rospy.Publisher('face_image', Image, queue_size=1)
+    smile_detected_publisher = rospy.Publisher('smile_detected', SmileDetected, queue_size=1)
     tracker = face_detection.FaceTracker()
     lock_image = Lock()
-    rospy.Subscriber('image', std_msgs.msg.String, lock_image.callback)
+    rospy.Subscriber('image', Image, lock_image.callback)
 
     while True:
         try:
@@ -39,11 +40,10 @@ if __name__ == '__main__':
 
         if msg is not None:
 
-            image = image_format_converter.str2ndarray(msg)
+            image = ros_numpy.numpify(msg)
 
             face_region = tracker.find_closest_face_region(image)
             print(face_region)
-            print(type(face_region['h']))
 
             face_coordinates_msg = FaceCoordinates()
             face_coordinates_msg.x = face_region['x']
@@ -59,15 +59,17 @@ if __name__ == '__main__':
             h = face_region['h']
             if w > 0 and h > 0:
                     face_array = image[x:x+w, y:y+h]
-                    str_face_array = image_format_converter.ndarray2str(face_array)
-
+                    face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
                     #search smile
                     smile = tracker.detect_smile(face_array)
                     if smile is None:
-                            smile = False
+                        smile = False
                     print('smile: ', smile)
-                    smile_detected_publisher.publish(smile)
-                    face_image_publisher.publish(str_face_array)
+                    smile_detected_msg = SmileDetected()
+                    smile_detected_msg.detected = smile
+                    smile_detected_publisher.publish(smile_detected_msg)
+
+                    face_image_publisher.publish(face_image_msg)
 
             if lock_image.message == msg:
                 lock_image.message = None

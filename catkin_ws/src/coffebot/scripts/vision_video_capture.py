@@ -10,8 +10,9 @@ video capture and save node
 '''
 
 import rospy
-import std_msgs
 from coffebot.msg import MakeVideo, Audio
+import ros_numpy
+from sensor_msgs.msg import Image
 
 from coffebot.vision.utils import image_format_converter
 from coffebot.audio.utils import audio_format_converter
@@ -30,7 +31,7 @@ if __name__ == '__main__':
 
     rospy.init_node('vision_video_capture')
     lock_start_video_record = Lock()
-    rospy.Subscriber('record_video', std_msgs.msg.String, lock_start_video_record.callback)
+    rospy.Subscriber('record_video', MakeVideo, lock_start_video_record.callback)
     print('vision video capture start')
 
     while True:
@@ -48,27 +49,22 @@ if __name__ == '__main__':
         except:
             break
 
-        msg = lock_start_video_record.message
+        make_video_msg = lock_start_video_record.message
 
-        if msg is not None:
-            record_video_dictionary = dict()
+        if make_video_msg is not None:
 
-            record_video_dictionary['start_video'] = msg.start_video
-            record_video_dictionary['duration'] = msg.duration
-            record_video_dictionary['video_file_name'] = msg.video_file_name
-
-            if record_video_dictionary['start_video'] is True:
+            if make_video_msg.start_video is True:
                 frames = list()
                 audio_buffer_list = list()
 
-                def callback_get_image(data: std_msgs.msg.String) -> None:
+                def callback_get_image(data: Image) -> None:
                     '''
                     1. takes message from image topic
                     2. converts it to numpy.ndarray frame
                     3. appends the frame to frames list
                     '''
 
-                    frame = image_format_converter.str2ndarray(data.data)
+                    frame = ros_numpy.numpify(data)
                     frames.append(frame)
 
                 def callback_get_audio(data: Audio) -> None:
@@ -82,13 +78,13 @@ if __name__ == '__main__':
                     audio_buffer_list.append(audio_subbufer)
 
 
-                image_sub = rospy.Subscriber('image', std_msgs.msg.String, callback_get_image)
+                image_sub = rospy.Subscriber('image', Image, callback_get_image)
                 audio_sub = rospy.Subscriber('audio', Audio, callback_get_audio)
 
                 start = time.time()
 
                 #recieve video frames and audio parts during duration time
-                while time.time() - start < record_video_dictionary['duration']:
+                while time.time() - start < make_video_msg.duration:
                     pass
 
                 #after time exceed release audio and image Subscribers to stop recieve data
@@ -108,10 +104,10 @@ if __name__ == '__main__':
                     tmp_avi_file_name = video_capture.create_video(frames, 'tmp.avi')
 
                     #merge audio and video and delete temporary files
-                    video_capture.merge_audio_video(tmp_wav_file_name, tmp_avi_file_name, record_video_dictionary['video_file_name'])
+                    video_capture.merge_audio_video(tmp_wav_file_name, tmp_avi_file_name, make_video_msg.video_file_name)
                     os.remove(tmp_wav_file_name)
                     os.remove(tmp_avi_file_name)
 
-        if lock_start_video_record.message == msg:
+        if lock_start_video_record.message == make_video_msg:
             lock_start_video_record.message = None
         time.sleep(0.5)

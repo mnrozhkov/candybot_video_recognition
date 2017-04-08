@@ -1,0 +1,4 @@
+string json_emotions
+string json_celebrities_similarity
+string json_gender
+string json_age

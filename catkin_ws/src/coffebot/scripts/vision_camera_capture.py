@@ -7,11 +7,12 @@
 import sys
 sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
-
 import rospy
-from std_msgs.msg import String
+from sensor_msgs.msg import Image
+
+import ros_numpy
+
 import cv2
-from coffebot.vision.utils import image_format_converter
 import time
 import logging
 
@@ -22,7 +23,7 @@ logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n
 if __name__ == '__main__':
     try:
 
-        publisher = rospy.Publisher('image', String, queue_size=1)
+        publisher = rospy.Publisher('image', Image, queue_size=1)
         rospy.init_node('viewer')
 
         cap = cv2.VideoCapture(0)
@@ -33,11 +34,11 @@ if __name__ == '__main__':
                 rospy.get_master().getPid()
             except:
                 break
-            
+
             ret, frame = cap.read()
             if ret:
-                str_image = image_format_converter.ndarray2str(frame)
-                publisher.publish(str_image)
+                image = ros_numpy.msgify(Image, frame, encoding='rgb8')
+                publisher.publish(image)
                 time.sleep(0.1)
 
     except Exception as e:

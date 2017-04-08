@@ -5,7 +5,6 @@ speech sythesis node
 '''
 
 import rospy
-import std_msgs
 from coffebot.msg import Audio, BotSpeechText
 
 from coffebot.audio.synthesizer import Talker

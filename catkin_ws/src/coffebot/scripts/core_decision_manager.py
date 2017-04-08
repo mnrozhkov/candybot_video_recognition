@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 import rospy
-import std_msgs
 from coffebot.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
 from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
-from coffebot.msg import FaceCoordinates
+from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
 import json
 
 import time
@@ -29,13 +28,18 @@ class Decision:
         create Subscribers with theirs callbacks
         '''
 
-        def callback_face_info(data: std_msgs.msg.String) -> None:
+        def callback_face_info(data: FaceFeatures) -> None:
             '''
             1. recieve face features information
             2. extract user emotion from it
             '''
 
-            self.face_info = json.loads(data.data)
+            self.face_info = dict()
+            self.face_info['emotions'] = json.loads(data.emotions)
+            self.face_info['celebrities_similarity'] = json.loads(data.celebrities_similarity)
+            self.face_info['gender'] = json.loads(data.gender)
+            self.face_info['age'] = json.loads(data.age)
+
             emotions = self.face_info['emotions']
             emotion_confidence = 0.0
             self.user_emotion = None
@@ -53,12 +57,12 @@ class Decision:
             self.face_coords = dict({'x': int(data.x), 'y': int(data.y), 'w': int(data.w), 'h': int(data.h)})
 
 
-        def callback_smile(data: std_msgs.msg.Bool) -> None:
+        def callback_smile(data: SmileDetected) -> None:
             '''
             recieve information about smile at closest face existance
             '''
-            print('callback_smile:', data.data)
-            if data.data is True:
+            print('callback_smile:', data.detected)
+            if data.detected is True:
                 self.smile_exists = True
 
 
@@ -75,9 +79,9 @@ class Decision:
                 self.bot_action_parameter_answer = json.loads(data.action_parameters_in_json)
 
 
-        rospy.Subscriber('face_info', std_msgs.msg.String, callback_face_info)
+        rospy.Subscriber('face_info', FaceFeatures, callback_face_info)
         rospy.Subscriber('face_coord', FaceCoordinates, callback_face_coords)
-        rospy.Subscriber('smile_detected', std_msgs.msg.Bool, callback_smile)
+        rospy.Subscriber('smile_detected', SmileDetected, callback_smile)
         rospy.Subscriber('bot_dialog', APIAIBotAnswer, callback_bot_dialog)
 
     def _create_publishers(self):

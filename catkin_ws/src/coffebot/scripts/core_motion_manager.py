@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import rospy
-import std_msgs
 from coffebot.msg import MotionPattern, Emotion
 
 from coffebot.motion import head_control, body_control
@@ -43,8 +42,6 @@ class MotionMaker:
         self.pattern_name = None
         self.emotion = None
 
-        self.motion_publisher = rospy.Publisher('motion', std_msgs.msg.String, queue_size=1)
-
 
         def callback_pattern(data: MotionPattern) -> None:
             '''
@@ -62,8 +59,8 @@ class MotionMaker:
             self.emotion = data.name
             print(self.emotion)
 
-        self.pattern_sub = rospy.Subscriber('pattern', std_msgs.msg.String, callback_pattern)
-        self.emotion_sub = rospy.Subscriber('emotion', std_msgs.msg.String, callback_emotion)
+        self.pattern_sub = rospy.Subscriber('pattern', MotionPattern, callback_pattern)
+        self.emotion_sub = rospy.Subscriber('emotion', Emotion, callback_emotion)
 
 
     def _reset_fields(self):
