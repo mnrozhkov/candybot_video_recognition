@@ -77,17 +77,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -133,6 +122,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/alex/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/catkin_ws/build/CMakeFiles /home/alex/catkin_ws/build/coffebot/CMakeFiles/progress.marks
@@ -166,34 +166,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
-.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
+coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
+.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
 
 # Convenience name for target.
-_coffebot_generate_messages_check_deps_Audio: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
+coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
 
-.PHONY : _coffebot_generate_messages_check_deps_Audio
+.PHONY : coffebot_generate_messages_py
 
 # fast build rule for target.
-_coffebot_generate_messages_check_deps_Audio/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build
-.PHONY : _coffebot_generate_messages_check_deps_Audio/fast
-
-# Convenience name for target.
-coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
-.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
-
-# Convenience name for target.
-_coffebot_generate_messages_check_deps_MakeVideo: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
-
-.PHONY : _coffebot_generate_messages_check_deps_MakeVideo
-
-# fast build rule for target.
-_coffebot_generate_messages_check_deps_MakeVideo/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build
-.PHONY : _coffebot_generate_messages_check_deps_MakeVideo/fast
+coffebot_generate_messages_py/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
+.PHONY : coffebot_generate_messages_py/fast
 
 # Convenience name for target.
 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/rule:
@@ -211,19 +196,49 @@ _coffebot_generate_messages_check_deps_MakePhoto/fast:
 .PHONY : _coffebot_generate_messages_check_deps_MakePhoto/fast
 
 # Convenience name for target.
-coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
-.PHONY : coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/rule
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/rule
 
 # Convenience name for target.
-coffebot_generate_messages_py: coffebot/CMakeFiles/coffebot_generate_messages_py.dir/rule
+_coffebot_generate_messages_check_deps_EyesMotion: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/rule
 
-.PHONY : coffebot_generate_messages_py
+.PHONY : _coffebot_generate_messages_check_deps_EyesMotion
 
 # fast build rule for target.
-coffebot_generate_messages_py/fast:
-	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
-.PHONY : coffebot_generate_messages_py/fast
+_coffebot_generate_messages_check_deps_EyesMotion/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_EyesMotion/fast
+
+# Convenience name for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_MakeVideo: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideo
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideo/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideo/fast
+
+# Convenience name for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_Audio: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_Audio
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_Audio/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Audio/fast
 
 # Convenience name for target.
 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/rule:
@@ -391,6 +406,21 @@ coffebot_generate_messages/fast:
 .PHONY : coffebot_generate_messages/fast
 
 # Convenience name for target.
+coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/rule:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/rule
+.PHONY : coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/rule
+
+# Convenience name for target.
+_coffebot_generate_messages_check_deps_EyesState: coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/rule
+
+.PHONY : _coffebot_generate_messages_check_deps_EyesState
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_EyesState/fast:
+	cd /home/alex/catkin_ws/build && $(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_EyesState/fast
+
+# Convenience name for target.
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/rule:
 	cd /home/alex/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/rule
 .PHONY : coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/rule
@@ -503,13 +533,13 @@ help:
 	@echo "... depend"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... install/local"
 	@echo "... install/strip"
-	@echo "... _coffebot_generate_messages_check_deps_Audio"
-	@echo "... _coffebot_generate_messages_check_deps_MakeVideo"
-	@echo "... _coffebot_generate_messages_check_deps_MakePhoto"
 	@echo "... coffebot_generate_messages_py"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhoto"
+	@echo "... _coffebot_generate_messages_check_deps_EyesMotion"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideo"
+	@echo "... _coffebot_generate_messages_check_deps_Audio"
 	@echo "... _coffebot_generate_messages_check_deps_Emotion"
 	@echo "... _coffebot_generate_messages_check_deps_APIAIBotAnswer"
 	@echo "... _coffebot_generate_messages_check_deps_FaceCoordinates"
@@ -523,6 +553,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... coffebot_generate_messages_lisp"
 	@echo "... coffebot_generate_messages"
+	@echo "... test"
+	@echo "... _coffebot_generate_messages_check_deps_EyesState"
 	@echo "... coffebot_generate_messages_nodejs"
 	@echo "... _coffebot_generate_messages_check_deps_SmileDetected"
 	@echo "... coffebot_gennodejs"

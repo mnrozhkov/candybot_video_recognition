@@ -4,6 +4,8 @@ c6c853eaada28d11da994d777f8e81ac /home/alex/catkin_ws/devel/include/candybot_vr/
 f4a9842c7f8482e693d60fc8ed63743c /home/alex/catkin_ws/devel/include/coffebot/Audio.h
 115e3a05dcacee37ac1b21ce1a0c2e8d /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h
 5ae19f9deedfe9c1d3888ffd40561dd3 /home/alex/catkin_ws/devel/include/coffebot/Emotion.h
+3cfee7c948982d4251fd3af1bfc825bd /home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h
+38883088dec52f3c3d955cf3c0ceba0d /home/alex/catkin_ws/devel/include/coffebot/EyesState.h
 8c25af7c81424f34ba39a97fdb7e1ecb /home/alex/catkin_ws/devel/include/coffebot/FaceCoordinates.h
 8b1afd36ef98e595f9418be81ef81074 /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h
 702078c0e20edf12b3f6f4ea3ff886a1 /home/alex/catkin_ws/devel/include/coffebot/MakePhoto.h
@@ -18,6 +20,8 @@ cfc2c1a63884091cb86f34c5ef922262 /home/alex/catkin_ws/devel/include/my_test/Mult
 e3c6265e4c7d0d1eee297e9fb8b033c2 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py
 5b940c07f6b917f7751ab2c50bdf085f /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_BotSpeechText.py
 74a3cd2429f4800eb6485784d9fed81b /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Emotion.py
+e4f9cb2b67bb89b1738512d8076825c8 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_EyesMotion.py
+b16b52141f202ca7e8282934e5a217f3 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_EyesState.py
 adfc2a0c8c34c3caa14d36806ea266b7 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py
 681b0cd59f2e91c6eb8113e9c7b03a9b /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py
 2c8d794c2ee6f79bca05c225027b1b8f /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py
@@ -33,6 +37,8 @@ af5fdc4079f9f76d957137e9081812ef /home/alex/catkin_ws/devel/lib/python2.7/dist-p
 e9a305dd59020751ce232200f619f227 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
 08dd323c841f37e9e53e92480a172b4e /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/BotSpeechText.lisp
 4a8a745747f6906caf9909d46e619dc0 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Emotion.lisp
+35c232e33543c053034816b07c9953fc /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp
+950a0a244903aa361ee79d76f3278c53 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesState.lisp
 459413721b584383509fb59e88d1b59a /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceCoordinates.lisp
 e6df611819ed9d4724d06c80841927b8 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp
 5d6187e35c023e514a454774ba53ad7f /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhoto.lisp
@@ -46,6 +52,8 @@ d43b241bf1317ff86aad8eb710add7cf /home/alex/catkin_ws/devel/share/gennodejs/ros/
 7b6d512a7a60771c1663bb924b7efad1 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
 0fd88b666fd86cf7f5cf43a17c6892eb /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/BotSpeechText.js
 e8c745ffdc71a6b2d54be7eb17165865 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Emotion.js
+13e8b4c06ef0fe5417dc87e04d83112a /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js
+270178439b814b819c7db9c2d0619525 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesState.js
 20531a8a1078845e82cb95296b44fdc2 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceCoordinates.js
 f1c484272dcfff1cce155b3adf9995e5 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js
 3399c100a6d983b0d28ae757a499a189 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhoto.js
@@ -61,6 +69,8 @@ acf49281543eaba01d6ede501dee5bf1 /home/alex/catkin_ws/devel/share/roseus/ros/can
 9862c163f8ade0d43691a6d0d133f931 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 9fef5a1dfb7f3029e65f4a9c72a4d1d1 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l
 08dca5ca3fea0311f3376cb9d2c193a1 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Emotion.l
+9d42a9984049a202696c775d6850a413 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l
+560ff59dd60488c85d2c5ca843257e81 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l
 b049452d76ba16d7b55f670f22830541 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceCoordinates.l
 c390f45035bb53c4b85b6967b3dfd45e /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l
 2022f465dfaf0e5f9c9922e2633c2600 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhoto.l
@@ -81,6 +91,8 @@ a6a75ff99777d49d3de355e821e09f1a coffebot/CMakeFiles/_coffebot_generate_messages
 83269c8c37c5ea2c35c07cb4fb79feea coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio
 9e12abd6a3bc43f9476a221dbc1711ec coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText
 56815000d70c22933e14c955a8454ca7 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion
+0709a4174de37c9890061f94f40b684f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion
+bba0da68799ed43a455f0d94eac1cbe9 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState
 80fab207a064e8b5a384957fb1e110b1 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates
 3a1714856d235c4e49af0bde36c1a367 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures
 28d3581084d1341bbe917296a99fd5c0 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto

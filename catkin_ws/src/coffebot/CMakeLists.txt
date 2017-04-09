@@ -58,6 +58,8 @@ add_message_files(
    MotionPattern.msg
    SmileDetected.msg
    UserSpeechText.msg
+   EyesMotion.msg
+   EyesState.msg
  )
 
 ## Generate services in the 'srv' folder

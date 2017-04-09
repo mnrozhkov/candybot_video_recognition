@@ -6,10 +6,12 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/include/coffebot/APIAIBotAnswer.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakePhoto.h"
   "/home/alex/catkin_ws/devel/include/coffebot/Emotion.h"
+  "/home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h"
   "/home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h"
   "/home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h"
   "/home/alex/catkin_ws/devel/include/coffebot/Audio.h"
   "/home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h"
+  "/home/alex/catkin_ws/devel/include/coffebot/EyesState.h"
   "/home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h"
 )
 

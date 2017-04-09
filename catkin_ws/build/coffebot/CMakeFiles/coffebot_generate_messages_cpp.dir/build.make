@@ -59,10 +59,12 @@ coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/i
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/APIAIBotAnswer.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/MakePhoto.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Emotion.h
+coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Audio.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h
+coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/EyesState.h
 coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h
 
 
@@ -102,34 +104,46 @@ coffebot/CMakeFiles/coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/i
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from coffebot/Emotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
+/home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from coffebot/EyesMotion.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h: /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg
 /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from coffebot/BotSpeechText.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from coffebot/BotSpeechText.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h: /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg
 /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from coffebot/UserSpeechText.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from coffebot/UserSpeechText.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/alex/catkin_ws/devel/include/coffebot/Audio.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/alex/catkin_ws/devel/include/coffebot/Audio.h: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
 /home/alex/catkin_ws/devel/include/coffebot/Audio.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from coffebot/Audio.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from coffebot/Audio.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h: /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg
 /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from coffebot/FaceFeatures.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from coffebot/FaceFeatures.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+/home/alex/catkin_ws/devel/include/coffebot/EyesState.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/alex/catkin_ws/devel/include/coffebot/EyesState.h: /home/alex/catkin_ws/src/coffebot/msg/EyesState.msg
+/home/alex/catkin_ws/devel/include/coffebot/EyesState.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from coffebot/EyesState.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/EyesState.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h: /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg
 /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from coffebot/SmileDetected.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from coffebot/SmileDetected.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/include/coffebot -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 coffebot_generate_messages_cpp: coffebot/CMakeFiles/coffebot_generate_messages_cpp
@@ -139,10 +153,12 @@ coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Face
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/APIAIBotAnswer.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/MakePhoto.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Emotion.h
+coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/EyesMotion.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/BotSpeechText.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/Audio.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h
+coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/EyesState.h
 coffebot_generate_messages_cpp: /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h
 coffebot_generate_messages_cpp: coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make
 

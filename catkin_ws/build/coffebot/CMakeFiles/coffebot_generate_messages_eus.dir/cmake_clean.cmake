@@ -6,10 +6,12 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/APIAIBotAnswer.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhoto.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Emotion.l"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l"
 )

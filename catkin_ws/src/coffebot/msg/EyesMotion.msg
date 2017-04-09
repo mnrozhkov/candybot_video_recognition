@@ -1,0 +1,3 @@
+float32 angle
+float32 distance_from_center_percent
+string emotion

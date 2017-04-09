@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg;/home/alex/catkin_ws/src/coffebot/msg/Audio.msg;/home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg;/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg;/home/alex/catkin_ws/src/coffebot/msg/FaceCoordinates.msg;/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg;/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg;/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg;/home/alex/catkin_ws/src/coffebot/msg/MotionPattern.msg;/home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg;/home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg"
+messages_str = "/home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg;/home/alex/catkin_ws/src/coffebot/msg/Audio.msg;/home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg;/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg;/home/alex/catkin_ws/src/coffebot/msg/FaceCoordinates.msg;/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg;/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg;/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg;/home/alex/catkin_ws/src/coffebot/msg/MotionPattern.msg;/home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg;/home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg;/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg;/home/alex/catkin_ws/src/coffebot/msg/EyesState.msg"
 services_str = ""
 pkg_name = "coffebot"
 dependencies_str = "std_msgs"

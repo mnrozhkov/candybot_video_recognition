@@ -59,10 +59,12 @@ coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/s
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/APIAIBotAnswer.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhoto.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Emotion.l
+coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l
+coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l
 coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
 
@@ -97,33 +99,43 @@ coffebot/CMakeFiles/coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/s
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from coffebot/Emotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from coffebot/EyesMotion.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
+
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l: /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from coffebot/BotSpeechText.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from coffebot/BotSpeechText.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/BotSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l: /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from coffebot/UserSpeechText.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from coffebot/UserSpeechText.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from coffebot/Audio.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from coffebot/Audio.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l: /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from coffebot/FaceFeatures.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from coffebot/FaceFeatures.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
+
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l: /home/alex/catkin_ws/src/coffebot/msg/EyesState.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from coffebot/EyesState.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/EyesState.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l: /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from coffebot/SmileDetected.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating EusLisp code from coffebot/SmileDetected.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/alex/catkin_ws/src/coffebot/msg/SmileDetected.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp manifest code for coffebot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating EusLisp manifest code for coffebot"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/alex/catkin_ws/devel/share/roseus/ros/coffebot coffebot std_msgs
 
 coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus
@@ -133,10 +145,12 @@ coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coff
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/APIAIBotAnswer.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhoto.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Emotion.l
+coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesMotion.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/BotSpeechText.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l
+coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/EyesState.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l
 coffebot_generate_messages_eus: /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l
 coffebot_generate_messages_eus: coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make

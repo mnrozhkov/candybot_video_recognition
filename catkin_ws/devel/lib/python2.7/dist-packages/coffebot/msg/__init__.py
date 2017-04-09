@@ -2,6 +2,8 @@ from ._APIAIBotAnswer import *
 from ._Audio import *
 from ._BotSpeechText import *
 from ._Emotion import *
+from ._EyesMotion import *
+from ._EyesState import *
 from ._FaceCoordinates import *
 from ._FaceFeatures import *
 from ._MakePhoto import *
