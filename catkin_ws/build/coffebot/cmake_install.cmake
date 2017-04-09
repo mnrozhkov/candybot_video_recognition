@@ -55,6 +55,37 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/action" TYPE FILE FILES
+    "/home/alex/catkin_ws/src/coffebot/action/MakePhoto.action"
+    "/home/alex/catkin_ws/src/coffebot/action/MakeVideo.action"
+    )
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/msg" TYPE FILE FILES
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoAction.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoActionGoal.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoActionResult.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoActionFeedback.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoGoal.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoResult.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+    )
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/msg" TYPE FILE FILES
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoAction.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionResult.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionFeedback.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoGoal.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoResult.msg"
+    "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg"
+    )
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot/cmake" TYPE FILE FILES "/home/alex/catkin_ws/build/coffebot/catkin_generated/installspace/coffebot-msg-paths.cmake")
 endif()
 
@@ -103,13 +134,5 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/coffebot" TYPE FILE FILES "/home/alex/catkin_ws/src/coffebot/package.xml")
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/coffebot" TYPE PROGRAM FILES
-    "/home/alex/catkin_ws/src/coffebot/scripts/listener"
-    "/home/alex/catkin_ws/src/coffebot/scripts/viewer"
-    "/home/alex/catkin_ws/src/coffebot/scripts/decisions"
-    )
 endif()
 

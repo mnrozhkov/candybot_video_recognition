@@ -14,6 +14,20 @@ let UserSpeechText = require('./UserSpeechText.js');
 let FaceCoordinates = require('./FaceCoordinates.js');
 let EyesMotion = require('./EyesMotion.js');
 let MakeVideo = require('./MakeVideo.js');
+let MakePhotoGoal = require('./MakePhotoGoal.js');
+let MakePhotoActionGoal = require('./MakePhotoActionGoal.js');
+let MakeVideoGoal = require('./MakeVideoGoal.js');
+let MakeVideoAction = require('./MakeVideoAction.js');
+let MakeVideoActionGoal = require('./MakeVideoActionGoal.js');
+let MakeVideoResult = require('./MakeVideoResult.js');
+let MakeVideoFeedback = require('./MakeVideoFeedback.js');
+let MakePhotoActionFeedback = require('./MakePhotoActionFeedback.js');
+let MakeVideoActionResult = require('./MakeVideoActionResult.js');
+let MakePhotoResult = require('./MakePhotoResult.js');
+let MakePhotoAction = require('./MakePhotoAction.js');
+let MakePhotoActionResult = require('./MakePhotoActionResult.js');
+let MakePhotoFeedback = require('./MakePhotoFeedback.js');
+let MakeVideoActionFeedback = require('./MakeVideoActionFeedback.js');
 
 module.exports = {
   BotSpeechText: BotSpeechText,
@@ -29,4 +43,18 @@ module.exports = {
   FaceCoordinates: FaceCoordinates,
   EyesMotion: EyesMotion,
   MakeVideo: MakeVideo,
+  MakePhotoGoal: MakePhotoGoal,
+  MakePhotoActionGoal: MakePhotoActionGoal,
+  MakeVideoGoal: MakeVideoGoal,
+  MakeVideoAction: MakeVideoAction,
+  MakeVideoActionGoal: MakeVideoActionGoal,
+  MakeVideoResult: MakeVideoResult,
+  MakeVideoFeedback: MakeVideoFeedback,
+  MakePhotoActionFeedback: MakePhotoActionFeedback,
+  MakeVideoActionResult: MakeVideoActionResult,
+  MakePhotoResult: MakePhotoResult,
+  MakePhotoAction: MakePhotoAction,
+  MakePhotoActionResult: MakePhotoActionResult,
+  MakePhotoFeedback: MakePhotoFeedback,
+  MakeVideoActionFeedback: MakeVideoActionFeedback,
 };
