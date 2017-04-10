@@ -6,6 +6,8 @@ from ._EyesMotion import *
 from ._EyesState import *
 from ._FaceCoordinates import *
 from ._FaceFeatures import *
+from ._HeadMotion import *
+from ._HeadState import *
 from ._MakePhoto import *
 from ._MakePhotoAction import *
 from ._MakePhotoActionFeedback import *

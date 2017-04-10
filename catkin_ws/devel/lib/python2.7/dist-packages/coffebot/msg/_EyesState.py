@@ -10,8 +10,8 @@ class EyesState(genpy.Message):
   _md5sum = "bcfd694b6a681b718890867e9439c098"
   _type = "coffebot/EyesState"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """int8 x
-int8 y
+  _full_text = """int8 x #0.0 <= x <= 128
+int8 y #0.0 <= y <= 128
 string emotion
 """
   __slots__ = ['x','y','emotion']

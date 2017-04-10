@@ -11,8 +11,9 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoAction.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionGoal.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoResult.lisp"
-  "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/UserSpeechText.lisp"
+  "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/HeadState.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoGoal.lisp"
+  "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/UserSpeechText.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceCoordinates.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhoto.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp"
@@ -27,6 +28,7 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp"
   "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp"
+  "/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/HeadMotion.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

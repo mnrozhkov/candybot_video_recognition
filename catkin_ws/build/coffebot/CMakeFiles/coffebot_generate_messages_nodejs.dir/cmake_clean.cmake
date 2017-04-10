@@ -11,8 +11,9 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoAction.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionGoal.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoResult.js"
-  "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/UserSpeechText.js"
+  "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/HeadState.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoGoal.js"
+  "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/UserSpeechText.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceCoordinates.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhoto.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js"
@@ -27,6 +28,7 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js"
   "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js"
+  "/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/HeadMotion.js"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -76,8 +76,8 @@
 (setf (get coffebot::EyesState :md5sum-) "bcfd694b6a681b718890867e9439c098")
 (setf (get coffebot::EyesState :datatype-) "coffebot/EyesState")
 (setf (get coffebot::EyesState :definition-)
-      "int8 x
-int8 y
+      "int8 x #0.0 <= x <= 128
+int8 y #0.0 <= y <= 128
 string emotion
 
 ")

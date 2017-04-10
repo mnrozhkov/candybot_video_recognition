@@ -74,8 +74,8 @@
 (setf (get coffebot::EyesMotion :md5sum-) "0a9c274e737c0b917a24ecaa2a12792e")
 (setf (get coffebot::EyesMotion :datatype-) "coffebot/EyesMotion")
 (setf (get coffebot::EyesMotion :definition-)
-      "float32 angle
-float32 distance_from_center_percent
+      "float32 angle # 0.0 <= angle <= 360.0
+float32 distance_from_center_percent # 0.0 <= distance_from_center_percent <= 1.0
 string emotion
 
 ")

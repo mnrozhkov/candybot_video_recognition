@@ -4,6 +4,7 @@
 let BotSpeechText = require('./BotSpeechText.js');
 let MakePhoto = require('./MakePhoto.js');
 let FaceFeatures = require('./FaceFeatures.js');
+let HeadState = require('./HeadState.js');
 let MotionPattern = require('./MotionPattern.js');
 let Emotion = require('./Emotion.js');
 let APIAIBotAnswer = require('./APIAIBotAnswer.js');
@@ -13,6 +14,7 @@ let Audio = require('./Audio.js');
 let UserSpeechText = require('./UserSpeechText.js');
 let FaceCoordinates = require('./FaceCoordinates.js');
 let EyesMotion = require('./EyesMotion.js');
+let HeadMotion = require('./HeadMotion.js');
 let MakeVideo = require('./MakeVideo.js');
 let MakePhotoGoal = require('./MakePhotoGoal.js');
 let MakePhotoActionGoal = require('./MakePhotoActionGoal.js');
@@ -33,6 +35,7 @@ module.exports = {
   BotSpeechText: BotSpeechText,
   MakePhoto: MakePhoto,
   FaceFeatures: FaceFeatures,
+  HeadState: HeadState,
   MotionPattern: MotionPattern,
   Emotion: Emotion,
   APIAIBotAnswer: APIAIBotAnswer,
@@ -42,6 +45,7 @@ module.exports = {
   UserSpeechText: UserSpeechText,
   FaceCoordinates: FaceCoordinates,
   EyesMotion: EyesMotion,
+  HeadMotion: HeadMotion,
   MakeVideo: MakeVideo,
   MakePhotoGoal: MakePhotoGoal,
   MakePhotoActionGoal: MakePhotoActionGoal,

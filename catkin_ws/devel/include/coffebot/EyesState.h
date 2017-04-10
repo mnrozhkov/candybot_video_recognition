@@ -147,8 +147,8 @@ struct Definition< ::coffebot::EyesState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int8 x\n\
-int8 y\n\
+    return "int8 x #0.0 <= x <= 128\n\
+int8 y #0.0 <= y <= 128\n\
 string emotion\n\
 ";
   }

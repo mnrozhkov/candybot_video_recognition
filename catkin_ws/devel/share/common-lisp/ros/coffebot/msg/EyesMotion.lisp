@@ -103,10 +103,10 @@
   "0a9c274e737c0b917a24ecaa2a12792e")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<EyesMotion>)))
   "Returns full string definition for message of type '<EyesMotion>"
-  (cl:format cl:nil "float32 angle~%float32 distance_from_center_percent~%string emotion~%~%~%"))
+  (cl:format cl:nil "float32 angle # 0.0 <= angle <= 360.0~%float32 distance_from_center_percent # 0.0 <= distance_from_center_percent <= 1.0~%string emotion~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'EyesMotion)))
   "Returns full string definition for message of type 'EyesMotion"
-  (cl:format cl:nil "float32 angle~%float32 distance_from_center_percent~%string emotion~%~%~%"))
+  (cl:format cl:nil "float32 angle # 0.0 <= angle <= 360.0~%float32 distance_from_center_percent # 0.0 <= distance_from_center_percent <= 1.0~%string emotion~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <EyesMotion>))
   (cl:+ 0
      4

@@ -11,8 +11,9 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideoAction.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhotoActionGoal.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideoResult.py"
-  "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py"
+  "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_HeadState.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhotoGoal.py"
+  "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceCoordinates.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhoto.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakePhotoFeedback.py"
@@ -27,6 +28,7 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Audio.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_FaceFeatures.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideoActionGoal.py"
+  "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_HeadMotion.py"
   "/home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py"
 )
 

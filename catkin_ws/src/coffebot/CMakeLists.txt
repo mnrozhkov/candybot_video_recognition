@@ -63,6 +63,8 @@ add_message_files(
    UserSpeechText.msg
    EyesMotion.msg
    EyesState.msg
+   HeadMotion.msg
+   HeadState.msg
  )
 
 ## Generate services in the 'srv' folder

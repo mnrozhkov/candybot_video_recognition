@@ -51,6 +51,8 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/alex/catkin_ws/src/coffebot/msg/UserSpeechText.msg"
     "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
     "/home/alex/catkin_ws/src/coffebot/msg/EyesState.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/HeadMotion.msg"
+    "/home/alex/catkin_ws/src/coffebot/msg/HeadState.msg"
     )
 endif()
 

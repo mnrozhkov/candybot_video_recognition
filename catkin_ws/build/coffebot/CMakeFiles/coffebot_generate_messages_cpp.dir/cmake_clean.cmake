@@ -11,8 +11,9 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/include/coffebot/MakeVideoAction.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakePhotoActionGoal.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakeVideoResult.h"
-  "/home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h"
+  "/home/alex/catkin_ws/devel/include/coffebot/HeadState.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakePhotoGoal.h"
+  "/home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h"
   "/home/alex/catkin_ws/devel/include/coffebot/FaceCoordinates.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakePhoto.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakePhotoFeedback.h"
@@ -27,6 +28,7 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/include/coffebot/Audio.h"
   "/home/alex/catkin_ws/devel/include/coffebot/FaceFeatures.h"
   "/home/alex/catkin_ws/devel/include/coffebot/MakeVideoActionGoal.h"
+  "/home/alex/catkin_ws/devel/include/coffebot/HeadMotion.h"
 )
 
 # Per-language clean rules from dependency scanning.

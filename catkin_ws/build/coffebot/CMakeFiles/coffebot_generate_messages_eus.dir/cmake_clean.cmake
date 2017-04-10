@@ -11,8 +11,9 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakeVideoAction.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhotoActionGoal.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakeVideoResult.l"
-  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/HeadState.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhotoGoal.l"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceCoordinates.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhoto.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakePhotoFeedback.l"
@@ -27,6 +28,7 @@ file(REMOVE_RECURSE
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Audio.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/FaceFeatures.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakeVideoActionGoal.l"
+  "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/HeadMotion.l"
   "/home/alex/catkin_ws/devel/share/roseus/ros/coffebot/manifest.l"
 )
 

@@ -93,10 +93,10 @@
   "bcfd694b6a681b718890867e9439c098")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<EyesState>)))
   "Returns full string definition for message of type '<EyesState>"
-  (cl:format cl:nil "int8 x~%int8 y~%string emotion~%~%~%"))
+  (cl:format cl:nil "int8 x #0.0 <= x <= 128~%int8 y #0.0 <= y <= 128~%string emotion~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'EyesState)))
   "Returns full string definition for message of type 'EyesState"
-  (cl:format cl:nil "int8 x~%int8 y~%string emotion~%~%~%"))
+  (cl:format cl:nil "int8 x #0.0 <= x <= 128~%int8 y #0.0 <= y <= 128~%string emotion~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <EyesState>))
   (cl:+ 0
      1

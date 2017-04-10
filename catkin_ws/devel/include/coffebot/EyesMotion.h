@@ -147,8 +147,8 @@ struct Definition< ::coffebot::EyesMotion_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float32 angle\n\
-float32 distance_from_center_percent\n\
+    return "float32 angle # 0.0 <= angle <= 360.0\n\
+float32 distance_from_center_percent # 0.0 <= distance_from_center_percent <= 1.0\n\
 string emotion\n\
 ";
   }
