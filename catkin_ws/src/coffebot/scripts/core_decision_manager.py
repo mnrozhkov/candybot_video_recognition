@@ -22,6 +22,7 @@ class Decision:
 
         self._create_subscribers()
         self._create_publishers()
+        self._create_action_clients()
 
     def _create_subscribers(self):
         '''
@@ -87,10 +88,12 @@ class Decision:
     def _create_publishers(self):
         self.pattern_publisher = rospy.Publisher('pattern', MotionPattern, queue_size=1)
         self.emotion_publisher = rospy.Publisher('emotion', Emotion, queue_size=1)
-        self.make_video_publisher = rospy.Publisher('make_video', MakeVideo, queue_size=1)
-        self.make_photo_publisher = rospy.Publisher('make_photo', MakePhoto, queue_size=1)
         self.dialog_bot_publisher = rospy.Publisher('user_speech_text', UserSpeechText, queue_size=1)
         self.speech_synthesis_publisher = rospy.Publisher('bot_speech_text', BotSpeechText, queue_size=1)
+
+    def _create_action_clients(self):
+        self.make_photo_action_client = actionlib.SimpleActionClient('make_photo')
+        self.make_video_action_client = actionlib.SimpleActionClient('make_video')
 
     def make_decision(self) -> None:
         '''
