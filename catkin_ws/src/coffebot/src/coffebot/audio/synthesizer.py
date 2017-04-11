@@ -2,6 +2,15 @@ from urllib import request, parse
 
 from coffebot.audio.player import Player
 
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
+
 class Talker:
 
     def __init__(self, yandex_voice_key: str):
@@ -18,5 +27,5 @@ class Talker:
             print('yandex!')
             return req.read()
         except Exception as e:
-            print(str(e))
+            logging.error(str(e))
             return None

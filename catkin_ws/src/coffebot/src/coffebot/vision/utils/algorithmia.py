@@ -1,10 +1,15 @@
 import Algorithmia
+
 import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
 
-logging.basicConfig(filename='facial_algorithms.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
-
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 api_key = None
+
 
 def get_emotions(photo: bytes) -> dict or None:
     '''Returns emotions by face image

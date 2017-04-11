@@ -11,17 +11,22 @@ import wave
 import logging
 import base64
 
-logging.basicConfig(filename='audio_convert.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
 
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 
-def audio2str(raw_audio: bytes or None) -> str or None:
+def audio2str(raw_audio: bytes or None) -> str or None: #depricated!
     if raw_audio is None:
         return None
     return base64.b64encode(raw_audio).decode('utf-8')
 
 
-def str2audio(string: str) -> bytes:
+def str2audio(string: str) -> bytes: #depricated
     return base64.b64decode(string.encode('utf-8'))
 
 

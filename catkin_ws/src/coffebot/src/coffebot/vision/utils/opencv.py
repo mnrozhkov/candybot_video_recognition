@@ -8,6 +8,15 @@ import cv2
 import numpy
 from typing import List, Dict
 
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
+
 
 BASE_PATH = sys.path[0]
 FACE_HARRCASCADE_FILE = BASE_PATH + '/haarcascades/haarcascade_frontalface_default.xml'
@@ -26,7 +35,7 @@ def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[D
 
     face_cascade = cv2.CascadeClassifier()
     if not face_cascade.load(FACE_HARRCASCADE_FILE):
-        print('haarcascades not found!', BASE_PATH)
+        logging.error('haarcascades not found in ' +  BASE_PATH)
         return None
 
     face_regions = list()
@@ -52,7 +61,7 @@ def detect_smile(face_image: numpy.ndarray or None = None, min_neighbors=22) -> 
 
     smile_cascade = cv2.CascadeClassifier()
     if not smile_cascade.load(SMILE_HARRCASCADE_FILE):
-        print('haarcascade smile: ', BASE_PATH)
+        logging.error('haarcascade smile not found in ' + BASE_PATH)
         return None
 
     gray = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)

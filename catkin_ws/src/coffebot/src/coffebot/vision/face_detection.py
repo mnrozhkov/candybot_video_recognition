@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-import logging
-
-logging.basicConfig(filename='face_detection.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
 
 from coffebot.vision.utils import opencv
 from typing import Dict

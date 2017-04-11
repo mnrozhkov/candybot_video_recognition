@@ -6,10 +6,15 @@ record audio
 import pyaudio
 import time
 import audioop
-import logging
 
-logging.basicConfig(filename='recorder.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 
 class Recorder:
 
@@ -57,10 +62,12 @@ class Recorder:
             return None
 
     def listen_audio(self):
-
-        while True:
-            chunk = self.stream.read(self.chunk_size)
-            #if sound detected record raw data until silence
-            if audioop.rms(chunk, 2) >=  self.min_rms:
-                buf = self.record_audio(last_chunk=chunk)
-                return buf
+        try:
+            while True:
+                chunk = self.stream.read(self.chunk_size)
+                #if sound detected record raw data until silence
+                if audioop.rms(chunk, 2) >=  self.min_rms:
+                    buf = self.record_audio(last_chunk=chunk)
+                    return buf
+        except Exception as e:
+            logging.error(str(e))

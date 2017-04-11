@@ -11,9 +11,13 @@ import random
 import xml.etree.ElementTree as ET
 
 import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
 
-logging.basicConfig(filename='speech_recognizer.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 
 class SpeechRecognizer:
 

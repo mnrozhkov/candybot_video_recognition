@@ -11,8 +11,13 @@ import rospy
 
 import logging
 
-logging.basicConfig(filename='rms.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 
 from typing import Dict
 
@@ -115,5 +120,5 @@ if __name__ == '__main__':
             rospy.get_master().getPid()
         except:
             break
-        
+
         rospy.set_param('min_rms',rms.get_min_rms())

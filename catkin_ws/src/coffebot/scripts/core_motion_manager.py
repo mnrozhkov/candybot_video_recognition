@@ -14,6 +14,15 @@ import sys
 
 BASE_PATH = sys.path[0]
 
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
+
 
 class MotionMaker:
     '''
@@ -338,7 +347,7 @@ class MotionMaker:
                     i += 1
 
         except Exception as e:
-            print(str(e))
+            logging.error(str(e))
         finally:
             if self.emotion == emotion:
                 self.emotion = None

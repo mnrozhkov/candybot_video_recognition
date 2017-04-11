@@ -14,10 +14,15 @@ import ros_numpy
 
 import cv2
 import time
-import logging
 
-logging.basicConfig(filename='viewer.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.ERROR)
+import logging
+import os
+LOG_FOLDER = 'logs'
+if os.path.exists(LOG_FOLDER) is False:
+    os.mkdir(LOG_FOLDER)
+
+logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
+                    level=logging.DEBUG)
 
 
 if __name__ == '__main__':
