@@ -28,6 +28,7 @@ cd2c2410b061a59004c859acd88fc6be /home/alex/catkin_ws/devel/include/coffebot/Mak
 89708459ab25274243be7d43068c1e7f /home/alex/catkin_ws/devel/include/coffebot/MakeVideoResult.h
 6feb00b505793522bf6ec821b0580805 /home/alex/catkin_ws/devel/include/coffebot/MotionPattern.h
 25881d60602ed31544346bd9b17a5a3c /home/alex/catkin_ws/devel/include/coffebot/SmileDetected.h
+97fb0d9b248cce3834261981dc432012 /home/alex/catkin_ws/devel/include/coffebot/Sound.h
 001e7c41bf5726691e9ea3482bc3ce2e /home/alex/catkin_ws/devel/include/coffebot/UserSpeechText.h
 cfc2c1a63884091cb86f34c5ef922262 /home/alex/catkin_ws/devel/include/my_test/MultTwoInts.h
 2986f85ad1e9a4494e3f52906414d980 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/candybot_vr/msg/_VisionMessage.py
@@ -60,6 +61,7 @@ e8b883b5ffcb20d55b5625d66f866174 /home/alex/catkin_ws/devel/lib/python2.7/dist-p
 48814d76cf08395718a9525c8c21b749 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MakeVideoResult.py
 cbfb80bc3b4a6ab5d354634ac6f94cfa /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_MotionPattern.py
 55fc95ee17dc1c59b6eed5144b16b5e9 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_SmileDetected.py
+f1d2a5f0a457dd59f8a8bd48dd2f3d93 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_Sound.py
 2aacdaf024333d948be3fee3d9865bd3 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/_UserSpeechText.py
 0a4792ca9c75388024b1b79b361f5711 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/coffebot/msg/__init__.py
 58392f6d0ec060e9875e4ff14c9d0ce8 /home/alex/catkin_ws/devel/lib/python2.7/dist-packages/my_test/srv/_MultTwoInts.py
@@ -93,6 +95,7 @@ b907dd1d110480dedc841c265904bbbc /home/alex/catkin_ws/devel/share/common-lisp/ro
 bf2598d9725339b302d4a2442819d551 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoResult.lisp
 a64fdb9304cef11a0c0d00ffc24ead74 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MotionPattern.lisp
 45761f929d13c52d616ae29ea9db4b3a /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/SmileDetected.lisp
+d4b61a0bd0042a5a8f7797cfac2c4579 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Sound.lisp
 9083c77493fd8ec4f5b32a4761d20dd5 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/UserSpeechText.lisp
 9b09bcf4dd80f2ed941c09b8d1af88f0 /home/alex/catkin_ws/devel/share/common-lisp/ros/my_test/srv/MultTwoInts.lisp
 34c679142eeea29197ce6154e6f05fe2 /home/alex/catkin_ws/devel/share/gennodejs/ros/candybot_vr/msg/VisionMessage.js
@@ -124,6 +127,7 @@ f53f1f231344d4c79a95098fbbf8b7c0 /home/alex/catkin_ws/devel/share/gennodejs/ros/
 ac7e2a4a18afe126a103548fac8eecdc /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoResult.js
 e8ec82119460f5b6e47b39ee1e92a928 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MotionPattern.js
 cda5723751aa4f11cfc416f6d5ecc43b /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/SmileDetected.js
+671c87174e953bece046e77b2c83b541 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Sound.js
 653384cc0d351b1b324ab4f89868bd48 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/UserSpeechText.js
 b87d0cc2737c61e982c855a6acc6e645 /home/alex/catkin_ws/devel/share/gennodejs/ros/my_test/srv/MultTwoInts.js
 50062a4941684c47ece9ab0a92adae8a /home/alex/catkin_ws/devel/share/roseus/ros/candybot_vr/manifest.l
@@ -157,6 +161,7 @@ a400e3666c2bba422912d7aac55208ac /home/alex/catkin_ws/devel/share/roseus/ros/cof
 2303ca4db806e21b83b465aa8bf42365 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MakeVideoResult.l
 54977eede8af2c6181ce4d2418d5122e /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/MotionPattern.l
 856a9367d23020b0f376f3f29b8eee24 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/SmileDetected.l
+27e22089c909d2ddfffdda2326aec9c4 /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/Sound.l
 e9f746688414f4d6d33e4df2d500c54c /home/alex/catkin_ws/devel/share/roseus/ros/coffebot/msg/UserSpeechText.l
 aca09feaf6c510b76f85e2a5321686a6 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/manifest.l
 b9e9db185fabbae4713e1501227ac491 /home/alex/catkin_ws/devel/share/roseus/ros/my_test/srv/MultTwoInts.l
@@ -195,6 +200,7 @@ ecab0364c7f696c4db570956bd257708 coffebot/CMakeFiles/_coffebot_generate_messages
 e45a4a2e7c462a8dfce3c31cf178718e coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoResult
 9b4c9257c29c9430771db6dd755d1221 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern
 31fd176ba1ce877e43efe3280f818e00 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected
+64c756f486125e835cc8d76722d3907f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Sound
 93b662dd9977fab068dbab5ff90440d7 coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText
 efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_cpp
 efbf82055c83d962cc34078fd7ee4e32 coffebot/CMakeFiles/coffebot_generate_messages_eus

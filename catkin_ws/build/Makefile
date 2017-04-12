@@ -647,6 +647,19 @@ coffebot_gennodejs/fast:
 .PHONY : coffebot_gennodejs/fast
 
 #=============================================================================
+# Target rules for targets named coffebot_genlisp
+
+# Build rule for target.
+coffebot_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_genlisp
+.PHONY : coffebot_genlisp
+
+# fast build rule for target.
+coffebot_genlisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/build
+.PHONY : coffebot_genlisp/fast
+
+#=============================================================================
 # Target rules for targets named coffebot_generate_messages_nodejs
 
 # Build rule for target.
@@ -1024,30 +1037,17 @@ _coffebot_generate_messages_check_deps_MakePhoto/fast:
 .PHONY : _coffebot_generate_messages_check_deps_MakePhoto/fast
 
 #=============================================================================
-# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoAction
+# Target rules for targets named _coffebot_generate_messages_check_deps_Sound
 
 # Build rule for target.
-_coffebot_generate_messages_check_deps_MakePhotoAction: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoAction
-.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction
+_coffebot_generate_messages_check_deps_Sound: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_Sound
+.PHONY : _coffebot_generate_messages_check_deps_Sound
 
 # fast build rule for target.
-_coffebot_generate_messages_check_deps_MakePhotoAction/fast:
-	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build
-.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction/fast
-
-#=============================================================================
-# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoFeedback
-
-# Build rule for target.
-_coffebot_generate_messages_check_deps_MakePhotoFeedback: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoFeedback
-.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback
-
-# fast build rule for target.
-_coffebot_generate_messages_check_deps_MakePhotoFeedback/fast:
-	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build
-.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback/fast
+_coffebot_generate_messages_check_deps_Sound/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Sound.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Sound.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Sound/fast
 
 #=============================================================================
 # Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoFeedback
@@ -1206,6 +1206,32 @@ _coffebot_generate_messages_check_deps_Audio/fast:
 .PHONY : _coffebot_generate_messages_check_deps_Audio/fast
 
 #=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoAction
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoAction: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoAction
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoAction/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoFeedback
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoFeedback: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoFeedback
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoFeedback/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback/fast
+
+#=============================================================================
 # Target rules for targets named coffebot_geneus
 
 # Build rule for target.
@@ -1243,19 +1269,6 @@ coffebot_gencpp: cmake_check_build_system
 coffebot_gencpp/fast:
 	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
 .PHONY : coffebot_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named coffebot_genlisp
-
-# Build rule for target.
-coffebot_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 coffebot_genlisp
-.PHONY : coffebot_genlisp
-
-# fast build rule for target.
-coffebot_genlisp/fast:
-	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/build
-.PHONY : coffebot_genlisp/fast
 
 # Help Target
 help:
@@ -1307,6 +1320,7 @@ help:
 	@echo "... coffebot_genpy"
 	@echo "... coffebot_generate_messages_py"
 	@echo "... coffebot_gennodejs"
+	@echo "... coffebot_genlisp"
 	@echo "... coffebot_generate_messages_nodejs"
 	@echo "... _coffebot_generate_messages_check_deps_MakePhotoActionGoal"
 	@echo "... _coffebot_generate_messages_check_deps_MakeVideoResult"
@@ -1336,8 +1350,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... _coffebot_generate_messages_check_deps_MakePhoto"
-	@echo "... _coffebot_generate_messages_check_deps_MakePhotoAction"
-	@echo "... _coffebot_generate_messages_check_deps_MakePhotoFeedback"
+	@echo "... _coffebot_generate_messages_check_deps_Sound"
 	@echo "... _coffebot_generate_messages_check_deps_MakeVideoFeedback"
 	@echo "... _coffebot_generate_messages_check_deps_BotSpeechText"
 	@echo "... _coffebot_generate_messages_check_deps_MakeVideoActionResult"
@@ -1350,10 +1363,11 @@ help:
 	@echo "... _coffebot_generate_messages_check_deps_MakePhotoActionFeedback"
 	@echo "... _coffebot_generate_messages_check_deps_UserSpeechText"
 	@echo "... _coffebot_generate_messages_check_deps_Audio"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoAction"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoFeedback"
 	@echo "... coffebot_geneus"
 	@echo "... _coffebot_generate_messages_check_deps_HeadMotion"
 	@echo "... coffebot_gencpp"
-	@echo "... coffebot_genlisp"
 .PHONY : help
 
 

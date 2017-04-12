@@ -26,4 +26,5 @@ from ._MakeVideoGoal import *
 from ._MakeVideoResult import *
 from ._MotionPattern import *
 from ._SmileDetected import *
+from ._Sound import *
 from ._UserSpeechText import *

@@ -62,6 +62,8 @@
     (:file "_package_MotionPattern" :depends-on ("_package"))
     (:file "SmileDetected" :depends-on ("_package_SmileDetected"))
     (:file "_package_SmileDetected" :depends-on ("_package"))
+    (:file "Sound" :depends-on ("_package_Sound"))
+    (:file "_package_Sound" :depends-on ("_package"))
     (:file "UserSpeechText" :depends-on ("_package_UserSpeechText"))
     (:file "_package_UserSpeechText" :depends-on ("_package"))
   ))

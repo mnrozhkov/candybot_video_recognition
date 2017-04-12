@@ -69,15 +69,16 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/UserSpeechText.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceCoordinates.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhoto.js
-coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Sound.js
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoFeedback.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideo.js
+coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/APIAIBotAnswer.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Emotion.js
-coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js
 coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js
@@ -195,14 +196,19 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Javascript code from coffebot/MakePhoto.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
-/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Javascript code from coffebot/MakePhotoFeedback.msg"
-	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Sound.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Sound.js: /home/alex/catkin_ws/src/coffebot/msg/Sound.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Javascript code from coffebot/Sound.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/Sound.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
+
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Javascript code from coffebot/EyesMotion.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoFeedback.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoFeedback.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Javascript code from coffebot/MakeVideoFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Javascript code from coffebot/MakeVideoFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -211,17 +217,22 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalID.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Javascript code from coffebot/MakeVideoActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Javascript code from coffebot/MakeVideoActionResult.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionResult.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideo.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideo.js: /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Javascript code from coffebot/MakeVideo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Javascript code from coffebot/MakeVideo.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
+
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Javascript code from coffebot/MakePhotoFeedback.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/APIAIBotAnswer.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/APIAIBotAnswer.js: /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Javascript code from coffebot/APIAIBotAnswer.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Javascript code from coffebot/APIAIBotAnswer.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -230,7 +241,7 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Javascript code from coffebot/MakeVideoActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Javascript code from coffebot/MakeVideoActionFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -239,27 +250,22 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Javascript code from coffebot/MakePhotoActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Javascript code from coffebot/MakePhotoActionFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoActionFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Emotion.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Emotion.js: /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Javascript code from coffebot/Emotion.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Javascript code from coffebot/Emotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
-
-/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Javascript code from coffebot/EyesMotion.msg"
-	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Javascript code from coffebot/Audio.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Javascript code from coffebot/Audio.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js: /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Javascript code from coffebot/FaceFeatures.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Javascript code from coffebot/FaceFeatures.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -268,12 +274,12 @@ coffebot/CMakeFiles/coffebot_generate_messages_nodejs: /home/alex/catkin_ws/deve
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalID.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoGoal.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Javascript code from coffebot/MakeVideoActionGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Javascript code from coffebot/MakeVideoActionGoal.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/HeadMotion.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/HeadMotion.js: /home/alex/catkin_ws/src/coffebot/msg/HeadMotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Javascript code from coffebot/HeadMotion.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Javascript code from coffebot/HeadMotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/alex/catkin_ws/src/coffebot/msg/HeadMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg
 
 coffebot_generate_messages_nodejs: coffebot/CMakeFiles/coffebot_generate_messages_nodejs
@@ -293,15 +299,16 @@ coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ro
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/UserSpeechText.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceCoordinates.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhoto.js
-coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js
+coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Sound.js
+coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoFeedback.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionResult.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideo.js
+coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoFeedback.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/APIAIBotAnswer.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionFeedback.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakePhotoActionFeedback.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Emotion.js
-coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/EyesMotion.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/Audio.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/FaceFeatures.js
 coffebot_generate_messages_nodejs: /home/alex/catkin_ws/devel/share/gennodejs/ros/coffebot/msg/MakeVideoActionGoal.js

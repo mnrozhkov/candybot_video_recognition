@@ -16,6 +16,7 @@ let FaceCoordinates = require('./FaceCoordinates.js');
 let EyesMotion = require('./EyesMotion.js');
 let HeadMotion = require('./HeadMotion.js');
 let MakeVideo = require('./MakeVideo.js');
+let Sound = require('./Sound.js');
 let MakePhotoGoal = require('./MakePhotoGoal.js');
 let MakePhotoActionGoal = require('./MakePhotoActionGoal.js');
 let MakeVideoGoal = require('./MakeVideoGoal.js');
@@ -47,6 +48,7 @@ module.exports = {
   EyesMotion: EyesMotion,
   HeadMotion: HeadMotion,
   MakeVideo: MakeVideo,
+  Sound: Sound,
   MakePhotoGoal: MakePhotoGoal,
   MakePhotoActionGoal: MakePhotoActionGoal,
   MakeVideoGoal: MakeVideoGoal,

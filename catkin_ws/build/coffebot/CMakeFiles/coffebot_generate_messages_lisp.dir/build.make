@@ -69,15 +69,16 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/UserSpeechText.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceCoordinates.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhoto.lisp
-coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp
+coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Sound.lisp
+coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoFeedback.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideo.lisp
+coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/APIAIBotAnswer.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Emotion.lisp
-coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp
 coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp
@@ -195,14 +196,19 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Lisp code from coffebot/MakePhoto.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
-/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
-/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Lisp code from coffebot/MakePhotoFeedback.msg"
-	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Sound.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Sound.lisp: /home/alex/catkin_ws/src/coffebot/msg/Sound.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Lisp code from coffebot/Sound.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/Sound.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
+
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Lisp code from coffebot/EyesMotion.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoFeedback.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoFeedback.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Lisp code from coffebot/MakeVideoFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Lisp code from coffebot/MakeVideoFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -211,17 +217,22 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalID.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Lisp code from coffebot/MakeVideoActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Lisp code from coffebot/MakeVideoActionResult.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionResult.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideo.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideo.lisp: /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Lisp code from coffebot/MakeVideo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Lisp code from coffebot/MakeVideo.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
+
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Lisp code from coffebot/MakePhotoFeedback.msg"
+	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/APIAIBotAnswer.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/APIAIBotAnswer.lisp: /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Lisp code from coffebot/APIAIBotAnswer.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Lisp code from coffebot/APIAIBotAnswer.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/APIAIBotAnswer.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -230,7 +241,7 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Lisp code from coffebot/MakeVideoActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Lisp code from coffebot/MakeVideoActionFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -239,27 +250,22 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalStatus.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Lisp code from coffebot/MakePhotoActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Lisp code from coffebot/MakePhotoActionFeedback.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoActionFeedback.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Emotion.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Emotion.lisp: /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Lisp code from coffebot/Emotion.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Lisp code from coffebot/Emotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/Emotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
-
-/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
-/home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp: /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Lisp code from coffebot/EyesMotion.msg"
-	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp: /home/alex/catkin_ws/src/coffebot/msg/Audio.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Lisp code from coffebot/Audio.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Lisp code from coffebot/Audio.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/Audio.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp: /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Lisp code from coffebot/FaceFeatures.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Lisp code from coffebot/FaceFeatures.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -268,12 +274,12 @@ coffebot/CMakeFiles/coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp: /opt/ros/kinetic/share/actionlib_msgs/msg/GoalID.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp: /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoGoal.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Lisp code from coffebot/MakeVideoActionGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Lisp code from coffebot/MakeVideoActionGoal.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/HeadMotion.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/HeadMotion.lisp: /home/alex/catkin_ws/src/coffebot/msg/HeadMotion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Lisp code from coffebot/HeadMotion.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/alex/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Lisp code from coffebot/HeadMotion.msg"
 	cd /home/alex/catkin_ws/build/coffebot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/alex/catkin_ws/src/coffebot/msg/HeadMotion.msg -Icoffebot:/home/alex/catkin_ws/src/coffebot/msg -Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p coffebot -o /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg
 
 coffebot_generate_messages_lisp: coffebot/CMakeFiles/coffebot_generate_messages_lisp
@@ -293,15 +299,16 @@ coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ro
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/UserSpeechText.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceCoordinates.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhoto.lisp
-coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp
+coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Sound.lisp
+coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoFeedback.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionResult.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideo.lisp
+coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoFeedback.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/APIAIBotAnswer.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionFeedback.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakePhotoActionFeedback.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Emotion.lisp
-coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/EyesMotion.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/Audio.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/FaceFeatures.lisp
 coffebot_generate_messages_lisp: /home/alex/catkin_ws/devel/share/common-lisp/ros/coffebot/msg/MakeVideoActionGoal.lisp

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "coffebot: 29 messages, 0 services")
+message(STATUS "coffebot: 30 messages, 0 services")
 
 set(MSG_I_FLAGS "-Icoffebot:/home/alex/catkin_ws/src/coffebot/msg;-Icoffebot:/home/alex/catkin_ws/devel/share/coffebot/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg")
 
@@ -97,9 +97,19 @@ add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" ""
 )
 
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
 add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" ""
+)
+
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" ""
+)
+
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
+add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" ""
 )
 
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
@@ -137,19 +147,14 @@ add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" ""
 )
 
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" ""
-)
-
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" ""
 )
 
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_custom_target(_coffebot_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "coffebot" "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" ""
 )
 
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
@@ -265,7 +270,13 @@ _generate_msg_cpp(coffebot
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
 )
 _generate_msg_cpp(coffebot
-  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+  "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
+)
+_generate_msg_cpp(coffebot
+  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
@@ -284,6 +295,12 @@ _generate_msg_cpp(coffebot
 )
 _generate_msg_cpp(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
+)
+_generate_msg_cpp(coffebot
+  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
@@ -308,12 +325,6 @@ _generate_msg_cpp(coffebot
 )
 _generate_msg_cpp(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
-)
-_generate_msg_cpp(coffebot
-  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/coffebot
@@ -389,7 +400,11 @@ get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceCoor
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
@@ -405,11 +420,9 @@ get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_cpp _coffebot_generate_messages_check_deps_${_filename})
@@ -522,7 +535,13 @@ _generate_msg_eus(coffebot
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
 )
 _generate_msg_eus(coffebot
-  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+  "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
+)
+_generate_msg_eus(coffebot
+  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
@@ -541,6 +560,12 @@ _generate_msg_eus(coffebot
 )
 _generate_msg_eus(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
+)
+_generate_msg_eus(coffebot
+  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
@@ -565,12 +590,6 @@ _generate_msg_eus(coffebot
 )
 _generate_msg_eus(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
-)
-_generate_msg_eus(coffebot
-  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/coffebot
@@ -646,7 +665,11 @@ get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceCoor
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
@@ -662,11 +685,9 @@ get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_eus _coffebot_generate_messages_check_deps_${_filename})
@@ -779,7 +800,13 @@ _generate_msg_lisp(coffebot
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
 )
 _generate_msg_lisp(coffebot
-  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+  "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
+)
+_generate_msg_lisp(coffebot
+  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
@@ -798,6 +825,12 @@ _generate_msg_lisp(coffebot
 )
 _generate_msg_lisp(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
+)
+_generate_msg_lisp(coffebot
+  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
@@ -822,12 +855,6 @@ _generate_msg_lisp(coffebot
 )
 _generate_msg_lisp(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
-)
-_generate_msg_lisp(coffebot
-  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/coffebot
@@ -903,7 +930,11 @@ get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceCoor
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
@@ -919,11 +950,9 @@ get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_lisp _coffebot_generate_messages_check_deps_${_filename})
@@ -1036,7 +1065,13 @@ _generate_msg_nodejs(coffebot
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
 )
 _generate_msg_nodejs(coffebot
-  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+  "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
+)
+_generate_msg_nodejs(coffebot
+  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
@@ -1055,6 +1090,12 @@ _generate_msg_nodejs(coffebot
 )
 _generate_msg_nodejs(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
+)
+_generate_msg_nodejs(coffebot
+  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
@@ -1079,12 +1120,6 @@ _generate_msg_nodejs(coffebot
 )
 _generate_msg_nodejs(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
-)
-_generate_msg_nodejs(coffebot
-  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/coffebot
@@ -1160,7 +1195,11 @@ get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceCoor
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
@@ -1176,11 +1215,9 @@ get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_nodejs _coffebot_generate_messages_check_deps_${_filename})
@@ -1293,7 +1330,13 @@ _generate_msg_py(coffebot
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
 )
 _generate_msg_py(coffebot
-  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
+  "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
+)
+_generate_msg_py(coffebot
+  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
@@ -1312,6 +1355,12 @@ _generate_msg_py(coffebot
 )
 _generate_msg_py(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/MakeVideo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
+)
+_generate_msg_py(coffebot
+  "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
@@ -1336,12 +1385,6 @@ _generate_msg_py(coffebot
 )
 _generate_msg_py(coffebot
   "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
-)
-_generate_msg_py(coffebot
-  "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/coffebot
@@ -1417,7 +1460,11 @@ get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceCoor
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/MakePhoto.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Sound.msg" NAME_WE)
+add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
@@ -1433,11 +1480,9 @@ get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Emotion.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/EyesMotion.msg" NAME_WE)
-add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/Audio.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/alex/catkin_ws/src/coffebot/msg/FaceFeatures.msg" NAME_WE)
+get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakePhotoFeedback.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/alex/catkin_ws/devel/share/coffebot/msg/MakeVideoActionGoal.msg" NAME_WE)
 add_dependencies(coffebot_generate_messages_py _coffebot_generate_messages_check_deps_${_filename})
