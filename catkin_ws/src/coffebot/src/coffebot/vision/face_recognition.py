@@ -16,19 +16,19 @@ def set_algorithmia_key(key: str):
     algorithmia.api_key = key
 
 
-def recognize_emotions(face_image: numpy.ndarray or None = None) -> dict or None:
+def recognize_emotion(face_image: numpy.ndarray or None = None) -> str or None:
 
     if face_image is None:
         return None
 
     try:
-        return algorithmia.get_emotions(face_image)
+        return algorithmia.get_emotion(face_image)
     except Exception as e:
         logging.error(str(e))
         return None
 
 
-def recognize_celebrities_similarity(face_image: numpy.ndarray or None = None) -> list or None:
+def recognize_celebrities_similarity(face_image: numpy.ndarray or None = None) -> str or None:
 
     if face_image is None:
         return None
@@ -52,7 +52,7 @@ def recognize_2faces_similarity(face_image1: numpy.ndarray or None = None, face_
         return None
 
 
-def recognize_gender(face_image: numpy.ndarray or None = None) -> dict or None:
+def recognize_gender(face_image: numpy.ndarray or None = None) -> str or None:
 
     if face_image is None:
         return None
@@ -64,7 +64,7 @@ def recognize_gender(face_image: numpy.ndarray or None = None) -> dict or None:
         return None
 
 
-def recognize_age(face_image: numpy.ndarray or None = None) -> dict or None:
+def recognize_age(face_image: numpy.ndarray or None = None) -> str or None:
 
     if face_image is None:
         return None

@@ -6,6 +6,8 @@ from coffebot.msg import Sound
 from coffebot.audio.sound_manager import SoundManager
 from coffebot.topic_controller import Lock
 
+import time
+
 
 if __name__ == '__main__':
     rospy.init_node('audio_sound_manager')
@@ -26,3 +28,5 @@ if __name__ == '__main__':
 
         if snd_lock.message == sound_msg:
             snd_lock.message = None
+
+        time.time(0.5)

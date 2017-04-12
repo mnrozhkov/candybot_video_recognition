@@ -36,18 +36,12 @@ class Decision:
             '''
 
             self.face_info = dict()
-            self.face_info['emotions'] = json.loads(data.json_emotions)
-            self.face_info['celebrities_similarity'] = json.loads(data.json_celebrities_similarity)
-            self.face_info['gender'] = json.loads(data.json_gender)
-            self.face_info['age'] = json.loads(data.json_age)
+            self.face_info['emotion'] = data.emotion
+            self.face_info['celebrities_similarity'] = data.celebrity_name
+            self.face_info['gender'] = data.gender
+            self.face_info['age'] = [data.min_age, data.max_age]
 
-            emotions = self.face_info['emotions']
-            emotion_confidence = 0.0
-            self.user_emotion = None
-            for emotion_name in emotions.keys():
-                if emotions[emotion_name] > emotion_confidence:
-                    emotion_confidence = emotions[emotion_name]
-                    self.user_emotion = emotion_name
+            self.user_emotion = self.face_info['emotion']
 
 
         def callback_face_coords(data: FaceCoordinates) -> None:

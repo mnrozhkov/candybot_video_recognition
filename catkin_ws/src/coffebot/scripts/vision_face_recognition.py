@@ -47,10 +47,10 @@ if __name__ == '__main__':
                     #search other features: emotions, celebrities similarity, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features_msg = FaceFeatures()
-                    face_features_msg.json_emotions = json.dumps(face_recognition.recognize_emotions(binary_face_image))
-                    face_features_msg.json_celebrities_similarity = json.dumps(face_recognition.recognize_celebrities_similarity(binary_face_image))
-                    face_features_msg.json_gender = json.dumps(face_recognition.recognize_gender(binary_face_image))
-                    face_features_msg.json_age = json.dumps(face_recognition.recognize_age(binary_face_image))
+                    face_features_msg.emotion = face_recognition.recognize_emotion(binary_face_image)
+                    face_features_msg.celebrity_name = face_recognition.recognize_celebrities_similarity(binary_face_image))
+                    face_features_msg.gender = face_recognition.recognize_gender(binary_face_image)
+                    face_features_msg.age = face_recognition.recognize_age(binary_face_image)
                     print(face_features_msg)
                     face_info_publisher.publish(face_features_msg)
 

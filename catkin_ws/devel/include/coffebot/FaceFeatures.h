@@ -24,32 +24,37 @@ struct FaceFeatures_
   typedef FaceFeatures_<ContainerAllocator> Type;
 
   FaceFeatures_()
-    : json_emotions()
-    , json_celebrities_similarity()
-    , json_gender()
-    , json_age()  {
+    : emotion()
+    , celebrity_name()
+    , gender()
+    , min_age(0)
+    , max_age(0)  {
     }
   FaceFeatures_(const ContainerAllocator& _alloc)
-    : json_emotions(_alloc)
-    , json_celebrities_similarity(_alloc)
-    , json_gender(_alloc)
-    , json_age(_alloc)  {
+    : emotion(_alloc)
+    , celebrity_name(_alloc)
+    , gender(_alloc)
+    , min_age(0)
+    , max_age(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _json_emotions_type;
-  _json_emotions_type json_emotions;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _emotion_type;
+  _emotion_type emotion;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _json_celebrities_similarity_type;
-  _json_celebrities_similarity_type json_celebrities_similarity;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _celebrity_name_type;
+  _celebrity_name_type celebrity_name;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _json_gender_type;
-  _json_gender_type json_gender;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _gender_type;
+  _gender_type gender;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _json_age_type;
-  _json_age_type json_age;
+   typedef int8_t _min_age_type;
+  _min_age_type min_age;
+
+   typedef int8_t _max_age_type;
+  _max_age_type max_age;
 
 
 
@@ -128,12 +133,12 @@ struct MD5Sum< ::coffebot::FaceFeatures_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "15bb16ee860ec0e7cb55bbcb7c8e05d8";
+    return "85fb5ab2d65e9fa3f5c71ae7f577d551";
   }
 
   static const char* value(const ::coffebot::FaceFeatures_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x15bb16ee860ec0e7ULL;
-  static const uint64_t static_value2 = 0xcb55bbcb7c8e05d8ULL;
+  static const uint64_t static_value1 = 0x85fb5ab2d65e9fa3ULL;
+  static const uint64_t static_value2 = 0xf5c71ae7f577d551ULL;
 };
 
 template<class ContainerAllocator>
@@ -152,10 +157,11 @@ struct Definition< ::coffebot::FaceFeatures_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string json_emotions\n\
-string json_celebrities_similarity\n\
-string json_gender\n\
-string json_age\n\
+    return "string emotion\n\
+string celebrity_name\n\
+string gender\n\
+int8 min_age\n\
+int8 max_age\n\
 ";
   }
 
@@ -174,10 +180,11 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.json_emotions);
-      stream.next(m.json_celebrities_similarity);
-      stream.next(m.json_gender);
-      stream.next(m.json_age);
+      stream.next(m.emotion);
+      stream.next(m.celebrity_name);
+      stream.next(m.gender);
+      stream.next(m.min_age);
+      stream.next(m.max_age);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -196,14 +203,16 @@ struct Printer< ::coffebot::FaceFeatures_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::coffebot::FaceFeatures_<ContainerAllocator>& v)
   {
-    s << indent << "json_emotions: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.json_emotions);
-    s << indent << "json_celebrities_similarity: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.json_celebrities_similarity);
-    s << indent << "json_gender: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.json_gender);
-    s << indent << "json_age: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.json_age);
+    s << indent << "emotion: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.emotion);
+    s << indent << "celebrity_name: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.celebrity_name);
+    s << indent << "gender: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.gender);
+    s << indent << "min_age: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.min_age);
+    s << indent << "max_age: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.max_age);
   }
 };
 

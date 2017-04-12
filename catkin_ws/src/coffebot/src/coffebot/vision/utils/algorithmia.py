@@ -11,24 +11,27 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
 api_key = None
 
 
-def get_emotions(photo: bytes) -> dict or None:
+def get_emotion(photo: bytes) -> str or None:
     '''Returns emotions by face image
     Args:
         photo: bytes data
     Returns:
-        {'emotion1': confidence1, 'emotion2': confidence2, ...}: if data recieved
+        main_emotion: most possible emotion name
         None: if failed
     '''
 
     try:
         client = Algorithmia.client(api_key)
-        algo = client.algo('deeplearning/EmotionRecognitionCNNMBP/0.1.2')
+        algo = client.algo('deeplearning/EmotionRecognitionCNNMBP/0.1.3')
         img = bytearray(photo)
-        emotions = algo.pipe(img).result['results']
-        d_emotions = dict()
+        emotions = algo.pipe(img).result['results'][0]['emotion']
+        main_emotion = str()
+        confidence = 0.0
         for emotion in emotions:
-            d_emotions[emotion[1]] = emotion[0]
-        return d_emotions
+            if emotion[0] > confidence:
+                confidence = emotion[0]
+                main_emotion = emotion[1]
+        return main_emotion.lower()
 
     except Exception as e:
         logging.error(str(e))
@@ -36,12 +39,12 @@ def get_emotions(photo: bytes) -> dict or None:
         return None
 
 
-def celebrities_similarity(photo: bytes) -> list or None:
+def celebrities_similarity(photo: bytes) -> str or None:
     '''Returns person similarity to some celebrity
     Args:
         photo: bytes data
     Returns:
-        [Celebrity name, confidence]: if data recieved
+        Name of the most possible celebrity
         None: if failed
     '''
     try:
@@ -49,7 +52,7 @@ def celebrities_similarity(photo: bytes) -> list or None:
         algo = client.algo('deeplearning/DeepFaceRecognition/0.1.1')
         img = bytearray(photo)
         celebrities = algo.pipe(img).result['results']
-        return [' '.join(celebrities[0][1].split('_')), celebrities[0][0]]
+        return ' '.join(celebrities[0][1].split('_'))
 
     except Exception as e:
         logging.error(str(e))
@@ -62,7 +65,7 @@ def verify_faces(photo1: bytes, photo2: bytes) -> float or None:
         photo1: bytes data
         photo2: bytes data
     Returns:
-        similarity information: if data recieved
+        similarity confidence: if data recieved
         None: if failed
     '''
     try:
@@ -75,44 +78,56 @@ def verify_faces(photo1: bytes, photo2: bytes) -> float or None:
         logging.error(str(e))
         return None
 
-def gender(photo: bytes) -> dict or None:
+
+def gender(photo: bytes) -> str or None:
     '''Computes gender probabilities
     Args:
         photo: bytes data
     Returns:
-        dictionary with gender probablities: if data recieved
+        gender name
         None: if failed
     '''
     try:
         img = bytearray(photo)
         data = {'image': img}
         client = Algorithmia.client(api_key)
-        algo = client.algo('deeplearning/GenderClassification/1.0.1')
-        response = algo.pipe(img).result['results']
-        return {response[0][1]: response[0][0], response[1][1]: response[1][0]}
+        algo = client.algo('deeplearning/GenderClassification/1.0.2')
+        gender_list = algo.pipe(img).result['results'][0]['gender']
+        if gender_list[0][0] > gender_list[1][0]:
+            return gender_list[0][1].lower()
+        else:
+            return gender_list[1][1].lower()
 
     except Exception as e:
         logging.error(str(e))
         return None
 
-def age(photo: bytes) -> dict or None:
+
+def age(photo: bytes) -> str or None:
     '''Returns age groups with probabilies
     Args:
         photo: bytes data
     Returns:
-        dictionary with ages probablities: if data recieved
+        the most possible age interval : list with structure [min_age, max_age]
         None: if failed
     '''
     try:
         img = bytearray(photo)
         client = Algorithmia.client(api_key)
-        algo = client.algo('deeplearning/AgeClassification/1.0.2')
-        response = algo.pipe(img).result['results']
-        result = {}
-        for item in response:
-            result[item[1]] = item[0]
-        return result
+        algo = client.algo('deeplearning/AgeClassification/1.0.3')
+        ages = algo.pipe(img).result['results'][0]['age']
+        str_age_interval = str()
+        age_confidence = 0.0
+        for age in ages:
+            if age[0] > age_confidence:
+                age_confidence = age[0]
+                str_age_interval = age[1]
+                
+        age_string_interval = str_age_interval.strip('()').split(', ')
+        age_interval = [int(age_string_interval[0]), int(age_string_interval[1])]
+        return age_interval
 
     except Exception as e:
         logging.error(str(e))
+        print(str(e))
         return None
