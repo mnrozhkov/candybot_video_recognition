@@ -151,7 +151,7 @@ include_directories(
 install(PROGRAMS
  scripts/listener
  scripts/viewer
- scripts/decision_maker
+ scripts/decisions
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

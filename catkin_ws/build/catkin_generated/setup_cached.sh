@@ -13,4 +13,4 @@ export PKG_CONFIG_PATH="/home/alex/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PAT
 export PWD="/home/alex/catkin_ws/build"
 export PYTHONPATH="/home/alex/catkin_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/alex/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/alex/catkin_ws/src:/opt/ros/kinetic/share:/opt/ros/kinetic/stacks"
+export ROS_PACKAGE_PATH="/home/alex/catkin_ws/src:/opt/ros/kinetic/share"

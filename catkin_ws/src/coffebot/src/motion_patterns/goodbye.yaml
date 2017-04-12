@@ -1,0 +1,24 @@
+name: feedback
+steps:
+ - step:
+    order: 1
+    emotion: sad
+    motions:
+     head:
+      move_down: default
+     eyebrows:
+      move_down: default
+      turn_backlight_off: true
+    body:
+      turn_backlight_dim: true
+
+ - step:
+    order: 2
+    emotion: neutral
+
+ - step:
+    order: 3
+    emotion: happy
+    motions:
+     eyebrows:
+      move_up: default

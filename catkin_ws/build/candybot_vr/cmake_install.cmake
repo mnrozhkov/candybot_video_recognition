@@ -95,7 +95,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/candybot_vr" TYPE PROGRAM FILES
     "/home/alex/catkin_ws/src/candybot_vr/scripts/listener"
     "/home/alex/catkin_ws/src/candybot_vr/scripts/viewer"
-    "/home/alex/catkin_ws/src/candybot_vr/scripts/decision_maker"
+    "/home/alex/catkin_ws/src/candybot_vr/scripts/decisions"
     )
 endif()
 

@@ -1,6 +1,14 @@
 # candybot_video_recognition
 Module for CandyBot to help recognise people and objects via web-cam
 
+Automatic installation:
+
+run install.sh: ./install.sh
+
+if OpenCV already installed then comment OpenCV installation section in install.sh
+
+
+Manual installation:
 
 Libraries list and intallation instruction:
 
@@ -52,18 +60,3 @@ II. Non-Python libraries:
 	
 		
 -------------------------------------------------------------------------------------------------------
-To run ROS package:
-
-	1. create catkin workspace (http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) *
-
-	2. copy package content to <catkin_workspace>/src **
-
-	3. in terminal choose directory: $cd <catkin_workspace> 
-
-	4. build packages: $catkin_make **
-
-	5. run script run.sh ***
-
-* - do once
-** -  do where package is changed
-*** - do every time to run nodes
