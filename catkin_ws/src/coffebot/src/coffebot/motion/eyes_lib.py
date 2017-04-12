@@ -13,7 +13,7 @@ EYES_LCD_CONFIG_FILE = "eyes.conf"
 def load_config(path_to_config):
     """
     Load device configuration from file path and return list with parsed lines.
-    
+
     :param path: Location of configuration file.
     :type path: str
     :rtype: list
@@ -38,7 +38,7 @@ def get_device():
     # create device
     try:
         device = cmdline.create_device(args)
-        #settings for LCD size 
+        #settings for LCD size
         device.bounding_box = (0, 0, 127, 127)
         device.size = (128, 128)
         device.framebuffer.bounding_box = (0, 0, 127, 127)
@@ -57,13 +57,13 @@ def set_display_frame_rate(fps):
 
 
 def convert_params_to_coord(angle, distance_from_center_percent, outer_radius):
-    import math 
-    
+    import math
+
     angle_rad = math.radians(360 - angle)
     distance = distance_from_center_percent * outer_radius
     x = math.ceil(distance * math.cos(angle_rad))
     y = math.ceil(distance * math.sin(angle_rad))
-    
+
     return x, y
 
 

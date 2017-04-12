@@ -12,7 +12,6 @@ from sensor_msgs.msg import Image
 from coffebot.vision.utils import image_format_converter
 from coffebot.vision import face_recognition
 
-import json
 import time
 
 from coffebot.topic_controller import Lock

@@ -10,13 +10,8 @@ Candybot eyes module
 
 import math
 from itertools import zip_longest #use zip_longest for Python3
-from coffebot.eyes_lib import get_device, convert_params_to_coord, draw_eye, \
+from eyes_lib import get_device, convert_params_to_coord, draw_eye, \
     set_display_frame_rate, create_canvas
-
-import rospy
-from coffebot.msg import EyesMotion, EyesState
-
-from coffebot.topic_controller import Lock
 
 
 class Eyes(object):
