@@ -1,0 +1,18 @@
+name: coffeOrder
+steps:
+ - step:
+    order: 1
+    emotion: surprise
+    motions:
+     head:
+      move_down: default
+     eyebrows:
+      turn_backlight_dim: true
+      blink_backlight: 3
+      backlight_color: orange
+    body:
+      blink_backlight: 6
+
+ - step:
+    order: 2
+    emotion: neutral

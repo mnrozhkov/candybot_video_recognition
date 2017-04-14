@@ -5,44 +5,60 @@
 
 "use strict";
 
-let _serializer = require('../base_serialize.js');
-let _deserializer = require('../base_deserialize.js');
-let _finder = require('../find.js');
+const _serializer = _ros_msg_utils.Serialize;
+const _arraySerializer = _serializer.Array;
+const _deserializer = _ros_msg_utils.Deserialize;
+const _arrayDeserializer = _deserializer.Array;
+const _finder = _ros_msg_utils.Find;
+const _getByteLength = _ros_msg_utils.getByteLength;
 
 //-----------------------------------------------------------
 
 class VisionMessage {
-  constructor() {
-    this.face_count = 0;
-    this.smile = false;
+  constructor(initObj={}) {
+    if (initObj === null) {
+      // initObj === null is a special case for deserialization where we don't initialize fields
+      this.face_count = null;
+      this.smile = null;
+    }
+    else {
+      if (initObj.hasOwnProperty('face_count')) {
+        this.face_count = initObj.face_count
+      }
+      else {
+        this.face_count = 0;
+      }
+      if (initObj.hasOwnProperty('smile')) {
+        this.smile = initObj.smile
+      }
+      else {
+        this.smile = false;
+      }
+    }
   }
 
-  static serialize(obj, bufferInfo) {
+  static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type VisionMessage
     // Serialize message field [face_count]
-    bufferInfo = _serializer.int32(obj.face_count, bufferInfo);
+    bufferOffset = _serializer.int32(obj.face_count, buffer, bufferOffset);
     // Serialize message field [smile]
-    bufferInfo = _serializer.bool(obj.smile, bufferInfo);
-    return bufferInfo;
+    bufferOffset = _serializer.bool(obj.smile, buffer, bufferOffset);
+    return bufferOffset;
   }
 
-  static deserialize(buffer) {
+  static deserialize(buffer, bufferOffset=[0]) {
     //deserializes a message object of type VisionMessage
-    let tmp;
     let len;
-    let data = new VisionMessage();
+    let data = new VisionMessage(null);
     // Deserialize message field [face_count]
-    tmp = _deserializer.int32(buffer);
-    data.face_count = tmp.data;
-    buffer = tmp.buffer;
+    data.face_count = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [smile]
-    tmp = _deserializer.bool(buffer);
-    data.smile = tmp.data;
-    buffer = tmp.buffer;
-    return {
-      data: data,
-      buffer: buffer
-    }
+    data.smile = _deserializer.bool(buffer, bufferOffset);
+    return data;
+  }
+
+  static getMessageSize(object) {
+    return 5;
   }
 
   static datatype() {
@@ -64,6 +80,28 @@ class VisionMessage {
     `;
   }
 
+  static Resolve(msg) {
+    // deep-construct a valid message object instance of whatever was passed in
+    if (typeof msg !== 'object' || msg === null) {
+      msg = {};
+    }
+    const resolved = new VisionMessage(null);
+    if (msg.face_count !== undefined) {
+      resolved.face_count = msg.face_count;
+    }
+    else {
+      resolved.face_count = 0
+    }
+
+    if (msg.smile !== undefined) {
+      resolved.smile = msg.smile;
+    }
+    else {
+      resolved.smile = false
+    }
+
+    return resolved;
+    }
 };
 
 module.exports = VisionMessage;

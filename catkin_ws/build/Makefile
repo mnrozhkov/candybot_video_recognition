@@ -607,6 +607,669 @@ candybot_vr_generate_messages_lisp/fast:
 	$(MAKE) -f candybot_vr/CMakeFiles/candybot_vr_generate_messages_lisp.dir/build.make candybot_vr/CMakeFiles/candybot_vr_generate_messages_lisp.dir/build
 .PHONY : candybot_vr_generate_messages_lisp/fast
 
+#=============================================================================
+# Target rules for targets named coffebot_genpy
+
+# Build rule for target.
+coffebot_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_genpy
+.PHONY : coffebot_genpy
+
+# fast build rule for target.
+coffebot_genpy/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genpy.dir/build.make coffebot/CMakeFiles/coffebot_genpy.dir/build
+.PHONY : coffebot_genpy/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_py
+
+# Build rule for target.
+coffebot_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_py
+.PHONY : coffebot_generate_messages_py
+
+# fast build rule for target.
+coffebot_generate_messages_py/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_py.dir/build
+.PHONY : coffebot_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_gennodejs
+
+# Build rule for target.
+coffebot_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_gennodejs
+.PHONY : coffebot_gennodejs
+
+# fast build rule for target.
+coffebot_gennodejs/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gennodejs.dir/build.make coffebot/CMakeFiles/coffebot_gennodejs.dir/build
+.PHONY : coffebot_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_genlisp
+
+# Build rule for target.
+coffebot_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_genlisp
+.PHONY : coffebot_genlisp
+
+# fast build rule for target.
+coffebot_genlisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_genlisp.dir/build.make coffebot/CMakeFiles/coffebot_genlisp.dir/build
+.PHONY : coffebot_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_nodejs
+
+# Build rule for target.
+coffebot_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_nodejs
+.PHONY : coffebot_generate_messages_nodejs
+
+# fast build rule for target.
+coffebot_generate_messages_nodejs/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_nodejs.dir/build
+.PHONY : coffebot_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoActionGoal
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoActionGoal
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionGoal
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionGoal/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionGoal.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionGoal.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionGoal/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoResult
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoResult: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoResult
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoResult
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoResult/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoResult.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoResult.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoResult/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_EyesState
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_EyesState: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_EyesState
+.PHONY : _coffebot_generate_messages_check_deps_EyesState
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_EyesState/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesState.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_EyesState/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoGoal
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoGoal
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoGoal
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoGoal/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoGoal.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoGoal.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoGoal/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_nodejs
+
+# Build rule for target.
+actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_nodejs
+.PHONY : actionlib_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make coffebot/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoAction
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoAction: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoAction
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoAction
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoAction/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoAction.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoAction.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoAction/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages
+
+# Build rule for target.
+coffebot_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages
+.PHONY : coffebot_generate_messages
+
+# fast build rule for target.
+coffebot_generate_messages/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages.dir/build
+.PHONY : coffebot_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_cpp
+
+# Build rule for target.
+actionlib_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_cpp
+.PHONY : actionlib_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_generate_messages_cpp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+.PHONY : actionlib_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_SmileDetected
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_SmileDetected: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_SmileDetected
+.PHONY : _coffebot_generate_messages_check_deps_SmileDetected
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_SmileDetected/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_SmileDetected.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_SmileDetected/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoActionResult
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionResult: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoActionResult
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionResult
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionResult/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionResult.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionResult.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionResult/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_FaceFeatures
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_FaceFeatures: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_FaceFeatures
+.PHONY : _coffebot_generate_messages_check_deps_FaceFeatures
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_FaceFeatures/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceFeatures.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_FaceFeatures/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_lisp
+
+# Build rule for target.
+actionlib_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_lisp
+.PHONY : actionlib_msgs_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+.PHONY : actionlib_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_eus
+
+# Build rule for target.
+coffebot_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_eus
+.PHONY : coffebot_generate_messages_eus
+
+# fast build rule for target.
+coffebot_generate_messages_eus/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_eus.dir/build
+.PHONY : coffebot_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_lisp
+
+# Build rule for target.
+coffebot_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_lisp
+.PHONY : coffebot_generate_messages_lisp
+
+# fast build rule for target.
+coffebot_generate_messages_lisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_lisp.dir/build
+.PHONY : coffebot_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoResult
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoResult: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoResult
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoResult
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoResult/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoResult.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoResult.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoResult/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_EyesMotion
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_EyesMotion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_EyesMotion
+.PHONY : _coffebot_generate_messages_check_deps_EyesMotion
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_EyesMotion/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_EyesMotion.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_EyesMotion/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_nodejs
+
+# Build rule for target.
+actionlib_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_nodejs
+.PHONY : actionlib_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_generate_messages_nodejs/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make coffebot/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+.PHONY : actionlib_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_cpp
+
+# Build rule for target.
+actionlib_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_cpp
+.PHONY : actionlib_msgs_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+.PHONY : actionlib_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideo
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideo
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideo
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideo/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideo.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideo/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_py
+
+# Build rule for target.
+actionlib_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_py
+.PHONY : actionlib_generate_messages_py
+
+# fast build rule for target.
+actionlib_generate_messages_py/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_generate_messages_py.dir/build.make coffebot/CMakeFiles/actionlib_generate_messages_py.dir/build
+.PHONY : actionlib_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoActionGoal
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoActionGoal
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionGoal
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionGoal/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionGoal.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionGoal.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionGoal/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_py
+
+# Build rule for target.
+actionlib_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_py
+.PHONY : actionlib_msgs_generate_messages_py
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_py/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make coffebot/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+.PHONY : actionlib_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_HeadState
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_HeadState: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_HeadState
+.PHONY : _coffebot_generate_messages_check_deps_HeadState
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_HeadState/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_HeadState.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_HeadState.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_HeadState/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_FaceCoordinates
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_FaceCoordinates: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_FaceCoordinates
+.PHONY : _coffebot_generate_messages_check_deps_FaceCoordinates
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_FaceCoordinates/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_FaceCoordinates.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_FaceCoordinates/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoGoal
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoGoal
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoGoal
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoGoal/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoGoal.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoGoal.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoGoal/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_eus
+
+# Build rule for target.
+actionlib_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_eus
+.PHONY : actionlib_msgs_generate_messages_eus
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_eus/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make coffebot/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+.PHONY : actionlib_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_lisp
+
+# Build rule for target.
+actionlib_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_lisp
+.PHONY : actionlib_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_generate_messages_lisp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make coffebot/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+.PHONY : actionlib_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhoto
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhoto: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhoto
+.PHONY : _coffebot_generate_messages_check_deps_MakePhoto
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhoto/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhoto.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhoto/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_Sound
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_Sound: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_Sound
+.PHONY : _coffebot_generate_messages_check_deps_Sound
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_Sound/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Sound.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Sound.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Sound/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoFeedback
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoFeedback: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoFeedback
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoFeedback
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoFeedback/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoFeedback.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoFeedback/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_BotSpeechText
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_BotSpeechText: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_BotSpeechText
+.PHONY : _coffebot_generate_messages_check_deps_BotSpeechText
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_BotSpeechText/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_BotSpeechText.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_BotSpeechText/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoActionResult
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionResult: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoActionResult
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionResult
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionResult/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionResult.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionResult.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionResult/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_APIAIBotAnswer
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_APIAIBotAnswer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_APIAIBotAnswer
+.PHONY : _coffebot_generate_messages_check_deps_APIAIBotAnswer
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_APIAIBotAnswer/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_APIAIBotAnswer.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_APIAIBotAnswer/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_Emotion
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_Emotion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_Emotion
+.PHONY : _coffebot_generate_messages_check_deps_Emotion
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_Emotion/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Emotion.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Emotion/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MotionPattern
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MotionPattern: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MotionPattern
+.PHONY : _coffebot_generate_messages_check_deps_MotionPattern
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MotionPattern/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MotionPattern.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MotionPattern/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_eus
+
+# Build rule for target.
+actionlib_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_eus
+.PHONY : actionlib_generate_messages_eus
+
+# fast build rule for target.
+actionlib_generate_messages_eus/fast:
+	$(MAKE) -f coffebot/CMakeFiles/actionlib_generate_messages_eus.dir/build.make coffebot/CMakeFiles/actionlib_generate_messages_eus.dir/build
+.PHONY : actionlib_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakeVideoActionFeedback
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionFeedback: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakeVideoActionFeedback
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionFeedback
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakeVideoActionFeedback/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakeVideoActionFeedback.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakeVideoActionFeedback/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_generate_messages_cpp
+
+# Build rule for target.
+coffebot_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_generate_messages_cpp
+.PHONY : coffebot_generate_messages_cpp
+
+# fast build rule for target.
+coffebot_generate_messages_cpp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build.make coffebot/CMakeFiles/coffebot_generate_messages_cpp.dir/build
+.PHONY : coffebot_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoActionFeedback
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionFeedback: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoActionFeedback
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionFeedback
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoActionFeedback/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoActionFeedback.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoActionFeedback/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_UserSpeechText
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_UserSpeechText: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_UserSpeechText
+.PHONY : _coffebot_generate_messages_check_deps_UserSpeechText
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_UserSpeechText/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_UserSpeechText.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_UserSpeechText/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_Audio
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_Audio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_Audio
+.PHONY : _coffebot_generate_messages_check_deps_Audio
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_Audio/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_Audio.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_Audio/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoAction
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoAction: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoAction
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoAction/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoAction.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoAction/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_MakePhotoFeedback
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoFeedback: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_MakePhotoFeedback
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_MakePhotoFeedback/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_MakePhotoFeedback.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_MakePhotoFeedback/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_geneus
+
+# Build rule for target.
+coffebot_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_geneus
+.PHONY : coffebot_geneus
+
+# fast build rule for target.
+coffebot_geneus/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_geneus.dir/build.make coffebot/CMakeFiles/coffebot_geneus.dir/build
+.PHONY : coffebot_geneus/fast
+
+#=============================================================================
+# Target rules for targets named _coffebot_generate_messages_check_deps_HeadMotion
+
+# Build rule for target.
+_coffebot_generate_messages_check_deps_HeadMotion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _coffebot_generate_messages_check_deps_HeadMotion
+.PHONY : _coffebot_generate_messages_check_deps_HeadMotion
+
+# fast build rule for target.
+_coffebot_generate_messages_check_deps_HeadMotion/fast:
+	$(MAKE) -f coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_HeadMotion.dir/build.make coffebot/CMakeFiles/_coffebot_generate_messages_check_deps_HeadMotion.dir/build
+.PHONY : _coffebot_generate_messages_check_deps_HeadMotion/fast
+
+#=============================================================================
+# Target rules for targets named coffebot_gencpp
+
+# Build rule for target.
+coffebot_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coffebot_gencpp
+.PHONY : coffebot_gencpp
+
+# fast build rule for target.
+coffebot_gencpp/fast:
+	$(MAKE) -f coffebot/CMakeFiles/coffebot_gencpp.dir/build.make coffebot/CMakeFiles/coffebot_gencpp.dir/build
+.PHONY : coffebot_gencpp/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -654,6 +1317,57 @@ help:
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... candybot_vr_geneus"
 	@echo "... candybot_vr_generate_messages_lisp"
+	@echo "... coffebot_genpy"
+	@echo "... coffebot_generate_messages_py"
+	@echo "... coffebot_gennodejs"
+	@echo "... coffebot_genlisp"
+	@echo "... coffebot_generate_messages_nodejs"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoActionGoal"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoResult"
+	@echo "... _coffebot_generate_messages_check_deps_EyesState"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoGoal"
+	@echo "... actionlib_msgs_generate_messages_nodejs"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoAction"
+	@echo "... coffebot_generate_messages"
+	@echo "... actionlib_generate_messages_cpp"
+	@echo "... _coffebot_generate_messages_check_deps_SmileDetected"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoActionResult"
+	@echo "... _coffebot_generate_messages_check_deps_FaceFeatures"
+	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... coffebot_generate_messages_eus"
+	@echo "... coffebot_generate_messages_lisp"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoResult"
+	@echo "... _coffebot_generate_messages_check_deps_EyesMotion"
+	@echo "... actionlib_generate_messages_nodejs"
+	@echo "... actionlib_msgs_generate_messages_cpp"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideo"
+	@echo "... actionlib_generate_messages_py"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoActionGoal"
+	@echo "... actionlib_msgs_generate_messages_py"
+	@echo "... _coffebot_generate_messages_check_deps_HeadState"
+	@echo "... _coffebot_generate_messages_check_deps_FaceCoordinates"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoGoal"
+	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... actionlib_generate_messages_lisp"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhoto"
+	@echo "... _coffebot_generate_messages_check_deps_Sound"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoFeedback"
+	@echo "... _coffebot_generate_messages_check_deps_BotSpeechText"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoActionResult"
+	@echo "... _coffebot_generate_messages_check_deps_APIAIBotAnswer"
+	@echo "... _coffebot_generate_messages_check_deps_Emotion"
+	@echo "... _coffebot_generate_messages_check_deps_MotionPattern"
+	@echo "... actionlib_generate_messages_eus"
+	@echo "... _coffebot_generate_messages_check_deps_MakeVideoActionFeedback"
+	@echo "... coffebot_generate_messages_cpp"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoActionFeedback"
+	@echo "... _coffebot_generate_messages_check_deps_UserSpeechText"
+	@echo "... _coffebot_generate_messages_check_deps_Audio"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoAction"
+	@echo "... _coffebot_generate_messages_check_deps_MakePhotoFeedback"
+	@echo "... coffebot_geneus"
+	@echo "... _coffebot_generate_messages_check_deps_HeadMotion"
+	@echo "... coffebot_gencpp"
 .PHONY : help
 
 

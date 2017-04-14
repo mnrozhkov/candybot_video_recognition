@@ -54,7 +54,7 @@ bool smile
     """
     try:
       _x = self
-      buff.write(_struct_iB.pack(_x.face_count, _x.smile))
+      buff.write(_get_struct_iB().pack(_x.face_count, _x.smile))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -68,7 +68,7 @@ bool smile
       _x = self
       start = end
       end += 5
-      (_x.face_count, _x.smile,) = _struct_iB.unpack(str[start:end])
+      (_x.face_count, _x.smile,) = _get_struct_iB().unpack(str[start:end])
       self.smile = bool(self.smile)
       return self
     except struct.error as e:
@@ -83,7 +83,7 @@ bool smile
     """
     try:
       _x = self
-      buff.write(_struct_iB.pack(_x.face_count, _x.smile))
+      buff.write(_get_struct_iB().pack(_x.face_count, _x.smile))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -98,11 +98,19 @@ bool smile
       _x = self
       start = end
       end += 5
-      (_x.face_count, _x.smile,) = _struct_iB.unpack(str[start:end])
+      (_x.face_count, _x.smile,) = _get_struct_iB().unpack(str[start:end])
       self.smile = bool(self.smile)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_iB = struct.Struct("<iB")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_iB = None
+def _get_struct_iB():
+    global _struct_iB
+    if _struct_iB is None:
+        _struct_iB = struct.Struct("<iB")
+    return _struct_iB
