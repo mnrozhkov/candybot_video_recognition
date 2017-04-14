@@ -6,6 +6,7 @@
 *DS_Store
 *.idea/*
 *vcs.xml
+*.idea/vcs.xml
 
 
 # Byte-compiled / optimized / DLL files
@@ -81,4 +82,3 @@ celerybeat-schedule
 # virtualenv
 venv/
 ENV/
-
