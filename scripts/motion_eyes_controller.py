@@ -15,7 +15,7 @@ from coffebot.msg import EyesMotion, EyesState
 from coffebot.motion.eyes.eyes_controller import Eyes
 from coffebot.motion.eyes.eyes_lib import get_device, create_canvas, get_device, convert_params_to_coord, draw_eye, \
     set_display_frame_rate, create_canvas, zip_wrapper
-
+from coffebot.topic_controller import Lock
 
 
 def main(num_iterations=sys.maxsize):
