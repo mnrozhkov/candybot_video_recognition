@@ -47,7 +47,7 @@ if __name__ == '__main__':
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features_msg = FaceFeatures()
                     face_features_msg.emotion = face_recognition.recognize_emotion(binary_face_image)
-                    face_features_msg.celebrity_name = face_recognition.recognize_celebrities_similarity(binary_face_image))
+                    face_features_msg.celebrity_name = face_recognition.recognize_celebrities_similarity(binary_face_image)
                     face_features_msg.gender = face_recognition.recognize_gender(binary_face_image)
                     face_features_msg.age = face_recognition.recognize_age(binary_face_image)
                     print(face_features_msg)

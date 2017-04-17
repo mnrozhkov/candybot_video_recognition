@@ -6,6 +6,8 @@ from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
 from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
 import json
 
+import actionlib
+
 import time
 
 
