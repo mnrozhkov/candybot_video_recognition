@@ -43,6 +43,3 @@ class Head:
 
     def shake_left_right(self, times: int=1):
         print('head shake left-right')
-
-
-

@@ -1,3 +1,5 @@
+import math
+
 class Eyebrows:
 
     def __init__(self):

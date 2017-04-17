@@ -4,6 +4,8 @@ import rospy
 from coffebot.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
 from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
 from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
+from coffebot.msg import MakePhotoAction, MakePhotoActionGoal
+from coffebot.msg import MakeVideoAction, MakeVideoActionGoal
 import json
 
 import actionlib
@@ -88,8 +90,8 @@ class Decision:
         self.speech_synthesis_publisher = rospy.Publisher('bot_speech_text', BotSpeechText, queue_size=1)
 
     def _create_action_clients(self):
-        self.make_photo_action_client = actionlib.SimpleActionClient('make_photo')
-        self.make_video_action_client = actionlib.SimpleActionClient('make_video')
+        self.make_photo_action_client = actionlib.SimpleActionClient('make_photo', MakePhotoAction)
+        self.make_video_action_client = actionlib.SimpleActionClient('make_video', MakeVideoAction)
 
     def make_decision(self) -> None:
         '''

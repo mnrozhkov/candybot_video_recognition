@@ -19,6 +19,8 @@ from coffebot.vision import video_capture
 
 import os
 
+import actionlib
+
 from coffebot.msg import MakeVideoAction
 
 import time
@@ -105,4 +107,3 @@ if __name__ == '__main__':
             break
 
         time.sleep(0.5)
-        

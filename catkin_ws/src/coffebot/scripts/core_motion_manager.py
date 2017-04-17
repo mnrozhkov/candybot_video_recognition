@@ -2,6 +2,10 @@
 
 import rospy
 from coffebot.msg import MotionPattern, Emotion
+from coffebot.motion.body.body_controller import Body
+from coffebot.motion.eyebrows.eyebrows_controller import Eyebrows
+#from coffebot.motion.eyes.eyes_controller import Eyes
+from coffebot.motion.head.head_controller import Head
 
 import json
 import yaml
@@ -29,6 +33,11 @@ class MotionMaker:
     '''
 
     def __init__(self):
+
+        self._body = Body()
+        self._eyebrows = Eyebrows()
+        #self._eyes = Eyes()
+        self._head = Head()
 
         #emotions-motions dictionary
         self.emotion_actions = {
@@ -74,63 +83,63 @@ class MotionMaker:
         self.emotion = None
 
     def _set_neutral(self) -> None:
-        self.eyebrows.move_up(0)
-        self.eyebrows.turn_backlight_dim()
-        self.eyebrows.set_backlight_color(color='orange')
+        self._eyebrows.move_up(0)
+        self._eyebrows.turn_backlight_dim()
+        self._eyebrows.set_backlight_color(color='orange')
 
-        self.body.turn_backlight_on()
-        self.body.set_backlight_color(color='orange')
+        self._body.turn_backlight_on()
+        self._body.set_backlight_color(color='orange')
 
     def _set_happy(self) -> None:
-        self.head.move_up()
-        self.head.shake_left_right(5)
+        self._head.move_up()
+        self._head.shake_left_right(5)
 
-        self.eyebrows.move_down()
-        self.eyebrows.turn_backlight_dim()
-        self.eyebrows.set_backlight_color(color='orange')
+        self._eyebrows.move_down()
+        self._eyebrows.turn_backlight_dim()
+        self._eyebrows.set_backlight_color(color='orange')
 
-        self.body.turn_backlight_dim()
-        self.body.set_backlight_color(color='orange')
+        self._body.turn_backlight_dim()
+        self._body.set_backlight_color(color='orange')
 
     def _set_sad(self) -> None:
-        self.head.turn_left()
-        self.head.move_down()
+        self._head.turn_left()
+        self._head.move_down()
 
-        self.eyebrows.move_up()
-        self.eyebrows.turn_backlight_off()
+        self._eyebrows.move_up()
+        self._eyebrows.turn_backlight_off()
 
-        self.body.turn_backlight_off()
+        self._body.turn_backlight_off()
 
 
     def _set_fear(self) -> None:
-        self.head.move_down()
+        self._head.move_down()
 
-        self.eyebrows.blink_backlight(30)
-        self.eyebrows.set_backlight_color(color='orange')
+        self._eyebrows.blink_backlight(30)
+        self._eyebrows.set_backlight_color(color='orange')
 
-        self.body.blink_backlight(30)
-        self.body.set_backlight_color(color='orange')
+        self._body.blink_backlight(30)
+        self._body.set_backlight_color(color='orange')
 
     def _set_surprise(self) -> None:
-        self.head.move_up()
+        self._head.move_up()
 
-        self.eyebrows.move_up()
-        self.eyebrows.turn_backlight_on()
-        self.eyebrows.set_backlight_color(color='blue')
+        self._eyebrows.move_up()
+        self._eyebrows.turn_backlight_on()
+        self._eyebrows.set_backlight_color(color='blue')
 
-        self.body.turn_backlight_on()
-        self.body.set_backlight_color(color='blue')
+        self._body.turn_backlight_on()
+        self._body.set_backlight_color(color='blue')
 
     def _set_angry(self) -> None:
-        self.head.move_down()
-        self.head.shake_left_right(30)
+        self._head.move_down()
+        self._head.shake_left_right(30)
 
-        self.eyebrows.move_down()
-        self.eyebrows.turn_backlight_dim()
-        self.eyebrows.set_backlight_color(color='red')
+        self._eyebrows.move_down()
+        self._eyebrows.turn_backlight_dim()
+        self._eyebrows.set_backlight_color(color='red')
 
-        self.body.turn_backlight_dim()
-        self.body.set_backlight_color(color='red')
+        self._body.turn_backlight_dim()
+        self._body.set_backlight_color(color='red')
 
     def _set_thinking(self) -> None:
         pass
