@@ -81,18 +81,7 @@ class Head(object):
     def nod_to_disagree(self):
         print('head nod to disagree')
 
-<<<<<<< HEAD:src/coffebot/motion/head/head_controller.py
-    def move_to_coords(self, coords: dict={'x': 0, 'y': 0}):
-        print('head move to:', coords)
-        self.cartesian_coords = coords
-        self.horizontal_angle = math.atan(x)
-        self.vertical_angle = math.atan(y)
-
-    def shake_left_right(self, times: int=1):
-        print('head shake left-right')
-=======
 
     def move_to_coords(self, coords):
         print('head move to:', coords)
 
->>>>>>> Update Head and servo modules. Add tests for Head class to head/test_head.py:catkin_ws/src/coffebot/src/coffebot/motion/head/head_controller.py
