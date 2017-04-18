@@ -19,7 +19,7 @@ def set_algorithmia_key(key: str):
 def recognize_emotion(face_image: numpy.ndarray or None = None) -> str or None:
 
     if face_image is None:
-        return None
+        return Nonegit
 
     try:
         return algorithmia.get_emotion(face_image)
