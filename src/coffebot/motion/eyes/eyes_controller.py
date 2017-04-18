@@ -4,9 +4,14 @@
 # See LICENSE.rst for details.
 
 """
-Candybot eyes module 
+Candybot eyes module
 
 """
+import sys
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+sys.path.append(top)
+
 from eyes_lib import convert_params_to_coord, draw_eye, zip_wrapper
 
 
@@ -18,16 +23,16 @@ class Eyes(object):
         self._color = background_color
         self._eye_radius = eye_radius
         self._eye_color = eye_color
-        
-        #Eyes base settings 
+
+        #Eyes base settings
         self._x_center = int(self._w / 2)
         self._y_center = int(self._h / 2)
         self._x_pos = self._x_center
         self._y_pos = self._y_center
-        self._pupil_radius = pupil_radius 
+        self._pupil_radius = pupil_radius
         self._pupil_orbit_radius = self._eye_radius - self._pupil_radius
         self._pupil_color = pupil_color
-        
+
         #speed settings
         self._x_speed = 5
         self._y_speed = 5
@@ -72,7 +77,7 @@ class Eyes(object):
                 path.append(0)
 
             return path
-        
+
         x_path = get_path_to_point(self, x, self._x_pos,  self._x_speed)
         y_path = get_path_to_point(self, y, self._y_pos,  self._y_speed)
 

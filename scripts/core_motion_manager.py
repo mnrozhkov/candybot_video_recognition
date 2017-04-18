@@ -13,8 +13,9 @@ import yaml
 import time
 
 import sys
-
-BASE_PATH = sys.path[0]
+from pathlib import Path
+top = Path(__file__).resolve().parents[1].as_posix()
+sys.path.append(top)
 
 import logging
 import os
@@ -180,7 +181,7 @@ class MotionMaker:
                 self.set_emotion(emotion)
 
             if pattern_name is not None:
-                pattern_path = BASE_PATH + '/motion_patterns/' + pattern_name + '.yaml'
+                pattern_path = '/motion_patterns/' + pattern_name + '.yaml'
                 pattern = yaml.load(open(pattern_path,'r'))
                 pattern_steps = pattern['steps']
                 print(pattern_steps)

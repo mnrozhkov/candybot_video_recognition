@@ -49,7 +49,10 @@ if __name__ == '__main__':
                     face_features_msg.emotion = face_recognition.recognize_emotion(binary_face_image)
                     face_features_msg.celebrity_name = face_recognition.recognize_celebrities_similarity(binary_face_image)
                     face_features_msg.gender = face_recognition.recognize_gender(binary_face_image)
-                    face_features_msg.min_age, face_features_msg.max_age = face_recognition.recognize_age(binary_face_image)
+                    age_interval = face_recognition.recognize_age(binary_face_image)
+                    if age_interval is not None:
+                        face_features_msg.min_age, face_features_msg.max_age = age_interval
+                    
                     print(face_features_msg)
                     face_info_publisher.publish(face_features_msg)
 

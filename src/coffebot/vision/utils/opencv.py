@@ -3,6 +3,8 @@
 import sys
 sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 
+from pathlib import Path
+BASE_PATH = Path(__file__).resolve().parents[1].as_posix()
 
 import cv2
 import numpy
@@ -17,8 +19,6 @@ if os.path.exists(LOG_FOLDER) is False:
 logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.DEBUG)
 
-
-BASE_PATH = sys.path[0]
 FACE_HARRCASCADE_FILE = BASE_PATH + '/haarcascades/haarcascade_frontalface_default.xml'
 SMILE_HARRCASCADE_FILE = BASE_PATH + '/haarcascades/haarcascade_smile.xml'
 

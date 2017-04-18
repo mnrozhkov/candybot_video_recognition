@@ -1,6 +1,11 @@
 from urllib import request, parse
 
-from coffebot.audio.player import Player
+import sys
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+sys.path.append(top)
+
+from player import Player
 
 import logging
 import os

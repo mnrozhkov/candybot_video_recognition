@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+import sys
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+sys.path.append(top)
+
 import logging
 import os
 LOG_FOLDER = 'logs'
@@ -8,7 +13,7 @@ if os.path.exists(LOG_FOLDER) is False:
 logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.DEBUG)
 
-from coffebot.vision.utils import opencv, algorithmia
+from utils import opencv, algorithmia
 import numpy
 
 

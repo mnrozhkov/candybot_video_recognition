@@ -8,13 +8,17 @@ from luma.core.render import canvas
 from luma.core.sprite_system import framerate_regulator
 from luma.lcd.device import st7735
 
+from pathlib import Path
+top = Path(__file__).resolve().parents[1].as_posix()
+sys.path.append(top)
 
-EYES_LCD_CONFIG_FILE = "eyes.conf"
+
+EYES_LCD_CONFIG_FILE = "conf/eyes.conf"
 
 def load_config(path_to_config):
     """
     Load device configuration from file path and return list with parsed lines.
-    
+
     :param path: Location of configuration file.
     :type path: str
     :rtype: list
@@ -60,12 +64,12 @@ def convert_params_to_coord(angle, distance_from_center_percent, outer_radius):
         angle = 0
     if distance_from_center_percent is None:
         distance_from_center_percent = 0
-    
+
     angle_rad = math.radians(360 - angle)
     distance = distance_from_center_percent * outer_radius
     x = math.ceil(distance * math.cos(angle_rad))
     y = math.ceil(distance * math.sin(angle_rad))
-    
+
     return x, y
 
 
@@ -83,4 +87,3 @@ def zip_wrapper(x_path, y_path, fillvalue=0):
     else:
         from itertools import izip
         return izip(x_path, y_path, fillvalue=0)
-

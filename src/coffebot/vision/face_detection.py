@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
+import sys
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+sys.path.append(top)
 
-from coffebot.vision.utils import opencv
+from utils import opencv
 from typing import Dict
 
 import numpy
