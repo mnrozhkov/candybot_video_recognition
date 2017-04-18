@@ -12,16 +12,19 @@ import warnings
 #
 # # setup WiringPi PWM
 # SERVO_PIN = 18
-# PWM_DIVISOR = 384 # clock at 50kHz (20us tick)
-# PWM_RANGE = 1000  # range at 1000 ticks (20ms)
 
 
-def servo.setup_rpi_pins(servo_pins, PWM_DIVISOR, PWM_RANGE):
+
+def servo.setup_rpi_pins(servo_pins):
     """
     Setup pin as an output 
     :param dummy_head: 
     :return: 
     """
+
+    PWM_DIVISOR = 384 # clock at 50kHz (20us tick)
+    PWM_RANGE = 1000  # range at 1000 ticks (20ms)
+
     for pin in servo_pins:
         try:
             wiringpi.pinMode(pin, 2)
@@ -50,3 +53,6 @@ def set_servo_position(pos, SERVO_PIN):
             # clean up
             wiringpi.pwmWrite(SERVO_PIN, 0)
             warnings.warn("Servo was not moved. Move in None. Set servo pin to 0")
+
+
+
