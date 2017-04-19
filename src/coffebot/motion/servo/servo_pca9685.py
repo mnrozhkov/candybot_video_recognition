@@ -67,18 +67,18 @@ class Servo:
     The degrees argument specifies the physical range of the servo corresponding to the signal’s duty range specified before. 
     It is used to calculate signal’s duty when the angle is specified in degrees or radians.
     """
-    def __init__(self, i2c=None, address=0x40, freq=60, min_us=600, max_us=2400,
+    def __init__(self, address=0x40, freq=60, min_us=600, max_us=2400,
                  degrees=180):
         self.period = 1000000 / freq                    # pulse length
         self.min_duty = self._us2duty(min_us)           # min_pulse =  self.min_duty * 1000 / 4096
         self.max_duty = self._us2duty(max_us)           # max_pulse = self.min_duty * 1000 / 4096
         self.degrees = degrees
         self.freq = freq
-        self.pca9685 = Adafruit_PCA9685.PCA9685(i2c, address)
+        self.pca9685 = Adafruit_PCA9685.PCA9685(address)
         self.pca9685.set_pwm_freq(freq)
 
     def _us2duty(self, value):
-        return int(4095 * value / self.period) * 1000  # to allign with Adafruit_PCA9685 lib scale for servo_min and servo_min pulse length
+        return int(4095 * value / self.period)
 
     def set_angle(self, channel, degrees=None, radians=None):
         """
@@ -97,8 +97,9 @@ class Servo:
             duty = self.min_duty  + span * radians / math.radians(self.degrees)
         else:
             return self.pca9685.set_pwm(0, 0, self.min_duty)
+
         duty = min(self.max_duty, max(self.min_duty, int(duty)))
-        self.pca9685.dutys.et_pwm(channel, 0, duty)
+        self.pca9685.set_pwm(channel, 0, duty)
 
     def release(self, channel):
         self.pca9685.set_pwm(channel, 0, self.min_duty)

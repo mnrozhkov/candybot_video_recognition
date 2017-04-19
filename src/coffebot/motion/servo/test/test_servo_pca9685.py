@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from .. servo_pca9685 import set_angle, Servo
+import os
+import sys
+from pathlib import Path
+
+top = Path(__file__).resolve().parents[1]
+sys.path.append(str(top))
+
+from servo_pca9685 import set_angle, Servo
 import Adafruit_PCA9685
 import time
 import math
@@ -9,8 +16,6 @@ import warnings
 
 
 # Initialise the PCA9685 using the default address (0x40)
-# SDA -> GPIO00/SDA0
-# SCL- > GPIO01/SCL0
 pwm = Adafruit_PCA9685.PCA9685()
 
 
@@ -20,7 +25,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 ### Tests for hardware
 #______________________
-
 def test_hardware_example():
     # Turns servo back and forth 10 times
     # SDA -> GPIO00/SDA0
@@ -59,7 +63,6 @@ def test_hardware_example():
 
 ### Tests for hardware
 #______________________
-
 def test_set_angle():
     """
     Turns servo back and forth 10 times
@@ -69,9 +72,9 @@ def test_set_angle():
     turns = 0
     while turns <= 10:
         # Move servo on channel O between extremes.
-        pwm.set_angle(0, 60)
+        set_angle(0, 60)
         time.sleep(1)
-        pwm.set_angle(0, 120)
+        set_angle(0, 120)
         time.sleep(1)
         turns += 1
 
@@ -90,3 +93,11 @@ def test_servo_class():
         servo.set_angle(0, 120)
         time.sleep(1)
         turns += 1
+
+
+
+if __name__ == "__main__":
+    try:
+        test_hardware_example()
+    except KeyboardInterrupt:
+        pass
