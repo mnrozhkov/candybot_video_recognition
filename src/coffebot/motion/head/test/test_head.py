@@ -111,7 +111,7 @@ def test_get_head_position_type(dummy_head):
     head_position = dummy_head.get_head_position()
     assert isinstance(head_position, tuple)
     assert isinstance(head_position[0], (int, float))
-    assert isinstance(head_position[0], (int, float))
+    assert isinstance(head_position[1], (int, float))
 
 
 # Tests emtions

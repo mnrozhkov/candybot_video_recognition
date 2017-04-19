@@ -11,10 +11,18 @@ from servo_pca9685 import Servo
 
 
 class Eyebrows(object):
-    def __init__(self, _l_angle, _r_angle, _emotion, _l_SERVO_ADDRESS, _r_SERVO_ADDRESS, _led_on, _led_color):
+    def __init__(self, _l_angle, _r_angle, _l_SERVO_ADDRESS, _r_SERVO_ADDRESS, _led_on, _led_color, _emotion):
         # Eyebrows position (servos) params
         self._l_angle = _l_angle
         self._r_angle = _r_angle
+        self._l_SERVO_ADDRESS = _l_SERVO_ADDRESS
+        self._r_SERVO_ADDRESS = _r_SERVO_ADDRESS
+        self.l_servo = Servo(address=_l_SERVO_ADDRESS)
+        self.r_servo = Servo(address=_r_SERVO_ADDRESS)
+
+        # move Eyebrows into default position
+        self.set_left_servo_position(_l_angle)
+        self.set_right_servo_position(_r_angle)
 
         # Eyebrows led params
         self._led_on = _led_on
@@ -22,17 +30,6 @@ class Eyebrows(object):
 
         # other settings
         self._emotion = _emotion
-
-        # pin settings
-        self._l_SERVO_ADDRESS = _l_SERVO_ADDRESS
-        self._r_SERVO_ADDRESS = _r_SERVO_ADDRESS
-
-        self.l_servo = Servo(address=_l_SERVO_ADDRESS)
-        self.r_servo = Servo(address=_r_SERVO_ADDRESS)
-
-        # move Eyebrows into default position
-        self.set_left_servo_position(_l_angle)
-        self.set_right_servo_position(_r_angle)
 
     def set_left_servo_position(self, angle):
         """
@@ -77,6 +74,8 @@ class Eyebrows(object):
 
     def get_emotion(self):
         return self._emotion
+
+
 
     # TODO: Add implementation for methods below
     def set_led_mode(led_on=False, color=(255, 255, 255), mode='light', frequency=None):
