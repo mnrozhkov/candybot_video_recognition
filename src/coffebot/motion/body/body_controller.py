@@ -8,7 +8,7 @@ import time
 top = Path(__file__).resolve().parents[1]
 sys.path.append(str(top))
 
-from servo_pca9685 import Servo
+from servo.servo_pca9685 import Servo
 
 
 class Body(object):
@@ -89,4 +89,3 @@ class Body(object):
 
     def turn_backlight_dim(self):
         print('body backlight dim')
-
