@@ -25,7 +25,7 @@ class Head(object):
 
         # pin settings
         self._h_SERVO_ADDRESS = _h_SERVO_ADDRESS
-        self._v_SERVO_PIN = _v_SERVO_ADDRESS
+        self._v_SERVO_ADDRESS = _v_SERVO_ADDRESS
 
         self.h_servo = Servo(address =_h_SERVO_ADDRESS)
         self.v_servo = Servo(address =_v_SERVO_ADDRESS)
@@ -42,7 +42,7 @@ class Head(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.h_servo.set_angle(self._h_SERVO_PIN, angle)
+            self.h_servo.set_angle(self._h_SERVO_ADDRESS, angle)
             self._h_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -55,7 +55,7 @@ class Head(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.v_servo.set_angle(self._v_SERVO_PIN, angle)
+            self.v_servo.set_angle(self._v_SERVO_ADDRESS, angle)
             self._v_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")

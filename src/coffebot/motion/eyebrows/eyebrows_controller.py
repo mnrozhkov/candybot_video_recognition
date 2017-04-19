@@ -25,7 +25,7 @@ class Eyebrows(object):
 
         # pin settings
         self._l_SERVO_ADDRESS = _l_SERVO_ADDRESS
-        self._r_SERVO_PIN = _r_SERVO_ADDRESS
+        self._r_SERVO_ADDRESS = _r_SERVO_ADDRESS
 
         self.l_servo = Servo(address =_l_SERVO_ADDRESS)
         self.r_servo = Servo(address =_r_SERVO_ADDRESS)
@@ -42,7 +42,7 @@ class Eyebrows(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.l_servo.set_angle(self._l_SERVO_PIN, angle)
+            self.l_servo.set_angle(self._l_SERVO_ADDRESS, angle)
             self._l_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -55,7 +55,7 @@ class Eyebrows(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.r_servo.set_angle(self._r_SERVO_PIN, angle)
+            self.r_servo.set_angle(self._r_SERVO_ADDRESS, angle)
             self._r_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -65,13 +65,13 @@ class Eyebrows(object):
         return (self._l_angle, self._r_angle)
 
     def move_up(self, angle = 30):
-        self.set_left_servo_position(self, angle)
-        self.set_left_servo_position(self, -angle)
+        self.set_left_servo_position(angle)
+        self.set_left_servo_position(-angle)
 
 
     def move_down(self, angle = -30):
-        self.set_left_servo_position(self, angle)
-        self.set_left_servo_position(self, -angle)
+        self.set_left_servo_position(angle)
+        self.set_left_servo_position(-angle)
         
     def set_emotion(self, emotion=None):
         if emotion is None:
