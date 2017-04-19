@@ -10,11 +10,16 @@ sys.path.append(str(top))
 
 from servo.servo_pca9685 import Servo
 
+# set general params
+ANGLE_OPEN_DISPENSER = 90
+ANGLE_CLOSE_DISPENSER = 0
 
 class Body(object):
     def __init__(self, _d_SERVO_ADDRESS, _emotion):
-        # Body position (servos) params
+        # Candy dispenser position params
+        self._d_SERVO_ADDRESS = _d_SERVO_ADDRESS
         self._d_servo_angle = 0
+        self.d_servo = Servo(address =_d_SERVO_ADDRESS)
 
         # Body led params
         self._led_on = True
@@ -23,9 +28,7 @@ class Body(object):
         # other settings
         self._emotion = _emotion
 
-        # pin settings
-        self._d_SERVO_ADDRESS = _d_SERVO_ADDRESS
-        self.d_servo = Servo(address =_d_SERVO_ADDRESS)
+
 
         # move Body into default position
         self.set_dispenser_servo_position(self._d_servo_angle)
@@ -44,15 +47,15 @@ class Body(object):
             warnings.warn("'angle' param is not a number. Servo has not moved")
 
 
-    def get_dispenser_position(self):
+    def get_dispenser_servo_position(self):
         return (self._d_angle)
 
 
     def open_dispenser(self):
-        self.set_dispenser_servo_position(90)
+        self.set_dispenser_servo_position(ANGLE_OPEN_DISPENSER)
 
     def close_dispenser(self):
-        self.set_dispenser_servo_position(0)
+        self.set_dispenser_servo_position(ANGLE_CLOSE_DISPENSER)
 
     def give_candy(self):
         self.open_dispenser()
