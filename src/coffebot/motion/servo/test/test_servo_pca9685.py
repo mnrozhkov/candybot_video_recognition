@@ -16,8 +16,6 @@ import warnings
 
 
 # Initialise the PCA9685 using the default address (0x40)
-# SDA -> GPIO00/SDA0
-# SCL- > GPIO01/SCL0
 pwm = Adafruit_PCA9685.PCA9685()
 
 
@@ -27,7 +25,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 ### Tests for hardware
 #______________________
-
 def test_hardware_example():
     # Turns servo back and forth 10 times
     # SDA -> GPIO00/SDA0
@@ -66,7 +63,6 @@ def test_hardware_example():
 
 ### Tests for hardware
 #______________________
-
 def test_set_angle():
     """
     Turns servo back and forth 10 times

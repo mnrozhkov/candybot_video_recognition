@@ -97,8 +97,8 @@ class Servo:
             duty = self.min_duty  + span * radians / math.radians(self.degrees)
         else:
             return self.pca9685.set_pwm(0, 0, self.min_duty)
-        
-        duty = min(self.max_duty, max(self.min_duty, int(duty)))\
+
+        duty = min(self.max_duty, max(self.min_duty, int(duty)))
         self.pca9685.set_pwm(channel, 0, duty)
 
     def release(self, channel):

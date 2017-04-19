@@ -35,7 +35,11 @@ from head_controller import Head
 
 @pytest.fixture(scope="function")
 def dummy_head():
-    head = Head()
+    head = Head(_h_angle=90,
+                _v_angle=90,
+                _emotion='happy',
+                _h_SERVO_ADDRESS=0,
+                _v_SERVO_ADDRESS=1)
     yield head
 
 
@@ -46,9 +50,9 @@ def dummy_head():
 def test_head_init(dummy_head):
     assert dummy_head._h_angle == 90
     assert dummy_head._v_angle == 90
-    assert dummy_head._led_on == True
-    assert dummy_head._color == '#ffffff'
     assert dummy_head._emotion == 'neutral'
+    assert dummy_head._h_SERVO_ADDRESS==0
+    assert dummy_head._v_SERVO_ADDRESS==1
 
 
 # Tests for servo 1: horizontal
@@ -97,7 +101,7 @@ def test_set_vertical_servo_position_raise_type_error(angle):
         dummy_head.set_vertical_servo_position(angle)
 
 
-# Tests position type
+# Tests position return type
 def test_get_head_position_type(dummy_head):
     """
     Head position should be a tuple of two numbers 
