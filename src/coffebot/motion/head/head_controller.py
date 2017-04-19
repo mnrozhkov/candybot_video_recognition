@@ -1,45 +1,87 @@
 #!/usr/bin/env python3
-import math
+import os
+import sys
+from pathlib import Path
 
-class Head:
+top = Path(__file__).resolve().parents[1]
+sys.path.append(str(top))
 
-    def __init__(self):
-        self.cartesian_coords = {'x': 0, 'y': 0}
-        self.vertical_angle = 0
-        self.horizontal_angle = 0
+from servo import servo
 
-        self.led_on = None
-        self.color = None
-        self.mode = None
-        self.frequency = None
 
-    def turn_left(self, angle: float=math.pi / 4):
-        print('head turn left:', angle)
-        self.horizontal_angle = angle
+class Head(object):
+    def __init__(self, _h_angle, _v_angle, _led_on, _color, _emotion, _h_SERVO_PIN, _v_SERVO_PIN, _PWM_DIVISOR, _PWM_RANGE,):
+        # head position (servos) params
+        self._h_angle = _h_angle
+        self._v_angle = _v_angle
 
-    def turn_right(self, angle: float=math.pi / 4):
-        pritn('head turn right:', angle)
-        self.horizontal_angle = -angle
+        # head led params
+        self._led_on = _led_on
+        self._color = _color
 
-    def move_up(self, angle: float=math.pi / 4):
-        print('head move up:', angle)
-        self.vertical_angle = angle
+        # other settings
+        self._emotion = _emotion
 
-    def move_down(self, angle: float=math.pi / 4):
-        print('head move down:', angle)
-        self.vertical_angle = -angle
+        # pin settings
+        self._h_SERVO_PIN = _h_SERVO_PIN
+        self._v_SERVO_PIN = _v_SERVO_PIN
+        self._PWM_DIVISOR = _PWM_DIVISOR  # clock at 50kHz (20us tick)
+        self._PWM_RANGE = _PWM_RANGE  # range at 1000 ticks (20ms)
+
+        # move Head into default position
+        self.set_horizontal_servo_position(90)
+        self.set_vertical_servo_position(90)
+
+
+    def setup_rpi_pins(self, _h_SERVO_PIN, _v_SERVO_PIN, _PWM_DIVISOR, _PWM_RANGE):
+        servo.setup_rpi_pins([_h_SERVO_PIN, _v_SERVO_PIN], _PWM_DIVISOR, _PWM_RANGE)
+
+
+    def set_horizontal_servo_position(self, angle):
+        """
+        Turn servo on specified angle in degrees
+        Params:
+            pos: angle to turn servo, in degrees
+        """
+        servo.set_servo_position(angle, self._h_SERVO_PIN)
+
+
+    def set_vertical_servo_position(self, angle):
+        """
+        Turn servo on specified angle in degrees
+        Params:
+            pos: angle to turn servo, in degrees
+        """
+        servo.set_servo_position(angle, self._v_SERVO_PIN)
+
+
+    def get_head_position(self):
+        return (self._h_angle, self._v_angle)
+
+
+    def set_emotion(self, emotion=None):
+        if emotion is None:
+            self._emotion = 'neutral'
+        else:
+            self._emotion = emotion
+
+    def get_emotion(self):
+        return self._emotion
+
+
+    #TODO: Add implementation for methods below
+    def set_led_mode(led_on=False, color=(255, 255, 255), mode='light', frequency=None):
+        print('body: led_on={0},color={1}, mode={2}, frequency={3}'.format(led_on, color, mode, frequency))
+
 
     def nod_to_agree(self):
         print('head nod to agree')
 
+
     def nod_to_disagree(self):
         print('head nod to disagree')
 
-    def move_to_coords(self, coords: dict={'x': 0, 'y': 0}):
-        print('head move to:', coords)
-        self.cartesian_coords = coords
-        self.horizontal_angle = math.atan(x)
-        self.vertical_angle = math.atan(y)
 
-    def shake_left_right(self, times: int=1):
-        print('head shake left-right')
+    def move_to_coords(self, coords):
+        print('head move to:', coords)
+

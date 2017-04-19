@@ -20,18 +20,11 @@
 import os
 import sys
 from pathlib import Path
-
 import random
 import pytest
 
-# print(os.getcwd())
-# abspath = os.getcwd().split('/')
-# abspath.pop(-1)
-# sys.path.append('/'.join(abspath))
-
 top = Path(__file__).resolve().parents[1]
 sys.path.append(str(top))
-
 
 from eyes_controller import Eyes
 from eyes_lib import get_device, draw_eye, set_display_frame_rate, create_canvas, convert_params_to_coord
@@ -105,7 +98,6 @@ class TestEyesMethods:                      # unit-tests for a class methods
 
 ### Tests for hardware
 #______________________
-
 
 def test_display_st7735():
     num_iterations=sys.maxsize
