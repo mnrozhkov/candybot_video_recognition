@@ -2,7 +2,6 @@
 
 source devel/setup.bash
 export PYTHONPATH=/usr/local/lib/python3.5/dist-packages:$PYTHONPATH
-echo $PYTHONPATH
 
 rosrun coffebot audio_capture.py & \
 rosrun coffebot audio_min_volume_detector.py & \
