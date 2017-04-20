@@ -11,13 +11,15 @@ from coffebot.msg import HeadMotion, HeadState
 from coffebot.motion.head.head_controller import Head
 from coffebot.topic_controller import Lock
 
+import time
+
 
 def main():
 
     rospy.init_node('motion_head_controller')
 
     head_motion_lock = Lock()
-    rospy.Subscriber('head_motion', headMotion, head_motion_lock.callback)
+    rospy.Subscriber('/motion_head_controller/head_motion', HeadMotion, head_motion_lock.callback)
     head_position_publisher = rospy.Publisher('head_state')
 
     head = Head(
@@ -33,6 +35,10 @@ def main():
     )
 
     while True:
+        try:
+            rospy.get_master().getPid()
+        except:
+            break
 
         #read HeadMotion message
         head_motion_msg =  head_motion_lock.message
@@ -64,6 +70,8 @@ def main():
         if head_motion_lock.message == head_motion_msg:
             head_motion_lock.message = None
             # additional code here (i.e. publish head state)
+
+        time.sleep(0.5)
 
 
 if __name__ == "__main__":

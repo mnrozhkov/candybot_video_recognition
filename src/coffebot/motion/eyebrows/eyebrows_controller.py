@@ -58,13 +58,13 @@ class Eyebrows(object):
     def get_eyebrows_position(self):
         return (self._l_angle, self._r_angle)
 
-    def move_up(self, angle=30):
-        self.set_left_servo_position(angle)
-        self.set_left_servo_position(-angle)
-
-    def move_down(self, angle=-30):
-        self.set_left_servo_position(angle)
-        self.set_left_servo_position(-angle)
+    # def move_up(self, angle=30):
+    #     self.set_left_servo_position(angle)
+    #     self.set_left_servo_position(-angle)
+    #
+    # def move_down(self, angle=-30):
+    #     self.set_left_servo_position(angle)
+    #     self.set_left_servo_position(-angle)
 
     def set_emotion(self, emotion=None):
         if emotion is None:

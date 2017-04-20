@@ -17,13 +17,15 @@ from coffebot.motion.eyes.eyes_lib import get_device, create_canvas, get_device,
     set_display_frame_rate, create_canvas, zip_wrapper
 from coffebot.topic_controller import Lock
 
+import time
+
 
 def main(num_iterations=sys.maxsize):
 
     rospy.init_node('motion_eyes_controller')
 
     eyes_motion_lock = Lock()
-    rospy.Subscriber('eyes_motion', EyesMotion, eyes_motion_lock.callback)
+    rospy.Subscriber('/motion_eyes_controller/eyes_motion', EyesMotion, eyes_motion_lock.callback)
     eyes_position_publisher = rospy.Publisher('eyes_state')
 
     eyes = Eyes(width=128,
@@ -86,6 +88,8 @@ def main(num_iterations=sys.maxsize):
                 if eyes_motion_lock.message == eyes_motion_msg:
                     eyes_motion_lock.message = None
                     # additional code here (i.e. publish eyes state)
+
+        time.sleep(0.5)
 
 
 if __name__ == "__main__":

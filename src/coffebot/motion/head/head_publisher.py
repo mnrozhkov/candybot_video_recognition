@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
+'''
+publish message for head motions
+'''
 
 import rospy
 from coffebot.msg import HeadMotion
 
-class Head:
+
+class HeadPublisher:
+    '''
+    relesase head motion message creation
+    '''
 
     def __init__(self):
-        self.publisher = rospy.Publisher('/motion_head_controller/head_motion_msg', HeadMotion, queue_size=1)
+        '''
+        constructer
+        create ROS publisher
+        '''
+
+        self.publisher = rospy.Publisher('/motion_head_controller/head_motion', HeadMotion, queue_size=1)
 
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str=str()) -> HeadMotion:
+        '''
+        form HeadMotion message
+        '''
+
         msg = HeadMotion()
         msg.h_angle = h_angle
         msg.v_angle = v_angle
@@ -28,5 +44,5 @@ class Head:
     def turn_left():
         self.send_message(self.form_message(h_angle=45.0))
 
-    def turn_left():
+    def turn_right():
         self.send_message(self.form_message(h_angle=135.0))
