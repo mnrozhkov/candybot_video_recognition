@@ -66,7 +66,7 @@ class Body(object):
     def set_emotion(self, emotion=None):
         if emotion is None:
             self._emotion = 'neutral'
-        else:gis
+        else:
             self._emotion = emotion
 
     def get_emotion(self):

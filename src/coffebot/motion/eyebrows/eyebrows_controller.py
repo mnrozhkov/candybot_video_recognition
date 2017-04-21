@@ -7,7 +7,7 @@ import warnings
 top = Path(__file__).resolve().parents[1]
 sys.path.append(str(top))
 
-from servo_pca9685 import Servo
+from servo.servo_pca9685 import Servo
 
 
 class Eyebrows(object):

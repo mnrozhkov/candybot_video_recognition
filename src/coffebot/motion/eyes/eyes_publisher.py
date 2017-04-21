@@ -20,7 +20,7 @@ class EyesPublisher:
 
         self.publisher = rospy.Publisher('/motion_eyes_controller/eyes_motion', EyesMotion, queue_size=1)
 
-    def form_message(self, angle: float=0.0, distance_from_center_percent: float=0.0, emotion: str=str()) -> EyebrowsMotion:
+    def form_message(self, angle: float=0.0, distance_from_center_percent: float=0.0, emotion: str=str()) -> EyesMotion:
         '''
         form EyesMotion message
         '''

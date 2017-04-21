@@ -15,4 +15,8 @@ rosrun coffebot vision_camera_capture.py & \
 rosrun coffebot vision_face_tracking.py & \
 rosrun coffebot vision_face_recognition.py & \
 rosrun coffebot vision_photo_capture.py & \
-rosrun coffebot vision_video_capture.py
+rosrun coffebot vision_video_capture.py & \
+rosrun coffebot motion_body_controller.py & \
+rosrun coffebot motion_eyebrows_controller.py & \
+rosrun coffebot motion_eyes_controller.py & \
+rosrun coffebot motion_head_controller.py
