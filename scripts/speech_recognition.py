@@ -22,9 +22,9 @@ if __name__ == '__main__':
     if rospy.has_param('yandex_voice_key') is True:
         sr = SpeechRecognizer(yandex_voice_key=rospy.get_param('yandex_voice_key'))
 
-        recognized_text_publisher = rospy.Publisher('user_speech_text', UserSpeechText, queue_size=1)
+        recognized_text_publisher = rospy.Publisher('/speech_recognition/user_speech_text', UserSpeechText, queue_size=1)
         lock_recognize = Lock()
-        rospy.Subscriber('audio', Audio, lock_recognize.callback)
+        rospy.Subscriber('/audio_capture/audio', Audio, lock_recognize.callback)
         print('speech recognition start')
 
         while True:

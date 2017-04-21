@@ -26,11 +26,11 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
 
 
 if __name__ == '__main__':
+    rospy.init_node('vision_camera_capture')
+
     try:
 
-        publisher = rospy.Publisher('image', Image, queue_size=1)
-        rospy.init_node('viewer')
-
+        publisher = rospy.Publisher('/vision_camera_capture/image', Image, queue_size=1)
         cap = cv2.VideoCapture(0)
 
         print('view start')

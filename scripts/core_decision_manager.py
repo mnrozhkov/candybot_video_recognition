@@ -78,16 +78,16 @@ class Decision:
                 self.bot_action_parameter_answer = json.loads(data.action_parameters_in_json)
 
 
-        rospy.Subscriber('face_info', FaceFeatures, callback_face_info)
-        rospy.Subscriber('face_coord', FaceCoordinates, callback_face_coords)
-        rospy.Subscriber('smile_detected', SmileDetected, callback_smile)
-        rospy.Subscriber('bot_dialog', APIAIBotAnswer, callback_bot_dialog)
+        rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_face_info)
+        rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, callback_face_coords)
+        rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, callback_smile)
+        rospy.Subscriber('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, callback_bot_dialog)
 
     def _create_publishers(self):
-        self.pattern_publisher = rospy.Publisher('pattern', MotionPattern, queue_size=1)
-        self.emotion_publisher = rospy.Publisher('emotion', Emotion, queue_size=1)
-        self.dialog_bot_publisher = rospy.Publisher('user_speech_text', UserSpeechText, queue_size=1)
-        self.speech_synthesis_publisher = rospy.Publisher('bot_speech_text', BotSpeechText, queue_size=1)
+        self.pattern_publisher = rospy.Publisher('/core_decision_manager/pattern', MotionPattern, queue_size=1)
+        self.emotion_publisher = rospy.Publisher('/core_decision_manager/emotion', Emotion, queue_size=1)
+        self.dialog_bot_publisher = rospy.Publisher('/speech_recognition/user_speech_text', UserSpeechText, queue_size=1)
+        self.speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
 
     def _create_action_clients(self):
         self.make_photo_action_client = actionlib.SimpleActionClient('make_photo', MakePhotoAction)

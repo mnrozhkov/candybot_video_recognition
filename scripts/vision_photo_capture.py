@@ -42,7 +42,7 @@ class MakePhotoServer:
                 photo_capture.save_photo(frame, make_photo_msg.photo_file_name)
                 image_sub.unregister()
 
-            image_sub = rospy.Subscriber('image', Image, callback_get_image)
+            image_sub = rospy.Subscriber('/vision_camera_capture/image', Image, callback_get_image)
 
         self.server.set_succeeded()
 

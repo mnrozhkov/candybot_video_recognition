@@ -22,9 +22,9 @@ if __name__ == '__main__':
     if rospy.has_param('bot_client_key'):
         bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
 
-        bot_decision_publisher = rospy.Publisher('bot_dialog', APIAIBotAnswer, queue_size=1)
+        bot_decision_publisher = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
         lock_bot_request = Lock()
-        rospy.Subscriber('user_speech_text', UserSpeechText, lock_bot_request.callback)
+        rospy.Subscriber('/speech_recognition/user_speech_text', UserSpeechText, lock_bot_request.callback)
         print('dialog bot manager start')
 
         while True:

@@ -13,7 +13,7 @@ top = Path(__file__).resolve().parents[1].as_posix()
 sys.path.append(top)
 
 
-EYES_LCD_CONFIG_FILE = "conf/eyes.conf"
+EYES_LCD_CONFIG_FILE = top + "/conf/eyes.conf"
 
 def load_config(path_to_config):
     """

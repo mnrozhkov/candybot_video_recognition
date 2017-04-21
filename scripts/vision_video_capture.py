@@ -61,8 +61,8 @@ class MakeVideoServer:
                 audio_buffer_list.append(audio_subbufer)
 
 
-            image_sub = rospy.Subscriber('image', Image, callback_get_image)
-            audio_sub = rospy.Subscriber('audio', Audio, callback_get_audio)
+            image_sub = rospy.Subscriber('/vision_camera_capture/image', Image, callback_get_image)
+            audio_sub = rospy.Subscriber('/audio_capture/audio', Audio, callback_get_audio)
 
             start = time.time()
 

@@ -23,12 +23,12 @@ if __name__ == '__main__':
 
     rospy.init_node('vision_face_tracking')
 
-    face_coord_publisher = rospy.Publisher('face_coord', FaceCoordinates, queue_size=1)
-    face_image_publisher = rospy.Publisher('face_image', Image, queue_size=1)
-    smile_detected_publisher = rospy.Publisher('smile_detected', SmileDetected, queue_size=1)
+    face_coord_publisher = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
+    face_image_publisher = rospy.Publisher('/vision_face_tracking/face_image', Image, queue_size=1)
+    smile_detected_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
     tracker = face_detection.FaceTracker()
     lock_image = Lock()
-    rospy.Subscriber('image', Image, lock_image.callback)
+    rospy.Subscriber('/vision_camera_capture/image', Image, lock_image.callback)
 
     while True:
         try:

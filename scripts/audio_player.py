@@ -24,7 +24,7 @@ if __name__ == '__main__':
     player = Player()
 
     lock_speech = Lock()
-    rospy.Subscriber('speech_audio', Audio, lock_speech.callback)
+    rospy.Subscriber('/speech_synthesizer/speech_audio', Audio, lock_speech.callback)
     print('play audio start')
 
     def callback_audio(data):

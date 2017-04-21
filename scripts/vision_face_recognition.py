@@ -23,10 +23,10 @@ if __name__ == '__main__':
 
     if rospy.has_param('algorithmia_api_key'):
         face_recognition.set_algorithmia_key(key=rospy.get_param('algorithmia_api_key'))
-        face_info_publisher = rospy.Publisher('face_info', FaceFeatures, queue_size=1)
+        face_info_publisher = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
 
         lock_recognize = Lock()
-        rospy.Subscriber('face_image', Image, lock_recognize.callback)
+        rospy.Subscriber('/vision_face_tracking/face_image', Image, lock_recognize.callback)
         print('vision face recognition start')
 
         while True:
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                     age_interval = face_recognition.recognize_age(binary_face_image)
                     if age_interval is not None:
                         face_features_msg.min_age, face_features_msg.max_age = age_interval
-                    
+
                     print(face_features_msg)
                     face_info_publisher.publish(face_features_msg)
 

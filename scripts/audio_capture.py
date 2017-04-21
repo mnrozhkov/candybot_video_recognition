@@ -39,9 +39,9 @@ if __name__ == '__main__':
         },
 
     audio_recorder = Recorder(min_rms=min_rms, pyaudio_config=pyaudio_config)
-
-    publisher = rospy.Publisher('audio', Audio, queue_size=1)
     rospy.init_node('audio_capture')
+
+    publisher = rospy.Publisher('/audio_capture/audio', Audio, queue_size=1)
 
     print('start listen')
     while True:

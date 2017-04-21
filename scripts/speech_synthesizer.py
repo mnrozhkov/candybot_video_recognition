@@ -21,9 +21,9 @@ if __name__ == '__main__':
     if rospy.has_param('yandex_voice_key') is True:
         talker = Talker(yandex_voice_key=rospy.get_param('yandex_voice_key'))
 
-        synthesized_speech_publisher = rospy.Publisher('speech_audio', Audio, queue_size=1)
+        synthesized_speech_publisher = rospy.Publisher('/speech_synthesizer/speech_audio', Audio, queue_size=1)
         lock_synthesize = Lock()
-        rospy.Subscriber('bot_speech_text', BotSpeechText, lock_synthesize.callback)
+        rospy.Subscriber('/core_decision_manager/bot_speech_text', BotSpeechText, lock_synthesize.callback)
         print('speech synthesis start')
 
         while True:

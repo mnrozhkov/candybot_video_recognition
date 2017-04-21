@@ -71,8 +71,8 @@ class MotionMaker:
             self.emotion = data.name
             print(self.emotion)
 
-        self.pattern_sub = rospy.Subscriber('pattern', MotionPattern, callback_pattern)
-        self.emotion_sub = rospy.Subscriber('emotion', Emotion, callback_emotion)
+        self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, callback_pattern)
+        self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, callback_emotion)
 
     def _set_neutral(self) -> None:
         self._eyebrows_publisher.move_up()
