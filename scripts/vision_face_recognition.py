@@ -36,12 +36,10 @@ if __name__ == '__main__':
                 break
 
             face_image_msg = lock_recognize.message
-            if face_image_msg is not None:
+            if isinstance(face_image_msg, Image):
                 face_image = ros_numpy.numpify(face_image_msg)
                 print(type(face_image))
                 if face_image is not None:
-
-                    face_info = dict()
 
                     #search other features: emotions, celebrities similarity, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)

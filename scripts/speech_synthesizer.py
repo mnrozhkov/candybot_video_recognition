@@ -34,11 +34,10 @@ if __name__ == '__main__':
 
             bot_speech_text_msg = lock_synthesize.message
             print('speech synthesis data:', bot_speech_text_msg)
-            if bot_speech_text_msg is not None:
+            if isinstance(bot_speech_text_msg, BotSpeechText):
                 wav_bytes = talker.text_to_speech(bot_speech_text_msg.text)
                 if wav_bytes is not None:
-                    message = Audio()
-                    message.content = wav_bytes
+                    message = Audio(content = wav_bytes)
                     synthesized_speech_publisher.publish(message)
 
             if lock_synthesize.message == bot_speech_text_msg:

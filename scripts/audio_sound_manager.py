@@ -22,7 +22,7 @@ if __name__ == '__main__':
             pass
 
         sound_msg = snd_lock.message
-        if sound_msg is not None:
+        if isinstance(sound_msg, Sound):
             if len(sound_msg.category) > 0 and len(sound_msg.name) > 0:
                 snd_mgr.play_sound(sound_msg.category, sound_msg.name)
 

@@ -49,7 +49,7 @@ def main():
         emotion = None
 
         #extract patameters from headMotion
-        if head_motion_msg is not None:
+        if isinstance(head_motion_msg, HeadMotion):
             h_angle = head_motion_msg.h_angle
             v_angle = head_motion_msg.v_angle
             emotion = head_motion_msg.emotion

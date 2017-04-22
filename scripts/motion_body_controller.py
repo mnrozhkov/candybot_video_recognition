@@ -22,7 +22,7 @@ if __name__ == '__main__':
             break
 
         body_msg = body_motion_lock.message
-        if body_msg is not None:
+        if isinstance(body_msg, BodyMotion):
             body.set_dispenser_servo_position(angle=body_msg.angle)
             body.set_emotion(emotion=body_msg.emotion)
 

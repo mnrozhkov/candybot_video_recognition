@@ -35,10 +35,10 @@ if __name__ == '__main__':
 
             user_speech_text_msg = lock_bot_request.message
             print('user text in bot: ', user_speech_text_msg)
-            if user_speech_text_msg is not None:
+            if isinstance(user_speech_text_msg, UserSpeechText):
                 bot_answer = bot.request(user_speech_text_msg.text)
                 print('bot_answer:', bot_answer)
-                if bot_answer is not None:
+                if isinstance(bot_answer, APIAIBotAnswer):
                     bot_answer_msg = APIAIBotAnswer()
                     bot_answer_msg.text = bot_answer['text']
                     bot_answer_msg.action_name = bot_answer['action']['name']

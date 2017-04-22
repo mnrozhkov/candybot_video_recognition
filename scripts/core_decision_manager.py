@@ -125,8 +125,7 @@ class Decision:
         else:
             if bot_action_answer is None:
                 if smile_exists is True:
-                    user_speech_text_msg = UserSpeechText()
-                    user_speech_text_msg.text = 'привет'
+                    user_speech_text_msg = UserSpeechText(text = 'привет')
                     self.dialog_bot_publisher.publish(user_speech_text_msg)
 
         if self.bot_text_answer == bot_text_answer:

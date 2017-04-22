@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
         msg = lock_image.message
 
-        if msg is not None:
+        if isinstance(msg, Image):
 
             image = ros_numpy.numpify(msg)
 
@@ -65,8 +65,7 @@ if __name__ == '__main__':
                     if smile is None:
                         smile = False
                     print('smile: ', smile)
-                    smile_detected_msg = SmileDetected()
-                    smile_detected_msg.detected = smile
+                    smile_detected_msg = SmileDetected(detected = smile)
                     smile_detected_publisher.publish(smile_detected_msg)
 
                     face_image_publisher.publish(face_image_msg)

@@ -58,7 +58,7 @@ def main(num_iterations=sys.maxsize):
 
 
             #extract patameters from EyesMotion
-            if eyes_motion_msg is not None:
+            if isinstance(eyes_motion_msg, EyesMotion):
                 angle = eyes_motion_msg.angle
                 distance_from_center_percent = eyes_motion_msg.distance_from_center_percent
                 emotion = eyes_motion_msg.emotion

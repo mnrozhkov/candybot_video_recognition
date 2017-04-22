@@ -35,13 +35,12 @@ if __name__ == '__main__':
 
             recognize_text_msg = lock_recognize.message
 
-            if recognize_text_msg is not None:
+            if isinstance(recognize_text_msg, Audio):
                 wav_data = audio_format_converter.raw_audio2wav(recognize_text_msg.content, rospy.get_param('pyaudio'))
                 recognized_text = sr.recognize_speech(wav_data)
                 print(recognized_text)
                 if recognized_text is not None:
-                    user_speech_text_msg = UserSpeechText()
-                    user_speech_text_msg.text = recognized_text
+                    user_speech_text_msg = UserSpeechText(text = recognized_text)
                     recognized_text_publisher.publish(user_speech_text_msg)
 
             if lock_recognize.message == recognize_text_msg:
