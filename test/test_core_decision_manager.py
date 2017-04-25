@@ -22,6 +22,7 @@ import time
 import unittest
 import time
 
+import json
 
 class TestCallbackFaceInfo(unittest.TestCase):
     '''
@@ -101,7 +102,6 @@ class TestCallbackFaceInfo(unittest.TestCase):
         pub.unregister()
 
 
-
 class TestCallbackFaceCoords(unittest.TestCase):
     '''
     Test for callback_face_coords function in core_decision_manager node
@@ -157,6 +157,31 @@ class TestCallbackFaceCoords(unittest.TestCase):
         decision._delete_subscribers()
         pub.unregister()
 
+    def test_invalid_data_publish2(self):
+        '''
+        test invalid data publish - wrong typo of one of message fields
+        '''
+
+        decision = Decision()
+
+        pub = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
+        face_coords_msg = FaceCoordinates(x=1.5, y=0, h=200, w=200)
+        start = time.time()
+        while time.time() - start < 1:
+            try:
+                pub.publish(face_coords_msg)
+            except Exception as e:
+                break
+            face_coords_dict = decision.face_info
+            if len(face_coords_dict.keys()) > 0:
+                break
+            time.sleep(0.1)
+        face_coords_dict = decision.face_info
+        self.assertEqual(face_coords_dict, dict())
+
+        decision._delete_subscribers()
+        pub.unregister()
+
     def test_wrong_type_data_publish(self):
         '''
         test wrong type data publishing - try publish message with one type
@@ -176,6 +201,176 @@ class TestCallbackFaceCoords(unittest.TestCase):
 
         decision._delete_subscribers()
         pub.unregister()
+
+
+
+class TestCallbackSmileDetected(unittest.TestCase):
+    '''
+    Test for callback_smile function in core_decision_manager node
+    '''
+
+    def test_valid_data_publish(self):
+        '''
+        test valid data publishing
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+        smile_detected = SmileDetected(detected=True)
+        start = time.time()
+        while time.time() - start < 0.5:
+            pub.publish(smile_detected)
+            time.sleep(0.1)
+
+        smile = decision.smile_exists
+        self.assertEqual(smile, True)
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_invalid_data_publish(self):
+        '''
+        test invalid data publish - wrong typo of one of message fields
+        '''
+
+        decision = Decision()
+
+        pub = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+        smile_detected = SmileDetected(detected='true')
+        start = time.time()
+        while time.time() - start < 1:
+            try:
+                pub.publish(smile_detected)
+            except Exception as e:
+                break
+            time.sleep(0.1)
+        smile = decision.smile_exists
+        self.assertEqual(smile, False)
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_invalid_data_publish2(self):
+        '''
+        test invalid data publish - wrong typo of one of message fields
+        '''
+
+        decision = Decision()
+
+        pub = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+        smile_detected = SmileDetected(detected=1)
+        start = time.time()
+        while time.time() - start < 1:
+            try:
+                pub.publish(smile_detected)
+            except Exception as e:
+                break
+            time.sleep(0.1)
+        smile = decision.smile_exists
+        self.assertEqual(smile, True)
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_wrong_type_data_publish(self):
+        '''
+        test wrong type data publishing - try publish message with one type
+        in topic with other type
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/vision_face_tracking/smile_detected', FaceCoordinates, queue_size=1)
+        face_coords = FaceCoordinates()
+        pub.publish(face_coords)
+        start = time.time()
+        while time.time() - start < 1:
+            pub.publish(face_coords)
+            face_coords_dict = decision.face_coords
+            if len(face_coords_dict.keys()) > 0:
+                break
+            time.sleep(0.1)
+        self.assertEqual(decision.smile_exists, False)
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+
+
+class TestCallbackBotDialog(unittest.TestCase):
+    '''
+    Test for callback_bot_dialog function in core_decision_manager node
+    '''
+
+    def test_valid_data_publish(self):
+        '''
+        test valid data publishing
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
+        bot_answer = APIAIBotAnswer(text='hello', action_name='action', action_parameters_in_json=json.dumps({'p1': 1, 'p2': 2}))
+        start = time.time()
+        while time.time() - start < 1:
+            pub.publish(bot_answer)
+            time.sleep(0.1)
+
+        self.assertEqual(decision.bot_text_answer, 'hello')
+        self.assertEqual(decision.bot_action_answer, 'action')
+        self.assertEqual(decision.bot_action_parameter_answer, {'p1': 1, 'p2': 2})
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_invalid_data_publish(self):
+        '''
+        test invalid data publish - wrong typo of one of message fields
+        '''
+
+        decision = Decision()
+
+        pub = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
+        bot_answer = APIAIBotAnswer(text=1, action_name='action', action_parameters_in_json="{'p1': 1, 'p2': 2}")
+
+        start = time.time()
+        while time.time() - start < 1:
+            try:
+                pub.publish(bot_answer)
+            except Exception as e:
+                break
+            time.sleep(0.1)
+
+        self.assertEqual(decision.bot_text_answer, str())
+        self.assertEqual(decision.bot_action_answer, str())
+        self.assertEqual(decision.bot_action_parameter_answer, dict())
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_wrong_type_data_publish(self):
+        '''
+        test wrong type data publishing - try publish message with one type
+        in topic with other type
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/dialog_bot_manager/bot_dialog', FaceCoordinates, queue_size=1)
+        face_coords = FaceCoordinates()
+        pub.publish(face_coords)
+        start = time.time()
+        while time.time() - start < 1:
+            pub.publish(face_coords)
+            face_coords_dict = decision.face_coords
+            if len(face_coords_dict.keys()) > 0:
+                break
+            time.sleep(0.1)
+
+        self.assertEqual(decision.bot_text_answer, str())
+        self.assertEqual(decision.bot_action_answer, str())
+        self.assertEqual(decision.bot_action_parameter_answer, dict())
+
+        decision._delete_subscribers()
+        pub.unregister()
+
 
 if __name__ == '__main__':
     rospy.init_node('test_core_decision_manager')
