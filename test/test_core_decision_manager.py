@@ -22,6 +22,7 @@ import time
 import unittest
 import time
 
+
 class TestCallbackFaceInfo(unittest.TestCase):
     '''
     Test for callback_face_info function in core_decision_manager node
@@ -90,9 +91,86 @@ class TestCallbackFaceInfo(unittest.TestCase):
         start = time.time()
         while time.time() - start < 1:
             pub.publish(face_coords)
-            face_coords_d = decision.face_coords
-            if len(face_coords_d.keys()) > 0:
+            face_coords_dict = decision.face_coords
+            if len(face_coords_dict.keys()) > 0:
                 break
+            time.sleep(0.1)
+        self.assertEqual(decision.face_info, dict())
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+
+
+class TestCallbackFaceCoords(unittest.TestCase):
+    '''
+    Test for callback_face_coords function in core_decision_manager node
+    '''
+
+    def test_valid_data_publish(self):
+        '''
+        test valid data publishing
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
+        face_coords_msg = FaceCoordinates(x=0, y=0, h=200, w=200)
+        start = time.time()
+        while time.time() - start < 1:
+            pub.publish(face_coords_msg)
+            face_coords_dict = decision.face_coords
+            if len(face_coords_dict.keys()) > 0:
+                break
+            time.sleep(0.1)
+
+        face_coords_dict = decision.face_coords
+        self.assertEqual(face_coords_dict['x'], 0)
+        self.assertEqual(face_coords_dict['y'], 0)
+        self.assertEqual(face_coords_dict['h'], 200)
+        self.assertEqual(face_coords_dict['w'], 200)
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_invalid_data_publish(self):
+        '''
+        test invalid data publish - wrong typo of one of message fields
+        '''
+
+        decision = Decision()
+
+        pub = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
+        face_coords_msg = FaceCoordinates(x='hello', y=0, h=200, w=200)
+        start = time.time()
+        while time.time() - start < 1:
+            try:
+                pub.publish(face_coords_msg)
+            except Exception as e:
+                break
+            face_coords_dict = decision.face_info
+            if len(face_coords_dict.keys()) > 0:
+                break
+            time.sleep(0.1)
+        face_coords_dict = decision.face_info
+        self.assertEqual(face_coords_dict, dict())
+
+        decision._delete_subscribers()
+        pub.unregister()
+
+    def test_wrong_type_data_publish(self):
+        '''
+        test wrong type data publishing - try publish message with one type
+        in topic with other type
+        '''
+
+        decision = Decision()
+        pub = rospy.Publisher('/vision_face_tracking/face_coord', SmileDetected, queue_size=1)
+        smile_detected = SmileDetected(detected=True)
+        pub.publish(smile_detected)
+        start = time.time()
+        while time.time() - start < 1:
+            pub.publish(smile_detected)
+            smile = decision.smile_exists
             time.sleep(0.1)
         self.assertEqual(decision.face_coords, dict())
 
