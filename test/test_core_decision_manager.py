@@ -371,7 +371,15 @@ class TestCallbackBotDialog(unittest.TestCase):
         decision._delete_subscribers()
         pub.unregister()
 
+class TestBehaviorCoreDecisionManager(unittest.TestCase):
 
+    def test_publish_smile_exists(self):
+        pass
+
+    def test_publish_bot_answer(self):
+        pass
+
+    
 if __name__ == '__main__':
     rospy.init_node('test_core_decision_manager')
     unittest.main()

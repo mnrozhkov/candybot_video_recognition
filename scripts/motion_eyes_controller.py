@@ -86,6 +86,8 @@ def main(num_iterations=sys.maxsize):
                 eyes_state_msg.x, eyes_state_msg.y = eyes.get_eyes_position()
                 eyes_state_msg.emotion = eyes.get_emotion()
 
+                eyes_position_publisher.publish(eyes_state_msg)
+                
                 #if new EyesMotion message is equal to the old one clear field message of Lock class object
                 if eyes_motion_lock.message == eyes_motion_msg:
                     eyes_motion_lock.message = None
