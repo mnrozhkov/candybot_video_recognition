@@ -85,7 +85,7 @@ class Decision:
         self.face_coord_sub.unregister()
         self.smile_detected_sub.unregister()
         self.bot_dialog_sub.unregister()
-    
+
     def _create_publishers(self):
         self.pattern_publisher = rospy.Publisher('/core_decision_manager/pattern', MotionPattern, queue_size=1)
         self.emotion_publisher = rospy.Publisher('/core_decision_manager/emotion', Emotion, queue_size=1)
@@ -111,10 +111,11 @@ class Decision:
         bot_action_answer = self.bot_action_answer
         smile_exists = self.smile_exists
 
-        if bot_text_answer is not None and len(bot_text_answer) > 0:
+
+        if isinstance(bot_text_answer, str) and len(bot_text_answer) > 0:
             bot_speech_text_msg = BotSpeechText(text=self.bot_text_answer)
             self.speech_synthesis_publisher.publish(bot_speech_text_msg)
-            if bot_action_answer is not None:
+            if isinstance(bot_action_answer, str):
                 print('bot_action_answer', bot_action_answer)
                 pattern_msg = MotionPattern()
                 if bot_action_answer == 'action.hello':
@@ -131,9 +132,10 @@ class Decision:
                 self.pattern_publisher.publish(pattern_msg)
 
         else:
+
             if bot_action_answer is None:
                 if smile_exists is True:
-                    user_speech_text_msg = UserSpeechText(text = 'привет')
+                    user_speech_text_msg = UserSpeechText(text='привет')
                     self.dialog_bot_publisher.publish(user_speech_text_msg)
 
         if self.bot_text_answer == bot_text_answer:

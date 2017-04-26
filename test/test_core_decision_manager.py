@@ -372,14 +372,111 @@ class TestCallbackBotDialog(unittest.TestCase):
         pub.unregister()
 
 class TestBehaviorCoreDecisionManager(unittest.TestCase):
+    '''
+    test reaction on different events
+    '''
 
     def test_publish_smile_exists(self):
-        pass
+        '''
+        test reaction on smile
+        '''
+
+        decision = Decision()
+        smile_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+
+        self.user_speech_text = str()
+        self.data_recieved = False
+
+        def callback(data: UserSpeechText):
+            self.user_speech_text = data.text
+            self.data_recieved = True
+
+        user_speech_text_sub = rospy.Subscriber('/speech_recognition/user_speech_text', UserSpeechText, callback)
+
+        start = time.time()
+        while time.time() - start < 1:
+            smile_publisher.publish(True)
+            decision.make_decision()
+            time.sleep(0.1)
+
+        start = time.time()
+        while (time.time() - start < 1) and (self.data_recieved is False):
+            time.sleep(0.1)
+
+        try:
+            self.assertEqual(self.user_speech_text, 'привет')
+        except:
+            raise
+        finally:
+            decision._delete_subscribers()
+            decision._delete_publishers()
+
+            smile_publisher.unregister()
+            user_speech_text_sub.unregister()
+
+        del(self.user_speech_text)
+        del(self.data_recieved)
 
     def test_publish_bot_answer(self):
-        pass
+        '''
+        reaction on bot answer
+        '''
 
-    
+        decision = Decision()
+        bot_answer_publisher = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
+
+        bot_answer = APIAIBotAnswer(text='привет', action_name='action.hello', action_parameters_in_json=json.dumps(dict()))
+
+        self.bot_speech_text = str()
+        self.pattern_name = str()
+        self.bot_speech_text_data_recieved = False
+        self.pattern_name_recieved = False
+
+        def callback_bot_speech_text(data: BotSpeechText):
+            self.bot_speech_text = data.text
+            self.bot_speech_text_data_recieved = True
+
+        bot_speech_text_sub = rospy.Subscriber('/core_decision_manager/bot_speech_text', BotSpeechText, callback_bot_speech_text)
+
+        def callback_pattern(data: MotionPattern):
+            self.pattern_name = data.name
+            self.pattern_name_recieved = True
+
+        pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, callback_pattern)
+
+        start = time.time()
+        while time.time() - start < 1:
+            bot_answer_publisher.publish(bot_answer)
+            decision.make_decision()
+            time.sleep(0.1)
+
+        def all_data_recieved():
+            return self.bot_speech_text_data_recieved and self.pattern_name_recieved
+
+        start = time.time()
+
+        while (time.time() - start < 1) and all_data_recieved() is False:
+            time.sleep(0.1)
+
+        try:
+            self.assertEqual(self.bot_speech_text, 'привет')
+            self.assertEqual(self.pattern_name, 'sayHello')
+        except:
+            raise
+        finally:
+            decision._delete_subscribers()
+            decision._delete_publishers()
+
+            bot_answer_publisher.unregister()
+            bot_speech_text_sub.unregister()
+            pattern_sub.unregister()
+
+        del(self.bot_speech_text)
+        del(self.pattern_name)
+        del(self.bot_speech_text_data_recieved)
+        del(self.pattern_name_recieved)
+
+
 if __name__ == '__main__':
     rospy.init_node('test_core_decision_manager')
     unittest.main()
