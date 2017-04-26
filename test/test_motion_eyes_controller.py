@@ -1,60 +1,93 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# Copyright (c) 2017 FunRobots Lab
+'''
+motion_eyes_controller behavior test
+'''
 
-# Project: Candybot: Coffebot
-# Summary: Test for motion_eyes_controller
-# version: v1
-# Test marks and interpretations
-#     1) Серьезность (Severity) Наиболее распространена пятиуровневая система градации серьезности дефекта:
-#         • S1 Блокирующий (Blocker)
-#         • S2 Критический (Critical)
-#         • S3 Значительный (Major)
-#         • S4 Незначительный (Minor)
-#         • S5 Тривиальный (Trivial)
-#     2) Приоритет (Priority) Приоритет дефекта:
-#         • P1 Высокий (High)
-#         • P2 Средний (Medium)
-#         • P3 Низкий (Low)
+import rospy
+import rosgraph
+
+from coffebot.msg import EyesMotion, EyesState
+import unittest
+
+import time
+
+import math
+
+REACTION_TIMEOUT = 1 #in seconds
+
+WIDHT = 128
+HEIGHT = 128
+
+CENTER_X = WIDHT // 2
+CENTER_Y = HEIGHT // 2
+
+EYES_RADIUS = 64
+PUPIL_RADIUS = 25
+PUPIL_ORBIT_RADIUS = EYES_RADIUS - PUPIL_RADIUS
+
+class TestBehaviorMotionEyesController(unittest.TestCase):
+
+    def test_reaction(self):
+        global REACTION_TIMEOUT
+        global WIDHT
+        global HEIGHT
+
+        global CENTER_X
+        global CENTER_Y
+
+        global EYES_RADIUS = 64
+        global PUPIL_RADIUS = 25
+        global PUPIL_ORBIT_RADIUS = EYES_RADIUS - PUPIL_RADIUS
+
+        ros_is_running = True
+        motion_eyes_controller_is_runnig = True
+
+        master = rosgraph.Master('/motion_eyes_controller')
+
+        try:
+            master.lookupNode('/motion_eyes_controller')
+        except ConnectionRefusedError:
+            ros_is_running = False
+        except rosgraph.masterapi.MasterError:
+            motion_eyes_controller_is_runnig = False
+
+        self.assertEqual(ros_is_running, True)
+        self.assertEqual(motion_eyes_controller_is_runnig, True)
+
+        eyes_motion_publisher = rospy.Publisher('/motion_eyes_controller/eyes_motion', EyesMotion, queue_size=1)
+        eyes_motion_msg = EyesMotion(angle=45.0, distance_from_center_percent = 0.8,  emotion='happy')
+
+        self.x = None
+        self.y = None
+        self.emotion = None
+
+        self.data_recieved = False
+
+        def callback(data: EyesState):
+            self.x = data.x
+            self.y = data.y
+            self.emotion = data.state.emotion
+            self.data_recieved = True
+
+        eyes_state_sub = rospy.Subscriber('/motion_eyes_controller/eyes_state', EyesState, callback)
+
+        start = time.time()
+
+        while time.time() - start < REACTION_TIMEOUT and data_recieved is False:
+            eyes_motion_publisher.publish(eyes_motion_msg)
+            time.sleep(0.1)
+
+        self.assertEqual(self.x, math.ceil(PUPIL_ORBIT_RADIUS * eyes_motion_msg.distance_from_center_percent * math.cos(eyes_motion_msg.angle)) + CENTER_X)
+        self.assertEqual(self.x, math.ceil(PUPIL_ORBIT_RADIUS * eyes_motion_msg.distance_from_center_percent * math.sin(eyes_motion_msg.angle)) + CENTER_Y)
+        self.assertEqual(self.emotion, eyes_motion_msg.emotion)
+
+        eyes_motion_publisher.unregister()
+        eyes_state_sub.unregister()
+
+        del(self.x, self.y, self.emotion, self.data_recieved)
 
 
-import pytest
+if __name__ == '__main__':
 
-
-@pytest.fixture
-def dummy_eyes_class_params():
-    dummy_eyes_params = {
-        '_w': 128,
-        '_h': 128,
-        '_color': '#ffffff',
-        '_eye_radius': 64,
-        '_eye_color': '#ffffff',
-        '_x_center': 64,
-        '_y_center': 64,
-        '_x_pos': 64,
-        '_y_pos': 64,
-        '_pupil_radius': 25,
-        '_pupil_orbit_radius': 39,
-        '_pupil_color': '#1c86ee',
-        '_x_speed': 5,
-        '_y_speed': 5,
-        '_emotion': 'happy'
-    }
-    return dummy_eyes_params
-
-
-
-
-
-class TestEyesROSIntegration:               # integration tests for a class
-    def test_one(self):
-        pass
-
-    def test_two(self):
-        pass
-
-
-class TestMotionEyesControllerScript:       # integration methods for a script (node)
-    def test_one(self):
-        pass
-
+    rospy.init_node('test_motion_eyes_controller')
+    unittest.main()
