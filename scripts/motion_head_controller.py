@@ -25,7 +25,7 @@ def main():
     head = Head(
        _h_angle = 0,
        _v_angle = 0,
-       _led_on = True,
+       #_led_on = True,
        _color = '#ffffff',
        _emotion = 'neutral',
        _h_SERVO_PIN = 18,
