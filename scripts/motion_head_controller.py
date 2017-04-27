@@ -20,7 +20,7 @@ def main():
 
     head_motion_lock = Lock()
     rospy.Subscriber('/motion_head_controller/head_motion', HeadMotion, head_motion_lock.callback)
-    head_position_publisher = rospy.Publisher('/motion_head_controller/head_state')
+    head_position_publisher = rospy.Publisher('/motion_head_controller/head_state', HeadState, queue_size=1)
 
     head = Head(
        _h_angle = 0,
