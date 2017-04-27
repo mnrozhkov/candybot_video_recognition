@@ -51,28 +51,30 @@ class MotionMaker:
             'thinking': self._set_thinking
         }
 
-        self.pattern_name = None
-        self.emotion = None
+        self.pattern_name = str()
+        self.emotion = str()
 
 
-        def callback_pattern(data: MotionPattern) -> None:
-            '''
-            recieve pattern name
-            '''
+        self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, self.callback_pattern)
+        self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, self.callback_emotion)
 
+    def callback_pattern(self, data: MotionPattern) -> None:
+        '''
+        recieve pattern name
+        '''
+        if isinstance(data, MotionPattern):
             self.pattern_name = data.name
 
 
-        def callback_emotion(data: Emotion) -> None:
-            '''
-            recieve emotion name
-            '''
+    def callback_emotion(self, data: Emotion) -> None:
+        '''
+        recieve emotion name
+        '''
 
+        if isinstance(data, Emotion):
             self.emotion = data.name
             print(self.emotion)
 
-        self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, callback_pattern)
-        self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, callback_emotion)
 
     def _set_neutral(self) -> None:
         self._eyebrows_publisher.move_up()
@@ -168,10 +170,10 @@ class MotionMaker:
         pattern_name = self.pattern_name
 
         try:
-            if emotion is not None:
+            if isinstance(emotion, str):
                 self.set_emotion(emotion)
 
-            if pattern_name is not None:
+            if isinstance(pattern_name, str):
                 pattern_path = '/motion_patterns/' + pattern_name + '.yaml'
                 pattern = yaml.load(open(pattern_path,'r'))
                 pattern_steps = pattern['steps']
@@ -207,9 +209,9 @@ class MotionMaker:
             logging.error(str(e))
         finally:
             if self.emotion == emotion:
-                self.emotion = None
+                self.emotion = str()
             if self.pattern_name == pattern_name:
-                self.pattern_name = None
+                self.pattern_name = str()
 
 
 if __name__ == '__main__':
