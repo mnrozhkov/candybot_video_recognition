@@ -77,6 +77,8 @@ class MotionMaker:
 
 
     def _set_neutral(self) -> None:
+        self._head_publisher.move_to_face()
+
         self._eyebrows_publisher.move_up()
         # self._eyebrows.turn_backlight_dim()
         # self._eyebrows.set_backlight_color(color='orange')
@@ -85,6 +87,8 @@ class MotionMaker:
         # self._body.set_backlight_color(color='orange')
 
     def _set_happy(self) -> None:
+        self._head_publisher.move_to_face()
+
         self._head_publisher.move_up()
         #self._head.shake_left_right(5)
 
@@ -96,6 +100,8 @@ class MotionMaker:
         # self._body.set_backlight_color(color='orange')
 
     def _set_sad(self) -> None:
+        self._head_publisher.move_to_face()
+
         self._head_publisher.move_down_left()
 
         self._eyebrows_publisher.move_up()
@@ -105,6 +111,8 @@ class MotionMaker:
 
 
     def _set_fear(self) -> None:
+
+        self._head_publisher.move_to_face()
         self._head_publisher.move_down()
 
         # self._eyebrows.blink_backlight(30)
@@ -115,6 +123,7 @@ class MotionMaker:
 
     def _set_surprise(self) -> None:
 
+        self._head_publisher.move_to_face()
         self._head_publisher.move_up()
 
         self._eyebrows_publisher.move_up()
@@ -125,6 +134,7 @@ class MotionMaker:
         # self._body.set_backlight_color(color='blue')
 
     def _set_angry(self) -> None:
+        self._head_publisher.move_to_face()
         self._head_publisher.move_down()
         #self._head.shake_left_right(30)
 

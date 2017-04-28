@@ -4,7 +4,9 @@ publish message for head motions
 '''
 
 import rospy
-from coffebot.msg import HeadMotion
+from coffebot.msg import HeadMotion, FaceCoordinates
+import time
+import math
 
 
 class HeadPublisher:
@@ -58,3 +60,24 @@ class HeadPublisher:
 
     def move_down_right(self):
         self.send_message(self.form_message(h_angle=135.0, v_angle=45.0))
+
+    def move_to_face(self):
+
+        self.face_coords_recieved = False
+        self.x, self.y = None, None
+
+        def callback_face_coords(data: FaceCoordinates):
+            self.x = data.x
+            self.y = data.y
+            self.face_coords_recieved = True
+
+        face_coords_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, callback_face_coords)
+
+        start = time.time()
+        while time.time() - start < 1 and self.face_coords_recieved is False:
+            time.sleep(0.1)
+
+        face_coords_sub.unregister()
+
+        if self.x is not None and self.y is not None:
+            self.send_message(self.form_message(h_angle=math.atan(x), v_angle=,math.atan(y))
