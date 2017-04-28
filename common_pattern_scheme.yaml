@@ -1,0 +1,26 @@
+name: name
+steps:
+  -step:
+    order: 1
+    emotion: emotion_name
+    motions:
+      [body:]
+        [turn_left: true]
+        [turn_right: true]
+      [eyebrows:]
+        [move_up: true]
+        [move_down: true]
+      [eyes:]
+        [move_up: true]
+        [move_down: true]
+        [move_left: true]
+        [move_right: true]
+      [head:]
+        [move_up: true]
+        [move_down: true]
+        [turn_left: true]
+        [turn_right: true]
+        [move_up_left: true]
+        [move_up_rigth: true]
+        [move_down_left: true]
+        [move_down_right: true]
