@@ -35,14 +35,14 @@ class EyesPublisher:
     def send_message(self, msg: EyesMotion) -> None:
         self.publisher.publish(msg)
 
-    def move_up():
+    def move_up(self):
         self.send_message(self.form_message(angle=90.0, distance_from_center_percent=90.0))
 
-    def move_down():
+    def move_down(self):
         self.send_message(self.form_message(angle=270.0, distance_from_center_percent=90.0))
 
-    def move_left():
+    def move_left(self):
         self.send_message(self.form_message(angle=180.0, distance_from_center_percent=90.0))
 
-    def move_right():
+    def move_right(self):
         self.send_message(self.form_message(angle=0.0, distance_from_center_percent=90.0))

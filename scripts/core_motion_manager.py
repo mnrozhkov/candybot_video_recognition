@@ -37,7 +37,7 @@ class MotionMaker:
 
         self._body_publisher = BodyPublisher()
         self._eyebrows_publisher = EyebrowsPublisher()
-        self._eyebrows_publisher = EyesPublisher()
+        self._eyes_publisher = EyesPublisher()
         self._head_publisher = HeadPublisher()
 
         #emotions-motions dictionary
@@ -96,8 +96,7 @@ class MotionMaker:
         # self._body.set_backlight_color(color='orange')
 
     def _set_sad(self) -> None:
-        self._head_publisher.turn_left()
-        self._head_publisher.move_down()
+        self._head_publisher.move_down_left()
 
         self._eyebrows_publisher.move_up()
         # self._eyebrows.turn_backlight_off()
@@ -115,6 +114,7 @@ class MotionMaker:
         # self._body.set_backlight_color(color='orange')
 
     def _set_surprise(self) -> None:
+
         self._head_publisher.move_up()
 
         self._eyebrows_publisher.move_up()
@@ -146,8 +146,9 @@ class MotionMaker:
         set new robot emotion
         '''
 
-        self.emotion_actions[emotion]()
-        self.emotion = emotion
+        if emotion in self.emotion_actions.keys():
+            self.emotion_actions[emotion]()
+            self.emotion = emotion
 
     def _make_head_motions(self, head_motions: dict or None):
         print('head motion')

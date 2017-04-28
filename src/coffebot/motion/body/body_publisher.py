@@ -34,8 +34,8 @@ class BodyPublisher:
     def send_message(self, msg: BodyMotion) -> None:
         self.publisher.publish(msg)
 
-    def turn_left():
+    def turn_left(self):
         self.send_message(self.form_message(angle=45.0))
 
-    def turn_right():
+    def turn_right(self):
         self.send_message(self.form_message(h_angle=135.0))
