@@ -161,16 +161,31 @@ class MotionMaker:
             self.emotion = emotion
 
     def _make_head_motions(self, head_motions: dict or None):
-        print('head motion')
+        if head_motions is not None:
+            for key in head_motions:
+                if key in dir(self._head_publisher) and head_motions[key] is True:
+                    self._head_publisher.__getattribute__(key)()
 
     def _make_eyes_motions(self, eyes_motions: dict or None):
-        print('eyes motion')
+        if eyes_motions is not None:
+            for key in eyes_motions:
+                if key in dir(self._eyes_publisher) and eyes_motions[key] is True:
+                    self._eyes_publisher.__getattribute__(key)()
+
 
     def _make_eyebrows_motions(self, eyebrows_motions: dict or None):
-        print('eyebrows motion')
+        if eyebrows_motions is not None:
+            for key in eyebrows_motions:
+                if key in dir(self._eyebrows_publisher) and eyebrows_motions[key] is True:
+                    self._eyebrows_publisher.__getattribute__(key)()
+
 
     def _make_body_motions(self, body_motions: dict or None):
-        print('body motion')
+        if body_motions is not None:
+            for key in body_motions:
+                if key in dir(self._body_publisher) and body_motions[key] is True:
+                    self._body_publisher.__getattribute__(key)()
+
 
     def make_motions(self):
         '''
