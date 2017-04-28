@@ -5,12 +5,9 @@ steps:
     emotion: sad
     motions:
      head:
-      move_down: default
+      move_down: true
      eyebrows:
-      move_down: default
-      turn_backlight_off: true
-    body:
-      turn_backlight_dim: true
+      move_down: true
 
  - step:
     order: 2
@@ -21,4 +18,4 @@ steps:
     emotion: happy
     motions:
      eyebrows:
-      move_up: default
+      move_up: true

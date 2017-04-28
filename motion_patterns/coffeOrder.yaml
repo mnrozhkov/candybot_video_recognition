@@ -5,13 +5,7 @@ steps:
     emotion: surprise
     motions:
      head:
-      move_down: default
-     eyebrows:
-      turn_backlight_dim: true
-      blink_backlight: 3
-      backlight_color: orange
-    body:
-      blink_backlight: 6
+      move_down: true
 
  - step:
     order: 2

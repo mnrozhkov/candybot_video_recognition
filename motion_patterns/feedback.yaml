@@ -5,10 +5,4 @@ steps:
     emotion: happy
     motions:
      head:
-      move_up: default
-     eyebrows:
-      turn_backlight_on: true
-      blink_backlight: 60
-      backlight_color: red
-    body:
-      blink_backlight: 6
+      move_up: true
