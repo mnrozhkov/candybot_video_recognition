@@ -26,12 +26,14 @@ def main():
        _h_angle = 0,
        _v_angle = 0,
        #_led_on = True,
-       _color = '#ffffff',
+       #_color = '#ffffff',
        _emotion = 'neutral',
-       _h_SERVO_PIN = 18,
-       _v_SERVO_PIN = 18,
-       _PWM_DIVISOR = 384,      # clock at 50kHz (20us tick)
-       _PWM_RANGE = 1000,       # range at 1000 ticks (20ms)
+       #_h_SERVO_PIN = 18,
+       #_v_SERVO_PIN = 18,
+       #_PWM_DIVISOR = 384,      # clock at 50kHz (20us tick)
+       #_PWM_RANGE = 1000,       # range at 1000 ticks (20ms)
+       _h_SERVO_ADDRESS=0,
+       _v_SERVO_ADDRESS=1
     )
 
     while True:

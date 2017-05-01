@@ -11,7 +11,7 @@ import time
 if __name__ == '__main__':
     rospy.init_node('motion_body_controller')
 
-    body = Body()
+    body = Body(_d_SERVO_ADDRESS=3, _emotion='neutral')
     body_motion_lock = Lock()
     rospy.Subscriber('/motion_body_controller/body_motion', BodyMotion, body_motion_lock.callback)
     body_state_publisher = rospy.Publisher('/motion_body_controller/body_state', BodyState, queue_size=1)

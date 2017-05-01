@@ -81,7 +81,7 @@ def draw_eye(eyes_canvas, emotion, x0, y0, x1, y1, fill='#14F6FA', outline='#14F
 
 def zip_wrapper(x_path, y_path, fillvalue=0):
     req_version = 3.5
-    cur_version = sys.version_info
+    cur_version = float(str(sys.version_info.major) + '.' + str(sys.version_info.minor))
 
     if cur_version >= req_version:
         from itertools import zip

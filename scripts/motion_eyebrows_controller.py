@@ -11,7 +11,7 @@ import time
 if __name__ == '__main__':
     rospy.init_node('motion_eyebrows_controller')
 
-    eyebrows = Eyebrows()
+    eyebrows = Eyebrows(_l_angle=90, _r_angle=90, _l_SERVO_ADDRESS=4, _r_SERVO_ADDRESS=5, _led_on=false, _led_color='white', _emotion='neutral')
     eyebrows_motion_lock = Lock()
     rospy.Subscriber('/motion_eyebrows_controller/eyebrows_motion', EyebrowsMotion, eyebrows_motion_lock.callback)
     eyebrows_state_publisher = rospy.Publisher('/motion_eyebrows_controller/eyebrows_state', EyebrowsState, queue_size=1)
@@ -31,7 +31,7 @@ if __name__ == '__main__':
             eyebrows_state_msg = EyesState()
             eyebrows_state_msg.l_angle, eyebrows_state_msg.r_angle = eyebrows.get_eyebrows_position()
             eyebrows_state_publisher.publish(eyebrows_state_msg)
-            
+
         if eyebrows_motion_lock.message == eyebrows_msg:
             eyebrows_motion_lock.message = None
 
