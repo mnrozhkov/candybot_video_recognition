@@ -85,7 +85,7 @@ def zip_wrapper(x_path, y_path, fillvalue=0):
 
     if cur_version >= req_version:
         from itertools import zip_longest
-        return zip(x_path, y_path, fillvalue=0)
+        return zip_longest(x_path, y_path, fillvalue=0)
     else:
         from itertools import izip
         return izip(x_path, y_path, fillvalue=0)
