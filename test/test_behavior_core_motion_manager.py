@@ -4,7 +4,7 @@ test for core_motion_manager
 '''
 
 import rospy
-from coffebot.msg import EyebrowsMotion, HeadMotion
+from coffebot.msg import EyebrowsMotion, HeadMotion, MotionPattern, Emotion
 
 import sys
 from pathlib import Path
@@ -17,7 +17,7 @@ import unittest
 
 import time
 
-BEHAVIOR_REACTION_TIMEOUT = 1 #seconds
+BEHAVIOR_REACTION_TIMEOUT = 2 #seconds
 
 class TestBehaviorCoreMotionManager(unittest.TestCase):
 
@@ -121,7 +121,28 @@ class TestBehaviorCoreMotionManager(unittest.TestCase):
         self.assertEqual(self.head_motion, HeadMotion(v_angle=45.0, emotion='neutral'))
 
     def test_make_motions(self):
-        pass
+        self.pattern_pub = rospy.Publisher('/core_decision_manager/pattern', MotionPattern, queue_size=1)
+        self.pattern_msg = MotionPattern(name='sayHello')
+        self.emotion_pub = rospy.Publisher('/core_decision_manager/emotion', Emotion, queue_size=1)
+        self.emotion_msg = Emotion(name='happy')
+
+        start = time.time()
+        while time.time() - start < BEHAVIOR_REACTION_TIMEOUT and self.all_data_recieved() is False:
+            self.emotion_pub.publish(self.emotion_msg)
+            self.pattern_pub.publish(self.pattern_msg)
+            self.motion_maker.make_motions()
+
+        start = time.time()
+        while time.time() - start < BEHAVIOR_REACTION_TIMEOUT and self.all_data_recieved() is False:
+            time.sleep(0.1)
+
+        self.assertEqual(self.eyebrows_motion, EyebrowsMotion(l_angle=30.0, r_angle=30.0, emotion='neutral'))
+        self.assertEqual(self.head_motion, HeadMotion(v_angle=150.0, emotion='neutral'))
+
+        self.pattern_pub.unregister()
+        self.emotion_pub.unregister()
+
+        del(self.pattern_msg, self.emotion_msg)
 
 if __name__ == '__main__':
     rospy.init_node('test_core_motion_manager')

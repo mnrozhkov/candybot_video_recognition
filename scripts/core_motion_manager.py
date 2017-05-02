@@ -73,8 +73,6 @@ class MotionMaker:
 
         if isinstance(data, Emotion):
             self.emotion = data.name
-            print(self.emotion)
-
 
     def _set_neutral(self) -> None:
         self._head_publisher.move_to_face()
@@ -87,6 +85,7 @@ class MotionMaker:
         # self._body.set_backlight_color(color='orange')
 
     def _set_happy(self) -> None:
+
         self._head_publisher.move_to_face()
 
         self._head_publisher.move_up()
@@ -196,14 +195,13 @@ class MotionMaker:
         pattern_name = self.pattern_name
 
         try:
-            if isinstance(emotion, str):
+            if isinstance(emotion, str) and emotion in self.emotion_actions.keys():
                 self.set_emotion(emotion)
 
             if isinstance(pattern_name, str):
-                pattern_path = '/motion_patterns/' + pattern_name + '.yaml'
+                pattern_path = top + '/motion_patterns/' + pattern_name + '.yaml'
                 pattern = yaml.load(open(pattern_path,'r'))
                 pattern_steps = pattern['steps']
-                print(pattern_steps)
                 step_count = len(pattern_steps)
                 i = 0
                 while i < step_count:
@@ -211,12 +209,11 @@ class MotionMaker:
                     step = pattern_steps[i]['step']
                     print(step)
                     step_emotion = step.get('emotion')
-                    if step_emotion is not None and emotion is None:
+                    if step_emotion is not None and len(emotion) == 0:
                         self.set_emotion(step_emotion)
 
                     motions = step.get('motions')
                     if motions is not None:
-
                         head_motions = motions.get('head')
                         self._make_head_motions(head_motions)
 
