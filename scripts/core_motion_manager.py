@@ -54,7 +54,6 @@ class MotionMaker:
         self.pattern_name = str()
         self.emotion = str()
 
-
         self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, self.callback_pattern)
         self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, self.callback_emotion)
 
@@ -190,7 +189,8 @@ class MotionMaker:
         '''
         make motions by robot emotion and pattern content
         '''
-
+        self._head_publisher.move_to_face()
+        
         emotion = self.emotion
         pattern_name = self.pattern_name
 
