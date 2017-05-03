@@ -15,6 +15,7 @@ if __name__ == '__main__':
     body_motion_lock = Lock()
     rospy.Subscriber('/motion_body_controller/body_motion', BodyMotion, body_motion_lock.callback)
     body_state_publisher = rospy.Publisher('/motion_body_controller/body_state', BodyState, queue_size=1)
+    print('motion_body_controller start')
     while True:
         try:
             rospy.get_master().getPid()

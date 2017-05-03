@@ -44,7 +44,7 @@ def main(num_iterations=sys.maxsize):
     frame_count = 0
     fps = ""
     regulator = set_display_frame_rate(fps=10)
-
+    print('motion_eyes_controller start')
     while num_iterations > 0:
         with regulator:
             num_iterations -= 1

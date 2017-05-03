@@ -15,7 +15,7 @@ if __name__ == '__main__':
     eyebrows_motion_lock = Lock()
     rospy.Subscriber('/motion_eyebrows_controller/eyebrows_motion', EyebrowsMotion, eyebrows_motion_lock.callback)
     eyebrows_state_publisher = rospy.Publisher('/motion_eyebrows_controller/eyebrows_state', EyebrowsState, queue_size=1)
-
+    print('motion_eyebrows_controller start')
     while True:
         try:
             rospy.get_master().getPid()

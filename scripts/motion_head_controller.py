@@ -35,7 +35,7 @@ def main():
        _h_SERVO_ADDRESS=0,
        _v_SERVO_ADDRESS=1
     )
-
+    print('motion_head_controller start')
     while True:
         try:
             rospy.get_master().getPid()
