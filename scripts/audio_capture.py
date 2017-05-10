@@ -54,7 +54,6 @@ if __name__ == '__main__':
             min_rms = rospy.get_param('min_rms')
             audio_recorder.set_min_rms(min_rms)
         raw_audio = audio_recorder.listen_audio()
-        print(raw_audio)
         if isinstance(raw_audio, bytes):
             msg = Audio(content=raw_audio)
             publisher.publish(msg)

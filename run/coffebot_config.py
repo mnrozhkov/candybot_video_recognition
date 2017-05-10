@@ -9,6 +9,7 @@ import json
 import os
 
 if __name__ == '__main__':
+	rospy.init_node('coffebot_config')
 	print(BASE_PATH)
 	config = json.load(open(BASE_PATH + '/coffebot.config', 'r'))
 	for key in list(config.keys()):
