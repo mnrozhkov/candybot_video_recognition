@@ -11,12 +11,13 @@ class VkNeewsfeedScanner:
     newsfeed scanner (vk.com)
     '''
 
-    def __init__(self, access_token):
+    def __init__(self, access_token: str, required_hashtag: str=str()):
         '''
         constructor
         takes access token
         '''
         self.access_token = access_token
+        self.required_hashtag  = required_hashtag
         self._open_session()
 
     def _open_session(self):
@@ -32,7 +33,7 @@ class VkNeewsfeedScanner:
         generate hashtag
         returns string
         '''
-    	hashtag = '#'
+    	hashtag = self.required_hashtag + '#'
     	for i in range(4):
     		hashtag += str(random.randint(0,10))
     	return hashtag
