@@ -1,10 +1,9 @@
+#!/usr/bin/env python3
+
 import vk
 import time
 import random
 
-#ключ доступа
-access_token = ''
-#открытие сессии и получение доступа к api
 
 class VkNeewsfeedScanner:
     '''
@@ -16,6 +15,7 @@ class VkNeewsfeedScanner:
         constructor
         takes access token
         '''
+
         self.access_token = access_token
         self.required_hashtag  = required_hashtag
         self._open_session()
