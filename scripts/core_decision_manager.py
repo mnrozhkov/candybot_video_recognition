@@ -135,6 +135,10 @@ class Decision:
 
             if bot_action_answer is None:
                 if smile_exists is True:
+                    #set happy emotion as reaction on human smile
+                    emotion_msg = Emotion(name='happy')
+                    emotion_publisher.publish(emotion_msg)
+                    
                     user_speech_text_msg = UserSpeechText(text='привет')
                     self.dialog_bot_publisher.publish(user_speech_text_msg)
 
