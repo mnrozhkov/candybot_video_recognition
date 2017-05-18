@@ -110,8 +110,7 @@ class Decision:
         bot_text_answer = self.bot_text_answer
         bot_action_answer = self.bot_action_answer
         smile_exists = self.smile_exists
-
-
+        
         if isinstance(bot_text_answer, str) and len(bot_text_answer) > 0:
             bot_speech_text_msg = BotSpeechText(text=self.bot_text_answer)
             self.speech_synthesis_publisher.publish(bot_speech_text_msg)
@@ -138,7 +137,7 @@ class Decision:
                     #set happy emotion as reaction on human smile
                     emotion_msg = Emotion(name='happy')
                     emotion_publisher.publish(emotion_msg)
-                    
+
                     user_speech_text_msg = UserSpeechText(text='привет')
                     self.dialog_bot_publisher.publish(user_speech_text_msg)
 
