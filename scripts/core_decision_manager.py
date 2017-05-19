@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import sys
+sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 
 import rospy
 import smach
@@ -10,7 +12,7 @@ from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
 from coffebot.msg import MakePhotoAction, MakePhotoActionGoal
 from coffebot.msg import MakeVideoAction, MakeVideoActionGoal
 
-from coffebot.core.decision_stat_machine import *
+from coffebot.core.decision_state_machine import *
 
 import json
 
@@ -30,7 +32,6 @@ class Decision:
         self.face_info = dict()
 
         self._create_subscribers()
-        self._create_publishers()
         self._create_action_clients()
 
     def callback_face_info(self, data: FaceFeatures) -> None:
@@ -42,7 +43,6 @@ class Decision:
         if isinstance(data, FaceFeatures):
             self.face_info = dict()
             self.face_info['emotion'] = data.emotion
-            self.face_info['celebrity_name'] = data.celebrity_name
             self.face_info['gender'] = data.gender
             self.face_info['age'] = [data.min_age, data.max_age]
 
@@ -110,8 +110,8 @@ class Decision:
         with sm:
             smach.StateMachine.add('BotTextAnswerState', BotTextAnswerState(),
                                     transitions={'outcome1':'BotActionNameAnswerState',
-                                                 'outcome2':'BotSmileExists'
-                                                }
+                                                 'outcome2':'SmileExistsState'
+                                                },
                                     remapping={'bot_text_answer':'bot_text_answer'})
 
             smach.StateMachine.add('BotActionNameAnswerState', BotActionNameAnswerState(),
@@ -122,11 +122,13 @@ class Decision:
                                    transitions={'outcome1':'end'},
                                    remapping={'smile_exists':'smile_exists'})
 
-        if self.bot_text_answer == bot_text_answer:
+        sm.execute()
+
+        if self.bot_text_answer == sm.userdata.bot_text_answer:
             self.bot_text_answer = None
-        if self.bot_action_answer == bot_action_answer:
+        if self.bot_action_answer == sm.userdata.bot_action_answer:
             self.bot_action_answer = None
-        if self.smile_exists == smile_exists:
+        if self.smile_exists == sm.userdata.smile_exists:
             self.smile_exists = False
 
 

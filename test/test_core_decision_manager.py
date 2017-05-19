@@ -36,7 +36,7 @@ class TestCallbackFaceInfo(unittest.TestCase):
 
         decision = Decision()
         pub = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
-        face_features = FaceFeatures(emotion='happy', celebrity_name='Jackie Chan', gender='male', min_age=20, max_age=40)
+        face_features = FaceFeatures(emotion='happy', gender='male', min_age=20, max_age=40)
         start = time.time()
         while time.time() - start < 1:
             pub.publish(face_features)
@@ -47,7 +47,6 @@ class TestCallbackFaceInfo(unittest.TestCase):
 
         face_info = decision.face_info
         self.assertEqual(face_info['emotion'], 'happy')
-        self.assertEqual(face_info['celebrity_name'], 'Jackie Chan')
         self.assertEqual(face_info['gender'], 'male')
         self.assertEqual(face_info['age'], [20, 40])
 
@@ -62,7 +61,7 @@ class TestCallbackFaceInfo(unittest.TestCase):
         decision = Decision()
 
         pub = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
-        face_features = FaceFeatures(emotion=1, celebrity_name='Jackie Chan', gender='male', min_age=20, max_age=40)
+        face_features = FaceFeatures(emotion=1, gender='male', min_age=20, max_age=40)
         start = time.time()
         while time.time() - start < 1:
             try:
@@ -409,7 +408,6 @@ class TestBehaviorCoreDecisionManager(unittest.TestCase):
             raise
         finally:
             decision._delete_subscribers()
-            decision._delete_publishers()
 
             smile_publisher.unregister()
             user_speech_text_sub.unregister()
@@ -465,7 +463,6 @@ class TestBehaviorCoreDecisionManager(unittest.TestCase):
             raise
         finally:
             decision._delete_subscribers()
-            decision._delete_publishers()
 
             bot_answer_publisher.unregister()
             bot_speech_text_sub.unregister()
