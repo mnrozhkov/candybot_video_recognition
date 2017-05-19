@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
 import rospy
+import smach
+import smach_ros
+
 from coffebot.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
 from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
 from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
 from coffebot.msg import MakePhotoAction, MakePhotoActionGoal
 from coffebot.msg import MakeVideoAction, MakeVideoActionGoal
+
+from coffebot.core.decision_stat_machine import *
+
 import json
 
 import actionlib
@@ -86,18 +92,6 @@ class Decision:
         self.smile_detected_sub.unregister()
         self.bot_dialog_sub.unregister()
 
-    def _create_publishers(self):
-        self.pattern_publisher = rospy.Publisher('/core_decision_manager/pattern', MotionPattern, queue_size=1)
-        self.emotion_publisher = rospy.Publisher('/core_decision_manager/emotion', Emotion, queue_size=1)
-        self.dialog_bot_publisher = rospy.Publisher('/speech_recognition/user_speech_text', UserSpeechText, queue_size=1)
-        self.speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
-
-    def _delete_publishers(self):
-        self.pattern_publisher.unregister()
-        self.emotion_publisher.unregister()
-        self.dialog_bot_publisher.unregister()
-        self.speech_synthesis_publisher.unregister()
-
     def _create_action_clients(self):
         self.make_photo_action_client = actionlib.SimpleActionClient('make_photo', MakePhotoAction)
         self.make_video_action_client = actionlib.SimpleActionClient('make_video', MakeVideoAction)
@@ -107,39 +101,26 @@ class Decision:
         1. takes inputs
         2. makes decisions
         '''
-        bot_text_answer = self.bot_text_answer
-        bot_action_answer = self.bot_action_answer
-        smile_exists = self.smile_exists
-        
-        if isinstance(bot_text_answer, str) and len(bot_text_answer) > 0:
-            bot_speech_text_msg = BotSpeechText(text=self.bot_text_answer)
-            self.speech_synthesis_publisher.publish(bot_speech_text_msg)
-            if isinstance(bot_action_answer, str):
-                print('bot_action_answer', bot_action_answer)
-                pattern_msg = MotionPattern()
-                if bot_action_answer == 'action.hello':
-                    pattern_msg.name = 'sayHello'
-                elif bot_action_answer == 'action.hello.doIntroduction':
-                    pattern_msg.name = 'dointroduction'
-                elif bot_action_answer == 'action.service.coffeOrder':
-                    pattern_msg.name = 'coffeOrder'
-                elif bot_action_answer == 'action.service.promo.feedback':
-                    pattern_msg.name = 'feedback'
-                elif bot_action_answer == 'action.service.goodbye':
-                    pattern_msg.name = 'goodbye'
 
-                self.pattern_publisher.publish(pattern_msg)
+        sm = smach.StateMachine(outcomes=['end'])
+        sm.userdata.bot_text_answer = self.bot_text_answer
+        sm.userdata.bot_action_answer = self.bot_action_answer
+        sm.userdata.smile_exists = self.smile_exists
 
-        else:
+        with sm:
+            smach.StateMachine.add('BotTextAnswerState', BotTextAnswerState(),
+                                    transitions={'outcome1':'BotActionNameAnswerState',
+                                                 'outcome2':'BotSmileExists'
+                                                }
+                                    remapping={'bot_text_answer':'bot_text_answer'})
 
-            if bot_action_answer is None:
-                if smile_exists is True:
-                    #set happy emotion as reaction on human smile
-                    emotion_msg = Emotion(name='happy')
-                    emotion_publisher.publish(emotion_msg)
+            smach.StateMachine.add('BotActionNameAnswerState', BotActionNameAnswerState(),
+                                   transitions={'outcome1':'end'},
+                                   remapping={'bot_action_answer':'bot_action_answer'})
 
-                    user_speech_text_msg = UserSpeechText(text='привет')
-                    self.dialog_bot_publisher.publish(user_speech_text_msg)
+            smach.StateMachine.add('SmileExistsState', SmileExistsState(),
+                                   transitions={'outcome1':'end'},
+                                   remapping={'smile_exists':'smile_exists'})
 
         if self.bot_text_answer == bot_text_answer:
             self.bot_text_answer = None

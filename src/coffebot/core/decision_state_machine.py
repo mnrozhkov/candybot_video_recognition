@@ -30,7 +30,7 @@ class BotTextAnswerState(smach.State):
 class BotActionNameAnswerState(smach.State):
 
     def __init__(self):
-        smach.State.__init__(self, outcomes=['outcome1', 'outcome2'],
+        smach.State.__init__(self, outcomes=['outcome1'],
                                    input_keys=['bot_action_answer']
                             )
 
@@ -53,9 +53,8 @@ class BotActionNameAnswerState(smach.State):
                 pattern_msg.name = 'goodbye'
 
             self.pattern_publisher.publish(pattern_msg)
-            return 'outcome1'
 
-        return 'outcome2'
+        return 'outcome1'
 
 class BotActionParametersAnswerState(smach.State):
 
@@ -67,10 +66,10 @@ class BotActionParametersAnswerState(smach.State):
         return
 
 
-class BotSmileExists(smach.State):
+class SmileExistsState(smach.State):
 
     def __init__(self):
-        smach.State.__init__(self, outcomes=['outcome1', 'outcome2'],
+        smach.State.__init__(self, outcomes=['outcome1'],
                                    input_keys=['smile_exists']
                             )
         self.emotion_publisher = rospy.Publisher('/core_decision_manager/emotion', Emotion, queue_size=1)
@@ -84,6 +83,5 @@ class BotSmileExists(smach.State):
 
             user_speech_text_msg = UserSpeechText(text='привет')
             self.dialog_bot_publisher.publish(user_speech_text_msg)
-            return 'outcome1'
 
-        return 'outcome2'
+        return 'outcome1'
