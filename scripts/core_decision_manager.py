@@ -22,8 +22,18 @@ import time
 
 
 class Decision:
+    '''
+    Decision making class
+    Functionality:
+        1. collect audio, video, text and other data
+        2. make decision by all information
+    '''
 
     def __init__(self):
+        '''
+        Constructor
+        '''
+
         self.bot_text_answer = str()
         self.bot_action_answer = str()
         self.bot_action_parameter_answer = dict()
@@ -36,8 +46,9 @@ class Decision:
 
     def callback_face_info(self, data: FaceFeatures) -> None:
         '''
-        1. recieve face features information
-        2. extract user emotion from it
+        Recieve and extract face features information
+        Args:
+            data: face features message
         '''
 
         if isinstance(data, FaceFeatures):
@@ -49,7 +60,9 @@ class Decision:
 
     def callback_face_coords(self, data: FaceCoordinates) -> None:
         '''
-        recieve closest face coordinates
+        Recieve closest face coordinates
+        Args:
+            data: face coordinates message
         '''
 
         self.face_coords = dict({'x': int(data.x), 'y': int(data.y), 'w': int(data.w), 'h': int(data.h)})
@@ -57,7 +70,9 @@ class Decision:
 
     def callback_smile(self, data: SmileDetected) -> None:
         '''
-        recieve information about smile at closest face existance
+        Recieve information about smile existance at closest face
+        Args:
+            data: smile detected status
         '''
         print('callback_smile:', data.detected)
         if data.detected is True:
@@ -66,8 +81,15 @@ class Decision:
 
     def callback_bot_dialog(self, data: APIAIBotAnswer) -> None:
         '''
-        1. recieve api.ai bot answer
-        2. extract from the answer speech text, action name and action parameters
+        Recieve api.ai bot answer and extract from the answer speech text,
+        action name and action parameters
+
+        Args:
+            data: api.ai bot answer in format
+                dictionary = {
+                    'text': text, 'action':{'name': name, 'parameters':parameters
+                                  }
+                }
         '''
 
         self.bot_text_answer = data.text
@@ -78,7 +100,7 @@ class Decision:
 
     def _create_subscribers(self):
         '''
-        create Subscribers with theirs callbacks
+        Create subscribers
         '''
 
         self.face_info_sub = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, self.callback_face_info)
@@ -87,6 +109,10 @@ class Decision:
         self.bot_dialog_sub = rospy.Subscriber('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, self.callback_bot_dialog)
 
     def _delete_subscribers(self):
+        '''
+        Delete (unregister) subscribers
+        '''
+
         self.face_info_sub.unregister()
         self.face_coord_sub.unregister()
         self.smile_detected_sub.unregister()
@@ -98,10 +124,10 @@ class Decision:
 
     def make_decision(self) -> None:
         '''
-        1. takes inputs
-        2. makes decisions
+        Make decision by all collected information at current moment
         '''
 
+        #create ROS Smach state machine
         sm = smach.StateMachine(outcomes=['end'])
         sm.userdata.bot_text_answer = self.bot_text_answer
         sm.userdata.bot_action_answer = self.bot_action_answer

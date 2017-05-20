@@ -6,17 +6,16 @@ top = Path(__file__).resolve().parents[0].as_posix()
 
 from urllib import request
 
-
 key = ''
 initialized = False
 
 cities = dict()
 
 def init(cities_file_name):
-    
+
     global cities
     global initialized
-    
+
     try:
         cities = json.load(open(top + '/' + cities_file_name, 'r'))
         initialized = True
@@ -25,7 +24,7 @@ def init(cities_file_name):
 
 
 def get_weather(city_name):
-    
+
     if initialized is True and len(cities) > 0:
         city_id = cities.get(city_name.lower().strip())
         if city_id is not None:
@@ -38,4 +37,3 @@ def get_weather(city_name):
             except Exception as es:
                 logging.error(str(e))
                 return None
-    

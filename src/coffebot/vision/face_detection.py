@@ -11,14 +11,21 @@ import numpy
 
 
 class FaceTracker:
-
+    '''
+    Simple face tracker class
+    Functionality:
+        1. search the closest face region on image
+        2. search smile on some face region
+    '''
 
     def find_closest_face_region(self, image: numpy.ndarray or None = None, min_neighbors: int=5) -> Dict[str, int] or None:
         '''Detects faces and searches closest
         Args:
             img: numpy.ndarray
         Returns:
-            Dict[str,int]: coordinates and sizes of closest face
+            coordinates and sizes of closest face in format Dict[str,int] :
+                if face found
+            None : if face not found
         '''
 
         if image is None:
@@ -39,7 +46,15 @@ class FaceTracker:
         return closest_face
 
     def detect_smile(self, face_image: numpy.ndarray or None = None) -> bool or None:
-
+        '''
+        Detect smile in face region
+        Args:
+            face_image: face region
+        Returns:
+            True : if smile detected
+            False : if smile not detected
+        '''
+        
         if face_image is None:
             return None
 

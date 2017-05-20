@@ -17,12 +17,17 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
                     level=logging.DEBUG)
 
 class Player:
+    '''
+    Simple audio player
+    [Now supports just wave audio data]
+    '''
 
     def play_audio(self, audio_data_src: http.client.HTTPResponse or io.BytesIO, format: str='wav') -> None:
         '''
-        plays audio_data with format=format
-        audio_data: binary audio source
-        format: string
+        Plays audio_data with format=format
+        Args:
+            audio_data: binary audio source
+            format: audio format
         '''
         try:
             if format == 'wav':

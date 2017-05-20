@@ -20,6 +20,12 @@ import random
 class TwitterCodeScanner:
 
     def __init__(self, required_track: str='@funrobots'):
+		'''
+        Constructor
+        Args:
+            required_track: required track
+        '''
+
         self.CONSUMER_KEY=TW_CONSUMER_KEY
         self.CONSUMER_SECRET=TW_CONSUMER_SECRET
         self.ACCESS_TOKEN=TW_ACCESS_TOKEN_KEY
@@ -29,8 +35,13 @@ class TwitterCodeScanner:
         self.twitter_stream = TwitterStream(auth=self.oauth)
         self.required_track = required_track
 
-    def generate_code(self):
-
+    def generate_code(self) -> str:
+		'''
+        generate code
+        Returns:
+            generated code
+        '''
+		
         code = str()
     	for i in range(4):
     		code += str(random.randint(0,10))

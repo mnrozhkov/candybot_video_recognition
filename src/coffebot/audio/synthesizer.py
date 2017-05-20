@@ -17,12 +17,29 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
                     level=logging.DEBUG)
 
 class Talker:
+    '''
+    Text-to-speech class
+    '''
 
     def __init__(self, yandex_voice_key: str):
+        '''
+        Constructor
+        yandex_voice_key: access key for Yandex SpeechKit
+        '''
+
         self.yandex_voice_key = yandex_voice_key
         self._player = Player()
 
     def text_to_speech(self, text: str) -> bytes or None:
+        '''
+        Translate text to speech
+        Args:
+            text: text to translate
+        Returns:
+            wave format audio bytes : if translated
+            None : if failed
+        '''
+
         try:
             url = 'https://tts.voicetech.yandex.net/generate?text='
             url += parse.quote(text)

@@ -25,9 +25,20 @@ SMILE_HARRCASCADE_FILE = BASE_PATH + '/haarcascades/haarcascade_smile.xml'
 
 def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[Dict[str,int]] or None:
     '''
-    1. takes numpy.ndarray image
-    2. searches faces regions on this image
-    3. returns list dictionaries, which contain coordinates and sizes of faces regions
+    Detect faces regions list by image
+
+    Args:
+        image: source image
+    Returns:
+        list of dicts of faces regions coordinates and sizes:
+            dictionary = {'x': x,
+                          'y': y,
+                          'w': w
+                          'h': h
+                          }
+            if image is not None;
+
+        None if image is None
     '''
 
     if image is None:
@@ -51,9 +62,12 @@ def detect_faces(image: numpy.ndarray or None = None, min_neighbors=5) -> List[D
 
 def detect_smile(face_image: numpy.ndarray or None = None, min_neighbors=22) -> bool or None:
     '''
-    1. takes numpy.ndarray - face image
-    2. searches smile region on this image
-    3. returns True if smile exists
+    Detect smile in face region
+    Args:
+        face_image: face region
+    Returns:
+        True : if smile detected
+        False : if smile not detected
     '''
 
     if face_image is None:

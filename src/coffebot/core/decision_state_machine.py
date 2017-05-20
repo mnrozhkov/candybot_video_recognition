@@ -11,6 +11,9 @@ from coffebot.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText
 
 
 class BotTextAnswerState(smach.State):
+    '''
+    Bot text existance state
+    '''
 
     def __init__(self):
         smach.State.__init__(self, outcomes=['outcome1', 'outcome2'],
@@ -28,6 +31,9 @@ class BotTextAnswerState(smach.State):
 
 
 class BotActionNameAnswerState(smach.State):
+    '''
+    Bot action name existance state
+    '''
 
     def __init__(self):
         smach.State.__init__(self, outcomes=['outcome1'],
@@ -57,6 +63,9 @@ class BotActionNameAnswerState(smach.State):
         return 'outcome1'
 
 class BotActionParametersAnswerState(smach.State):
+    '''
+    Bot action parameters existance state
+    '''
 
     def __init__(self):
         smach.State.__init__(self, outcomes=[])
@@ -67,7 +76,9 @@ class BotActionParametersAnswerState(smach.State):
 
 
 class SmileExistsState(smach.State):
-
+    '''
+    User smile existance state
+    '''
     def __init__(self):
         smach.State.__init__(self, outcomes=['outcome1'],
                                    input_keys=['smile_exists']
