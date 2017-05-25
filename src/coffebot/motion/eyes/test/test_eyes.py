@@ -5,17 +5,6 @@
 # Project: Candybot: Coffebot
 # Summary: Test for motion_eyes_controller
 # version: v1
-# Test marks and interpretations
-#     1) Серьезность (Severity) Наиболее распространена пятиуровневая система градации серьезности дефекта:
-#         • S1 Блокирующий (Blocker)
-#         • S2 Критический (Critical)
-#         • S3 Значительный (Major)
-#         • S4 Незначительный (Minor)
-#         • S5 Тривиальный (Trivial)
-#     2) Приоритет (Priority) Приоритет дефекта:
-#         • P1 Высокий (High)
-#         • P2 Средний (Medium)
-#         • P3 Низкий (Low)
 
 import os
 import sys
@@ -96,19 +85,3 @@ class TestEyesMethods:                      # unit-tests for a class methods
         pass
 
 
-### Tests for hardware
-#______________________
-
-def test_display_st7735():
-    num_iterations=sys.maxsize
-    device = get_device()
-    frame_count = 0
-    fps = ""
-    regulator = set_display_frame_rate(fps=10)
-
-    while num_iterations > 0:
-        with regulator:
-            num_iterations -= 1
-            frame_count += 1
-            with create_canvas(device) as canvas:
-                draw_eye(canvas, "test", 0, 0, 120, 120, fill='#1c86ee', outline='#ffffff')
