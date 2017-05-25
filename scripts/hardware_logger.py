@@ -38,7 +38,7 @@ def log_eyes():
         eyes_state['x'] = rospy.get_param('/eyes/x')
     if rospy.has_param('/eyes/y') is True:
         eyes_state['y'] = rospy.get_param('/eyes/y')
-    if rospy.has_param('/eyes/x') is True:
+    if rospy.has_param('/eyes/emotion') is True:
         eyes_state['emotion'] = rospy.get_param('/eyes/emotion')
 
     return eyes_state
