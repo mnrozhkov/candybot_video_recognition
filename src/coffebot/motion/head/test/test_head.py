@@ -28,8 +28,8 @@ def dummy_head():
     head = Head(_h_angle=90,
                 _v_angle=90,
                 _emotion='happy',
-                _h_SERVO_CHANNEL=0,
-                _v_SERVO_CHANNEL=1)
+                _h_SERVO_CHANNEL=3,
+                _v_SERVO_CHANNEL=2)
     yield head
 
 
@@ -41,8 +41,8 @@ def test_head_init(dummy_head):
     assert dummy_head._h_angle == 90
     assert dummy_head._v_angle == 90
     assert dummy_head._emotion == 'neutral'
-    assert dummy_head._h_SERVO_CHANNEL==0
-    assert dummy_head._v_SERVO_CHANNEL==1
+    assert dummy_head._h_SERVO_CHANNEL==3
+    assert dummy_head._v_SERVO_CHANNEL==2
 
 
 # Tests for servo 1: horizontal
