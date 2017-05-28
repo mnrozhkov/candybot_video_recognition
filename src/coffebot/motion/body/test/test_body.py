@@ -5,17 +5,7 @@
 # Project: Candybot: Coffebot
 # Summary: Test for motion_eyes_controller
 # version: v1
-# Test marks and interpretations
-#     1) Серьезность (Severity) Наиболее распространена пятиуровневая система градации серьезности дефекта:
-#         • S1 Блокирующий (Blocker)
-#         • S2 Критический (Critical)
-#         • S3 Значительный (Major)
-#         • S4 Незначительный (Minor)
-#         • S5 Тривиальный (Trivial)
-#     2) Приоритет (Priority) Приоритет дефекта:
-#         • P1 Высокий (High)
-#         • P2 Средний (Medium)
-#         • P3 Низкий (Low)
+
 
 import os
 import sys
@@ -37,7 +27,7 @@ from body_controller import Body, \
 
 @pytest.fixture(scope="function")
 def dummy_body():
-    body = Body(_d_SERVO_ADDRESS = 3,
+    body = Body(_d_SERVO_CHANNEL = 3,
                 _d_servo_angle = 0,
                 _led_on = True,
                 _backlight_color = '#ffffff',
@@ -51,7 +41,7 @@ def dummy_body():
 #______________________
 
 def test_body_init(dummy_body):
-    assert dummy_body._d_SERVO_ADDRESS == 3
+    assert dummy_body._d_SERVO_CHANNEL== 3
     assert dummy_body._d_servo_angle == 0
     assert dummy_body._led_on == True
     assert dummy_body._backlight_color == '#ffffff'

@@ -13,7 +13,7 @@ import Adafruit_PCA9685
 import time
 
 
-# Initialise the PCA9685 using the default address (0x40)
+# Initialise the PCA9685 using the default channel (0x40)
 pwm = Adafruit_PCA9685.PCA9685()
 
 
