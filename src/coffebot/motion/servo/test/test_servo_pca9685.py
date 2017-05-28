@@ -98,6 +98,6 @@ def test_servo_class():
 
 if __name__ == "__main__":
     try:
-        test_hardware_example()
+        test_servo_class()
     except KeyboardInterrupt:
         pass
