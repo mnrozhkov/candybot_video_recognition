@@ -88,9 +88,9 @@ def test_servo_class():
     turns = 0
     while turns <= 10:
         # Move servo on channel O between extremes.
-        servo.set_angle(0, 60)
+        servo.set_angle(0, 30)
         time.sleep(1)
-        servo.set_angle(0, 120)
+        servo.set_angle(0, -30)
         time.sleep(1)
         turns += 1
 
