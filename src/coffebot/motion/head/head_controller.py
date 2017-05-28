@@ -11,7 +11,7 @@ from servo.servo_pca9685 import Servo
 
 
 class Head(object):
-    def __init__(self, _h_angle, _v_angle, _emotion, _h_SERVO_ADDRESS, _v_SERVO_ADDRESS):
+    def __init__(self, _h_angle, _v_angle, _emotion, _h_SERVO_CHANNEL, _v_SERVO_CHANNEL):
         # head position (servos) params
         self._h_angle = _h_angle
         self._v_angle = _v_angle
@@ -24,11 +24,11 @@ class Head(object):
         self._emotion = _emotion
 
         # pin settings
-        self._h_SERVO_ADDRESS = _h_SERVO_ADDRESS
-        self._v_SERVO_ADDRESS = _v_SERVO_ADDRESS
+        self._h_SERVO_CHANNEL = _h_SERVO_CHANNEL
+        self._v_SERVO_CHANNEL = _v_SERVO_CHANNEL
 
-        self.h_servo = Servo(address =_h_SERVO_ADDRESS)
-        self.v_servo = Servo(address =_v_SERVO_ADDRESS)
+        self.h_servo = Servo(channel =_h_SERVO_CHANNEL)
+        self.v_servo = Servo(channel =_v_SERVO_CHANNEL)
 
         # move Head into default position
         self.set_horizontal_servo_position(_h_angle)
@@ -42,7 +42,7 @@ class Head(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.h_servo.set_angle(self._h_SERVO_ADDRESS, angle)
+            self.h_servo.set_angle(self._h_SERVO_CHANNEL, angle)
             self._h_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -55,7 +55,7 @@ class Head(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.v_servo.set_angle(self._v_SERVO_ADDRESS, angle)
+            self.v_servo.set_angle(self._v_SERVO_CHANNEL, angle)
             self._v_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")

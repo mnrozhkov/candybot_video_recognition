@@ -5,17 +5,6 @@
 # Project: Candybot: Coffebot
 # Summary: Test for motion_eyes_controller
 # version: v1
-# Test marks and interpretations
-#     1) Серьезность (Severity) Наиболее распространена пятиуровневая система градации серьезности дефекта:
-#         • S1 Блокирующий (Blocker)
-#         • S2 Критический (Critical)
-#         • S3 Значительный (Major)
-#         • S4 Незначительный (Minor)
-#         • S5 Тривиальный (Trivial)
-#     2) Приоритет (Priority) Приоритет дефекта:
-#         • P1 Высокий (High)
-#         • P2 Средний (Medium)
-#         • P3 Низкий (Low)
 
 import os
 import sys
@@ -31,6 +20,7 @@ from head_controller import Head
 #
 
 ### Define fixtures
+### Define fixtures
 #______________________
 
 @pytest.fixture(scope="function")
@@ -38,8 +28,8 @@ def dummy_head():
     head = Head(_h_angle=90,
                 _v_angle=90,
                 _emotion='happy',
-                _h_SERVO_ADDRESS=0,
-                _v_SERVO_ADDRESS=1)
+                _h_SERVO_CHANNEL=0,
+                _v_SERVO_CHANNEL=1)
     yield head
 
 
@@ -51,8 +41,8 @@ def test_head_init(dummy_head):
     assert dummy_head._h_angle == 90
     assert dummy_head._v_angle == 90
     assert dummy_head._emotion == 'neutral'
-    assert dummy_head._h_SERVO_ADDRESS==0
-    assert dummy_head._v_SERVO_ADDRESS==1
+    assert dummy_head._h_SERVO_CHANNEL==0
+    assert dummy_head._v_SERVO_CHANNEL==1
 
 
 # Tests for servo 1: horizontal
