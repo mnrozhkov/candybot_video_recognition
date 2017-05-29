@@ -5,17 +5,7 @@
 # Project: Candybot: Coffebot
 # Summary: Test for motion_eyes_controller
 # version: v1
-# Test marks and interpretations
-#     1) Серьезность (Severity) Наиболее распространена пятиуровневая система градации серьезности дефекта:
-#         • S1 Блокирующий (Blocker)
-#         • S2 Критический (Critical)
-#         • S3 Значительный (Major)
-#         • S4 Незначительный (Minor)
-#         • S5 Тривиальный (Trivial)
-#     2) Приоритет (Priority) Приоритет дефекта:
-#         • P1 Высокий (High)
-#         • P2 Средний (Medium)
-#         • P3 Низкий (Low)
+
 
 import os
 import sys
@@ -31,8 +21,8 @@ from eyebrows_controller import Eyebrows
 # set general params
 L_ANGLE_DEFAULT = 90,
 R_ANGLE_DEFAULT = 90,
-L_SERVO_ADDRESS = 4,
-R_SERVO_ADDRESS = 5,
+L_SERVO_CHANNEL = 1,
+R_SERVO_CHANNEL = 0,
 LED_ON = True,
 LED_COLOR = '#ffffff',
 EMOTION = 'happy'
@@ -46,8 +36,8 @@ def dummy_eyebrows():
     eyebrows = Eyebrows(
         _l_angle = L_ANGLE_DEFAULT,
         _r_angle = R_ANGLE_DEFAULT,
-        _l_SERVO_ADDRESS = L_SERVO_ADDRESS,
-        _r_SERVO_ADDRESS = R_SERVO_ADDRESS,
+        _l_SERVO_CHANNEL = L_SERVO_CHANNEL,
+        _r_SERVO_CHANNEL = R_SERVO_CHANNEL,
         _led_on = LED_ON,
         _led_color = LED_COLOR,
         _emotion = EMOTION
@@ -62,8 +52,8 @@ def dummy_eyebrows():
 def test_eyebrows_init(dummy_eyebrows):
     assert dummy_eyebrows._l_angle == L_ANGLE_DEFAULT
     assert dummy_eyebrows._r_angle == R_ANGLE_DEFAULT
-    assert dummy_eyebrows._l_SERVO_ADDRESS == L_SERVO_ADDRESS
-    assert dummy_eyebrows._r_SERVO_ADDRESS == R_SERVO_ADDRESS
+    assert dummy_eyebrows._l_SERVO_CHANNEL == L_SERVO_CHANNEL
+    assert dummy_eyebrows._r_SERVO_CHANNEL == R_SERVO_CHANNEL
     assert dummy_eyebrows._led_on == LED_ON
     assert dummy_eyebrows._led_color == LED_COLOR
     assert dummy_eyebrows._emotion == EMOTION

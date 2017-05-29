@@ -15,11 +15,11 @@ ANGLE_OPEN_DISPENSER = 90
 ANGLE_CLOSE_DISPENSER = 0
 
 class Body(object):
-    def __init__(self, _d_SERVO_ADDRESS, _emotion):
+    def __init__(self, _d_SERVO_CHANNEL, _emotion):
         # Candy dispenser position params
-        self._d_SERVO_ADDRESS = _d_SERVO_ADDRESS
+        self._d_SERVO_CHANNEL = _d_SERVO_CHANNEL
         self._d_servo_angle = 0
-        self.d_servo = Servo(address =_d_SERVO_ADDRESS)
+        self.d_servo = Servo(channel =_d_SERVO_CHANNEL)
 
         # Body led params
         self._led_on = True
@@ -41,7 +41,7 @@ class Body(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.d_servo.set_angle(self._d_SERVO_ADDRESS, angle)
+            self.d_servo.set_angle(self._d_SERVO_CHANNEL, angle)
             self._d_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")

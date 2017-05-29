@@ -11,11 +11,9 @@ sys.path.append(str(top))
 from servo_pca9685 import set_angle, Servo
 import Adafruit_PCA9685
 import time
-import math
-import warnings
 
 
-# Initialise the PCA9685 using the default address (0x40)
+# Initialise the PCA9685 using the default channel (0x40)
 pwm = Adafruit_PCA9685.PCA9685()
 
 
@@ -24,11 +22,8 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 ### Tests for hardware
-#______________________
 def test_hardware_example():
     # Turns servo back and forth 10 times
-    # SDA -> GPIO00/SDA0
-    # SCL- > GPIO01/SCL0
     # Ths is a simple hardware test, based on Adafruit_Python_PCA9685 example
     # Source: https://github.com/adafruit/Adafruit_Python_PCA9685/blob/master/examples/simpletest.py
 
@@ -62,35 +57,35 @@ def test_hardware_example():
 
 
 ### Tests for hardware
-#______________________
-def test_set_angle():
+# def test_set_angle():
+# TODO: Delete after Servo() fix
+#     """
+#     Turns servo back and forth 10 times
+#     """
+#
+#     # Set frequency to 60hz, good for servos.
+#     turns = 0
+#     while turns <= 10:
+#         # Move servo on channel O between extremes.
+#         set_angle(0, 60)
+#         time.sleep(1)
+#         set_angle(0, 120)
+#         time.sleep(1)
+#         turns += 1
+
+def test_servo_class(servo_channel):
     """
     Turns servo back and forth 10 times
     """
 
+    servo = Servo(channel=servo_channel)
     # Set frequency to 60hz, good for servos.
     turns = 0
     while turns <= 10:
         # Move servo on channel O between extremes.
-        set_angle(0, 60)
+        servo.set_angle(30)
         time.sleep(1)
-        set_angle(0, 120)
-        time.sleep(1)
-        turns += 1
-
-def test_servo_class():
-    """
-    Turns servo back and forth 10 times
-    """
-
-    servo = Servo()
-    # Set frequency to 60hz, good for servos.
-    turns = 0
-    while turns <= 10:
-        # Move servo on channel O between extremes.
-        servo.set_angle(0, 30)
-        time.sleep(1)
-        servo.set_angle(0, -30)
+        servo.set_angle(-30)
         time.sleep(1)
         turns += 1
 
@@ -98,6 +93,6 @@ def test_servo_class():
 
 if __name__ == "__main__":
     try:
-        test_servo_class()
+        test_servo_class(servo_channel=0)
     except KeyboardInterrupt:
         pass

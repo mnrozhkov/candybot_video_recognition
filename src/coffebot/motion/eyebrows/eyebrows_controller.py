@@ -11,14 +11,14 @@ from servo.servo_pca9685 import Servo
 
 
 class Eyebrows(object):
-    def __init__(self, _l_angle, _r_angle, _l_SERVO_ADDRESS, _r_SERVO_ADDRESS, _led_on, _led_color, _emotion):
+    def __init__(self, _l_angle, _r_angle, _l_SERVO_CHANNEL, _r_SERVO_CHANNEL, _led_on, _led_color, _emotion):
         # Eyebrows position (servos) params
         self._l_angle = _l_angle
         self._r_angle = _r_angle
-        self._l_SERVO_ADDRESS = _l_SERVO_ADDRESS
-        self._r_SERVO_ADDRESS = _r_SERVO_ADDRESS
-        self.l_servo = Servo(address=_l_SERVO_ADDRESS)
-        self.r_servo = Servo(address=_r_SERVO_ADDRESS)
+        self._l_SERVO_CHANNEL = _l_SERVO_CHANNEL
+        self._r_SERVO_CHANNEL = _r_SERVO_CHANNEL
+        self.l_servo = Servo(channel=_l_SERVO_CHANNEL)
+        self.r_servo = Servo(channel=_r_SERVO_CHANNEL)
 
         # move Eyebrows into default position
         self.set_left_servo_position(_l_angle)
@@ -38,7 +38,7 @@ class Eyebrows(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.l_servo.set_angle(self._l_SERVO_ADDRESS, angle)
+            self.l_servo.set_angle(self._l_SERVO_CHANNEL, angle)
             self._l_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -50,7 +50,7 @@ class Eyebrows(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.r_servo.set_angle(self._r_SERVO_ADDRESS, angle)
+            self.r_servo.set_angle(self._r_SERVO_CHANNEL, angle)
             self._r_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
