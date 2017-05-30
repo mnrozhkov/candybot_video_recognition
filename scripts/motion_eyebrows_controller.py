@@ -23,7 +23,7 @@ if __name__ == '__main__':
             break
 
         eyebrows_msg = eyebrows_motion_lock.message
-        if isinstance(yebrows_msg, EyebrowsMotion):
+        if isinstance(eyebrows_msg, EyebrowsMotion):
             eyebrows.set_left_servo_position(angle=eyebrows_msg.l_angle)
             eyebrows.set_right_servo_position(angle=eyebrows_msg.r_angle)
             eyebrows.set_emotion(emotion=eyebrows_msg.emotion)
