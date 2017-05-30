@@ -8,8 +8,7 @@ from pathlib import Path
 top = Path(__file__).resolve().parents[1]
 sys.path.append(str(top))
 
-from servo_pca9685 import set_angle, Servo
-import Adafruit_PCA9685
+from eyebrows_controller import Eyebrows
 import time
 
 # Initialise the PCA9685 using the default channel (0x40)
