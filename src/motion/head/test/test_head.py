@@ -9,7 +9,6 @@
 import os
 import sys
 from pathlib import Path
-import random
 import pytest
 
 top = Path(__file__).resolve().parents[1]
