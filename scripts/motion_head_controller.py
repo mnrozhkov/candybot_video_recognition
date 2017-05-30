@@ -32,8 +32,8 @@ def main():
        #_v_SERVO_PIN = 18,
        #_PWM_DIVISOR = 384,      # clock at 50kHz (20us tick)
        #_PWM_RANGE = 1000,       # range at 1000 ticks (20ms)
-       _h_SERVO_ADDRESS=0,
-       _v_SERVO_ADDRESS=1
+       _h_SERVO_CHANNEL=3,
+       _v_SERVO_CHANNEL=2
     )
     print('motion_head_controller start')
     while True:
