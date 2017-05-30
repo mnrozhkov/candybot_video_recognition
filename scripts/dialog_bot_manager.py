@@ -8,7 +8,7 @@ import rospy
 from candybot_v2.msg import UserSpeechText, APIAIBotAnswer
 import json
 
-from apiai.bot_client import APIAIBot
+from apiai_service.bot_client import APIAIBot
 
 from utils.topic_controller import Lock
 
