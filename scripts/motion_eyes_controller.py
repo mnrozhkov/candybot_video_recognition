@@ -11,11 +11,11 @@ Candybot eyes module
 import math
 from itertools import zip_longest #use zip_longest for Python3
 import rospy
-from coffebot.msg import EyesMotion, EyesState
-from coffebot.motion.eyes.eyes_controller import Eyes
-from coffebot.motion.eyes.eyes_lib import get_device, create_canvas, get_device, convert_params_to_coord, draw_eye, \
+from candybot_v2.msg import EyesMotion, EyesState
+from motion.eyes.eyes_controller import Eyes
+from motion.eyes.eyes_lib import get_device, create_canvas, get_device, convert_params_to_coord, draw_eye, \
     set_display_frame_rate, create_canvas, zip_wrapper
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 import sys
 
@@ -91,7 +91,7 @@ def main(num_iterations=sys.maxsize):
                 rospy.set_param('/eyes/x', eyes_state_msg.x)
                 rospy.set_param('/eyes/y', eyes_state_msg.y)
                 rospy.set_param('/eyes/emotion', eyes_state_msg.emotion)
-                
+
                 #if new EyesMotion message is equal to the old one clear field message of Lock class object
                 if eyes_motion_lock.message == eyes_motion_msg:
                     eyes_motion_lock.message = None

@@ -4,7 +4,7 @@ publish message for head motions
 '''
 
 import rospy
-from coffebot.msg import HeadMotion, FaceCoordinates
+from candybot_v2.msg import HeadMotion, FaceCoordinates
 import time
 import math
 

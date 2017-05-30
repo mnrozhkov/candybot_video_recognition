@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 FunRobots Lab
 
-# Project: Candybot: Coffebot
+# Project: Candybot: candybot_v2
 # Summary: Test for motion_eyes_controller
 # version: v1
 
@@ -94,9 +94,9 @@ def test_set_vertical_servo_position_raise_type_error(angle):
 # Tests position return type
 def test_get_head_position_type(dummy_head):
     """
-    Head position should be a tuple of two numbers 
-    :param dummy_head: 
-    :return: 
+    Head position should be a tuple of two numbers
+    :param dummy_head:
+    :return:
     """
     head_position = dummy_head.get_head_position()
     assert isinstance(head_position, tuple)

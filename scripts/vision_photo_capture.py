@@ -10,11 +10,11 @@ import rospy
 import ros_numpy
 from sensor_msgs.msg import Image
 
-from coffebot.vision import photo_capture
+from vision import photo_capture
 
 import actionlib
 
-from coffebot.msg import MakePhotoAction
+from candybot_v2.msg import MakePhotoAction
 
 import time
 

@@ -5,16 +5,16 @@ face recognition node
 '''
 
 import rospy
-from coffebot.msg import FaceFeatures
+from candybot_v2.msg import FaceFeatures
 import ros_numpy
 from sensor_msgs.msg import Image
 
-from coffebot.vision.utils import image_format_converter
-from coffebot.vision.utils import algorithmia
+from vision.utils import image_format_converter
+from vision.utils import algorithmia
 
 import time
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 
 if __name__ == '__main__':

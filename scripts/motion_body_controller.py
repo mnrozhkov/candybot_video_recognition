@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import rospy
-from coffebot.motion.body.body_controller import Body
-from coffebot.msg import BodyMotion, BodyState
-from coffebot.topic_controller import Lock
+from motion.body.body_controller import Body
+from candybot_v2.msg import BodyMotion, BodyState
+from utils.topic_controller import Lock
 
 import time
 

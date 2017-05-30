@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import rospy
-from coffebot.motion.eyebrows.eyebrows_controller import Eyebrows
-from coffebot.msg import EyebrowsMotion, EyebrowsState
-from coffebot.topic_controller import Lock
+from motion.eyebrows.eyebrows_controller import Eyebrows
+from candybot_v2.msg import EyebrowsMotion, EyebrowsState
+from utils.topic_controller import Lock
 
 import time
 

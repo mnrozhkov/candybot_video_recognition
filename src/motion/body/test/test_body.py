@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 FunRobots Lab
 
-# Project: Candybot: Coffebot
+# Project: Candybot: candybot_v2
 # Summary: Test for motion_eyes_controller
 # version: v1
 
@@ -69,13 +69,13 @@ def test_set_dispenser_servo_position_normal(angle, pos_expected):
     def test_set_dispenser_servo_position_raise_type_error(angle):
         with pytest.raises(TypeError, message="Expecting TypeError exception"):
             dummy_body.set_dispenser_servo_position(angle)
-            
+
 # Tests position return type
 def test_get_body_position_type(dummy_body):
     """
-    body position should be a tuple of two numbers 
-    :param dummy_body: 
-    :return: 
+    body position should be a tuple of two numbers
+    :param dummy_body:
+    :return:
     """
     body_position = dummy_body.get_body_position()
     assert isinstance(body_position, tuple)

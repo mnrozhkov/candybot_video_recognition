@@ -12,8 +12,8 @@ import base64
 import logging
 import time
 
-from coffebot.audio.recorder import Recorder
-from coffebot.msg import Audio
+from audio.recorder import Recorder
+from candybot_v2.msg import Audio
 
 import os
 LOG_FOLDER = 'logs'

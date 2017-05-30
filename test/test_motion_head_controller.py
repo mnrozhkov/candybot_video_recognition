@@ -6,7 +6,7 @@ motion_head_controller behavior test
 import rospy
 import rosgraph
 
-from coffebot.msg import HeadMotion, HeadState
+from candybot_v2.msg import HeadMotion, HeadState
 import unittest
 
 import time

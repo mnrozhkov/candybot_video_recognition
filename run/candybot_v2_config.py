@@ -9,8 +9,8 @@ import json
 import os
 
 if __name__ == '__main__':
-	rospy.init_node('coffebot_config')
+	rospy.init_node('candybot_v2_config')
 	print(BASE_PATH)
-	config = json.load(open(BASE_PATH + '/coffebot.config', 'r'))
+	config = json.load(open(BASE_PATH + '/candybot_v2.config', 'r'))
 	for key in list(config.keys()):
 		rospy.set_param(key, config[key])

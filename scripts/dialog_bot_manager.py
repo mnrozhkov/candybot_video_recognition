@@ -5,12 +5,12 @@ conversation with bot
 '''
 
 import rospy
-from coffebot.msg import UserSpeechText, APIAIBotAnswer
+from candybot_v2.msg import UserSpeechText, APIAIBotAnswer
 import json
 
-from coffebot.bot_client import APIAIBot
+from apiai.bot_client import APIAIBot
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 import time
 

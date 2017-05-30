@@ -6,7 +6,7 @@ motion_eyes_controller behavior test
 import rospy
 import rosgraph
 
-from coffebot.msg import EyesMotion, EyesState
+from candybot_v2.msg import EyesMotion, EyesState
 import unittest
 
 import time

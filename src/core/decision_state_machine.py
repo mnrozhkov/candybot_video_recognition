@@ -7,7 +7,7 @@ import rospy
 import smach
 import smach_ros
 
-from coffebot.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText
+from candybot_v2.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText
 
 
 class BotTextAnswerState(smach.State):

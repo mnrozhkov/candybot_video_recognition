@@ -5,12 +5,12 @@ speech recognition node
 '''
 
 import rospy
-from coffebot.msg import Audio, UserSpeechText
+from candybot_v2.msg import Audio, UserSpeechText
 
-from coffebot.audio.recognizer import SpeechRecognizer
-from coffebot.audio.utils import audio_format_converter
+from audio.recognizer import SpeechRecognizer
+from audio.utils import audio_format_converter
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 import time
 

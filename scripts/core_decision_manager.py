@@ -6,13 +6,13 @@ import rospy
 import smach
 import smach_ros
 
-from coffebot.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
-from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
-from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
-from coffebot.msg import MakePhotoAction, MakePhotoActionGoal
-from coffebot.msg import MakeVideoAction, MakeVideoActionGoal
+from candybot_v2.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
+from candybot_v2.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
+from candybot_v2.msg import FaceCoordinates, SmileDetected, FaceFeatures
+from candybot_v2.msg import MakePhotoAction, MakePhotoActionGoal
+from candybot_v2.msg import MakeVideoAction, MakeVideoActionGoal
 
-from coffebot.core.decision_state_machine import *
+from core.decision_state_machine import *
 
 import json
 

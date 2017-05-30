@@ -10,18 +10,18 @@ video capture and save node
 '''
 
 import rospy
-from coffebot.msg import Audio
+from candybot_v2.msg import Audio
 import ros_numpy
 from sensor_msgs.msg import Image
 
-from coffebot.audio.utils import audio_format_converter
-from coffebot.vision import video_capture
+from audio.utils import audio_format_converter
+from vision import video_capture
 
 import os
 
 import actionlib
 
-from coffebot.msg import MakeVideoAction
+from candybot_v2.msg import MakeVideoAction
 
 import time
 

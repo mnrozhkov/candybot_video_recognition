@@ -5,12 +5,12 @@ speech sythesis node
 '''
 
 import rospy
-from coffebot.msg import Audio, BotSpeechText
+from candybot_v2.msg import Audio, BotSpeechText
 
-from coffebot.audio.synthesizer import Talker
-from coffebot.audio.utils import audio_format_converter
+from audio.synthesizer import Talker
+from audio.utils import audio_format_converter
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 import time
 
 

@@ -6,7 +6,7 @@ motion_body_controller behavior test
 import rospy
 import rosgraph
 
-from coffebot.msg import BodyMotion, BodyState
+from candybot_v2.msg import BodyMotion, BodyState
 import unittest
 
 import time

@@ -6,7 +6,7 @@ motion_eyebrows_controller behavior test
 import rospy
 import rosgraph
 
-from coffebot.msg import EyebrowsMotion, EyebrowsState
+from candybot_v2.msg import EyebrowsMotion, EyebrowsState
 import unittest
 
 import time

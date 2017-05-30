@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 FunRobots Lab
 
-# Project: Candybot: Coffebot
+# Project: Candybot: candybot_v2
 # Summary: Test for motion_eyes_controller
 # version: v1
 # Test marks and interpretations
@@ -57,4 +57,3 @@ class TestEyesROSIntegration:               # integration tests for a class
 class TestMotionEyesControllerScript:       # integration methods for a script (node)
     def test_one(self):
         pass
-

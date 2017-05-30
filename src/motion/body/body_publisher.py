@@ -4,7 +4,7 @@ publish message for body motions
 '''
 
 import rospy
-from coffebot.msg import BodyMotion
+from candybot_v2.msg import BodyMotion
 
 
 class BodyPublisher:

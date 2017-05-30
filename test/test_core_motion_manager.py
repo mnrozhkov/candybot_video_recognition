@@ -4,8 +4,8 @@ test for core_motion_manager
 '''
 
 import rospy
-from coffebot.msg import MotionPattern, Emotion
-from coffebot.msg import BodyMotion, EyebrowsMotion, EyesMotion, HeadMotion
+from candybot_v2.msg import MotionPattern, Emotion
+from candybot_v2.msg import BodyMotion, EyebrowsMotion, EyesMotion, HeadMotion
 
 import sys
 from pathlib import Path

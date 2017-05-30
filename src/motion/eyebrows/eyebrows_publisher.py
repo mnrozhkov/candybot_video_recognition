@@ -4,7 +4,7 @@ publish message for eyebrows motions
 '''
 
 import rospy
-from coffebot.msg import EyebrowsMotion
+from candybot_v2.msg import EyebrowsMotion
 
 
 class EyebrowsPublisher:

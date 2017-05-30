@@ -6,13 +6,13 @@ play audio node
 
 import rospy
 import std_msgs
-from coffebot.msg import Audio
+from candybot_v2.msg import Audio
 
-from coffebot.audio.player import Player
-from coffebot.audio.utils import audio_format_converter
+from audio.player import Player
+from audio.utils import audio_format_converter
 import io
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 import time
 

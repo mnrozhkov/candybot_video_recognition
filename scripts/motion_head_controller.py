@@ -2,14 +2,14 @@
 
 
 """
-coffebot head motion controller
+candybot_v2 head motion controller
 """
 
 import rospy
 
-from coffebot.msg import HeadMotion, HeadState
-from coffebot.motion.head.head_controller import Head
-from coffebot.topic_controller import Lock
+from candybot_v2.msg import HeadMotion, HeadState
+from motion.head.head_controller import Head
+from utils.topic_controller import Lock
 
 import time
 
@@ -73,7 +73,7 @@ def main():
         rospy.set_param('/head/h_angle', head_state_msg.h_angle)
         rospy.set_param('/head/v_angle', head_state_msg.v_angle)
         rospy.set_param('/head/emotion', head_state_msg.emotion)
-        
+
         #if new headMotion message is equal to the old one clear field message of Lock class object
         if head_motion_lock.message == head_motion_msg:
             head_motion_lock.message = None

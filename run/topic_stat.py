@@ -6,14 +6,14 @@ import sys
 sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 
 import rospy
-from coffebot.msg import *
+from candybot_v2.msg import *
 from sensor_msgs.msg import Image
 
 import time
 import numpy
 import ros_numpy
 
-from coffebot.audio.utils.audio_format_converter import raw_audio2wav
+from audio.utils.audio_format_converter import raw_audio2wav
 import json
 
 import cv2
@@ -118,7 +118,7 @@ if __name__ == '__main__':
 	ts.add_subscriber('/vision_face_recognition/face_info', FaceFeatures, lambda data: ts._save_text('/vision_face_recognition/face_info', 'emotion: {0}, gender: {1}, age: [{2}, {3}]'.format(data.emotion, data.gender, str(data.min_age), str(data.max_age))))
 	ts.add_subscriber('/vision_face_tracking/face_coord', FaceCoordinates, lambda data: ts._save_text('/vision_face_tracking/face_coord', 'x: {0}, y: {1}, w: {2}, h: {3}'.format(str(data.x), str(data.y), str(data.w), str(data.h))))
 	ts.add_subscriber('/vision_face_tracking/face_image', Image, lambda data: ts._save_image('/vision_face_tracking/face_image', ros_numpy.numpify(data)))
-	
+
 	print('topic_stat start')
 	while True:
 		try:

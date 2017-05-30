@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 FunRobots Lab
 
-# Project: Candybot: Coffebot
+# Project: Candybot: candybot_v2
 # Summary: Test for motion_eyes_controller
 # version: v1
 
@@ -83,5 +83,3 @@ class TestEyesMethods:                      # unit-tests for a class methods
 
     def test_get_set_emotion(self):
         pass
-
-

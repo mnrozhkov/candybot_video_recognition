@@ -6,8 +6,8 @@ import rospy
 import smach
 import smach_ros
 
-from coffebot.msg import *
-from coffebot.core.decision_state_machine import *
+from candybot_v2.msg import *
+from core.decision_state_machine import *
 
 import unittest
 

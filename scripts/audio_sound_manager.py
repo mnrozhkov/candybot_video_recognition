@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 import rospy
-from coffebot.msg import Sound
+from candybot_v2.msg import Sound
 
-from coffebot.audio.sound_manager import SoundManager
-from coffebot.topic_controller import Lock
+from audio.sound_manager import SoundManager
+from utils.topic_controller import Lock
 
 import time
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import rospy
-from coffebot.msg import MotionPattern, Emotion
-from coffebot.motion.body.body_publisher import BodyPublisher
-from coffebot.motion.eyebrows.eyebrows_publisher import EyebrowsPublisher
-from coffebot.motion.eyes.eyes_publisher import EyesPublisher
-from coffebot.motion.head.head_publisher import HeadPublisher
+from candybot_v2.msg import MotionPattern, Emotion
+from motion.body.body_publisher import BodyPublisher
+from motion.eyebrows.eyebrows_publisher import EyebrowsPublisher
+from motion.eyes.eyes_publisher import EyesPublisher
+from motion.head.head_publisher import HeadPublisher
 
 import json
 import yaml
@@ -190,7 +190,7 @@ class MotionMaker:
         make motions by robot emotion and pattern content
         '''
         self._head_publisher.move_to_face()
-        
+
         emotion = self.emotion
         pattern_name = self.pattern_name
 

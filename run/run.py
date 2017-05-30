@@ -17,5 +17,5 @@ while not ros_started:
 	except:
 		pass
 
-subprocess.call(['python3', BASE_PATH + '/coffebot_config.py'])
-subprocess.call(['bash', BASE_PATH + '/run_coffebot.sh'])
+subprocess.call(['python3', BASE_PATH + '/candybot_v2_config.py'])
+subprocess.call(['bash', BASE_PATH + '/run_candybot_v2.sh'])

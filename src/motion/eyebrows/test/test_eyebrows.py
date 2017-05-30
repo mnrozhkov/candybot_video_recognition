@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 FunRobots Lab
 
-# Project: Candybot: Coffebot
+# Project: Candybot: candybot_v2
 # Summary: Test for motion_eyes_controller
 # version: v1
 
@@ -108,9 +108,9 @@ def test_set_right_servo_position_raise_type_error(angle):
 # Tests position return type
 def test_get_eyebrows_position_type(dummy_eyebrows):
     """
-    eyebrows position should be a tuple of two numbers 
-    :param dummy_eyebrows: 
-    :return: 
+    eyebrows position should be a tuple of two numbers
+    :param dummy_eyebrows:
+    :return:
     """
     eyebrows_position = dummy_eyebrows.get_eyebrows_position()
     assert isinstance(eyebrows_position, tuple)

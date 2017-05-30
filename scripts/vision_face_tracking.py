@@ -5,16 +5,16 @@ tracking face node
 '''
 
 import rospy
-from coffebot.msg import FaceCoordinates, SmileDetected
+from candybot_v2.msg import FaceCoordinates, SmileDetected
 import ros_numpy
 from sensor_msgs.msg import Image
 
-from coffebot.vision.utils import image_format_converter
-from coffebot.vision import face_detection
+from vision.utils import image_format_converter
+from vision import face_detection
 
 import json
 
-from coffebot.topic_controller import Lock
+from utils.topic_controller import Lock
 
 import time
 

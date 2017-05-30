@@ -5,7 +5,7 @@
 '''
 
 import rospy
-from coffebot.social.stwitter import TwitterCodeScanner
+from social.stwitter import TwitterCodeScanner
 from std_msgs.msg import Bool, String
 import time
 

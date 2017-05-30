@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import rospy
-from coffebot.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
-from coffebot.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
-from coffebot.msg import FaceCoordinates, SmileDetected, FaceFeatures
-from coffebot.msg import MakePhotoAction, MakePhotoActionGoal
-from coffebot.msg import MakeVideoAction, MakeVideoActionGoal
+from candybot_v2.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
+from candybot_v2.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
+from candybot_v2.msg import FaceCoordinates, SmileDetected, FaceFeatures
+from candybot_v2.msg import MakePhotoAction, MakePhotoActionGoal
+from candybot_v2.msg import MakeVideoAction, MakeVideoActionGoal
 
 import sys
 from pathlib import Path
