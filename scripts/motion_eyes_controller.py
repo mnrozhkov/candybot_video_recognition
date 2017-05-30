@@ -87,6 +87,10 @@ def main(num_iterations=sys.maxsize):
                 eyes_state_msg.emotion = eyes.get_emotion()
 
                 eyes_position_publisher.publish(eyes_state_msg)
+
+                rospy.set_param('/eyes/x', eyes_state_msg.x)
+                rospy.set_param('/eyes/y', eyes_state_msg.y)
+                rospy.set_param('/eyes/emotion', eyes_state_msg.emotion)
                 
                 #if new EyesMotion message is equal to the old one clear field message of Lock class object
                 if eyes_motion_lock.message == eyes_motion_msg:

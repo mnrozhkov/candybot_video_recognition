@@ -15,17 +15,24 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
 
 class APIAIBot:
     '''
-    simple bot class based on apiai
+    Simple bot class based on api.ai
+    Allows to communicate with api.ai bot
     '''
 
     def __init__(self, client_key: str):
+        '''
+        Constructor
+        Args:
+            client_key: api.ai client key
+        '''
+
         self.client_key = client_key
         self._make_session_id()
         self._connect()
 
-    def _make_session_id(self):
+    def _make_session_id(self) -> None:
         '''
-        creates session_id
+        Generate random session id
         '''
         symbols = '0123456789abcdef'
         self.session_id = ''
@@ -34,14 +41,23 @@ class APIAIBot:
 
     def _connect(self):
         '''
-        connects to api.ai
+        Connect to api.ai
         '''
         self._ai = apiai.ApiAI(self.client_key)
 
     def request(self, msg: str) -> Dict or None:
         '''
-        makes request and returns response from api.ai bot
+        Make request and returns response from api.ai bot
+        Args:
+            msg: message to send to api.ai bot
+        Returns:
+            dictionary = {
+                'text': text, 'action':{'name': name, 'parameters':parameters
+                              }
+            }: if data recieved
+            None: if failed
         '''
+
         try:
             req = self._ai.text_request()
             req.lang = 'ru'
@@ -55,6 +71,17 @@ class APIAIBot:
             return None
 
     def _parse_intent(self, intent: Dict) -> Dict:
+        '''
+        Parse data recieved from api.ai bot
+        Args:
+            intent: data from api.ai bot
+        Returns:
+            dictionary = {
+                'text': text, 'action':{'name': name, 'parameters':parameters
+                              }
+            }
+        '''
+
         try:
             answer = dict()
             #extract bot answer

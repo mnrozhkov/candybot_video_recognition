@@ -20,12 +20,24 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
                     level=logging.DEBUG)
 
 class SpeechRecognizer:
-
+    '''Provide speech recognition using Yandex SpeechKit'''
 
     def __init__(self, yandex_voice_key):
+        '''
+        Constructor
+        Args:
+            yandex_voice_key: access key for Yandex SpeechKit
+        '''
+
         self.yandex_voice_key = yandex_voice_key
 
-    def _make_uuid(self):
+    def _make_uuid(self) -> str:
+        '''
+        Generate random uuid
+
+        Returns:
+            generated random uuid
+        '''
 
         symbols = '0123456789abcdef'
         uuid = ''
@@ -33,8 +45,17 @@ class SpeechRecognizer:
             uuid += symbols[random.randint(0, len(symbols) - 1)]
         return uuid
 
-    def recognize_speech(self, wav_data: bytes) -> str:
+    def recognize_speech(self, wav_data: bytes) -> str or None:
+        '''
+        Recognize speech by wave format audio data
 
+        Args:
+            wav_data: wave  audio data with speech
+        Returns:
+            recognized text : if data recieved
+            None: if failed
+        '''
+        
         try:
             url = 'https://asr.yandex.net/asr_xml?uuid=' + self._make_uuid()
             url += '&key=' + self.yandex_voice_key + '&topic=queries'

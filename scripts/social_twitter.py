@@ -5,7 +5,7 @@
 '''
 
 import rospy
-from coffebot.social.twitter import TwitterCodeScanner
+from coffebot.social.stwitter import TwitterCodeScanner
 from std_msgs.msg import Bool, String
 import time
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     give_candy_publisher = rospy.Publisher('/social/twitter/code_scanner/give_candy', Bool, queue_size=1)
 
     def callback_scan_command(data: Bool):
-        
+
         if data.data is True:
             code = code_scanner.generate_code()
             code_publisher.publish(code)

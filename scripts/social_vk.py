@@ -5,7 +5,7 @@
 '''
 
 import rospy
-from coffebot.social.vk import VkNeewsfeedScanner
+from coffebot.social.svk import VkNeewsfeedScanner
 from std_msgs.msg import Bool, String
 import time
 

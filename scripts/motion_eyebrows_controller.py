@@ -32,6 +32,10 @@ if __name__ == '__main__':
             eyebrows_state_msg.l_angle, eyebrows_state_msg.r_angle = eyebrows.get_eyebrows_position()
             eyebrows_state_publisher.publish(eyebrows_state_msg)
 
+            rospy.set_param('/eyebrows/l_angle', eyebrows_state_msg.l_angle)
+            rospy.set_param('/eyebrows/r_angle', eyebrows_state_msg.r_angle)
+            rospy.set_param('/eyebrows/emotion', eyebrows_state_msg.emotion)
+
         if eyebrows_motion_lock.message == eyebrows_msg:
             eyebrows_motion_lock.message = None
 

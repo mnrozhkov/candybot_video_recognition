@@ -70,6 +70,10 @@ def main():
 
         head_position_publisher.publish(head_state_msg)
 
+        rospy.set_param('/head/h_angle', head_state_msg.h_angle)
+        rospy.set_param('/head/v_angle', head_state_msg.v_angle)
+        rospy.set_param('/head/emotion', head_state_msg.emotion)
+        
         #if new headMotion message is equal to the old one clear field message of Lock class object
         if head_motion_lock.message == head_motion_msg:
             head_motion_lock.message = None

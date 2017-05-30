@@ -20,6 +20,20 @@ class Recorder:
 
 
     def __init__(self, pyaudio_config: dict, min_rms=100):
+        '''
+        Constructor
+        Args:
+            pyaudio_config: pyaudio configuration in format
+                dictionary = {
+            		'format': audio_format,
+            		'channels': channels_number,
+            		'rate': rate,
+            		'frames_per_buffer': frames_per_buffer
+            	}
+
+            min_rms: minimal sound rms value
+        '''
+
         try:
             self.set_min_rms(min_rms=min_rms)
             #set up pyaudio configuration and start audio stream
@@ -35,6 +49,11 @@ class Recorder:
             logging.error(str(e))
 
     def set_min_rms(self, min_rms):
+        '''
+        Set minimal sound rms value
+        Args:
+            min_rms: minimal sound rms value
+        '''
         self.min_rms = min_rms
 
     def record_audio(self, last_chunk):
@@ -62,6 +81,9 @@ class Recorder:
             return None
 
     def listen_audio(self):
+        '''
+        Listen sound until silence
+        '''
         try:
             while True:
                 chunk = self.stream.read(self.chunk_size)
