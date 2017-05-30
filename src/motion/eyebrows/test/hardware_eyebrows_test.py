@@ -20,14 +20,18 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 angles = [5, 10, 15, 20, 30]
-head = Head(_h_angle=90,
-            _v_angle=90,
-            _emotion='happy',
-            _h_SERVO_CHANNEL=3,
-            _v_SERVO_CHANNEL=2)
+eyebrows = Eyebrows(
+    _l_angle=90,
+    _r_angle=90,
+    _l_SERVO_CHANNEL=1,
+    _r_SERVO_CHANNEL=0,
+    _led_on=True,
+    _led_color='#ffffff',
+    _emotion='happy'
+)
 
 
-def test_horizontal_servo():
+def test_left_servo():
     """
     Turns servo back and forth 10 times
     """
@@ -35,13 +39,13 @@ def test_horizontal_servo():
     # Set frequency to 60hz, good for servos.
     for angle in angles:
         # Move servo on channel O between extremes.
-        head.set_horizontal_servo_position(angle)
+        eyebrows.set_left_servo_position(angle)
         time.sleep(1)
-        head.set_horizontal_servo_position(-angle)
+        eyebrows.set_left_servo_position(-angle)
         time.sleep(1)
 
 
-def test_verticical_servo():
+def test_right_servo():
     """
     Turns servo back and forth 10 times
     """
@@ -49,15 +53,15 @@ def test_verticical_servo():
     # Set frequency to 60hz, good for servos.
     for angle in angles:
         # Move servo on channel O between extremes.
-        head.set_verticical_servo_position(angle)
+        eyebrows.set_right_servo_position(angle)
         time.sleep(1)
-        head.set_verticical_servo_position(-angle)
+        eyebrows.set_right_servo_position(-angle)
         time.sleep(1)
 
 
 if __name__ == "__main__":
     try:
-        test_horizontal_servo()
-        test_verticical_servo()
+        test_left_servo()
+        test_right_servo()
     except KeyboardInterrupt:
         pass
