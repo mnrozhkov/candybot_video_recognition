@@ -34,7 +34,7 @@ class TestBehaviorMotionEyebrowsController(unittest.TestCase):
         self.assertEqual(ros_is_running, True)
         self.assertEqual(motion_eyebrows_controller_is_runnig, True)
 
-        eyebrows_eyebrows_publisher = rospy.Publisher('/motion_eyebrows_controller/eyebrows_motion', EyebrowsMotion, queue_size=1)
+        eyebrows_motion_publisher = rospy.Publisher('/motion_eyebrows_controller/eyebrows_motion', EyebrowsMotion, queue_size=1)
         eyebrows_eyebrows_msg = EyebrowsMotion(l_angle=45.0, r_angle=45.0,  emotion='happy')
 
         self.l_angle = None
