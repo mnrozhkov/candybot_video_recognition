@@ -28,7 +28,7 @@ if __name__ == '__main__':
             eyebrows.set_right_servo_position(angle=eyebrows_msg.r_angle)
             eyebrows.set_emotion(emotion=eyebrows_msg.emotion)
 
-            eyebrows_state_msg = EyesState()
+            eyebrows_state_msg = EyebrowsState()
             eyebrows_state_msg.state.l_angle, eyebrows_state_msg.state.r_angle = eyebrows.get_eyebrows_position()
             eyebrows_state_msg.state.emotion = eyebrows.get_emotion()
             eyebrows_state_publisher.publish(eyebrows_state_msg)
