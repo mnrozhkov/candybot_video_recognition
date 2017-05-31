@@ -35,9 +35,9 @@ class TestBehaviorMotionEyesController(unittest.TestCase):
         global CENTER_X
         global CENTER_Y
 
-        global EYES_RADIUS = 64
-        global PUPIL_RADIUS = 25
-        global PUPIL_ORBIT_RADIUS = EYES_RADIUS - PUPIL_RADIUS
+        global EYES_RADIUS
+        global PUPIL_RADIUS
+        global PUPIL_ORBIT_RADIUS
 
         ros_is_running = True
         motion_eyes_controller_is_runnig = True
@@ -73,7 +73,7 @@ class TestBehaviorMotionEyesController(unittest.TestCase):
 
         start = time.time()
 
-        while time.time() - start < REACTION_TIMEOUT and data_recieved is False:
+        while time.time() - start < REACTION_TIMEOUT and self.data_recieved is False:
             eyes_motion_publisher.publish(eyes_motion_msg)
             time.sleep(0.1)
 

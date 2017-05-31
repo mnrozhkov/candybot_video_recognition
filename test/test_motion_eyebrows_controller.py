@@ -53,7 +53,7 @@ class TestBehaviorMotionEyebrowsController(unittest.TestCase):
 
         start = time.time()
 
-        while time.time() - start < REACTION_TIMEOUT and data_recieved is False:
+        while time.time() - start < REACTION_TIMEOUT and self.data_recieved is False:
             eyebrows_motion_publisher.publish(eyebrows_motion_msg)
             time.sleep(0.1)
 
