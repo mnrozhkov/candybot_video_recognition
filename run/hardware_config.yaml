@@ -3,7 +3,7 @@ BODY:
  _d_SERVO_CHANNEL: 3
  _d_servo_angle: 0
  _led_on: true
- _backlight_color: #ffffff
+ _backlight_color: "#ffffff"
  _emotion: happy
 
  
@@ -13,16 +13,16 @@ EYEBROWS:
  _l_SERVO_CHANNEL: 1
  _r_SERVO_CHANNEL: 0
  _led_on: True
- _led_color: #ffffff
+ _led_color: "#ffffff"
  _emotion: happy
 
 
 EYES:
  width: 128
  height: 128
- background_color: #ffffff
+ background_color: "#ffffff"
  eye_radius: 64
- eye_color: #ffffff
+ eye_color: "#ffffff"
  pupil_radius: 25
  pupil_color: #1c86ee
 
