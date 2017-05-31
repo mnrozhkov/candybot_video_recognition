@@ -28,11 +28,11 @@ if __name__ == '__main__':
             body.set_emotion(emotion=body_msg.emotion)
 
             body_state_msg = BodyState()
-            body_state_msg.angle = body.get_dispenser_servo_position()
-            body_state_msg.emotion = body.get_emotion()
+            body_state_msg.state.angle = body.get_dispenser_servo_position()
+            body_state_msg.state.emotion = body.get_emotion()
             body_state_publisher.publish(body_state_msg)
-            rospy.set_param('/body/angle', body_state_msg.angle)
-            rospy.set_param('/body/emotion', body_state_msg.emotion)
+            rospy.set_param('/body/angle', body_state_msg.state.angle)
+            rospy.set_param('/body/emotion', body_state_msg.state.emotion)
 
         if body_motion_lock.message == body_msg:
             body_motion_lock.message = None
