@@ -28,7 +28,7 @@ def main(num_iterations=sys.maxsize):
 
     eyes_motion_lock = Lock()
     rospy.Subscriber('/motion_eyes_controller/eyes_motion', EyesMotion, eyes_motion_lock.callback)
-    eyes_position_publisher = rospy.Publisher('eyes_state', EyesState, queue_size=1)
+    eyes_position_publisher = rospy.Publisher('/motion_eyes_controller/eyes_state', EyesState, queue_size=1)
 
     eyes = Eyes(width=128,
                 height=128,
