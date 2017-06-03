@@ -66,7 +66,7 @@ class TestBehaviorMotionEyesController(unittest.TestCase):
         def callback(data: EyesState):
             self.x = data.x
             self.y = data.y
-            self.emotion = data.state.emotion
+            self.emotion = data.emotion
             self.data_recieved = True
 
         eyes_state_sub = rospy.Subscriber('/motion_eyes_controller/eyes_state', EyesState, callback)
