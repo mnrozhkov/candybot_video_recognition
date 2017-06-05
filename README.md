@@ -12,9 +12,8 @@
 	1.3. Run candybot_vr image
 
 	sudo docker run -ti --privileged --device /dev:/dev candybot_vr
-
-
-	1.4. Run candybot_v2 ROS package (in docker container):
+	
+	1.4. Install candybot_v2 ROS package (in docker container):
 	
 		1.4.1. create catkin workspace:
 		
@@ -29,14 +28,39 @@
 				cd ~/catkin_ws/src
 		
 				git clone https://github.com/FunRobots/candybot_v2.git
+				
+		1.4.3. build candybot_v2 package:
+				
+				in ~/catkin_ws/src/candybot_v2/run:
+					
+					- rename software_config.scheme.launch to software_config.launch
+					
+					- fill parameters values - software configuration
+				
+				
+				cd ~/catkin_ws
+				
+				catkin_make
+				
+				catkin_make install
+				
+	1.5 Run candybot_v2 ROS package (in docker container):
 		
-		1.4.3. run candybot_v2 package:
+		1.5.1. run candybot_v2 package in container interactive mode:
 	
 				cd ~/catkin_ws
-		
-				rosrun candybot_v2 run.py
+				
+				a) use run python script:
+					
+					rosrun candybot_v2 run.py
+					
+				b) use roslaunch:
+				
+					source devel/setup.bash
+				
+					roslaunch candybot_v2 run.launch
 	
-		1.4.4. run just one candybot_v2 package node:
+				c) run just one candybot_v2 package node:
 		
 				roscore
 		
@@ -48,7 +72,20 @@
 			
 					rosrun candybot_v2 <node_name>
 					
-	1.5. save changes in docker image (commit):
+		1.5.2. run candybot_v2 ROS package on candybot_vr docker container startup:
+				
+				a) run candybot_v2 package:
+					
+					1) use run python script
+				
+						sudo docker run w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; rosrun candybot_v2 run.py"
+						
+					2) use roslaunch:
+						
+						sudo docker run w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; roslaunch candybot_v2 run.launch"
+				
+					
+	1.6. save changes in docker image (commit):
 		
 		in Raspbian terminal:
 			
