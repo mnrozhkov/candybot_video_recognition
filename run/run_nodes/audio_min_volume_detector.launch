@@ -1,0 +1,6 @@
+<launch>
+
+	<!-- Nodes running -->
+	<node name="audio_min_volume_detector" pkg="candybot_v2" type="audio_min_volume_detector.py" output="screen"/>
+
+</launch>

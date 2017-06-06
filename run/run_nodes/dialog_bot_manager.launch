@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="dialog_bot_manager" pkg="candybot_v2" type="dialog_bot_manager.py" output="screen"/>
+	
+</launch>

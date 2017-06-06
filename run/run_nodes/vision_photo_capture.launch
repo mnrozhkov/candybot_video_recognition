@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="vision_photo_capture" pkg="candybot_v2" type="vision_photo_capture.py" output="screen"/>
+
+</launch>

@@ -61,16 +61,24 @@
 					roslaunch candybot_v2 run.launch
 	
 				c) run just one candybot_v2 package node:
+				
+					1st method:
+					
+						roscore
 		
-				roscore
-		
-				in another terminal (see point 3):
+						in another terminal (see point 3):
 			
-					cd ~/catkin_ws
+							cd ~/catkin_ws
 			
-					source devel/setup.bash
+							source devel/setup.bash
 			
-					rosrun candybot_v2 <node_name>
+							rosrun candybot_v2 <node_name>
+							
+					2nd method:
+					
+						roslaunch candybot_v2 <node_name>.launch		
+					
+				
 					
 		1.5.2. run candybot_v2 ROS package on candybot_vr docker container startup:
 				

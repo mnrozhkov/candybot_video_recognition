@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="vision_face_tracking" pkg="candybot_v2" type="vision_face_tracking.py" output="screen"/>
+
+</launch>

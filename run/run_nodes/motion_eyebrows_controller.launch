@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="motion_eyebrows_controller" pkg="candybot_v2" type="motion_eyebrows_controller.py" output="screen"/>
+
+</launch>

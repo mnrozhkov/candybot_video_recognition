@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="core_decision_manager" pkg="candybot_v2" type="core_decision_manager.py" output="screen"/>
+
+</launch>

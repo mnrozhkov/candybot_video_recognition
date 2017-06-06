@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+	
+	
+	<!-- Nodes running -->
+	<node name="speech_recognition" pkg="candybot_v2" type="speech_recognition.py" output="screen"/>
+	
+</launch>
