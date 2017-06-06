@@ -86,11 +86,15 @@
 					
 					1) use run python script
 				
-						sudo docker run w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; rosrun candybot_v2 run.py"
+						sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; rosrun candybot_v2 run.py"
 						
 					2) use roslaunch:
 						
-						sudo docker run w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; roslaunch candybot_v2 run.launch"
+						sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; roslaunch candybot_v2 run.launch"
+				
+				b) run just one candybot_v2 package node:
+				
+					sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; source devel/setup.bash; roslaunch candybot_v2 <node_name>.launch"
 				
 					
 	1.6. save changes in docker image (commit):
