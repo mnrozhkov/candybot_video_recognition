@@ -1,0 +1,107 @@
+<category> 
+	<pattern> ПОГОДА </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДА </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДЕ </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДУ </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКА </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКЕ </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКЕ </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> ПОГОДКА </pattern>
+	<template>
+		<srai> ПОГОДА В МОСКВЕ</srai>
+	</template>	
+</category>
+
+#--------------------------------------------------
+
+<category> 
+	<pattern>* ПОГОДА В * </pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДЕ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДУ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКА В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКЕ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern>* ПОГОДКЕ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> ПОГОДКА В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
