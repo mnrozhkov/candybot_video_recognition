@@ -2,8 +2,13 @@
 <aiml><category>
 	 <pattern> ПОГОДА В *</pattern>
 	<template>
+		{"text": "
 		Погода в <star/>: 
 		<system> rosrun candybot_v2 get_weather.py --city_name <star/></system>
+		"
+		,
+		"action": {"name": "action.weather", "parameters": {} }
+		}
 	</template>
 </category>
 

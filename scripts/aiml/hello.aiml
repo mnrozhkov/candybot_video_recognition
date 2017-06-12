@@ -46,9 +46,10 @@
     	<srai>
     		TIMEOFDAY 
     			<system> 
-    				python3 -c "import time; h = time.ctime().split()[3].split(':')[0]; print(h)" 
+    				python3 -c "import time; h = time.ctime().split()[3].split(":")[0]; print(h)" 
     			</system>
     	</srai>
+    	{"text": "
 		<random>
 			<li>привет <get name="user_name"/></li>
 			<li>приветик <get name="user_name"/></li>
@@ -56,6 +57,10 @@
 			<li>здравствуй <get name="user_name"/></li>
 			<li><get name="tod"/></li>
 		</random>
+		"
+		,
+		"action": {"name": "action.hello", "parameters": {} }
+		}
 		<condition name="hi_was" value="true"> уже здоровались)</condition>
 		<think><set name="hi_was">true</set></think>
     </template>

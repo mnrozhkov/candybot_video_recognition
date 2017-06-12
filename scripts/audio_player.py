@@ -39,7 +39,7 @@ if __name__ == '__main__':
             break
 
         msg = lock_speech.message
-        if isinstance(msg, bytes):
+        if isinstance(msg, Audio):
             wav_bytes = msg.content
             wav_source = io.BytesIO(wav_bytes)
             wav_source.seek(0)
