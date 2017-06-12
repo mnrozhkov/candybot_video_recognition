@@ -23,6 +23,7 @@ class BotTextAnswerState(smach.State):
 
     def execute(self, userdata):
         if isinstance(userdata.bot_text_answer, str) and len(userdata.bot_text_answer) > 0:
+            print('\n\n\nDECISON!: ', userdata.bot_text_answer)
             bot_speech_text_msg = BotSpeechText(text=userdata.bot_text_answer)
             self.speech_synthesis_publisher.publish(bot_speech_text_msg)
             return 'outcome1'

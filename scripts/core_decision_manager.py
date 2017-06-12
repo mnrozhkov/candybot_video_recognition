@@ -93,6 +93,7 @@ class Decision:
         '''
 
         self.bot_text_answer = data.text
+        print('\n\n\n\nTEXT!!!: ', self.bot_text_answer, '\n\n\n')
         if len(data.action_name) > 0:
             self.bot_action_answer = data.action_name
         if len(data.action_parameters_in_json) > 0:
@@ -106,7 +107,7 @@ class Decision:
         self.face_info_sub = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, self.callback_face_info)
         self.face_coord_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, self.callback_face_coords)
         self.smile_detected_sub = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, self.callback_smile)
-        self.bot_dialog_sub = rospy.Subscriber('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, self.callback_bot_dialog)
+        self.bot_dialog_sub = rospy.Subscriber('/dialog_bot_aimlmanager/bot_dialog', APIAIBotAnswer, self.callback_bot_dialog)
 
     def _delete_subscribers(self):
         '''
@@ -128,11 +129,14 @@ class Decision:
         '''
 
         #create ROS Smach state machine
+        
+        
         sm = smach.StateMachine(outcomes=['end'])
         sm.userdata.bot_text_answer = self.bot_text_answer
         sm.userdata.bot_action_answer = self.bot_action_answer
         sm.userdata.smile_exists = self.smile_exists
-
+        
+        
         with sm:
             smach.StateMachine.add('BotTextAnswerState', BotTextAnswerState(),
                                     transitions={'outcome1':'BotActionNameAnswerState',

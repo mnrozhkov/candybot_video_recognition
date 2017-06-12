@@ -3,11 +3,16 @@
 	<category>
 		<pattern>ПОКА</pattern>
 		<template>
+			{"text": "
 			<random>
 				<li>пока <get name="user_name"/></li>
 				<li>до свидания <get name="user_name"/></li>
 				<li>прощай <get name="user_name"/></li>
 			</random>
+			"
+			,
+			"action": {"name": "action.service.goodbye", "parameters": {} }
+			}
 			<think><set name="user_name"></set></think>
 			<think><set name="hi_was"></set></think>
 		</template>

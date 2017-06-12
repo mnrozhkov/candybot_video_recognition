@@ -11,6 +11,9 @@ import json
 import aiml
 import os
 
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+
 from utils.topic_controller import Lock
 
 import time
@@ -22,10 +25,10 @@ if __name__ == '__main__':
 
     
     bot = aiml.Kernel()
-    aiml_files = os.listdir('aiml')
+    aiml_files = os.listdir(top + '/aiml')
     for a_file in aiml_files:
-    	if a_file[:-4] == 'aiml':
-    		bot.learn('aiml/' + a_file)
+        if a_file[-4:] == 'aiml':
+            bot.learn(top + '/aiml/' + a_file)
 
     bot_decision_publisher = rospy.Publisher('/dialog_bot_aimlmanager/bot_dialog', APIAIBotAnswer, queue_size=1)
     lock_bot_request = Lock()
@@ -41,9 +44,12 @@ if __name__ == '__main__':
         user_speech_text_msg = lock_bot_request.message
         print('user text in bot: ', user_speech_text_msg)
         if isinstance(user_speech_text_msg, UserSpeechText):
-            bot_answer = json.loads(bot.request(user_speech_text_msg.text))
-            print('bot_answer:', bot_answer)
-            if isinstance(bot_answer, str):
+            bot_respond = bot.respond(user_speech_text_msg.text)
+            print('bot_respond: ', bot_respond)
+            bot_answer = json.loads(bot_respond)
+            print('aimlbot_answer:', bot_answer)
+            print('\n\n\n\n BOT!!!', type(bot_answer), '\n\n\n\n ')
+            if isinstance(bot_answer, dict):
                 bot_answer_msg = APIAIBotAnswer()
                 bot_answer_msg.text = bot_answer['text']
                 bot_answer_msg.action_name = bot_answer['action']['name']
