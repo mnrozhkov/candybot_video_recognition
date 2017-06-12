@@ -1,0 +1,96 @@
+<?xml version="1.0.1" encoding="UTF-8"?>
+<aiml>
+
+<category>
+	<pattern> АНЕКДОТ </pattern>
+	<template>
+		<random>
+			<li>Появилась социальная сеть для военнослужащих - Вконтракте.</li>
+			<li>Проснулся с мыслью: Скоро сессия. Расстроился. Потом вспомнил, что нет никакой сессии, a надо на работу. Расстроился еще больше.</li>
+			<li>Работа препода в точности повторяет работу Святой Инквизиции - сначала проповеди, проповеди, а потом - пытки и казни.</li>
+			<li>Закинул старик сеть в синее море, тянет назад, тянет... А ему и отвечают: "Сеть недоступна!"</li>
+			<li>Доктор, дайте мне таблетку от жадности и побольше, побольше!</li>
+			<li>Теперь к царь пушке, которая не стреляет, и царь колоколу, который не звонит, добавился царь стадион, на котором невозможно играть</li>
+			<li>первое правило уборки дома это убрать себя от компьютера</li>
+			<li>Все товары в магазинах можно разделить на две группы: мешки для мусора и мусор для мешков.</li>
+			<li>Учёные установили, что самый понятный язык на Земле - китайский. Его понимают полтора миллиарда человек.</li>
+			<li>Если вы заблудились в лесу, а компаса под рукой нет, дождитесь осени - птицы полетят на юг.</li>
+		</random>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ АНЕКДОТ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ АНЕКДОТ _ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ АНЕКДОТИК </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ АНЕКДОТИК _ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ ШУТКУ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ ШУТКУ _ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ ПОШУТИТЬ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ ПОШУТИТЬ _ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> ПОШУТИ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> ПОШУТИ _ </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+</aiml>

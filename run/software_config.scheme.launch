@@ -12,4 +12,6 @@
 	
 	<param name="algorithmia_api_key" value="" />
 	
+	<param name="openweathermap_key" value=""/>
+	
 </launch>

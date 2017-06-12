@@ -35,23 +35,12 @@ class WeatherInfo:
             logging.error(str(e))
 
     def _wind_direction(self, deg: int) -> str:
+        directions = ['северный','северо-восточный','восточный',
+                      'юго-восточный','южный','юго-западный',
+                      'западный','северо-западный']
+        
         deg %= 360
-        if deg > 300 or deg < 30:
-            return 'северный'
-        elif deg < 70:
-            return 'северо-западный'
-        elif deg < 105:
-            return 'западный'
-        elif deg < 165:
-            return 'юго-западный'
-        elif deg < 195:
-            return 'южный'
-        elif deg < 255:
-            return 'юго-восточный'
-        elif deg < 285:
-            return 'восточный'
-        else:
-            return 'северо-восточный'
+        return directions[int(deg) // 45]
 
     def get_weather(self, city_name='Москва'):
         '''
