@@ -8,7 +8,7 @@ import rospy
 from candybot_v2.msg import Audio, UserSpeechText
 
 from audio.recognizer import SpeechRecognizer
-from audio.utils import audio_format_converter
+from audio.utils import audio_format_converter, read_pyaudio_config
 
 from utils.topic_controller import Lock
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
             recognize_text_msg = lock_recognize.message
 
             if isinstance(recognize_text_msg, Audio):
-                wav_data = audio_format_converter.raw_audio2wav(recognize_text_msg.content, rospy.get_param('pyaudio'))
+                wav_data = audio_format_converter.raw_audio2wav(recognize_text_msg.content, read_pyaudio_config())
                 recognized_text = sr.recognize_speech(wav_data)
                 print(recognized_text)
                 if recognized_text is not None:

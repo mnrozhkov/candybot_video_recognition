@@ -53,5 +53,5 @@ def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
         return f.read()
     except Exception as e:
         logging.error(str(e))
-        print('convert:', str(e ))
+        print('raw_audio2wav:', str(e ))
         return None

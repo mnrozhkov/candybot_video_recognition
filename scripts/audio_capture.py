@@ -12,6 +12,7 @@ import base64
 import logging
 import time
 
+from audio.utils import read_pyaudio_config
 from audio.recorder import Recorder
 from candybot_v2.msg import Audio
 
@@ -28,9 +29,8 @@ if __name__ == '__main__':
 
     #set listening parameter
     min_rms=500
-    if rospy.has_param('pyaudio'):
-        pyaudio_config = rospy.get_param('pyaudio')
-    else:
+    pyaudio_config = read_pyaudio_config()
+    if pyaudio_config is None:
         pyaudio_config = {
             'format': 8,
             'channels': 1,
