@@ -1,0 +1,122 @@
+<?xml version="1.0.1" encoding="UTF-8"?>
+<aiml>
+	<category>
+		<pattern>ФОТО<pattern>
+		<template>
+			{"text": "", "action": {"name": "action.makephoto", "parameters": {} } }
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТО<pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ФОТО * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТО * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТОГРАФИЮ<pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТОГРАФИЮ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> СФОТОГРАФИРУЙ *<pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * СФОТОГРАФИРУЙ *<pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * СФОТОГРАФИРОВАТЬ <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> СФОТОГРАФИРОВАТЬ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * СФОТОГРАФИРОВАТЬ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * СФОТАЙ <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> СФОТАЙ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * СФОТАЙ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТКУ <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> ФОТКУ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern> * ФОТКУ * <pattern>
+		<template>
+			<srai>ФОТО</srai>
+		</template>
+	</category>
+	
+</aiml>

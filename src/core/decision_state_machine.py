@@ -7,7 +7,8 @@ import rospy
 import smach
 import smach_ros
 
-from candybot_v2.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText
+from candybot_v2.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText, MakeVideo, MakePhoto
+import time
 
 
 class BotTextAnswerState(smach.State):
@@ -58,6 +59,13 @@ class BotActionNameAnswerState(smach.State):
                 pattern_msg.name = 'feedback'
             elif userdata.bot_action_answer == 'action.service.goodbye':
                 pattern_msg.name = 'goodbye'
+            elif userdata.bot_action_answer === 'action.makephoto':
+                make_photo_action_client = actionlib.SimpleActionClient('make_photo', MakePhotoAction)
+                make_photo_commmand = MakePhoto(make_photo=True, photo_file_name=time.ctime() + '.png')
+                goal = MakePhoto(make_photo_commmand=make_photo_commmand)
+                make_photo_action_client.wait_for_server(3)
+                make_photo_action_client.send_goal(goal)
+                make_photo_action_client.wait_for_result(5)
 
             self.pattern_publisher.publish(pattern_msg)
 
