@@ -27,6 +27,9 @@ logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(as
                     level=logging.DEBUG)
 
 
+BOT_NAME = "арнольд"
+
+
 if __name__ == '__main__':
 
     rospy.init_node('dialog_bot_aimlmanager')
@@ -51,9 +54,9 @@ if __name__ == '__main__':
 
         user_speech_text_msg = lock_bot_request.message
         print('user text in bot: ', user_speech_text_msg)
-        if isinstance(user_speech_text_msg, UserSpeechText):
+        if isinstance(user_speech_text_msg, UserSpeechText) and user_speech_text_msg.text.strip().lower().startswith(BOT_NAME):
             try:
-                bot_respond = bot.respond(user_speech_text_msg.text)
+                bot_respond = bot.respond(user_speech_text_msg.text.lower().split(BOT_NAME)[1])
                 print('bot_respond: ', bot_respond)
                 bot_answer = json.loads(bot_respond)
                 if isinstance(bot_answer, dict):
