@@ -12,12 +12,14 @@ if os.path.exists(LOG_FOLDER) is False:
 logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
                     level=logging.DEBUG)
 
+import time
+
 
 def read_pyaudio_config() -> dict or None:
 	'''
 	read pyaudio configuration from ROS Parameter Server and return it as dictionary
 	'''
-	
+
 	if rospy.has_param('pyaudio'):
 		pyaudio_config = rospy.get_param('pyaudio')
 		if isinstance(pyaudio_config, dict):
@@ -30,4 +32,14 @@ def read_pyaudio_config() -> dict or None:
 				return None
 		else:
 			return None
-				
+
+
+def log_recognized_text(text: str) -> None:
+    '''
+    write text into file with time.ctime() as name
+    Args:
+        text: recognized text
+    '''
+
+    with open(LOG_FOLDER + '/recognized_text.log', 'a') as f:
+        f.write('[{0}] {1}\n\n'.format(time.ctime(), text))
