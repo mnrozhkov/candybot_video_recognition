@@ -21,6 +21,7 @@ if __name__ == '__main__':
 
         if data.data is True:
             code = code_scanner.generate_code()
+            print('twitter: code: ', code)
             code_publisher.publish(code)
             code_posted_in_twitter = code_scanner.listenTwitter(code)
             if code_posted_in_twitter is True:

@@ -21,6 +21,7 @@ if __name__ == '__main__':
         def callback_scan_command(data: Bool):
             if data.data is True:
                 hashtag = newsfeed_scanner.generate_hashtag()
+                print('vk: hashtag: ', hashtag)
                 hashtag_publisher.publish(hashtag)
                 hashtag_posted_in_vk = newsfeed_scanner.listen(hashtag, 120)
                 if hashtag_posted_in_vk is True:
