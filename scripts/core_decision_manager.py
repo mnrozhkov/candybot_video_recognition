@@ -6,11 +6,9 @@ import rospy
 import smach
 import smach_ros
 
-from candybot_v2.msg import MotionPattern, Emotion, MakeVideo, MakePhoto
+from candybot_v2.msg import MotionPattern, Emotion
 from candybot_v2.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
 from candybot_v2.msg import FaceCoordinates, SmileDetected, FaceFeatures
-from candybot_v2.msg import MakePhotoAction, MakePhotoActionGoal
-from candybot_v2.msg import MakeVideoAction, MakeVideoActionGoal
 
 from core.decision_state_machine import *
 
@@ -42,7 +40,6 @@ class Decision:
         self.face_info = dict()
 
         self._create_subscribers()
-        self._create_action_clients()
 
     def callback_face_info(self, data: FaceFeatures) -> None:
         '''
@@ -119,34 +116,28 @@ class Decision:
         self.smile_detected_sub.unregister()
         self.bot_dialog_sub.unregister()
 
-    def _create_action_clients(self):
-        self.make_photo_action_client = actionlib.SimpleActionClient('make_photo', MakePhotoAction)
-        self.make_video_action_client = actionlib.SimpleActionClient('make_video', MakeVideoAction)
-
     def make_decision(self) -> None:
         '''
         Make decision by all collected information at current moment
         '''
 
         #create ROS Smach state machine
-        
-        
+
+
         sm = smach.StateMachine(outcomes=['end'])
         sm.userdata.bot_text_answer = self.bot_text_answer
         sm.userdata.bot_action_answer = self.bot_action_answer
         sm.userdata.smile_exists = self.smile_exists
-        
-        
+
+
         with sm:
-            smach.StateMachine.add('BotTextAnswerState', BotTextAnswerState(),
-                                    transitions={'outcome1':'BotActionNameAnswerState',
+            smach.StateMachine.add('BotAnswerState', BotAnswerState(),
+                                    transitions={'outcome1':'end',
                                                  'outcome2':'SmileExistsState'
                                                 },
-                                    remapping={'bot_text_answer':'bot_text_answer'})
-
-            smach.StateMachine.add('BotActionNameAnswerState', BotActionNameAnswerState(),
-                                   transitions={'outcome1':'end'},
-                                   remapping={'bot_action_answer':'bot_action_answer'})
+                                    remapping={'bot_text_answer':'bot_text_answer',
+                                               'bot_action_answer':'bot_action_answer'
+                                              })
 
             smach.StateMachine.add('SmileExistsState', SmileExistsState(),
                                    transitions={'outcome1':'end'},

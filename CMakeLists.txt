@@ -57,8 +57,8 @@ add_message_files(
    Emotion.msg
    FaceCoordinates.msg
    FaceFeatures.msg
-   MakePhoto.msg
-   MakeVideo.msg
+   MakePhotoCommand.msg
+   MakeVideoCommand.msg
    MotionPattern.msg
    SmileDetected.msg
    UserSpeechText.msg

@@ -1,5 +1,5 @@
 #goal
-MakeVideo make_video_command
+MakeVideoCommand make_video_command
 ---
 #result
 bool result

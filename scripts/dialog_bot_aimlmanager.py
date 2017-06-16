@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     rospy.init_node('dialog_bot_aimlmanager')
 
-    
+
     bot = aiml.Kernel()
     aiml_files = os.listdir(top + '/aiml')
     for a_file in aiml_files:
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
                     bot_decision_publisher.publish(bot_answer_msg)
             except Exception as e:
-            	print('dialog_bot_aimlmanager: error: ', str(e))
+                print('dialog_bot_aimlmanager: error: ', str(e))
                 logging.error(str(e))
 
         if lock_bot_request.message == user_speech_text_msg:

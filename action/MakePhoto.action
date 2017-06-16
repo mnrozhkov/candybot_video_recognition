@@ -1,5 +1,5 @@
 #goal
-MakePhoto make_photo_command
+MakePhotoCommand make_photo_command
 ---
 #result
 bool result

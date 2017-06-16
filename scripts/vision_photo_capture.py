@@ -18,10 +18,17 @@ from candybot_v2.msg import MakePhotoAction
 
 import time
 
+import os
+
+from pathlib import Path
 
 class MakePhotoServer:
 
     def __init__(self, topic_name):
+        self.PHOTO_FOLDER_NAME = Path(__file__).resolve().parents[1].as_posix() +  '/photos'
+        if os.path.exists(self.PHOTO_FOLDER_NAME) is False:
+            os.mkdir(self.PHOTO_FOLDER_NAME)
+
         self.server = actionlib.SimpleActionServer(topic_name, MakePhotoAction, self.execute, False)
         self.server.start()
 
@@ -38,8 +45,9 @@ class MakePhotoServer:
                 3. save it as image file
                 '''
 
+                print('get photo! saving...')
                 frame = ros_numpy.numpify(data)
-                photo_capture.save_photo(frame, make_photo_msg.photo_file_name)
+                photo_capture.save_photo(frame, self.PHOTO_FOLDER_NAME + '/' + make_photo_msg.photo_file_name)
                 image_sub.unregister()
 
             image_sub = rospy.Subscriber('/vision_camera_capture/image', Image, callback_get_image)

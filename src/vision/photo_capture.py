@@ -30,5 +30,6 @@ def save_photo(frame: numpy.ndarray, photo_name_with_extension: str) -> str or N
         cv2.imwrite(photo_name_with_extension, frame)
         return photo_name_with_extension
     except Exception as e:
+        print(str(e))
         logging.error(str(e))
         return None
