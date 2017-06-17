@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <aiml>
   <category>
-      
+  	<pattern>КОНФЕТА</pattern>
+    <template>{"text": "опубликуй пост в одной из соцсетей с выведенными тегами", "action": {"name": "action.givecandy", "parameters": {} }  }
   </category>
+  
+  <category>
+  	<pattern> * КОНФЕТУ </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> * КОНФЕТУ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
 </aiml>

@@ -37,7 +37,8 @@ def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
         "format": pyaudio.<format>,
         "channels": int,
         "rate": int,
-        "frames_per_buffer": int
+        "frames_per_buffer": int,
+        "device": int
     },
     '''
     try:

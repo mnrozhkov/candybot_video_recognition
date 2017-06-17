@@ -35,8 +35,9 @@ if __name__ == '__main__':
             'format': 8,
             'channels': 1,
             'rate': 16000,
-            'frames_per_buffer': 1024
-        },
+            'frames_per_buffer': 1024,
+            'input_device': 10
+        }
 
     audio_recorder = Recorder(min_rms=min_rms, pyaudio_config=pyaudio_config)
     rospy.init_node('audio_capture')

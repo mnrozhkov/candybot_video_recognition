@@ -3,7 +3,6 @@
 speech recognition
 '''
 
-import pyaudio
 import wave
 import io
 import requests
@@ -55,7 +54,7 @@ class SpeechRecognizer:
             recognized text : if data recieved
             None: if failed
         '''
-        
+
         try:
             url = 'https://asr.yandex.net/asr_xml?uuid=' + self._make_uuid()
             url += '&key=' + self.yandex_voice_key + '&topic=queries'

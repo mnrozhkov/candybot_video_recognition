@@ -9,6 +9,8 @@ import audioop
 import time
 import rospy
 
+from audio.utils import read_pyaudio_config
+
 import logging
 
 import os
@@ -33,12 +35,23 @@ class RMS:
         '''
         self.error = False
         try:
-            self.audio = pyaudio.PyAudio()
-            self.chunk = 1024
-            self.rate = 16000
-            self.channels = 1
+            pyaudio_config = read_pyaudio_config()
+            if pyaudio_config is None:
+                pyaudio_config = {
+                    'format': 8,
+                    'channels': 1,
+                    'rate': 16000,
+                    'frames_per_buffer': 1024,
+                    'input_device': 10
+                }
 
-            self.stream = self.audio.open(format=pyaudio.paInt16, channels=self.channels, rate=self.rate, input=True, frames_per_buffer=self.chunk)
+            self.audio = pyaudio.PyAudio()
+            self.chunk = pyaudio_config['frames_per_buffer']
+            self.rate = pyaudio_config['rate']
+            self.channels = pyaudio_config['channels']
+            self.input_device = pyaudio_config['input_device']
+
+            self.stream = self.audio.open(format=pyaudio.paInt16, channels=self.channels, rate=self.rate, input=True, input_device_index=self.input_device, frames_per_buffer=self.chunk)
             self.stream.start_stream()
 
             if rms_intervals_number is None:

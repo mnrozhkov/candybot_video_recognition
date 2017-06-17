@@ -2,16 +2,17 @@
 <launch>
 	<param name="bot_client_key" value="" />
 	<param name="yandex_voice_key" value="" />
-	
+
 	<param name="pyaudio" value = '{
 		"format": ,
 		"channels": ,
 		"rate": ,
-		"frames_per_buffer": 
+		"frames_per_buffer": ,
+		"input_device": 
 	}' />
-	
+
 	<param name="algorithmia_api_key" value="" />
-	
+
 	<param name="openweathermap_key" value=""/>
-	
+
 </launch>

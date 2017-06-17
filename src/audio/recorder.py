@@ -29,6 +29,7 @@ class Recorder:
             		'channels': channels_number,
             		'rate': rate,
             		'frames_per_buffer': frames_per_buffer
+                    'device': input_device_number
             	}
 
             min_rms: minimal sound rms value
@@ -41,9 +42,10 @@ class Recorder:
             self.channels = pyaudio_config['channels']
             self.rate = pyaudio_config['rate']
             self.chunk_size = pyaudio_config['frames_per_buffer']
+            self.input_device = pyaudio_config['input_device']
 
             self.audio = pyaudio.PyAudio()
-            self.stream = self.audio.open(format=self.format, channels=self.channels, rate=self.rate, input=True, frames_per_buffer=self.chunk_size)
+            self.stream = self.audio.open(format=self.format, channels=self.channels, rate=self.rate, input=True, input_device_index=self.input_device, frames_per_buffer=self.chunk_size)
             self.stream.start_stream()
         except Exception as e:
             logging.error(str(e))
