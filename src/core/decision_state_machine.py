@@ -4,6 +4,7 @@ import sys
 sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 
 import rospy
+from std_msgs.msg import Bool
 import smach
 import smach_ros
 
@@ -57,6 +58,13 @@ class BotAnswerState(smach.State):
                         make_photo_action_client.wait_for_server(rospy.Duration(3))
                         make_photo_action_client.send_goal(goal)
                         make_photo_action_client.wait_for_result(rospy.Duration(5))
+
+                    elif userdata.bot_action_answer == 'action.givecandy':
+                        vk_scan_command_publisher = rospy.Publisher('/social/vk/newsfeed_scanner/scan_command', Bool, queue_size=1)
+                        twitter_scan_command_publisher = rospy.Publisher('/social/twitter/code_scanner/scan_command', Bool, queue_size=1)
+
+                        vk_scan_command_publisher.publish(True)
+                        twitter_scan_command_publisher.publish(True)
 
                     if len(pattern_msg.name) > 0:
                         self.pattern_publisher.publish(pattern_msg)

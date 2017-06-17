@@ -5,6 +5,12 @@
     <template>{"text": "опубликуй пост в одной из соцсетей с выведенными тегами", "action": {"name": "action.givecandy", "parameters": {} }  }
   </category>
   
+  
+  <category>
+  	<pattern> КОНФЕТУ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
   <category>
   	<pattern> * КОНФЕТУ </pattern>
   	<template><srai>КОНФЕТА</template>
@@ -12,6 +18,36 @@
   
   <category>
   	<pattern> * КОНФЕТУ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> КОНФЕТКУ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> * КОНФЕТКУ </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> * КОНФЕТКУ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> КОНФЕТКИ * </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> * КОНФЕТКИ </pattern>
+  	<template><srai>КОНФЕТА</template>
+  </category>
+  
+  <category>
+  	<pattern> * КОНФЕТКИ * </pattern>
   	<template><srai>КОНФЕТА</template>
   </category>
   
