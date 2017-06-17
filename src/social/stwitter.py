@@ -6,6 +6,11 @@ import json
 # Import the necessary methods from "twitter" library
 from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 
+from pathlib import Path
+top = Path(__file__).resolve().parents[0].as_posix()
+import os
+os.path.append(top)
+
 # from twython import Twython
 from secret import (
     TW_CONSUMER_KEY,
@@ -25,7 +30,7 @@ class TwitterCodeScanner:
         Args:
             required_track: required track
         '''
-        
+
         self.CONSUMER_KEY=TW_CONSUMER_KEY
         self.CONSUMER_SECRET=TW_CONSUMER_SECRET
         self.ACCESS_TOKEN=TW_ACCESS_TOKEN_KEY
