@@ -14,6 +14,11 @@ from utils.topic_controller import Lock
 
 import time
 
+from pathlib import Path
+recognized_text_folder = Path(__file__).resolve().parents[1].as_posix() + '/recognized_text'
+import os
+if os.path.exists(recognized_text_folder) is False:
+    os.mkdir(recognized_text_folder)
 
 if __name__ == '__main__':
 
@@ -39,7 +44,7 @@ if __name__ == '__main__':
                 wav_data = audio_format_converter.raw_audio2wav(recognize_text_msg.content, read_pyaudio_config())
                 recognized_text = sr.recognize_speech(wav_data)
                 print(recognized_text)
-                log_recognized_text(recognized_text)
+                log_recognized_text(recognized_text, recognized_text_folder)
                 if recognized_text is not None:
                     user_speech_text_msg = UserSpeechText(text = recognized_text)
                     recognized_text_publisher.publish(user_speech_text_msg)

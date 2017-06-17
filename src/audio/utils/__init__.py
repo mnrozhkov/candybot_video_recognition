@@ -34,12 +34,16 @@ def read_pyaudio_config() -> dict or None:
 			return None
 
 
-def log_recognized_text(text: str) -> None:
+def log_recognized_text(text: str, path: str) -> None:
     '''
     write text into file with time.ctime() as name
     Args:
         text: recognized text
+        path: save path
     '''
 
-    with open(LOG_FOLDER + '/recognized_text.log', 'a') as f:
-        f.write('[{0}] {1}\n\n'.format(time.ctime(), text))
+    try:
+        with open(path + '/recognized_text.txt', 'a') as f:
+            f.write('[{0}] {1}\n\n'.format(time.ctime(), text))
+    except:
+        pass
