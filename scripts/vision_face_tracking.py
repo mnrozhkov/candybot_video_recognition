@@ -18,10 +18,13 @@ from utils.topic_controller import Lock
 
 import time
 
+from motion.eyes.eyes_publisher import EyesPublisher
+
 
 if __name__ == '__main__':
 
     rospy.init_node('vision_face_tracking')
+    eyes_pub = EyesPublisher()
 
     face_coord_publisher = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
     face_image_publisher = rospy.Publisher('/vision_face_tracking/face_image', Image, queue_size=1)
@@ -60,6 +63,10 @@ if __name__ == '__main__':
             w = face_region['w']
             h = face_region['h']
             if w > 0 and h > 0:
+                    for i in range(3):
+                        eyes_pub.move_up()
+                        eyes_pub.move_down()
+                        
                     face_array = image[x:x+w, y:y+h]
                     face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
                     #search smile in face region

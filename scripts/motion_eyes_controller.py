@@ -34,9 +34,9 @@ def main(num_iterations=sys.maxsize):
                 height=128,
                 background_color='#ffffff',
                 eye_radius=64,
-                eye_color='#ffffff',
+                eye_color='#000000',
                 pupil_radius=25,
-                pupil_color='#1c86ee')
+                pupil_color='#ffffff')
 
     # display settings
     # display settings
