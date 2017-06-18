@@ -80,4 +80,4 @@ class HeadPublisher:
         face_coords_sub.unregister()
 
         if self.x is not None and self.y is not None:
-            self.send_message(self.form_message(h_angle=math.atan(x), v_angle=math.atan(y)))
+            self.send_message(self.form_message(h_angle=math.atan(self.x), v_angle=math.atan(self.y)))

@@ -6,7 +6,7 @@ sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 import rospy
 from std_msgs.msg import Bool
 import smach
-import smach_ros
+#import smach_ros
 
 from candybot_v2.msg import BotSpeechText, MotionPattern, Emotion, UserSpeechText
 import time

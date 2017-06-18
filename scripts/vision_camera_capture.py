@@ -40,8 +40,9 @@ if __name__ == '__main__':
             except:
                 break
 
-            ret, frame = cap.read()
+            ret, frm = cap.read()
             if ret:
+                frame = cv2.flip(frm, 0)
                 image = ros_numpy.msgify(Image, frame, encoding='rgb8')
                 publisher.publish(image)
                 time.sleep(0.1)
