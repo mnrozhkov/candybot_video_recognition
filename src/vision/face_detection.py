@@ -4,7 +4,7 @@ from pathlib import Path
 top = Path(__file__).resolve().parents[0].as_posix()
 sys.path.append(top)
 
-from utils import opencv
+from .utils import opencv
 from typing import Dict
 
 import numpy
@@ -54,7 +54,7 @@ class FaceTracker:
             True : if smile detected
             False : if smile not detected
         '''
-        
+
         if face_image is None:
             return None
 
