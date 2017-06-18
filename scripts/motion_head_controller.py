@@ -56,6 +56,7 @@ def main():
             v_angle = head_motion_msg.v_angle
             emotion = head_motion_msg.emotion
 
+        print('angles:', h_angle, ', ', v_angle)
         # check params
         if h_angle is not None:
             head.set_horizontal_servo_position(h_angle)

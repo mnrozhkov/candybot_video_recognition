@@ -19,11 +19,11 @@ def get_face_features(photo: bytes) -> dict or None:
         most possible face features
         None: if failed
     '''
-    
+
     try:
         client = Algorithmia.client(api_key)
         algo = client.algo('MeisterUrian/FaceFeatures2/0.1.6')
         print(algo.pipe(photo))
     except Exception as e:
+        print(str(e))
         logging.error(str(e))
-    

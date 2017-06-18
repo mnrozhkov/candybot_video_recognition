@@ -44,15 +44,16 @@ if __name__ == '__main__':
                     #search other features: emotions, celebrities similarity, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features = algorithmia.get_face_features(binary_face_image)
-                    face_features_msg = FaceFeatures()
-                    face_features_msg.emotion = face_features['emotion']
-                    face_features_msg.gender = face_features['gender']
-                    age_interval = face_features['age']
-                    if age_interval is not None:
-                        face_features_msg.min_age, face_features_msg.max_age = age_interval
+                    if face_features is not None:
+                        face_features_msg = FaceFeatures()
+                        face_features_msg.emotion = face_features['emotion']
+                        face_features_msg.gender = face_features['gender']
+                        age_interval = face_features['age']
+                        if age_interval is not None:
+                            face_features_msg.min_age, face_features_msg.max_age = age_interval
 
-                    print(face_features_msg)
-                    face_info_publisher.publish(face_features_msg)
+                        print(face_features_msg)
+                        face_info_publisher.publish(face_features_msg)
 
             if lock_recognize.message == face_image_msg:
                 lock_recognize.message = None
