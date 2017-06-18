@@ -42,7 +42,7 @@ class Head(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.h_servo.set_angle(self._h_SERVO_CHANNEL, angle)
+            self.h_servo.set_angle(angle)
             self._h_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -55,7 +55,7 @@ class Head(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.v_servo.set_angle(self._v_SERVO_CHANNEL, angle)
+            self.v_servo.set_angle(angle)
             self._v_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
