@@ -22,6 +22,22 @@ class HeadPublisher:
 
         self.publisher = rospy.Publisher('/motion_head_controller/head_motion', HeadMotion, queue_size=1)
 
+        self.min_h_angle = 0
+        self.max_h_angle = 90
+        self.min_v_angle = 0
+        self.max_v_angle = 40
+
+        self.image_width = 640
+        self.image_heigth = 480
+
+        #self.step = 10
+
+    def _get_h_angle_by_x_coord(x: int) -> int:
+        return (self.max_h_angle - self.min_h_angle) * x  // self.image_width
+
+    def _get_v_angle_by_y_coord(y: int) -> int:
+        return (self.max_v_angle - self.min_v_angle) * y  // self.image_heigth
+
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str='neutral') -> HeadMotion:
         '''
         form HeadMotion message
@@ -80,4 +96,4 @@ class HeadPublisher:
         face_coords_sub.unregister()
 
         if self.x is not None and self.y is not None:
-            self.send_message(self.form_message(h_angle= 180 *math.atan(self.x) / math.pi, v_angle= 180 * math.atan(self.y) / math.pi))
+            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y))
