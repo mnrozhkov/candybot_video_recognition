@@ -96,4 +96,12 @@ class HeadPublisher:
         face_coords_sub.unregister()
 
         if self.x is not None and self.y is not None:
-            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y))
+            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y)))
+
+    def set_h_angle(self, h_angle=0.0):
+        if h_angle >= 45.0 and h_angle <= 135.0:
+            self.send_message(self.form_message(h_angle=h_angle))
+
+    def set_v_angle(self, v_angle=0.0):
+        if v_angle >= 70.0 and v_angle <= 110.0:
+            self.send_message(self.form_message(v_angle=h_angle))
