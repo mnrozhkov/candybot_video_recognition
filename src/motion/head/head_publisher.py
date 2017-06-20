@@ -104,7 +104,7 @@ class HeadPublisher:
 
     def set_v_angle(self, v_angle=0.0):
         if v_angle >= 10.0 and v_angle <= 170.0:
-            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=h_angle))
+            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=v_angle))
 
     def shift_h_angle(self, h_angle=0.0):
         if h_angle >= 10.0 and h_angle <= 170.0:
