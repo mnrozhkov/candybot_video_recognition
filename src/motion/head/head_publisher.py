@@ -54,28 +54,28 @@ class HeadPublisher:
         self.publisher.publish(msg)
 
     def move_up(self):
-        self.send_message(self.form_message(v_angle=150.0))
+        self.send_message(self.form_message(v_angle=40.0))
 
     def move_down(self):
-        self.send_message(self.form_message(v_angle=45.0))
+        self.send_message(self.form_message(v_angle=0.0))
 
     def turn_left(self):
-        self.send_message(self.form_message(h_angle=45.0))
+        self.send_message(self.form_message(h_angle=0.0))
 
     def turn_right(self):
-        self.send_message(self.form_message(h_angle=135.0))
+        self.send_message(self.form_message(h_angle=90.0))
 
     def move_up_left(self):
-        self.send_message(self.form_message(h_angle=45.0, v_angle=150.0))
+        self.send_message(self.form_message(h_angle=40.0, v_angle=0.0))
 
     def move_up_rigth(self):
-        self.send_message(self.form_message(h_angle=135.0, v_angle=150.0))
+        self.send_message(self.form_message(h_angle=40.0, v_angle=90.0))
 
     def move_down_left(self):
-        self.send_message(self.form_message(h_angle=45.0, v_angle=45.0))
+        self.send_message(self.form_message(h_angle=0.0, v_angle=0.0))
 
     def move_down_right(self):
-        self.send_message(self.form_message(h_angle=135.0, v_angle=45.0))
+        self.send_message(self.form_message(h_angle=0.0, v_angle=90.0))
 
     def move_to_face(self):
 
