@@ -4,14 +4,7 @@ top = Path(__file__).resolve().parents[0].as_posix()
 
 import random
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 class AnecdoteGenerator:
 
@@ -30,7 +23,7 @@ class AnecdoteGenerator:
                 for anecdote in afile:
                     self.anecdotes.append(anecdote)
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
 
     def generate(self) -> str or None:
         '''

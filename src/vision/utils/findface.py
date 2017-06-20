@@ -4,13 +4,7 @@ Uses findface.pro api
 '''
 import requests
 
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 token = ''
 
@@ -40,7 +34,7 @@ def verify_faces(img1: bytes, img2: bytes) -> float or None:
         if r['verified'] is True:
             return r['results'][0]['confidence']
     except Exception as e:
-        logging.error(str(e))
+        ErrorLogger(__file__, e)
         return None
 
 def upload_face_2_gallery(img: bytes) -> int or None:
@@ -60,12 +54,12 @@ def upload_face_2_gallery(img: bytes) -> int or None:
         }
 
     files = {'photo': img}
-    
+
     try:
         r = requests.post(url=url, files=files, headers=header)
         return r['results'][0]['id']
     except Exception as e:
-        logging.error(str(e))
+        ErrorLogger(__file__, e)
         return None
 
 
@@ -86,12 +80,11 @@ def identify_face(img: bytes) -> float or None:
         }
 
     files = {'photo': img}
-    
+
     try:
         r = requests.post(url=url, files=files, headers=header)
         results = r['results']
         return results[ list(results.keys())[0] ]['confidence']
     except Exception as e:
-        logging.error(str(e))
+        ErrorLogger(__file__, e)
         return None
-    

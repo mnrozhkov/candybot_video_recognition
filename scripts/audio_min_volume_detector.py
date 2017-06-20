@@ -13,15 +13,10 @@ from audio.utils import read_pyaudio_config
 
 import logging
 
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 from typing import Dict
+
 
 class RMS:
     '''Calculates minimal audio volume (rms) value'''
@@ -67,7 +62,7 @@ class RMS:
 
             self.time_interval = time_interval
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
             self.error = True
 
     def __max_key__(self, dictionary):

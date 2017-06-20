@@ -7,17 +7,10 @@ import pyaudio
 import time
 import audioop
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
+from utils import ErrorLogger
 
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
 
 class Recorder:
-
 
     def __init__(self, pyaudio_config: dict, min_rms=100):
         '''
@@ -48,7 +41,7 @@ class Recorder:
             self.stream = self.audio.open(format=self.format, channels=self.channels, rate=self.rate, input=True, input_device_index=self.input_device, frames_per_buffer=self.chunk_size)
             self.stream.start_stream()
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
 
     def set_min_rms(self, min_rms):
         '''
@@ -79,10 +72,10 @@ class Recorder:
                     silence_start = time.time()
             return buf
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
             return None
 
-    def listen_audio(self):
+    def listen_audio(self) -> bytes or None:
         '''
         Listen sound until silence
         '''
@@ -94,4 +87,4 @@ class Recorder:
                     buf = self.record_audio(last_chunk=chunk)
                     return buf
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)

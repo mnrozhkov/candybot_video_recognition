@@ -6,14 +6,8 @@ top = Path(__file__).resolve().parents[0].as_posix()
 
 from urllib import request
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
+from utils import ErrorLogger
 
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
 
 class WeatherInfo:
 
@@ -32,13 +26,13 @@ class WeatherInfo:
         try:
             self.cities = json.load(open(cities_file_name, 'r'))
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
 
     def _wind_direction(self, deg: int) -> str:
         directions = ['северный','северо-восточный','восточный',
                       'юго-восточный','южный','юго-западный',
                       'западный','северо-западный']
-        
+
         deg %= 360
         return directions[int(deg) // 45]
 
@@ -78,6 +72,6 @@ class WeatherInfo:
 
                     return weather_info
                 except Exception as e:
-                    logging.error(str(e))
+                    ErrorLogger(__file__, e)
                     print(str(e))
                     return None

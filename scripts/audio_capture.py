@@ -16,14 +16,6 @@ from audio.utils import read_pyaudio_config
 from audio.recorder import Recorder
 from candybot_v2.msg import Audio
 
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
-
 
 if __name__ == '__main__':
 

@@ -7,14 +7,7 @@ from PIL import Image
 import base64
 import cv2
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 
 def ndarray2format(raw_img: numpy.ndarray, format: str='png') -> bytes:
@@ -28,7 +21,7 @@ def ndarray2format(raw_img: numpy.ndarray, format: str='png') -> bytes:
         fp.seek(0) #move stream cursor to start
         return fp.read() #return stream content (bytes)
     except Exception as e:
-        logging.error(str(e))
+        ErrorLogger(__file__, e)
         return None
 
 
@@ -40,8 +33,7 @@ def ndarray2str(raw_img: numpy.ndarray, format: str='png') -> str:
         bimg = cv2.imencode('.' + format, raw_img)[1].tostring()
         return base64.b64encode(bimg).decode('utf-8')
     except Exception as e:
-        logging.error(str(e))
-        print(str(e))
+        ErrorLogger(__file__, e)
         return None
 
 def str2ndarray(string: str) -> numpy.ndarray:
@@ -51,6 +43,5 @@ def str2ndarray(string: str) -> numpy.ndarray:
         image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         return image
     except Exception as e:
-        logging.error(str(e))
-        print(str(e))
+        ErrorLogger(__file__, e)
         return None

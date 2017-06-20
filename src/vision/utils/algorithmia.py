@@ -1,13 +1,7 @@
 import Algorithmia
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
+from utils import ErrorLogger
 
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
 api_key = None
 
 
@@ -25,5 +19,4 @@ def get_face_features(photo: bytes) -> dict or None:
         algo = client.algo('MeisterUrian/FaceFeatures2/0.1.6')
         print(algo.pipe(photo))
     except Exception as e:
-        print(str(e))
-        logging.error(str(e))
+        ErrorLogger(__file__, e)

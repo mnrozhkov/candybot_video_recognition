@@ -5,14 +5,7 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 import cv2
 import numpy
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 def save_photo(frame: numpy.ndarray, photo_name_with_extension: str) -> str or None:
     '''
@@ -30,6 +23,5 @@ def save_photo(frame: numpy.ndarray, photo_name_with_extension: str) -> str or N
         cv2.imwrite(photo_name_with_extension, frame)
         return photo_name_with_extension
     except Exception as e:
-        print(str(e))
-        logging.error(str(e))
+        ErrorLogger(__file__, e)
         return None

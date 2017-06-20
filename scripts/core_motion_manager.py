@@ -17,14 +17,7 @@ from pathlib import Path
 top = Path(__file__).resolve().parents[1].as_posix()
 sys.path.append(top)
 
-import logging
-import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 
 class MotionMaker:
@@ -229,7 +222,7 @@ class MotionMaker:
                     i += 1
 
         except Exception as e:
-            logging.error(str(e))
+            ErrorLogger(__file__, e)
         finally:
             if self.emotion == emotion:
                 self.emotion = str()

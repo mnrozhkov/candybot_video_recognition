@@ -13,12 +13,8 @@ import base64
 
 import logging
 import os
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
 
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
+from utils import ErrorLogger
 
 def audio2str(raw_audio: bytes or None) -> str or None: #depricated!
     if raw_audio is None:
@@ -53,6 +49,5 @@ def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
         f.seek(0)
         return f.read()
     except Exception as e:
-        logging.error(str(e))
-        print('raw_audio2wav:', str(e ))
+        ErrorLogger(__file__, e)
         return None

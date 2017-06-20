@@ -18,14 +18,7 @@ from utils.topic_controller import Lock
 
 import time
 
-import logging
-LOG_FOLDER = 'logs'
-if os.path.exists(LOG_FOLDER) is False:
-    os.mkdir(LOG_FOLDER)
-
-logging.basicConfig(filename=LOG_FOLDER + '/' + __name__ + '.log', format='[%(asctime)s] %(message)s\n\n',
-                    level=logging.DEBUG)
-
+from utils import ErrorLogger
 
 BOT_NAME = "арнольд"
 
@@ -67,8 +60,7 @@ if __name__ == '__main__':
 
                     bot_decision_publisher.publish(bot_answer_msg)
             except Exception as e:
-                print('dialog_bot_aimlmanager: error: ', str(e))
-                logging.error(str(e))
+                ErrorLogger(__file__, e)
 
         if lock_bot_request.message == user_speech_text_msg:
             lock_bot_request.message = None
