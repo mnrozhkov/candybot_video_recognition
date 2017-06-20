@@ -32,11 +32,11 @@ class HeadPublisher:
 
         #self.step = 10
 
-    def _get_h_angle_by_x_coord(x: int) -> int:
-        return (self.max_h_angle - self.min_h_angle) * x  // self.image_width
+    def _get_h_angle_by_x_coord(x: int) -> float:
+        return float((self.max_h_angle - self.min_h_angle) * x  // self.image_width)
 
-    def _get_v_angle_by_y_coord(y: int) -> int:
-        return (self.max_v_angle - self.min_v_angle) * y  // self.image_heigth
+    def _get_v_angle_by_y_coord(y: int) -> float:
+        return float((self.max_v_angle - self.min_v_angle) * y  // self.image_heigth)
 
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str='neutral') -> HeadMotion:
         '''
@@ -53,28 +53,28 @@ class HeadPublisher:
     def send_message(self, msg: HeadMotion) -> None:
         self.publisher.publish(msg)
 
-    def move_up(self):
+    def move_down(self):
         self.send_message(self.form_message(v_angle=40.0))
 
-    def move_down(self):
+    def move_up(self):
         self.send_message(self.form_message(v_angle=0.0))
 
-    def turn_left(self):
+    def turn_right(self):
         self.send_message(self.form_message(h_angle=0.0))
 
-    def turn_right(self):
+    def turn_left(self):
         self.send_message(self.form_message(h_angle=90.0))
 
-    def move_up_left(self):
+    def move_down_right(self):
         self.send_message(self.form_message(h_angle=40.0, v_angle=0.0))
 
-    def move_up_rigth(self):
+    def move_down_left(self):
         self.send_message(self.form_message(h_angle=40.0, v_angle=90.0))
 
-    def move_down_left(self):
+    def move_up_right(self):
         self.send_message(self.form_message(h_angle=0.0, v_angle=0.0))
 
-    def move_down_right(self):
+    def move_up_left(self):
         self.send_message(self.form_message(h_angle=0.0, v_angle=90.0))
 
     def move_to_face(self):
@@ -99,9 +99,17 @@ class HeadPublisher:
             self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y)))
 
     def set_h_angle(self, h_angle=0.0):
-        if h_angle >= 45.0 and h_angle <= 135.0:
-            self.send_message(self.form_message(h_angle=h_angle))
+        if h_angle >= 10.0 and h_angle <= 170.0:
+            self.send_message(self.form_message(h_angle=h_angle, v_angle=rospy.get_param('/head/v_angle')))
 
     def set_v_angle(self, v_angle=0.0):
-        if v_angle >= 70.0 and v_angle <= 110.0:
-            self.send_message(self.form_message(v_angle=h_angle))
+        if v_angle >= 10.0 and v_angle <= 170.0:
+            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=h_angle))
+
+    def shift_h_angle(self, h_angle=0.0):
+        if h_angle >= 10.0 and h_angle <= 170.0:
+            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle') + h_angle, v_angle=rospy.get_param('/head/v_angle')))
+
+    def shift_v_angle(self, v_angle=0.0):
+        if v_angle >= 10.0 and v_angle <= 170.0:
+            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=rospy.get_param('/head/v_angle') + v_angle))
