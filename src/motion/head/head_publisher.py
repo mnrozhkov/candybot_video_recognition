@@ -99,17 +99,13 @@ class HeadPublisher:
             self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y)))
 
     def set_h_angle(self, h_angle=0.0):
-        if h_angle >= 10.0 and h_angle <= 170.0:
-            self.send_message(self.form_message(h_angle=h_angle, v_angle=rospy.get_param('/head/v_angle')))
+        self.send_message(self.form_message(h_angle=h_angle, v_angle=rospy.get_param('/head/v_angle')))
 
     def set_v_angle(self, v_angle=0.0):
-        if v_angle >= 10.0 and v_angle <= 170.0:
-            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=v_angle))
+        self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=v_angle))
 
     def shift_h_angle(self, h_angle=0.0):
-        if h_angle >= 10.0 and h_angle <= 170.0:
-            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle') + h_angle, v_angle=rospy.get_param('/head/v_angle')))
+        self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle') + h_angle, v_angle=rospy.get_param('/head/v_angle')))
 
     def shift_v_angle(self, v_angle=0.0):
-        if v_angle >= 10.0 and v_angle <= 170.0:
-            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=rospy.get_param('/head/v_angle') + v_angle))
+        self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=rospy.get_param('/head/v_angle') + v_angle))
