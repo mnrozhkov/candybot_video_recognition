@@ -32,7 +32,10 @@ class EyebrowsPublisher:
         self.publisher.publish(msg)
 
     def move_up(self):
-        self.send_message(self.form_message(l_angle=30.0, r_angle=30.0))
+        self.send_message(self.form_message(l_angle=88, r_angle=85))
 
     def move_down(self):
-        self.send_message(self.form_message(l_angle=-30.0, r_angle=-30.0))
+        self.send_message(self.form_message(l_angle=108, r_angle=65))
+
+    def set_center(sefl):
+        self.send_message(self.form_message(l_angle=98, r_angle=75))

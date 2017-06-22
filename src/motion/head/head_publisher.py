@@ -104,8 +104,8 @@ class HeadPublisher:
     def set_v_angle(self, v_angle=0.0):
         self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=v_angle))
 
-    def shift_h_angle(self, h_angle=0.0):
+    def move_h_angle(self, h_angle=0.0):
         self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle') + h_angle, v_angle=rospy.get_param('/head/v_angle')))
 
-    def shift_v_angle(self, v_angle=0.0):
+    def move_v_angle(self, v_angle=0.0):
         self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=rospy.get_param('/head/v_angle') + v_angle))

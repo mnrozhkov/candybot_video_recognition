@@ -27,7 +27,7 @@ def rotate_dispenser() -> bool:
     dispenser.run()
 
     while time.time() - start < TIMEOUT: #rotate until timeout
-        if ser.read() == b'1': #if candy sensor sent true break cycle
+        if ser.read(4) == b'true': #if candy sensor sent true break cycle
             candy_is_gave = True
             break
 
