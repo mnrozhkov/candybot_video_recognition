@@ -131,16 +131,14 @@ class Servo(object):
 
 
 
-    class Servo360:
+class Servo360:
+    def __init__(self, SERVO_CHANNEL):
+        self.RUN_ANGLE = 50
+        self.STOP_ANGLE = 70
+        self.servo = Servo(channel=SERVO_CHANNEL)
 
-        def __init__(self, SERVO_CHANNEL):
-            self.RUN_ANGLE = 50
-            selg.STOP_ANGLE = 70
+    def run(self):
+        self.servo.set_angle(self.RUN_ANGLE)
 
-            self.servo = Servo(channel=SERVO_CHANNEL)
-
-        def run(self):
-            self.servo.set_angle(self.RUN_ANGLE)
-
-        def stop(self):
-            self.servo.set_angle(self.STOP_ANGLE)
+    def stop(self):
+        self.servo.set_angle(self.STOP_ANGLE)

@@ -38,7 +38,7 @@ class Eyebrows(object):
             angle: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.l_servo.set_angle(self._l_SERVO_CHANNEL, angle)
+            self.l_servo.set_angle(angle)
             self._l_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")
@@ -50,7 +50,7 @@ class Eyebrows(object):
             angles: angle to turn servo, in degrees
         """
         if isinstance(angle, (int, float)):
-            self.r_servo.set_angle(self._r_SERVO_CHANNEL, angle)
+            self.r_servo.set_angle(angle)
             self._r_angle = angle
         else:
             warnings.warn("'angle' param is not a number. Servo has not moved")

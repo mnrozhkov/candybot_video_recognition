@@ -23,8 +23,8 @@ def main():
     head_position_publisher = rospy.Publisher('/motion_head_controller/head_state', HeadState, queue_size=1)
 
     head = Head(
-       _h_angle = -10,
-       _v_angle = 0,
+       _h_angle = 90,
+       _v_angle = 90,
        #_led_on = True,
        #_color = '#ffffff',
        _emotion = 'neutral',
