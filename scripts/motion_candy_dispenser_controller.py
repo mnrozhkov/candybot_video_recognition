@@ -24,14 +24,14 @@ def rotate_dispenser() -> bool:
 
     start = time.time()
     candy_is_gave = False
+    dispenser.run()
 
     while time.time() - start < TIMEOUT: #rotate until timeout
-        dispenser.set_angle(360) #rotate on 360 degrees
-        dispenser.set_angle(0) #rotate back - to 0 degrees
         if ser.read() == b'1': #if candy sensor sent true break cycle
             candy_is_gave = True
             break
-
+    
+    dispenser.stop()
     DISPENSER_ROTATES = False
     return candy_is_gave #return candy dispensing result
 
