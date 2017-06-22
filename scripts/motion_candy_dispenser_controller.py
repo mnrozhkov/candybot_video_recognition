@@ -11,7 +11,7 @@ import time
 TIMEOUT = 30
 DISPENSER_ROTATES = False
 
-ser = serial.Serial('/dev/tty*', 9600) #CORRECT!!
+ser = serial.Serial('/dev/ttyACM0', 9600)
 dispenser = Dispenser(SERVO_CHANNEL=4)
 
 
@@ -30,7 +30,7 @@ def rotate_dispenser() -> bool:
         if ser.read() == b'1': #if candy sensor sent true break cycle
             candy_is_gave = True
             break
-    
+
     dispenser.stop()
     DISPENSER_ROTATES = False
     return candy_is_gave #return candy dispensing result
