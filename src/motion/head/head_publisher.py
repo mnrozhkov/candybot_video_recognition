@@ -22,21 +22,23 @@ class HeadPublisher:
 
         self.publisher = rospy.Publisher('/motion_head_controller/head_motion', HeadMotion, queue_size=1)
 
-        self.min_h_angle = 0
-        self.max_h_angle = 90
-        self.min_v_angle = 0
-        self.max_v_angle = 40
+        self.mid_angle = 90
+
+        self.min_h_angle = 45
+        self.max_h_angle = 135
+        self.min_v_angle = 70
+        self.max_v_angle = 110
 
         self.image_width = 640
         self.image_heigth = 480
 
         #self.step = 10
 
-    def _get_h_angle_by_x_coord(x: int) -> float:
-        return float((self.max_h_angle - self.min_h_angle) * x  // self.image_width)
+    def _get_h_angle_by_x_coord(x: int) -> int:
+        return self.min_h_angle + (self.max_h_angle - self.min_h_angle) * x // self.image_width
 
     def _get_v_angle_by_y_coord(y: int) -> float:
-        return float((self.max_v_angle - self.min_v_angle) * y  // self.image_heigth)
+        return self.min_v_angle + (self.max_v_angle - self.max_v_angle) * y // self.image_heigth
 
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str='neutral') -> HeadMotion:
         '''
@@ -105,7 +107,11 @@ class HeadPublisher:
         self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=v_angle))
 
     def move_h_angle(self, h_angle=0.0):
-        self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle') + h_angle, v_angle=rospy.get_param('/head/v_angle')))
+        future_h_angle = rospy.get_param('/head/h_angle') + h_angle
+        if future_h_angle >= self.min_h_angle and future_h_angle <= self.max_h_angle:
+            self.send_message(self.form_message(h_angle=future_h_angle, v_angle=rospy.get_param('/head/v_angle')))
 
     def move_v_angle(self, v_angle=0.0):
-        self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=rospy.get_param('/head/v_angle') + v_angle))
+        future_v_angle = rospy.get_param('/head/v_angle') + v_angle
+        if future_v_angle >= self.min_v_angle and future_v_angle <= self.max_v_angle:
+            self.send_message(self.form_message(h_angle=rospy.get_param('/head/h_angle'), v_angle=future_v_angle))

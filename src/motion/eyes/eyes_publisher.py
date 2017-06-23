@@ -46,3 +46,6 @@ class EyesPublisher:
 
     def move_right(self):
         self.send_message(self.form_message(angle=0.0, distance_from_center_percent=90.0))
+
+    def move_center(self):
+        self.send_message(self.form_message(angle=0, distance_from_center_percent=0))

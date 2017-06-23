@@ -184,6 +184,7 @@ class MotionMaker:
         '''
         self._head_publisher.move_to_face()
 
+        '''
         emotion = self.emotion
         pattern_name = self.pattern_name
 
@@ -228,7 +229,7 @@ class MotionMaker:
                 self.emotion = str()
             if self.pattern_name == pattern_name:
                 self.pattern_name = str()
-
+        '''
 
 if __name__ == '__main__':
 
