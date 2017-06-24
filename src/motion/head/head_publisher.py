@@ -34,10 +34,10 @@ class HeadPublisher:
 
         #self.step = 10
 
-    def _get_h_angle_by_x_coord(x: int) -> int:
+    def _get_h_angle_by_x_coord(self, x: int) -> int:
         return self.min_h_angle + (self.max_h_angle - self.min_h_angle) * x // self.image_width
 
-    def _get_v_angle_by_y_coord(y: int) -> float:
+    def _get_v_angle_by_y_coord(self, y: int) -> float:
         return self.min_v_angle + (self.max_v_angle - self.max_v_angle) * y // self.image_heigth
 
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str='neutral') -> HeadMotion:
