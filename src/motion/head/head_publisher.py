@@ -82,7 +82,7 @@ class HeadPublisher:
     def move_to_face(self):
 
         self.face_coords_recieved = False
-        self.x, self.y, self.w, sefl.h = None, None, None, None
+        self.x, self.y, self.w, self.h = None, None, None, None
 
         def callback_face_coords(data: FaceCoordinates):
             self.x = data.x
