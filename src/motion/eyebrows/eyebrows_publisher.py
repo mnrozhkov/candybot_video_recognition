@@ -37,5 +37,5 @@ class EyebrowsPublisher:
     def move_down(self):
         self.send_message(self.form_message(l_angle=108, r_angle=65))
 
-    def set_center(sefl):
+    def set_center(self):
         self.send_message(self.form_message(l_angle=98, r_angle=75))

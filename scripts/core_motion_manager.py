@@ -190,6 +190,7 @@ class MotionMaker:
         self._head_publisher.move_to_face()
         
         if time.time() - self.eyebrows_pos_switch_time > 5:
+            print('eyebrows move!')
             self.eyebrows_position = random.randint(0,2)
             if self.eyebrows_position == 0:
                 self._eyebrows_publisher.move_up()
@@ -199,8 +200,7 @@ class MotionMaker:
                 self._eyebrows_publisher.set_center()
 
             self.eyebrows_pos_switch_time = time.time()
-
-        self.eyebrows_pos_switch_time += time.time() - self.eyebrows_pos_switch_time
+            
         '''
         emotion = self.emotion
         pattern_name = self.pattern_name
