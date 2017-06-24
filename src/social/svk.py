@@ -33,8 +33,8 @@ class VkNeewsfeedScanner:
         Open new session with vk api
         '''
 
-    	self._session = vk.Session(access_token=self._access_token)
-    	self._api = vk.API(self._ssession)
+        self._session = vk.Session(access_token=self._access_token)
+        self._api = vk.API(self._ssession)
 
     def generate_hashtag(self) -> str:
         '''
@@ -43,10 +43,10 @@ class VkNeewsfeedScanner:
             generated hashtag
         '''
 
-    	hashtag = self.required_hashtag + '#'
-    	for i in range(4):
-    		hashtag += str(random.randint(0,10))
-    	return hashtag
+        hashtag = self.required_hashtag + '#'
+        for i in range(4):
+            hashtag += str(random.randint(0,10))
+        return hashtag
 
     def search_hashtag(self, hashtag: str) -> bool or None:
         '''
@@ -59,10 +59,10 @@ class VkNeewsfeedScanner:
             None: could not take access to vk api
         '''
         if self._session_opened is True:
-        	nf = self._api.newsfeed.search(q=hashtag)
-        	if(nf[0] > 0):
-        		return True
-    	    return False
+            nf = self._api.newsfeed.search(q=hashtag)
+            if(nf[0] > 0):
+                return True
+            return False
         return None
 
     def listen(hashtag: str, timeout: int) -> bool:
@@ -76,15 +76,15 @@ class VkNeewsfeedScanner:
             None: could not take access to vk api
         '''
 
-    	start = time.time()
-    	while time.time() - start < timeout:
+        start = time.time()
+        while time.time() - start < timeout:
             search_result = self.search_hashtag(hashtag)
 
             if search_result is None:
                 return None
 
-    		if search_result is True:
-    			return True
-    		time.sleep(0.1)
+            if search_result is True:
+                return True
+            time.sleep(0.1)
 
-    	return False
+        return False
