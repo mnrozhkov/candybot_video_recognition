@@ -38,7 +38,7 @@ class HeadPublisher:
         return self.min_h_angle + (self.max_h_angle - self.min_h_angle) * x // self.image_width
 
     def _get_v_angle_by_y_coord(self, y: int) -> float:
-        return self.min_v_angle + (self.max_v_angle - self.max_v_angle) * y // self.image_heigth
+        return self.min_v_angle + (self.max_v_angle - self.min_v_angle) * y // self.image_heigth
 
     def form_message(self, h_angle: float=0.0, v_angle: float=0.0, emotion: str='neutral') -> HeadMotion:
         '''
@@ -82,11 +82,13 @@ class HeadPublisher:
     def move_to_face(self):
 
         self.face_coords_recieved = False
-        self.x, self.y = None, None
+        self.x, self.y, self.w, sefl.h = None, None, None, None
 
         def callback_face_coords(data: FaceCoordinates):
             self.x = data.x
             self.y = data.y
+            self.w = data.w
+            self.h = data.h
             self.face_coords_recieved = True
 
         face_coords_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, callback_face_coords)
@@ -97,8 +99,8 @@ class HeadPublisher:
 
         face_coords_sub.unregister()
 
-        if self.x is not None and self.y is not None:
-            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord(self.x), v_angle=self._get_v_angle_by_y_coord(self.y)))
+        if self.x is not None and self.y is not None and self.w is not None and self.h is not None:
+            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + sefl.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
 
     def set_h_angle(self, h_angle=0.0):
         if rospy.has_param('/head/v_angle'):

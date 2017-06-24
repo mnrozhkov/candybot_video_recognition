@@ -8,8 +8,8 @@ from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 
 from pathlib import Path
 top = Path(__file__).resolve().parents[0].as_posix()
-import os
-os.path.append(top)
+import sys
+sys.path.append(top)
 
 # from twython import Twython
 from secret import (

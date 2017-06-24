@@ -65,7 +65,7 @@ class VkNeewsfeedScanner:
             return False
         return None
 
-    def listen(hashtag: str, timeout: int) -> bool:
+    def listen(self, hashtag: str, timeout: int) -> bool:
         '''
         Scan newsfeed for post with specified hashtag during timeout (in seconds)
         Args:

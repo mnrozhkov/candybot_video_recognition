@@ -7,6 +7,7 @@ from utils.topic_controller import Lock
 
 import time
 
+import random
 
 if __name__ == '__main__':
     rospy.init_node('motion_eyebrows_controller')
@@ -16,12 +17,14 @@ if __name__ == '__main__':
     rospy.Subscriber('/motion_eyebrows_controller/eyebrows_motion', EyebrowsMotion, eyebrows_motion_lock.callback)
     eyebrows_state_publisher = rospy.Publisher('/motion_eyebrows_controller/eyebrows_state', EyebrowsState, queue_size=1)
     print('motion_eyebrows_controller start')
+    
     while True:
         try:
             rospy.get_master().getPid()
         except:
             break
 
+        
         eyebrows_msg = eyebrows_motion_lock.message
         if isinstance(eyebrows_msg, EyebrowsMotion):
             eyebrows.set_left_servo_position(angle=eyebrows_msg.l_angle)

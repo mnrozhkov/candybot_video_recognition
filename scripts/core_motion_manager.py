@@ -19,6 +19,7 @@ sys.path.append(top)
 
 from utils import ErrorLogger
 
+import random
 
 class MotionMaker:
     '''
@@ -49,6 +50,10 @@ class MotionMaker:
 
         self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, self.callback_pattern)
         self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, self.callback_emotion)
+
+        self.eyebrows_position = 0
+        self.eyebrows_pos_switch_time = time.time()
+        
 
     def callback_pattern(self, data: MotionPattern) -> None:
         '''
@@ -183,7 +188,19 @@ class MotionMaker:
         make motions by robot emotion and pattern content
         '''
         self._head_publisher.move_to_face()
+        
+        if time.time() - self.eyebrows_pos_switch_time > 5:
+            self.eyebrows_position = random.randint(0,2)
+            if self.eyebrows_position == 0:
+                self._eyebrows_publisher.move_up()
+            elif self.eyebrows_position == 1:
+                self._eyebrows_publisher.move_down()
+            else:
+                self._eyebrows_publisher.set_center()
 
+            self.eyebrows_pos_switch_time = time.time()
+
+        self.eyebrows_pos_switch_time += time.time() - self.eyebrows_pos_switch_time
         '''
         emotion = self.emotion
         pattern_name = self.pattern_name
