@@ -72,7 +72,7 @@ class MotionMaker:
         if isinstance(data, Emotion):
             self.emotion = data.name
 
-    def callback_smile_detected(data: SmileDetected):
+    def callback_smile_detected(self, data: SmileDetected):
         if isinstance(data, SmileDetected) is True:
             if data.detected is True:
                 self._eyebrows_publisher.move_up()
