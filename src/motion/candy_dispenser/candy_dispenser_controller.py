@@ -18,7 +18,9 @@ class Dispenser:
         self.servo360 = Servo360(SERVO_CHANNEL)
 
     def run(self):
+        print('candy dispenser run')
         self.servo360.run()
 
     def stop(self):
+        print('candy dispenser stop')
         self.servo360.stop()

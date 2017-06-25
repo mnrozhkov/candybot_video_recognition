@@ -11,6 +11,7 @@ import time
 
 if __name__ == '__main__':
     rospy.init_node('social_twitter')
+    rospy.set_param('twitter_hashtag', '')
     print('social_twitter')
 
     code_scanner = TwitterCodeScanner()
@@ -23,6 +24,7 @@ if __name__ == '__main__':
         if data.data is True:
             code = code_scanner.generate_code()
             print('twitter: track and code: ', code)
+            rospy.set_param('twitter_hashtag', code)
             code_publisher.publish(code)
             code_posted_in_twitter = code_scanner.listenTwitter(code)
             if code_posted_in_twitter is True:

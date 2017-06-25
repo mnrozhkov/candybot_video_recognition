@@ -43,7 +43,7 @@ class VkNeewsfeedScanner:
             generated hashtag
         '''
 
-        hashtag = self.required_hashtag
+        hashtag = self.required_hashtag + ' #i'
         for i in range(4):
             hashtag += str(random.randint(0,9))
         return hashtag

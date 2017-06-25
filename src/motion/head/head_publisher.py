@@ -100,7 +100,8 @@ class HeadPublisher:
         face_coords_sub.unregister()
 
         if self.x is not None and self.y is not None and self.w is not None and self.h is not None:
-            self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + self.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
+            if self.w != 0 and self.h != 0:
+                self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + self.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
 
     def set_h_angle(self, h_angle=0.0):
         if rospy.has_param('/head/v_angle'):
