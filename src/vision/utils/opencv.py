@@ -72,7 +72,7 @@ def detect_smile(face_image: numpy.ndarray or None = None, min_neighbors=22) -> 
         return None
 
     gray = cv2.cvtColor(face_image, cv2.COLOR_BGR2GRAY)
-    smiles = smile_cascade.detectMultiScale(gray, scaleFactor=4, minNeighbors=min_neighbors, minSize=(25,25))
+    smiles = smile_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=min_neighbors, minSize=(2,2))
     if len(smiles) > 0:
         return True
 

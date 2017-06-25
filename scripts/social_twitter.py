@@ -11,6 +11,7 @@ import time
 
 if __name__ == '__main__':
     rospy.init_node('social_twitter')
+    print('social_twitter')
 
     code_scanner = TwitterCodeScanner()
 
@@ -21,10 +22,11 @@ if __name__ == '__main__':
 
         if data.data is True:
             code = code_scanner.generate_code()
-            print('twitter: code: ', code)
+            print('twitter: track and code: ', code)
             code_publisher.publish(code)
             code_posted_in_twitter = code_scanner.listenTwitter(code)
             if code_posted_in_twitter is True:
+                print('twitter give candy')
                 give_candy_publisher.publish(True)
 
     rospy.Subscriber('/social/twitter/code_scanner/scan_command', Bool, callback_scan_command)

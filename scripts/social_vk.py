@@ -25,6 +25,7 @@ if __name__ == '__main__':
                 hashtag_publisher.publish(hashtag)
                 hashtag_posted_in_vk = newsfeed_scanner.listen(hashtag, 120)
                 if hashtag_posted_in_vk is True:
+                    print('vk give candy')
                     give_candy_publisher.publish(True)
 
         rospy.Subscriber('/social/vk/newsfeed_scanner/scan_command', Bool, callback_scan_command)

@@ -47,9 +47,9 @@ class TwitterCodeScanner:
             generated code
         '''
 
-        code = str()
+        code = self.required_track + ' #i'
         for i in range(4):
-            code += str(random.randint(0,10))
+            code += str(random.randint(0,9))
         return code
 
     def listenTwitter(self, code):

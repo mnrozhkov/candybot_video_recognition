@@ -36,6 +36,7 @@ if __name__ == '__main__':
             ret, frm = cap.read()
             if ret:
                 frame = cv2.flip(frm, 0)
+                #frame = frm
                 image = ros_numpy.msgify(Image, frame, encoding='rgb8')
                 publisher.publish(image)
                 time.sleep(0.1)

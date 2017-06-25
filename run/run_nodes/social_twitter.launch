@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+
+	<!-- Nodes running -->
+
+	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen"/>
+
+</launch>

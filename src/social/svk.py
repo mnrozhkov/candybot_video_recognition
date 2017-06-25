@@ -20,7 +20,7 @@ class VkNeewsfeedScanner:
             required_hashtag: required hashtag
         '''
         self._session_opened = False
-        self.access_token = access_token
+        self._access_token = access_token
         self.required_hashtag  = required_hashtag
         try:
             self._open_session()
@@ -34,7 +34,7 @@ class VkNeewsfeedScanner:
         '''
 
         self._session = vk.Session(access_token=self._access_token)
-        self._api = vk.API(self._ssession)
+        self._api = vk.API(self._session)
 
     def generate_hashtag(self) -> str:
         '''
@@ -43,9 +43,9 @@ class VkNeewsfeedScanner:
             generated hashtag
         '''
 
-        hashtag = self.required_hashtag + '#'
+        hashtag = self.required_hashtag
         for i in range(4):
-            hashtag += str(random.randint(0,10))
+            hashtag += str(random.randint(0,9))
         return hashtag
 
     def search_hashtag(self, hashtag: str) -> bool or None:

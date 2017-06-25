@@ -1,0 +1,10 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+
+	<!-- Nodes running -->
+
+	<node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen"/>
+
+</launch>
