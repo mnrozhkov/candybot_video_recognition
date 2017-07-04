@@ -2,11 +2,57 @@
 '''
 Uses findface.pro api
 '''
+
+from typing import Tuple, Dict
+
 import requests
 
 from utils import ErrorLogger
 
 token = ''
+
+
+def detect_closest_face(img: bytes) -> Tuple[dict, list, str, int] or None:
+    '''
+    detect faces and return closest face info
+    Args:
+        img: image bynary data
+    Returns:
+        tuple of values: ({'x': x, 'y': y, 'w': w, 'h': h}, list of emotions, gender, age)
+    '''
+
+    url = 'https://api.findface.pro/v1/detect'
+    header = {
+        'Host': 'api.findface.pro',
+        'Authorization': 'Token ' + token
+        }
+
+    files = {'photo': img}
+    data = {
+        'emotions': True,
+        'gender': True,
+        'age': True
+        }
+    
+    try:
+        r = requests.post(url=url, files=files, headers=header, data=data).json()
+        faces = r['faces']
+        info = tuple()
+        max_face_square = 0
+
+        for face in faces:
+            square = (face['x2'] - face['x1']) * (face['y2'] - face['y1'])
+            if square > max_face_square:
+                info = (dict({'x': face['x1'], 'y': face['y1'], 'w': face['x2'] - face['x1'], 'h': face['y2'] - face['y1']}), face['emotions'], face['gender'], face['age'])
+                max_face_square = square
+        if len(info) == 0:
+            return None
+        else:
+            return info
+    except Exception as e:
+        ErrorLogger(__file__, e)
+        return None
+
 
 def verify_faces(img1: bytes, img2: bytes) -> float or None:
     '''
@@ -19,7 +65,7 @@ def verify_faces(img1: bytes, img2: bytes) -> float or None:
         None: in othes case
     '''
 
-    url = 'https://api.findface.pro/v0/verify'
+    url = 'https://api.findface.pro/v1/verify'
     header = {
         'Host': 'api.findface.pro',
         'Authorization': 'Token ' + token
@@ -30,12 +76,13 @@ def verify_faces(img1: bytes, img2: bytes) -> float or None:
         'photo2': img2
         }
     try:
-        r = requests.post(url=url, files=files, headers=header)
+        r = requests.post(url=url, files=files, headers=header).json()
         if r['verified'] is True:
             return r['results'][0]['confidence']
     except Exception as e:
         ErrorLogger(__file__, e)
         return None
+
 
 def upload_face_2_gallery(img: bytes) -> int or None:
     '''
@@ -47,7 +94,7 @@ def upload_face_2_gallery(img: bytes) -> int or None:
         None : if failed
     '''
 
-    url = 'https://api.findface.pro/v0/face'
+    url = 'https://api.findface.pro/v1/face'
     header = {
         'Host': 'api.findface.pro',
         'Authorization': 'Token ' + token
@@ -56,7 +103,7 @@ def upload_face_2_gallery(img: bytes) -> int or None:
     files = {'photo': img}
 
     try:
-        r = requests.post(url=url, files=files, headers=header)
+        r = requests.post(url=url, files=files, headers=header).json()
         return r['results'][0]['id']
     except Exception as e:
         ErrorLogger(__file__, e)
@@ -73,7 +120,7 @@ def identify_face(img: bytes) -> float or None:
         None : if failed
     '''
 
-    url = 'https://api.findface.pro/v0/identify'
+    url = 'https://api.findface.pro/v1/identify'
     header = {
         'Host': 'api.findface.pro',
         'Authorization': 'Token ' + token
@@ -82,7 +129,7 @@ def identify_face(img: bytes) -> float or None:
     files = {'photo': img}
 
     try:
-        r = requests.post(url=url, files=files, headers=header)
+        r = requests.post(url=url, files=files, headers=header).json()
         results = r['results']
         return results[ list(results.keys())[0] ]['confidence']
     except Exception as e:
