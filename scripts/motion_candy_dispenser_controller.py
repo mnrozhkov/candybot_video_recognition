@@ -3,7 +3,7 @@
 import rospy
 from motion.candy_dispenser.candy_dispenser_controller import Dispenser
 import serial
-from candybot_v2.msg import SmileDetected
+from candybot_v2.msg import SmileDetected, FaceFeatures
 from std_msgs.msg import Bool
 
 import time
@@ -36,9 +36,15 @@ def rotate_dispenser() -> bool:
     return candy_is_gave #return candy dispensing result
 
 
-def callback_smile_detected(data: SmileDetected):
-    if DISPENSER_ROTATES is False and data.detected is True:
-        rotate_dispenser()
+# def callback_smile_detected(data: SmileDetected):
+#     if DISPENSER_ROTATES is False and data.detected is True:
+#         rotate_dispenser()
+
+
+def callback_positive_emotions_detected(data: FaceFeatures):
+    if 'happy' in data.emotions or 'surprise' in data.emotions:
+        if DISPENSER_ROTATES is False and data.data is True:
+            rotate_dispenser()
 
 
 def callback_vk_topic_published(data: Bool):
@@ -55,7 +61,8 @@ if __name__ == '__main__':
     rospy.init_node('motion_candy_dispenser_controller')
 
     #subscribers for smile detected and social give candy topic
-    smile_detected_subscriber = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, callback_smile_detected)
+    #smile_detected_subscriber = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, callback_smile_detected)
+    face_features_subscriber = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_positive_emotions_detected)
     vk_topic_published_sub = rospy.Subscriber('/social/vk/newsfeed_scanner/give_candy', Bool, callback_vk_topic_published)
     twitter_topic_published_sub = rospy.Subscriber('/social/twitter/code_scanner/give_candy', Bool, callback_twitter_topic_published)
 

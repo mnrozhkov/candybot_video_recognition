@@ -62,9 +62,9 @@ if __name__ == '__main__':
             y = face_region['y']
             w = face_region['w']
             h = face_region['h']
-            print(face_region)
-            if w > 0 and h > 0:
 
+            if w > 0 and h > 0:
+                print(face_region)
 ##                for i in range(3):
 ##                    eyes_pub.move_up()
 ##                    eyes_pub.move_down()
