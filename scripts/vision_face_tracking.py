@@ -48,7 +48,7 @@ if __name__ == '__main__':
             image = ros_numpy.numpify(msg)
             #exctract the closest face region
             face_region = tracker.find_closest_face_region(image)
-            
+
 
             face_coordinates_msg = FaceCoordinates()
             face_coordinates_msg.x = face_region['x']
@@ -62,22 +62,24 @@ if __name__ == '__main__':
             y = face_region['y']
             w = face_region['w']
             h = face_region['h']
+            print(face_region)
             if w > 0 and h > 0:
-                print(face_region)
+
 ##                for i in range(3):
 ##                    eyes_pub.move_up()
 ##                    eyes_pub.move_down()
-                    
+
                 face_array = image[x:x+w, y:y+h]
                 face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
                 #search smile in face region
-                smile = tracker.detect_smile(face_array)
-                if smile is None:
-                    smile = False
-                print('smile: ', smile)
-                #publish smile existance status
-                smile_detected_msg = SmileDetected(detected=smile)
-                smile_detected_publisher.publish(smile_detected_msg)
+                # smile = tracker.detect_smile(face_array)
+                # if smile is None:
+                #     smile = False
+                # print('smile: ', smile)
+                # #publish smile existance status
+                # smile_detected_msg = SmileDetected(detected=smile)
+                # smile_detected_publisher.publish(smile_detected_msg)
+
                 #publish face image
                 face_image_publisher.publish(face_image_msg)
 

@@ -3,8 +3,6 @@
 Uses findface.pro api
 '''
 
-from typing import Tuple, Dict
-
 import requests
 
 from utils import ErrorLogger
@@ -12,13 +10,13 @@ from utils import ErrorLogger
 token = ''
 
 
-def detect_closest_face(img: bytes) -> Tuple[dict, list, str, int] or None:
+def detect_closest_face(img: bytes) -> dict or None:
     '''
     detect faces and return closest face info
     Args:
         img: image bynary data
     Returns:
-        tuple of values: ({'x': x, 'y': y, 'w': w, 'h': h}, list of emotions, gender, age)
+        dictionary: {'emotions': list of emotions, 'gender': 'male'|'female', 'age': int}
     '''
 
     url = 'https://api.findface.pro/v1/detect'
@@ -33,17 +31,17 @@ def detect_closest_face(img: bytes) -> Tuple[dict, list, str, int] or None:
         'gender': True,
         'age': True
         }
-    
+
     try:
         r = requests.post(url=url, files=files, headers=header, data=data).json()
         faces = r['faces']
-        info = tuple()
+        info = dict()
         max_face_square = 0
 
         for face in faces:
             square = (face['x2'] - face['x1']) * (face['y2'] - face['y1'])
             if square > max_face_square:
-                info = (dict({'x': face['x1'], 'y': face['y1'], 'w': face['x2'] - face['x1'], 'h': face['y2'] - face['y1']}), face['emotions'], face['gender'], face['age'])
+                info = {'emotions': face['emotions'], 'gender': face['gender'], 'age': face['age']}
                 max_face_square = square
         if len(info) == 0:
             return None

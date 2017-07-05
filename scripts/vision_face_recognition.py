@@ -10,7 +10,8 @@ import ros_numpy
 from sensor_msgs.msg import Image
 
 from vision.utils import image_format_converter
-from vision.utils import algorithmia
+#from vision.utils import algorithmia
+from vision.utils import findface
 
 import time
 
@@ -21,8 +22,8 @@ if __name__ == '__main__':
 
     rospy.init_node('vision_face_recognition')
 
-    if rospy.has_param('algorithmia_api_key'):
-        algorithmia.api_key=rospy.get_param('algorithmia_api_key')
+    if rospy.has_param('findface_token'):
+        findface.token=rospy.get_param('findface_token')
         face_info_publisher = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
 
         lock_recognize = Lock()
@@ -38,19 +39,16 @@ if __name__ == '__main__':
             face_image_msg = lock_recognize.message
             if isinstance(face_image_msg, Image):
                 face_image = ros_numpy.numpify(face_image_msg)
-                print(type(face_image))
                 if face_image is not None:
 
-                    #search other features: emotions, celebrities similarity, gender, age
+                    #search other features: emotions, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
-                    face_features = algorithmia.get_face_features(binary_face_image)
+                    face_features = findface.detect_closest_face(binary_face_image)
                     if face_features is not None:
                         face_features_msg = FaceFeatures()
-                        face_features_msg.emotion = face_features['emotion']
+                        face_features_msg.emotions = face_features['emotions']
                         face_features_msg.gender = face_features['gender']
-                        age_interval = face_features['age']
-                        if age_interval is not None:
-                            face_features_msg.min_age, face_features_msg.max_age = age_interval
+                        face_features_msg.age = face_features['age']
 
                         print(face_features_msg)
                         face_info_publisher.publish(face_features_msg)

@@ -1,4 +1,3 @@
-string emotion
+string[] emotions
 string gender
-int8 min_age
-int8 max_age
+int8 age
