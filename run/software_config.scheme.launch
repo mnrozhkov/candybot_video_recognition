@@ -8,11 +8,17 @@
 		"channels": ,
 		"rate": ,
 		"frames_per_buffer": ,
-		"input_device": 
+		"input_device":
 	}' />
 
 	<param name="algorithmia_api_key" value="" />
 
+	<param name="findface_token" value="" />
+
 	<param name="openweathermap_key" value=""/>
+
+	<param name="vk_api_access_key" value="" />
+	<param name="vk_group_access_token" value=""/>
+	<param name="vk_group_id" value=""/>
 
 </launch>

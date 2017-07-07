@@ -12,7 +12,7 @@ class VkNeewsfeedScanner:
     newsfeed scanner (vk.com)
     '''
 
-    def __init__(self, access_token: str, required_hashtag: str=str()):
+    def __init__(self, access_token: str, group_access_token: str=str(), group_id: int=0, required_hashtag: str=str()):
         '''
         Constructor
         Args:
@@ -21,6 +21,8 @@ class VkNeewsfeedScanner:
         '''
         self._session_opened = False
         self._access_token = access_token
+        self._group_access_token = group_access_token
+        self._group_id = group_id
         self.required_hashtag  = required_hashtag
         try:
             self._open_session()
@@ -60,7 +62,10 @@ class VkNeewsfeedScanner:
         '''
         if self._session_opened is True:
             nf = self._api.newsfeed.search(q=hashtag)
-            if(nf[0] > 0):
+            wall = [0]
+            if len(self._group_access_token) > 0 and self._group_id != 0:
+                wall = self._api.wall.search(owner_id=-self._group_id, access_token=self._group_access_token, query=hashtag)
+            if nf[0] > 0 or wall[0] > 0:
                 return True
             return False
         return None
@@ -85,6 +90,6 @@ class VkNeewsfeedScanner:
 
             if search_result is True:
                 return True
-            time.sleep(0.1)
+            time.sleep(2)
 
         return False

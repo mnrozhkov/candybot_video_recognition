@@ -11,9 +11,10 @@ import time
 
 if __name__ == '__main__':
     rospy.init_node('social_vk')
+    print('social_vk started!')
 
-    if rospy.has_param('vk_api_access_key'):
-        newsfeed_scanner = VkNeewsfeedScanner(access_token=rospy.get_param('vk_api_access_key'), required_hashtag='#funrobots')
+    if rospy.has_param('vk_api_access_key') and rospy.has_param('vk_group_access_token') and rospy.has_param('vk_group_id'):
+        newsfeed_scanner = VkNeewsfeedScanner(access_token=rospy.get_param('vk_api_access_key'), group_access_token=rospy.get_param('vk_group_access_token'), group_id=rospy.get_param('vk_group_id'), required_hashtag='#funrobots')
 
         hashtag_publisher = rospy.Publisher('/social/vk/newsfeed_scanner/hashtag', String, queue_size=1)
         give_candy_publisher = rospy.Publisher('/social/vk/newsfeed_scanner/give_candy', Bool, queue_size=1)
