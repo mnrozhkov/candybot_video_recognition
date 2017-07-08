@@ -23,7 +23,7 @@ if __name__ == '__main__':
             if data.data is True:
                 hashtag = newsfeed_scanner.generate_hashtag()
                 print('vk: hashtag: ', hashtag)
-                rospy.set_param('vk: hashtag: ', hashtag)
+                rospy.set_param('vk_hashtag', hashtag)
                 hashtag_publisher.publish(hashtag)
                 hashtag_posted_in_vk = newsfeed_scanner.listen(hashtag, 120)
                 if hashtag_posted_in_vk is True:

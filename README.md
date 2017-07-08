@@ -11,7 +11,7 @@
 
 	1.3. Run candybot_vr image
 
-	sudo docker run -ti --privileged --device /dev:/dev candybot_vr
+	sudo docker run -ti -p 11311:11311 --privileged --device /dev:/dev candybot_vr
 
 	1.4. Install candybot_v2 ROS package (in docker container):
 
@@ -78,15 +78,15 @@
 
 					1) use run python script
 
-						sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; rosrun candybot_v2 run.py"
+						sudo docker run -w="/root/catkin_ws" -ti -p 11311:11311 --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; rosrun candybot_v2 run.py"
 
 					2) use roslaunch:
 
-						sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; roslaunch candybot_v2 run.launch"
+						sudo docker run -w="/root/catkin_ws" -ti -p 11311:11311 --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; roslaunch candybot_v2 run.launch"
 
 				b) run just one candybot_v2 package node:
 
-					sudo docker run -w="/root/catkin_ws" -ti --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; roslaunch candybot_v2 <node_name>.launch"
+					sudo docker run -w="/root/catkin_ws" -ti -p 11311:11311 --privileged --device /dev:/dev candybot_vr /bin/bash -c "source /opt/ros/kinetic/setup.bash; roslaunch candybot_v2 <node_name>.launch"
 
 
 	1.6. save changes in docker image (commit):
