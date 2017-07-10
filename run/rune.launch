@@ -1,0 +1,26 @@
+<launch>
+
+	<!--Load softwate configuration -->
+	<include file="$(find candybot_v2)/run/software_config.launch" />
+
+
+	<!-- Nodes running -->
+	<!--node name="candybot_v2_config" pkg="candybot_v2" type="candybot_v2_config.py" output="screen"/-->
+
+	<!--node name="core_decision_manager" pkg="candybot_v2" type="core_decision_manager.py"/-->
+	<node name="core_motion_manager" pkg="candybot_v2" type="core_motion_manager.py" output="screen"/>
+	<node name="vision_camera_capture" pkg="candybot_v2" type="vision_camera_capture.py" output="screen"/>
+	<node name="vision_face_tracking" pkg="candybot_v2" type="vision_face_tracking.py" output="screen"/>
+	<node name="vision_face_recognition" pkg="candybot_v2" type="vision_face_recognition.py" output="log"/>
+	<!--node name="vision_photo_capture" pkg="candybot_v2" type="vision_photo_capture.py" output="log"/>
+	<node name="vision_video_capture" pkg="candybot_v2" type="vision_video_capture.py" output="log"/-->
+	<node name="motion_body_controller" pkg="candybot_v2" type="motion_body_controller.py" output="screen"/>
+	<node name="motion_eyebrows_controller" pkg="candybot_v2" type="motion_eyebrows_controller.py" output="screen"/>
+	<node name="motion_eyes_controller" pkg="candybot_v2" type="motion_eyes_controller.py" output="screen"/>
+	<node name="motion_head_controller" pkg="candybot_v2" type="motion_head_controller.py" output="screen"/>
+	<node name="motion_candy_dispenser_controller" pkg="candybot_v2" type="motion_candy_dispenser_controller.py" output="screen"/>
+	<!--node name="social_action_initializer" pkg="candybot_v2" type="social_action_initializer.py" />
+	<node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen" />
+	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen" /-->
+
+</launch>

@@ -44,13 +44,14 @@ if __name__ == '__main__':
                     #search other features: emotions, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features = findface.detect_closest_face(binary_face_image)
+                    print('face features request result: ', face_features)
                     if face_features is not None:
                         face_features_msg = FaceFeatures()
                         face_features_msg.emotions = face_features['emotions']
                         face_features_msg.gender = face_features['gender']
                         face_features_msg.age = face_features['age']
 
-                        print(face_features_msg)
+                        #print(face_features_msg)
                         face_info_publisher.publish(face_features_msg)
 
             if lock_recognize.message == face_image_msg:
