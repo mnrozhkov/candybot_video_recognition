@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     face_coord_publisher = rospy.Publisher('/vision_face_tracking/face_coord', FaceCoordinates, queue_size=1)
     face_image_publisher = rospy.Publisher('/vision_face_tracking/face_image', Image, queue_size=1)
-    smile_detected_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+    #smile_detected_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
 
     tracker = face_detection.FaceTracker()
 
@@ -69,8 +69,9 @@ if __name__ == '__main__':
 ##                    eyes_pub.move_up()
 ##                    eyes_pub.move_down()
 
-                face_array = image[x:x+w, y:y+h]
-                face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
+                #face_array = image[x:x+w, y:y+h]
+                #face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
+                
                 #search smile in face region
                 # smile = tracker.detect_smile(face_array)
                 # if smile is None:
@@ -81,7 +82,8 @@ if __name__ == '__main__':
                 # smile_detected_publisher.publish(smile_detected_msg)
 
                 #publish face image
-                face_image_publisher.publish(face_image_msg)
+                #face_image_publisher.publish(face_image_msg)
+                face_image_publisher.publish(msg)
 
             if lock_image.message == msg:
                 lock_image.message = None

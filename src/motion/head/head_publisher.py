@@ -32,7 +32,28 @@ class HeadPublisher:
         self.image_width = 640
         self.image_heigth = 480
 
+        self._reset_face_coordinates()
+
+        self.face_coords_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, self.callback_face_coords)
+
         #self.step = 10
+
+    def _reset_face_coordinates(self):
+        self.x = None
+        self.y = None
+        self.w = None
+        self.h = None
+
+    def callback_face_coords(self, data: FaceCoordinates):
+        self.x = data.x
+        self.y = data.y
+        self.w = data.w
+        self.h = data.h
+        if self.x is not None and self.y is not None and self.w is not None and self.h is not None:
+            if self.w != 0 and self.h != 0:
+                self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + self.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
+
+        self._reset_face_coordinates()
 
     def _get_h_angle_by_x_coord(self, x: int) -> int:
         return self.min_h_angle + (self.max_h_angle - self.min_h_angle) * x // self.image_width
@@ -79,29 +100,29 @@ class HeadPublisher:
     def move_up_left(self):
         self.send_message(self.form_message(h_angle=0.0, v_angle=90.0))
 
-    def move_to_face(self):
-
-        self.face_coords_recieved = False
-        self.x, self.y, self.w, self.h = None, None, None, None
-
-        def callback_face_coords(data: FaceCoordinates):
-            self.x = data.x
-            self.y = data.y
-            self.w = data.w
-            self.h = data.h
-            self.face_coords_recieved = True
-
-        face_coords_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, callback_face_coords)
-
-        start = time.time()
-        while time.time() - start < 1 and self.face_coords_recieved is False:
-            time.sleep(0.1)
-
-        face_coords_sub.unregister()
-
-        if self.x is not None and self.y is not None and self.w is not None and self.h is not None:
-            if self.w != 0 and self.h != 0:
-                self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + self.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
+    # def move_to_face(self):
+    #
+    #     self.face_coords_recieved = False
+    #     self.x, self.y, self.w, self.h = None, None, None, None
+    #
+    #     def callback_face_coords(data: FaceCoordinates):
+    #         self.x = data.x
+    #         self.y = data.y
+    #         self.w = data.w
+    #         self.h = data.h
+    #         self.face_coords_recieved = True
+    #
+    #     face_coords_sub = rospy.Subscriber('/vision_face_tracking/face_coord', FaceCoordinates, callback_face_coords)
+    #
+    #     start = time.time()
+    #     while time.time() - start < 1 and self.face_coords_recieved is False:
+    #         time.sleep(0.1)
+    #
+    #     face_coords_sub.unregister()
+    #
+    #     if self.x is not None and self.y is not None and self.w is not None and self.h is not None:
+    #         if self.w != 0 and self.h != 0:
+    #             self.send_message(self.form_message(h_angle=self._get_h_angle_by_x_coord((self.x + self.w) / 2), v_angle=self._get_v_angle_by_y_coord((self.y + self.h) / 2) ))
 
     def set_h_angle(self, h_angle=0.0):
         if rospy.has_param('/head/v_angle'):
