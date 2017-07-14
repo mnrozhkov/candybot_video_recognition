@@ -19,7 +19,7 @@
 	<node name="motion_eyes_controller" pkg="candybot_v2" type="motion_eyes_controller.py" output="screen"/>
 	<node name="motion_head_controller" pkg="candybot_v2" type="motion_head_controller.py" output="screen"/>
 	<node name="motion_candy_dispenser_controller" pkg="candybot_v2" type="motion_candy_dispenser_controller.py" output="screen"/>
-	<node name="social_action_initializer" pkg="candybot_v2" type="social_action_initializer.py" />
+	<!--node name="social_action_initializer" pkg="candybot_v2" type="social_action_initializer.py" /-->
 	<node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen" />
 	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen" />
 

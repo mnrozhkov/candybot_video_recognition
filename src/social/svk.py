@@ -62,10 +62,10 @@ class VkNeewsfeedScanner:
         '''
         if self._session_opened is True:
             nf = self._api.newsfeed.search(q=hashtag)
-            wall = [0]
+            group_wall = [0]
             if len(self._group_access_token) > 0 and self._group_id != 0:
                 wall = self._api.wall.search(owner_id=-self._group_id, access_token=self._group_access_token, query=hashtag)
-            if nf[0] > 0 or wall[0] > 0:
+            if nf[0] > 0 or group_wall[0] > 0:
                 return True
             return False
         return None
@@ -90,6 +90,6 @@ class VkNeewsfeedScanner:
 
             if search_result is True:
                 return True
-            time.sleep(2)
+            time.sleep(1)
 
         return False

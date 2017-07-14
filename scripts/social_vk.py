@@ -29,13 +29,20 @@ if __name__ == '__main__':
                 if hashtag_posted_in_vk is True:
                     print('vk give candy')
                     give_candy_publisher.publish(True)
+                #rospy.set_param('social_vk_generate_hashtag', False)
+                #rospy.set_param('social_action_time_vk', time.time())
 
-        rospy.Subscriber('/social/vk/newsfeed_scanner/scan_command', Bool, callback_scan_command)
+        #rospy.Subscriber('/social/vk/newsfeed_scanner/scan_command', Bool, callback_scan_command)
 
+        #rospy.set_param('social_vk_loaded', True)
         while True:
             try:
                 rospy.get_master().getPid()
             except:
                 break
 
+            # if rospy.get_param('social_vk_generate_hashtag') is True:
+            #     callback_scan_command(Bool(data=True))
+            callback_scan_command(Bool(data=True))
+            print('v')
             time.sleep(0.1)
