@@ -61,13 +61,16 @@ class VkNeewsfeedScanner:
             None: could not take access to vk api
         '''
         if self._session_opened is True:
-            nf = self._api.newsfeed.search(q=hashtag)
-            group_wall = [0]
-            if len(self._group_access_token) > 0 and self._group_id != 0:
-                wall = self._api.wall.search(owner_id=-self._group_id, access_token=self._group_access_token, query=hashtag)
-            if nf[0] > 0 or group_wall[0] > 0:
-                return True
-            return False
+            try:
+                nf = self._api.newsfeed.search(q=hashtag)
+                group_wall = [0]
+                if len(self._group_access_token) > 0 and self._group_id != 0:
+                    group_wall = self._api.wall.search(owner_id=-self._group_id, access_token=self._group_access_token, query=hashtag)
+                if nf[0] > 0 or group_wall[0] > 0:
+                    return True
+                return False
+            except Exception as e:
+                ErrorLogger(__file__, e)
         return None
 
     def listen(self, hashtag: str, timeout: int) -> bool:
