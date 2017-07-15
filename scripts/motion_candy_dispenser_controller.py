@@ -43,7 +43,7 @@ def rotate_dispenser() -> bool:
 
 def callback_positive_emotions_detected(data: FaceFeatures):
     if 'happy' in data.emotions or 'surprise' in data.emotions:
-        if DISPENSER_ROTATES is False and data.data is True:
+        if DISPENSER_ROTATES is False:
             rotate_dispenser()
 
 
