@@ -37,7 +37,7 @@ if __name__ == '__main__':
                 break
 
             face_image_msg = lock_recognize.message
-            print('face_image for recognition recieved, type = ', type(face_image))
+            print('face_image for recognition recieved, type = ', type(face_image_msg))
             if isinstance(face_image_msg, Image):
                 face_image = ros_numpy.numpify(face_image_msg)
                 if face_image is not None:
