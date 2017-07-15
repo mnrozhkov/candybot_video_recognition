@@ -36,11 +36,11 @@ class TestFindfaceSendImage(unittest.TestCase):
         self.assertEqual(ros_is_running, True)
         self.assertEqual(vision_facial_nodes_is_running, True)
 
-        answer_recieved = False
+        self.answer_recieved = False
 
         def callback_findface_answer(data: FaceFeatures):
             if isinstance(data, FaceFeatures):
-                answer_recieved = True
+                self.answer_recieved = True
 
         answer_reciever_sub = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_findface_answer)
 
@@ -50,10 +50,10 @@ class TestFindfaceSendImage(unittest.TestCase):
         image_publisher.publish(img)
 
         start = time.time()
-        while time.time() - start < FINDFACE_ANSWER_TIMEOUT and answer_recieved is False:
+        while time.time() - start < FINDFACE_ANSWER_TIMEOUT and self.answer_recieved is False:
             time.sleep(0.1)
 
-        self.assertEqual(answer_recieved, True)
+        self.assertEqual(self.answer_recieved, True)
 
         answer_reciever_sub.unregister()
         image_publisher.unregister()

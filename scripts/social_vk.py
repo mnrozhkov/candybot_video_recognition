@@ -44,5 +44,4 @@ if __name__ == '__main__':
             # if rospy.get_param('social_vk_generate_hashtag') is True:
             #     callback_scan_command(Bool(data=True))
             callback_scan_command(Bool(data=True))
-            print('v')
             time.sleep(0.1)
