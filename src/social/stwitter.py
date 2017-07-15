@@ -37,7 +37,7 @@ class TwitterCodeScanner:
         self.ACCESS_SECRET=TW_ACCESS_TOKEN_SECRET
         self.oauth = OAuth(self.ACCESS_TOKEN, self.ACCESS_SECRET, self.CONSUMER_KEY, self.CONSUMER_SECRET)
         # Initiate the connection to Twitter Streaming API
-        self.twitter_stream = TwitterStream(auth=self.oauth, timeout=30)
+        self.twitter_stream = TwitterStream(auth=self.oauth)
         self.required_track = required_track
 
     def generate_code(self) -> str:

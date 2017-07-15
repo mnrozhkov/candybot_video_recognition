@@ -11,7 +11,7 @@ import time
 TIMEOUT = 5
 DISPENSER_ROTATES = False
 
-ser = serial.Serial('/dev/ttyACM0', 9600)
+ser = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=TIMEOUT)
 dispenser = Dispenser(SERVO_CHANNEL=4)
 
 
