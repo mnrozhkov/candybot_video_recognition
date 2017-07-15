@@ -52,3 +52,8 @@ class TestVkPost(unittest.TestCase):
         self.assertEqual(self.give_candy_command_recieved, True)
 
         give_candy_sub.unregister()
+
+
+if __name__ == '__main__':
+    rospy.init_node('test_social_vk')
+    unittest.main()
