@@ -11,7 +11,7 @@
 	<node name="core_motion_manager" pkg="candybot_v2" type="core_motion_manager.py" output="screen"/>
 	<node name="vision_camera_capture" pkg="candybot_v2" type="vision_camera_capture.py" output="screen"/>
 	<node name="vision_face_tracking" pkg="candybot_v2" type="vision_face_tracking.py" output="screen"/>
-	<node name="vision_face_recognition" pkg="candybot_v2" type="vision_face_recognition.py" output="log"/>
+	<node name="vision_face_recognition" pkg="candybot_v2" type="vision_face_recognition.py" output="screen"/>
 	<!--node name="vision_photo_capture" pkg="candybot_v2" type="vision_photo_capture.py" output="log"/>
 	<node name="vision_video_capture" pkg="candybot_v2" type="vision_video_capture.py" output="log"/-->
 	<node name="motion_body_controller" pkg="candybot_v2" type="motion_body_controller.py" output="screen"/>
