@@ -8,7 +8,7 @@ from std_msgs.msg import Bool
 
 import time
 
-TIMEOUT = 5
+TIMEOUT = 0.4
 DISPENSER_ROTATES = False
 
 ser = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=TIMEOUT)

@@ -54,7 +54,7 @@ if __name__ == '__main__':
                         face_features_msg.gender = face_features['gender']
                         face_features_msg.age = face_features['age']
 
-                        if 'happy' in data.emotions or 'surprise' in face_features['emotions']:
+                        if 'happy' in face_features['emotions'] or 'surprise' in face_features['emotions']:
                             smile_detected_msg = SmileDetected(detected=smile)
                             smile_detected_publisher.publish(smile_detected_msg)
 
