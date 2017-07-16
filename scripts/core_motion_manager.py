@@ -50,7 +50,7 @@ class MotionMaker:
 
         self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, self.callback_pattern)
         self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, self.callback_emotion)
-        #self.smile_sub = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, self.callback_smile_detected)
+        self.smile_sub = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, self.callback_smile_detected)
 
         self.eyebrows_position = 0
         self.eyebrows_pos_switch_time = time.time()

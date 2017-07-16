@@ -5,7 +5,7 @@ face recognition node
 '''
 
 import rospy
-from candybot_v2.msg import FaceFeatures
+from candybot_v2.msg import FaceFeatures, SmileDetected
 import ros_numpy
 from sensor_msgs.msg import Image
 
@@ -25,6 +25,7 @@ if __name__ == '__main__':
     if rospy.has_param('findface_token'):
         findface.token=rospy.get_param('findface_token')
         face_info_publisher = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
+        smile_detected_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
 
         lock_recognize = Lock()
         rospy.Subscriber('/vision_face_tracking/face_image', Image, lock_recognize.callback)
@@ -45,6 +46,7 @@ if __name__ == '__main__':
                     #search other features: emotions, gender, age
                     binary_face_image = image_format_converter.ndarray2format(face_image)
                     face_features = findface.detect_closest_face(binary_face_image)
+                    #print(face_features_msg)
                     print('face features request result: ', face_features)
                     if face_features is not None:
                         face_features_msg = FaceFeatures()
@@ -52,7 +54,10 @@ if __name__ == '__main__':
                         face_features_msg.gender = face_features['gender']
                         face_features_msg.age = face_features['age']
 
-                        #print(face_features_msg)
+                        if 'happy' in data.emotions or 'surprise' in face_features['emotions']:
+                            smile_detected_msg = SmileDetected(detected=smile)
+                            smile_detected_publisher.publish(smile_detected_msg)
+
                         face_info_publisher.publish(face_features_msg)
 
             if lock_recognize.message == face_image_msg:
