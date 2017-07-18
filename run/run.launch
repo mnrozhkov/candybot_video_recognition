@@ -30,4 +30,6 @@
 	<node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen" />
 	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen" />
 
+	<node name="topic_stat" pkg="candybot_v2" type="topic_stat.py" output="screen"/>
+
 </launch>

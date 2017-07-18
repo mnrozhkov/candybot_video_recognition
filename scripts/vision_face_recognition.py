@@ -17,6 +17,13 @@ import time
 
 from utils.topic_controller import Lock
 
+import sys
+sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
+import cv2
+
+PHOTO_SAVE_PATH = 'photos'
+if os.path.exists(PHOTO_SAVE_PATH) is False:
+    os.mkdir(PHOTO_SAVE_PATH)
 
 if __name__ == '__main__':
 
@@ -49,6 +56,7 @@ if __name__ == '__main__':
                     #print(face_features_msg)
                     print('face features request result: ', face_features)
                     if face_features is not None:
+                        cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + '.png', face_image)
                         face_features_msg = FaceFeatures()
                         face_features_msg.emotions = face_features['emotions']
                         face_features_msg.gender = face_features['gender']
@@ -59,6 +67,8 @@ if __name__ == '__main__':
                             smile_detected_publisher.publish(smile_detected_msg)
 
                         face_info_publisher.publish(face_features_msg)
+                    else:
+                        cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + 'nonemotions.png', face_image)
 
             if lock_recognize.message == face_image_msg:
                 lock_recognize.message = None
