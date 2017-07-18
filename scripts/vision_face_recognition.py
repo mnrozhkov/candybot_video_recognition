@@ -21,9 +21,11 @@ import sys
 sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 import cv2
 
+import os
 PHOTO_SAVE_PATH = 'photos'
 if os.path.exists(PHOTO_SAVE_PATH) is False:
     os.mkdir(PHOTO_SAVE_PATH)
+
 
 if __name__ == '__main__':
 
