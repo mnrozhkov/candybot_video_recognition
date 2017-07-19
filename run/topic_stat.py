@@ -103,10 +103,18 @@ if __name__ == '__main__':
 	ts.add_subscriber('/motion_head_controller/head_motion', HeadMotion, lambda data: ts._save_text('/motion_head_controller/head_motion', 'h_angle: {0}, v_angle: {1}, emotion: {1}'.format(data.h_angle, data.v_angle, data.emotion)))
 	# ts.add_subscriber('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, lambda data: ts._save_text('/dialog_bot_manager/bot_dialog', 'text: {0}, action_name: {1}, action_parameters_in_json: {2}'.format(data.text, data.action_name, data.action_parameters_in_json)))
 
-	ts.add_subscriber('/motion_body_controller/body_state', BodyState, lambda _data: data = _data.state, ts._save_text('/motion_body_controller/body_state', 'angle: {0}, emotion: {1}'.format(data.angle, data.emotion)))
-	ts.add_subscriber('/motion_eyebrows_controller/eyebrows_motion', EyebrowsState, lambda _data: data = _data.state, ts._save_text('/motion_eyebrows_controller/eyebrows_state', 'l_angle: {0}, r_angle: {1}, emotion: {2}'.format(data.l_angle, data.r_angle, data.emotion)))
+	ts.add_subscriber('/motion_body_controller/body_state', BodyState,
+		lambda _data: ts._save_text('/motion_body_controller/body_state',
+			'angle: {0}, emotion: {1}'.format(_data.state.angle, _data.state.emotion)))
+
+	ts.add_subscriber('/motion_eyebrows_controller/eyebrows_motion', EyebrowsState,
+		lambda _data: ts._save_text('/motion_eyebrows_controller/eyebrows_state',
+			'l_angle: {0}, r_angle: {1}, emotion: {2}'.format(_data.state.l_angle, _data.state.r_angle, _data.state.emotion)))
+
 	ts.add_subscriber('/motion_eyes_controller/eyes_motion', EyesState, lambda data: ts._save_text('/motion_eyes_controller/eyebrows_state', 'x: {0}, y: {1}, emotion: {2}'.format(str(data.x), str(data.y), data.emotion)))
-	ts.add_subscriber('/motion_head_controller/head_motion', HeadState, lambda _data: data = _data.state ts._save_text('/motion_head_controller/head_state', 'h_angle: {0}, v_angle: {1}, emotion: {1}'.format(data.h_angle, data.v_angle, data.emotion)))
+	ts.add_subscriber('/motion_head_controller/head_motion', HeadState,
+		lambda _data: ts._save_text('/motion_head_controller/head_state',
+		'h_angle: {0}, v_angle: {1}, emotion: {2}'.format(_data.state.h_angle, _data.state.v_angle, _data.state.emotion)) )
 
 	# ts.add_subscriber('/social/twitter/code_scanner/code', String, lambda data: ts._save_text('/social/twitter/code_scanner/code', data.data))
 	# ts.add_subscriber('/social/vk/newsfeed_scanner/hashtag', String, lambda data: ts._save_text('/social/vk/newsfeed_scanner/hashtag', data.data))
@@ -115,7 +123,7 @@ if __name__ == '__main__':
 	# ts.add_subscriber('/speech_synthesizer/speech_audio', Audio, lambda data: ts._save_audio('/speech_synthesizer/speech_audio', data.content))
 
 	# ts.add_subscriber('/vision_camera_capture/image', Image, lambda data: ts._save_image('/vision_camera_capture/image', ros_numpy.numpify(data)))
-	ts.add_subscriber('/vision_face_recognition/face_info', FaceFeatures, lambda data: ts._save_text('/vision_face_recognition/face_info', 'emotion: {0}, gender: {1}, age: [{2}, {3}]'.format(data.emotion, data.gender, str(data.min_age), str(data.max_age))))
+	ts.add_subscriber('/vision_face_recognition/face_info', FaceFeatures, lambda data: ts._save_text('/vision_face_recognition/face_info', 'emotions: {0}, gender: {1}, age: {2}'.format(data.emotions, data.gender, str(data.age)) )  )
 	ts.add_subscriber('/vision_face_tracking/face_coord', FaceCoordinates, lambda data: ts._save_text('/vision_face_tracking/face_coord', 'x: {0}, y: {1}, w: {2}, h: {3}'.format(str(data.x), str(data.y), str(data.w), str(data.h))))
 	# ts.add_subscriber('/vision_face_tracking/face_image', Image, lambda data: ts._save_image('/vision_face_tracking/face_image', ros_numpy.numpify(data)))
 
