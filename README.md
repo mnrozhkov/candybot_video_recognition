@@ -1,15 +1,15 @@
 1. Setup
 
-	1. install docker image candybot_vr
+	1. install docker image candybot_gui
 
-		sudo docker pull funrobots/candybot_vr
+		sudo docker pull meisterurian/candybot_gui
 
 	2. install python3 libraries in docker:
 
 		pip3 install luma.core git+https://github.com/adafruit/Adafruit_Python_PCA9685.git
 
 
-	3. Run candybot_vr image
+	3. Run candybot_gui image
 
 	sudo docker run -ti -p 11311:11311 --privileged --device /dev:/dev candybot_gui
 
@@ -45,6 +45,8 @@
 				catkin_make install
 
 	5. install (get) script(s) for convinient work with Candybot system, scripts allow to make run commands shorter:
+
+		cd ~
 
 		git clone https://github.com/FunRobots/scripts.git
 
@@ -91,14 +93,22 @@
 
 						sudo docker run -w="/root/catkin_ws" -ti -p 11311:11311 --privileged --device /dev:/dev candybot_gui /bin/bash -c "source /opt/ros/kinetic/setup.bash; roslaunch candybot_v2 <node_name>.launch"
 
-					c) with run script (for installation see 1.):
+					c) with run script (for installation see 1.5):
 
-						candybot_vr.sh run_package
+						cd ~/scripts
 
-						as daemon
+						- 1st method (allows to run package only):
 
-							candybot_vr.sh run_package -d
+								./candybot_vr.sh run_package
 
+								as daemon:
+
+									candybot_vr.sh run_package -d
+
+						- 2nd method (allows to run package and work with image filesystem):
+
+								./candybot_vr.sh enter_package
+								roslaunch candybot_v2 run.launch
 
 3. save changes in docker image (commit):
 
