@@ -37,7 +37,7 @@ if __name__ == '__main__':
             if ret:
                 frame = cv2.flip(frm, 0)
                 #frame = frm
-                image = ros_numpy.msgify(Image, frame, encoding='rgb8')
+                image = ros_numpy.msgify(Image, frame, encoding='bgr8')
                 publisher.publish(image)
                 time.sleep(0.1)
 

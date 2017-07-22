@@ -70,8 +70,8 @@ if __name__ == '__main__':
 ##                    eyes_pub.move_down()
 
                 #face_array = image[x:x+w, y:y+h]
-                #face_image_msg = ros_numpy.msgify(Image, face_array, encoding='rgb8')
-                
+                #face_image_msg = ros_numpy.msgify(Image, face_array, encoding='bgr8')
+
                 #search smile in face region
                 # smile = tracker.detect_smile(face_array)
                 # if smile is None:
