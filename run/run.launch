@@ -1,5 +1,8 @@
 <launch>
 
+	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+	<node name="web_video_server" pkg="web_video_server" type="web_video_server"/>
+	
 	<!--Load softwate configuration -->
 	<include file="$(find candybot_v2)/run/software_config.launch" />
 
