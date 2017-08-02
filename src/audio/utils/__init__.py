@@ -3,7 +3,6 @@
 import rospy
 import json
 
-import logging
 import os
 
 from utils import ErrorLogger

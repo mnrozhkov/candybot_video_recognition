@@ -8,7 +8,6 @@ import rospy
 from candybot_v2.msg import Audio, BotSpeechText
 
 from audio.synthesizer import Talker
-from audio.utils import audio_format_converter
 
 from utils.topic_controller import Lock
 import time

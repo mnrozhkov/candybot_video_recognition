@@ -4,7 +4,6 @@ sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 
 import rospy
 import smach
-#import smach_ros
 
 from candybot_v2.msg import MotionPattern, Emotion
 from candybot_v2.msg import UserSpeechText, BotSpeechText, APIAIBotAnswer
@@ -13,8 +12,6 @@ from candybot_v2.msg import FaceCoordinates, SmileDetected, FaceFeatures
 from core.decision_state_machine import *
 
 import json
-
-import actionlib
 
 import time
 

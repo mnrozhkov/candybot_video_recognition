@@ -9,7 +9,6 @@ import std_msgs
 from candybot_v2.msg import Audio
 
 from audio.player import Player
-from audio.utils import audio_format_converter
 import io
 
 from utils.topic_controller import Lock

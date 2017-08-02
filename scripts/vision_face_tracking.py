@@ -9,10 +9,7 @@ from candybot_v2.msg import FaceCoordinates, SmileDetected
 import ros_numpy
 from sensor_msgs.msg import Image
 
-from vision.utils import image_format_converter
 from vision import face_detection
-
-import json
 
 from utils.topic_controller import Lock
 

@@ -8,11 +8,7 @@ sys.path.insert(1,'/usr/local/lib/python3.5/dist-packages')
 import io
 import pyaudio
 import wave
-import logging
 import base64
-
-import logging
-import os
 
 from utils import ErrorLogger
 

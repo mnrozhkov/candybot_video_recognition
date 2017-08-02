@@ -11,8 +11,6 @@ import rospy
 
 from audio.utils import read_pyaudio_config
 
-import logging
-
 from utils import ErrorLogger
 
 from typing import Dict

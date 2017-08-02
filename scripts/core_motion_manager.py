@@ -7,7 +7,6 @@ from motion.eyebrows.eyebrows_publisher import EyebrowsPublisher
 from motion.eyes.eyes_publisher import EyesPublisher
 from motion.head.head_publisher import HeadPublisher
 
-import json
 import yaml
 
 import time
@@ -19,7 +18,6 @@ sys.path.append(top)
 
 from utils import ErrorLogger
 
-import random
 
 class MotionMaker:
     '''

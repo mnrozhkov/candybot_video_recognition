@@ -6,7 +6,6 @@
 # Summary: Test for motion_eyes_controller
 # version: v1
 
-import os
 import sys
 from pathlib import Path
 

@@ -8,7 +8,6 @@ Candybot eyes module
 
 """
 
-import math
 from itertools import zip_longest #use zip_longest for Python3
 import rospy
 from candybot_v2.msg import EyesMotion, EyesState

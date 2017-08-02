@@ -6,7 +6,6 @@ publish message for head motions
 import rospy
 from candybot_v2.msg import HeadMotion, FaceCoordinates
 import time
-import math
 
 
 class HeadPublisher:

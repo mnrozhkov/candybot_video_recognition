@@ -8,7 +8,6 @@
 import sys
 
 import rospy
-import base64
 import logging
 import time
 
