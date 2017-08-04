@@ -106,7 +106,7 @@ class RMS:
 
             while time.time() - start < self.time_interval:
 
-                chunk = self.stream.read(self.chunk)
+                chunk = self.stream.read(self.chunk, exception_on_overflow=False)
                 cur_rms = audioop.rms(chunk, 2)
                 rms.append(cur_rms)
                 rate_index = audioop.rms(chunk, 2) // self.rms_interval_length
