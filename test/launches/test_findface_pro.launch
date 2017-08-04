@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_findface_pro" pkg="candybot_v2"
+    type="test_findface_pro.py" output="screen" />
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_motion_eyebrows_controller" pkg="candybot_v2"
+    type="test_motion_eyebrows_controller.py" output="screen" />
+</launch>

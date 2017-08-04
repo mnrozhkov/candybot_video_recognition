@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_social_vk" pkg="candybot_v2"
+    type="test_social_vk.py" output="screen" />
+</launch>

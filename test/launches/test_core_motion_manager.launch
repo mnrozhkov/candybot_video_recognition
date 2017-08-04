@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_core_motion_manager" pkg="candybot_v2"
+    type="test_core_motion_manager.py" output="screen" />
+</launch>

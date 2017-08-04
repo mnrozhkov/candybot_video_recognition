@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_motion_eyes_controller" pkg="candybot_v2"
+    type="test_motion_eyes_controller.py" output="screen" />
+</launch>

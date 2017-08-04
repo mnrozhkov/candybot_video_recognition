@@ -1,0 +1,4 @@
+<launch>
+  <node name="test_hardware_logger" pkg="candybot_v2"
+    type="test_hardware_logger.py" output="screen" />
+</launch>
