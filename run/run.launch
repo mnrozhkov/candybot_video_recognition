@@ -2,7 +2,7 @@
 
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 	<node name="web_video_server" pkg="web_video_server" type="web_video_server"/>
-	
+
 	<!--Load softwate configuration -->
 	<include file="$(find candybot_v2)/run/software_config.launch" />
 
@@ -30,8 +30,8 @@
 	<node name="motion_head_controller" pkg="candybot_v2" type="motion_head_controller.py" output="screen"/>
 	<node name="motion_candy_dispenser_controller" pkg="candybot_v2" type="motion_candy_dispenser_controller.py" output="screen"/>
 	<!--node name="social_action_initializer" pkg="candybot_v2" type="social_action_initializer.py" /-->
-	<node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen" />
-	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen" />
+	<!--node name="social_vk" pkg="candybot_v2" type="social_vk.py" output="screen" />
+	<node name="social_twitter" pkg="candybot_v2" type="social_twitter.py" output="screen" /-->
 
 	<node name="topic_stat" pkg="candybot_v2" type="topic_stat.py" output="screen"/>
 

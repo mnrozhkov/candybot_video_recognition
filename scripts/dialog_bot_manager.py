@@ -5,13 +5,14 @@ conversation with bot
 '''
 
 import rospy
-from candybot_v2.msg import UserSpeechText, APIAIBotAnswer
+from pathlib import Path
+TOP = Path(__file__).resolve().parents[1].as_posix()
+
+from candybot_v2.msg import UserSpeechText, APIAIBotAnswer, BotSpeechText
+from core.dialog_bot_manager import DialogManager
 import json
-
-from apiai_service.bot_client import APIAIBot
-
+#from apiai_service.bot_client import APIAIBot
 from utils.topic_controller import Lock
-
 import time
 
 
@@ -20,9 +21,18 @@ if __name__ == '__main__':
     rospy.init_node('dialog_bot_manager')
 
     if rospy.has_param('bot_client_key'):
-        bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
+        #bot = APIAIBot(client_key=rospy.get_param('bot_client_key'))
+        scheme_file_path = None
+        if rospy.has_param('scheme_file'):
+            scheme_filename = rospy.get_param('scheme_file')
+            if isinstance(scheme_filename, str) and len(scheme_filename) > 0:
+                scheme_file_path = TOP + '/run/' + rospy.get_param('scheme_file')
 
-        bot_decision_publisher = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
+        d_manager = DialogManager(scheme_file=scheme_file_path, \
+                                  apiai_bot_client_key=rospy.get_param('bot_client_key'))
+
+        #bot_decision_publisher = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
+        speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
         lock_bot_request = Lock()
         rospy.Subscriber('/speech_recognition/user_speech_text', UserSpeechText, lock_bot_request.callback)
         print('dialog bot manager start')
@@ -36,15 +46,22 @@ if __name__ == '__main__':
             user_speech_text_msg = lock_bot_request.message
             print('user text in bot: ', user_speech_text_msg)
             if isinstance(user_speech_text_msg, UserSpeechText):
-                bot_answer = bot.request(user_speech_text_msg.text)
-                print('bot_answer:', bot_answer)
-                if isinstance(bot_answer, dict):
-                    bot_answer_msg = APIAIBotAnswer()
-                    bot_answer_msg.text = bot_answer['text']
-                    bot_answer_msg.action_name = bot_answer['action']['name']
-                    bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
+                speech_text = user_speech_text_msg.text
+                pause_duration = 0
+                if rospy.has_param('start_listen_to_speech'):
+                    pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
 
-                    bot_decision_publisher.publish(bot_answer_msg)
+                d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
+                speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))
+                # bot_answer = bot.request(user_speech_text_msg.text)
+                # print('bot_answer:', bot_answer)
+                # if isinstance(bot_answer, dict):
+                #     bot_answer_msg = APIAIBotAnswer()
+                #     bot_answer_msg.text = bot_answer['text']
+                #     bot_answer_msg.action_name = bot_answer['action']['name']
+                #     bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
+                #
+                #     bot_decision_publisher.publish(bot_answer_msg)
 
             if lock_bot_request.message == user_speech_text_msg:
                 lock_bot_request.message = None

@@ -22,7 +22,7 @@ class BotAnswerState(smach.State):
         smach.State.__init__(self, outcomes=['outcome1', 'outcome2'],
                                    input_keys=['bot_text_answer', 'bot_action_answer']
                             )
-        self.speech_synthesis_publisher = self.speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
+        self.speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
         self.pattern_publisher = rospy.Publisher('/core_decision_manager/pattern', MotionPattern, queue_size=1)
 
     def execute(self, userdata):
