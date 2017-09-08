@@ -1,3 +1,6 @@
+test/*.jpg
+test/*.png
+
 logs/
 recognized_text/
 photos/

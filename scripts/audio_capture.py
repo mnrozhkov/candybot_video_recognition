@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 '''
     1. capture sound
-    2. convert it to string
-    3. publish string
+    2. publish sound
 '''
 
 import sys
