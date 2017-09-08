@@ -48,18 +48,24 @@ if __name__ == '__main__':
             except:
                 break
 
+            speech_text = str()
+            pause_duration = 0
+
             user_speech_text_msg = lock_bot_request.message
             print('user text in bot: ', user_speech_text_msg)
-            if isinstance(user_speech_text_msg, UserSpeechText) and user_speech_text_msg.text.strip().lower().startswith(BOT_NAME):
-                speech_text = user_speech_text_msg.text
-                pause_duration = 0
-                if rospy.has_param('start_listen_to_speech'):
-                    pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
-                    rospy.delete_param('start_listen_to_speech')
 
-                d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
-                speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))
-                action_manager.publish(d_manager.action_name)
+            if d_manager.required_intent is not None:
+                if d_manager.required_intent.listen_user is True:
+                    if isinstance(user_speech_text_msg, UserSpeechText) and user_speech_text_msg.text.strip().lower().startswith(BOT_NAME):
+                        speech_text = user_speech_text_msg.text
+                        if rospy.has_param('start_listen_to_speech'):
+                            pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
+                            rospy.delete_param('start_listen_to_speech')
+
+            d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
+            speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))
+            action_manager.publish(d_manager.action_name)
+
                 # bot_answer = bot.request(user_speech_text_msg.text)
                 # print('bot_answer:', bot_answer)
                 # if isinstance(bot_answer, dict):
