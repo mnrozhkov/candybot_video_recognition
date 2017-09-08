@@ -64,10 +64,10 @@ class WeatherInfo:
                     weather = info['main']
 
                     weather_info = str()
-                    weather_info += 'температура: ' + weather['temp'] + ' градусов, '
-                    weather_info += 'давление: ' + weather['pressure'] + ' миллиметров ртутного столба, '
-                    weather_info += 'облачность: ' + weather['humidity'] + ' процентов, '
-                    weather_info += 'ветер: ' + info['wind']['speed'] + ' метров в секунду, '
+                    weather_info += 'температура: ' + str(weather['temp']) + ' градусов, '
+                    weather_info += 'давление: ' + str(weather['pressure']) + ' миллиметров ртутного столба, '
+                    weather_info += 'облачность: ' + str(weather['humidity']) + ' процентов, '
+                    weather_info += 'ветер: ' + str(info['wind']['speed']) + ' метров в секунду, '
                     weather_info += self._wind_direction(info['wind']['deg'])
 
                     return weather_info
