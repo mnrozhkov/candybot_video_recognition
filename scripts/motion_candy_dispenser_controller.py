@@ -61,6 +61,11 @@ def callback_twitter_topic_published(data: Bool):
         rotate_dispenser()
 
 
+def callback_action_give_candy(data: Bool):
+    if DISPENSER_ROTATES is False and data.data is True:
+        rotate_dispenser()
+
+
 if __name__ == '__main__':
     rospy.init_node('motion_candy_dispenser_controller')
 
@@ -69,6 +74,7 @@ if __name__ == '__main__':
     #face_features_subscriber = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_positive_emotions_detected)
     vk_topic_published_sub = rospy.Subscriber('/social/vk/newsfeed_scanner/give_candy', Bool, callback_vk_topic_published)
     twitter_topic_published_sub = rospy.Subscriber('/social/twitter/code_scanner/give_candy', Bool, callback_twitter_topic_published)
+    action_give_candy_sub = rospy.Subscriber('/action_manager/give_candy', Bool, callback_action_give_candy)
 
     while True:
         try:

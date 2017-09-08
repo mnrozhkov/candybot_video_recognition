@@ -36,7 +36,7 @@ class WeatherInfo:
         deg %= 360
         return directions[int(deg) // 45]
 
-    def get_weather(self, city_name='Москва'):
+    def get_weather(self, city_name='Москва') -> str:
         '''
         Get weather information
         Args:
@@ -63,12 +63,12 @@ class WeatherInfo:
                     info = json.loads(req.read().decode('utf-8'))
                     weather = info['main']
 
-                    weather_info = dict()
-                    weather_info['temp'] = weather['temp']
-                    weather_info['pressure'] = weather['pressure']
-                    weather_info['humidity'] = weather['humidity']
-                    weather_info['wind_speed'] = info['wind']['speed']
-                    weather_info['wind_direction'] = self._wind_direction(info['wind']['deg'])
+                    weather_info = str()
+                    weather_info += 'температура: ' + weather['temp'] + ' градусов, '
+                    weather_info += 'давление: ' + weather['pressure'] + ' миллиметров ртутного столба, '
+                    weather_info += 'облачность: ' + weather['humidity'] + ' процентов, '
+                    weather_info += 'ветер: ' + info['wind']['speed'] + ' метров в секунду, '
+                    weather_info += self._wind_direction(info['wind']['deg'])
 
                     return weather_info
                 except Exception as e:
