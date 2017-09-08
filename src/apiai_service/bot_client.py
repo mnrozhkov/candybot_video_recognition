@@ -88,13 +88,10 @@ class APIAIBot:
             answer = dict()
             #extract bot answer
             answer['text'] = intent['result']['fulfillment']['speech']
-            answer['action'] = dict()
-            answer['action']['name'] = str()
-            answer['action']['parameters'] = str()
-            #if command is complete (all required fields are filled), extract the command information
-            if 'actionIncomplete' in intent['result'] and intent['result']['actionIncomplete'] is False:
-                answer['action']['name'] = intent['result']['action']
-                answer['action']['parameters'] = intent['result']['parameters']
+            answer['action_name'] = str()
+            answer['action_parameters'] = str()
+            answer['action_name'] = intent['result']['action']
+            answer['action_parameters'] = intent['result']['parameters']
 
             return answer
         except Exception as e:

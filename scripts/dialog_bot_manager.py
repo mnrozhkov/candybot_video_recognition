@@ -8,6 +8,7 @@ import rospy
 from pathlib import Path
 TOP = Path(__file__).resolve().parents[1].as_posix()
 
+from std_msgs.msg import String
 from candybot_v2.msg import UserSpeechText, APIAIBotAnswer, BotSpeechText
 from core.dialog_bot_manager import DialogManager
 import json
@@ -35,6 +36,8 @@ if __name__ == '__main__':
 
         #bot_decision_publisher = rospy.Publisher('/dialog_bot_manager/bot_dialog', APIAIBotAnswer, queue_size=1)
         speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
+        action_publisher = rospy.Publisher('/action_manager/action_name', String, queue_size=1)
+
         lock_bot_request = Lock()
         rospy.Subscriber('/speech_recognition/user_speech_text', UserSpeechText, lock_bot_request.callback)
         print('dialog bot manager start')
@@ -56,6 +59,7 @@ if __name__ == '__main__':
 
                 d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
                 speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))
+                action_manager.publish(d_manager.action_name)
                 # bot_answer = bot.request(user_speech_text_msg.text)
                 # print('bot_answer:', bot_answer)
                 # if isinstance(bot_answer, dict):

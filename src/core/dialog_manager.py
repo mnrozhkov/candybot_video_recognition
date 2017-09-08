@@ -50,6 +50,7 @@ class DialogManager:
         self.scenario_complete = False
 
         self.say_to_user = str()
+        self.action_name = str()
 
     def _extract_intent_names(self) -> List[str] or None:
         '''
@@ -164,6 +165,8 @@ class DialogManager:
         '''
 
         self.say_to_user = str()
+        self.action_name = str()
+
         if self.scenario_complete is False:
             try:
                 #make request to bot
@@ -180,6 +183,7 @@ class DialogManager:
                                                 save_intent=bot_answer['actionIncomplete'])
                             #and process it after complete
                             self._process_intent_after_complete(intent=self.required_intent)
+                            self.action_name = bot_answer.get('action_name')
                     else: #if it is NOT required to listen to user
                         self.required_intent.run() #run intent and proccess it after complete
                         self._process_intent_after_complete(intent=self.required_intent)
@@ -190,5 +194,6 @@ class DialogManager:
                         self._process_intent_after_complete(intent=intent_from_set)
                     else: #if the intent is absent in scheme
                         self._append_say_to_user_text(bot_answer.get('text')) #voice text from bot answer
+                        self.action_name = bot_answer.get('action_name')
             except Exception as e:
                 ErrorLogger(__file__, e)
