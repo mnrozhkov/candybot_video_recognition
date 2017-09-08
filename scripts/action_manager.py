@@ -4,6 +4,7 @@ import rospy
 from std_msgs.msg import String, Bool
 from candybot_v2.msg import BotSpeechText
 from network.weather import WeatherInfo
+import time
 
 class ActionManager:
 
@@ -13,7 +14,7 @@ class ActionManager:
             'say_weather': self._say_weather
         }
 
-        rospy.Subscriber('/action_manager/action', String, self._callback_action)
+        rospy.Subscriber('/action_manager/action_name', String, self._callback_action)
 
         self.give_candy_publisher('/action_manager/give_candy', Bool, queue_size=1)
         self.say_weather_publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
@@ -39,9 +40,13 @@ if __name__ == '__main__':
 
     rospy.init_node('action_manager')
 
+    action_manager = ActionManager()
+
     while True:
 
         try:
             rospy.get_master.getPid()
         except:
             break
+
+        time.sleep(0.5)
