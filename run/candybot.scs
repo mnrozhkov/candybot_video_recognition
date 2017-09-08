@@ -3,7 +3,7 @@
     {
       "intent_name": "hello",
       "listen_user": true,
-      "inititate_intent": ["CANDY_OFFER"]
+      "initiate_intent": ["CANDY_OFFER"]
     }
   ]
 }

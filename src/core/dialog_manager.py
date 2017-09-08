@@ -38,11 +38,14 @@ class DialogManager:
         self.scheme = json.load(open(scheme_file, 'r')) if scheme_file is not None and os.path.exists(scheme_file) else dict()
         self.start_settings = self.scheme.get('start')
         self.intent_list = self.scheme.get('intent_list')
+        if self.intent_list is None: self.intent_list = list()
+        print('intent_list:', self.intent_list)
         self.required_intent_name_list = self.start_settings.get('intent_name') if isinstance(self.start_settings, dict) else None
         self.required_intent_name = self.required_intent_name_list[random.randint(0, len(self.required_intent_name_list) - 1)] if isinstance(self.required_intent_name_list, list) else None
         self.required_intent = self._build_intent_by_name(self.required_intent_name)
 
         self.intent_names = self._extract_intent_names()
+        print('intent_names:', self.intent_names)
 
         self.apiai_bot_client_key = apiai_bot_client_key
         self.bot = APIAIBot(client_key=self.apiai_bot_client_key)
@@ -104,7 +107,8 @@ class DialogManager:
                 return None
 
     def _append_say_to_user_text(self, text):
-        self.say_to_user += text + '.'
+        if isinstance(text, str):
+            self.say_to_user += text + '.'
 
     def _initiate_intent(self, intent_name) -> None:
         '''
@@ -138,7 +142,7 @@ class DialogManager:
         Args:
             intent: Intent class object
         '''
-
+        print('initiate_intent_with_name:', intent.initiate_intent_with_name)
         try:
             if self.required_intent_name != intent.next_intent_name:
                 self.required_intent = self._build_intent_by_name(intent.next_intent_name) #build required intent
@@ -164,6 +168,7 @@ class DialogManager:
         proccess scheme (execute scenario)
         '''
 
+        print('make_next_intent')
         self.say_to_user = str()
         self.action_name = str()
 
@@ -188,9 +193,13 @@ class DialogManager:
                         self.required_intent.run() #run intent and proccess it after complete
                         self._process_intent_after_complete(intent=self.required_intent)
                 else: #if required intent is absent
+                    print('bot answer:', bot_answer)
                     if bot_answer.get('intent_name') in self.intent_names: #if initiated in api.ai intent exists in scheme
+                        print('intent in intent names')
                         intent_from_set = self._build_intent_by_name(intent_name=bot_answer.get('intent_name')) #build intent object
-                        intent_from_set.run(pause=pause) #run it and proccess
+                        intent_from_set.run(pause=pause_duration, \
+                                            say_to_user=bot_answer.get('text'), \
+                                            save_intent=bot_answer['actionIncomplete']) #run it and proccess
                         self._process_intent_after_complete(intent=intent_from_set)
                     else: #if the intent is absent in scheme
                         self._append_say_to_user_text(bot_answer.get('text')) #voice text from bot answer

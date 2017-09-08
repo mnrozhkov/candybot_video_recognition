@@ -87,12 +87,14 @@ class APIAIBot:
         try:
             answer = dict()
             #extract bot answer
+            answer['intent_name'] = intent['result']['metadata']['intentName']
             answer['text'] = intent['result']['fulfillment']['speech']
             answer['action_name'] = str()
             answer['action_parameters'] = str()
             answer['action_name'] = intent['result']['action']
             answer['action_parameters'] = intent['result']['parameters']
-
+            answer['actionIncomplete'] = intent['result']['actionIncomplete']
+            
             return answer
         except Exception as e:
             logging.error(str(e))

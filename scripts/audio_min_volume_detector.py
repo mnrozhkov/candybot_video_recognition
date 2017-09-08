@@ -44,7 +44,12 @@ class RMS:
             self.channels = pyaudio_config['channels']
             self.input_device = pyaudio_config['input_device']
 
-            self.stream = self.audio.open(format=pyaudio.paInt16, channels=self.channels, rate=self.rate, input=True, input_device_index=self.input_device, frames_per_buffer=self.chunk)
+            self.stream = self.audio.open(format=pyaudio.paInt16, \
+                                          channels=self.channels, \
+                                          rate=self.rate, \
+                                          input=True, \
+                                          #input_device_index=self.input_device,
+                                          frames_per_buffer=self.chunk)
             self.stream.start_stream()
 
             if rms_intervals_number is None:
