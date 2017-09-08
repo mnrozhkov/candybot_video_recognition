@@ -39,7 +39,7 @@ class DialogManager:
         self.start_settings = self.scheme.get('start')
         self.intent_list = self.scheme.get('intent_list')
         self.required_intent_name_list = self.start_settings.get('intent_name') if isinstance(self.start_settings, dict) else None
-        self.required_intent_name = self.required_intent_name_list[random.randint(0, len(self.required_intent_name_list) - 1)]
+        self.required_intent_name = self.required_intent_name_list[random.randint(0, len(self.required_intent_name_list) - 1)] if isinstance(self.required_intent_name_list, list) else None
         self.required_intent = self._build_intent_by_name(self.required_intent_name)
 
         self.intent_names = self._extract_intent_names()
