@@ -15,6 +15,8 @@ import json
 from utils.topic_controller import Lock
 import time
 
+BOT_NAME = "арнольд"
+
 
 if __name__ == '__main__':
 
@@ -45,11 +47,12 @@ if __name__ == '__main__':
 
             user_speech_text_msg = lock_bot_request.message
             print('user text in bot: ', user_speech_text_msg)
-            if isinstance(user_speech_text_msg, UserSpeechText):
+            if isinstance(user_speech_text_msg, UserSpeechText) and user_speech_text_msg.text.strip().lower().startswith(BOT_NAME):
                 speech_text = user_speech_text_msg.text
                 pause_duration = 0
                 if rospy.has_param('start_listen_to_speech'):
                     pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
+                    rospy.delete_param('start_listen_to_speech')
 
                 d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
                 speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))

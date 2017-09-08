@@ -5,7 +5,7 @@ face recognition node
 '''
 
 import rospy
-from candybot_v2.msg import FaceFeatures, SmileDetected
+from candybot_v2.msg import FaceFeatures, SmileDetected, UserSpeechText
 import ros_numpy
 from sensor_msgs.msg import Image
 
@@ -35,6 +35,7 @@ if __name__ == '__main__':
         findface.token=rospy.get_param('findface_token')
         face_info_publisher = rospy.Publisher('/vision_face_recognition/face_info', FaceFeatures, queue_size=1)
         smile_detected_publisher = rospy.Publisher('/vision_face_tracking/smile_detected', SmileDetected, queue_size=1)
+        user_speech_publisher = rospy.Publisher('/speech_recognition/user_speech_text', UserSpeechText, queue_size=1)
 
         lock_recognize = Lock()
         rospy.Subscriber('/vision_face_tracking/face_image', Image, lock_recognize.callback)
@@ -65,8 +66,9 @@ if __name__ == '__main__':
                         face_features_msg.age = face_features['age']
 
                         if 'happy' in face_features['emotions'] or 'surprise' in face_features['emotions']:
-                            smile_detected_msg = SmileDetected(detected=True)
-                            smile_detected_publisher.publish(smile_detected_msg)
+                            #smile_detected_msg = SmileDetected(detected=True)
+                            #smile_detected_publisher.publish(smile_detected_msg)
+                            user_speech_publisher.publish(UserSpeechText(text='привет'))
 
                         face_info_publisher.publish(face_features_msg)
                     else:
