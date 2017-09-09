@@ -114,9 +114,9 @@ if __name__ == '__main__':
 			'l_angle: {0}, r_angle: {1}, emotion: {2}'.format(_data.l_angle, _data.r_angle, _data.emotion)))
 
 	ts.add_subscriber('/motion_eyes_controller/eyes_motion', EyesState, lambda data: ts._save_text('/motion_eyes_controller/eyebrows_state', 'x: {0}, y: {1}, emotion: {2}'.format(str(data.x), str(data.y), data.emotion)))
-	ts.add_subscriber('/motion_head_controller/head_motion', HeadState,
-		lambda _data: ts._save_text('/motion_head_controller/head_state',
-		'h_angle: {0}, v_angle: {1}, emotion: {2}'.format(_data.state.h_angle, _data.state.v_angle, _data.state.emotion)) )
+	ts.add_subscriber('/motion_head_controller/head_motion', HeadMotion,
+		lambda _data: ts._save_text('/motion_head_controller/head_motion',
+		'h_angle: {0}, v_angle: {1}, emotion: {2}'.format(_data.h_angle, _data.v_angle, _data.emotion)) )
 
 	# ts.add_subscriber('/social/twitter/code_scanner/code', String, lambda data: ts._save_text('/social/twitter/code_scanner/code', data.data))
 	# ts.add_subscriber('/social/vk/newsfeed_scanner/hashtag', String, lambda data: ts._save_text('/social/vk/newsfeed_scanner/hashtag', data.data))

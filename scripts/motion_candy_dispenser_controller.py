@@ -91,10 +91,15 @@ if __name__ == '__main__':
     twitter_topic_published_sub = rospy.Subscriber('/social/twitter/code_scanner/give_candy', Bool, callback_twitter_topic_published)
     action_give_candy_sub = rospy.Subscriber('/action_manager/give_candy', Bool, callback_action_give_candy)
 
+    last_give_candy_time = time.time()
+
     while True:
         try:
             rospy.get_master().getPid()
         except:
             break
-
+        if time.time() - last_give_candy_time >= 60:
+            if DISPENSER_ROTATES is False and data.detected is True:
+                rotate_dispenser()
+                last_give_candy_time = time.time()
         time.sleep(0.1)
