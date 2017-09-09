@@ -24,7 +24,7 @@ logger = app_logger.setup_logger('candybot', filename=log_file)
 TIMEOUT = 0.4
 DISPENSER_ROTATES = False
 
-ser = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=TIMEOUT)
+#ser = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=TIMEOUT)
 dispenser = Dispenser(SERVO_CHANNEL=4)
 
 
@@ -40,9 +40,10 @@ def rotate_dispenser() -> bool:
     dispenser.run()
 
     while time.time() - start < TIMEOUT: #rotate until timeout
-        if ser.read(4) == b'true': #if candy sensor sent true break cycle
-            candy_is_gave = True
-            break
+        # if ser.read(4) == b'true': #if candy sensor sent true break cycle
+        #     candy_is_gave = True
+        #     break
+        pass
 
     dispenser.stop()
     DISPENSER_ROTATES = False
