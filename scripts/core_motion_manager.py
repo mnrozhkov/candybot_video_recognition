@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
+from std_msgs.msg import Bool
 from candybot_v2.msg import MotionPattern, Emotion, SmileDetected
 from motion.body.body_publisher import BodyPublisher
 from motion.eyebrows.eyebrows_publisher import EyebrowsPublisher
@@ -49,6 +50,7 @@ class MotionMaker:
         self.pattern_sub = rospy.Subscriber('/core_decision_manager/pattern', MotionPattern, self.callback_pattern)
         self.emotion_sub = rospy.Subscriber('/core_decision_manager/emotion', Emotion, self.callback_emotion)
         self.smile_sub = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, self.callback_smile_detected)
+        self.ask_for_sub = rospy.Subscriber('/core_motion_manager/speech_to_bot_detected', Bool, self.callback_ask_for_bot)
 
         self.eyebrows_position = 0
         self.eyebrows_pos_switch_time = time.time()
@@ -73,6 +75,12 @@ class MotionMaker:
     def callback_smile_detected(self, data: SmileDetected):
         if isinstance(data, SmileDetected) is True:
             if data.detected is True:
+                self._eyebrows_publisher.move_up()
+                self.eyebrows_position = 0
+
+    def callback_ask_for_bot(self, data: Bool):
+        if isinstance(data, Bool) is True:
+            if data.data is True:
                 self._eyebrows_publisher.move_up()
                 self.eyebrows_position = 0
 

@@ -6,7 +6,7 @@ conversation with bot
 
 import rospy
 
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from candybot_v2.msg import UserSpeechText, APIAIBotAnswer, BotSpeechText
 from core.dialog_manager import DialogManager
 import json
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
         speech_synthesis_publisher = rospy.Publisher('/core_decision_manager/bot_speech_text', BotSpeechText, queue_size=1)
         action_publisher = rospy.Publisher('/action_manager/action_name', String, queue_size=1)
-
+        ask_for_bot_pub = rospy.Publisher('/core_motion_manager/speech_to_bot_detected', Bool, queue_size=1)
         lock_bot_request = Lock()
         rospy.Subscriber('/speech_recognition/user_speech_text', UserSpeechText, lock_bot_request.callback)
         print('dialog bot manager start')
@@ -66,6 +66,7 @@ if __name__ == '__main__':
             print('user text in bot: ', user_speech_text_msg)
             if isinstance(user_speech_text_msg, UserSpeechText) and user_speech_text_msg.text.strip().lower().startswith(BOT_NAME):
                 speech_text = user_speech_text_msg.text.split(BOT_NAME)[1]
+                ask_for_bot_pub.publish(True)
                 if rospy.has_param('start_listen_to_speech'):
                     pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
                     rospy.delete_param('start_listen_to_speech')
