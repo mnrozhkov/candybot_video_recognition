@@ -26,6 +26,17 @@ PHOTO_SAVE_PATH = 'photos'
 if os.path.exists(PHOTO_SAVE_PATH) is False:
     os.mkdir(PHOTO_SAVE_PATH)
 
+from pathlib import Path
+TOP = Path(__file__).resolve().parents[1].as_posix()
+
+from utils import app_logger
+log_folder  = TOP + '/logs'
+if os.path.exists(log_folder) is False:
+    os.mkdir(log_folder)
+
+log_file = log_folder + '/' + __file__.split('/')[-1] + '.info'
+logger = app_logger.setup_logger('candybot', filename=log_file)
+
 
 if __name__ == '__main__':
 
@@ -62,8 +73,11 @@ if __name__ == '__main__':
                         cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + '.png', face_image)
                         face_features_msg = FaceFeatures()
                         face_features_msg.emotions = face_features['emotions']
+                        logger.info('emotions: {0}'.format(face_features['emotions']))
                         face_features_msg.gender = face_features['gender']
+                        logger.info('gender: {0}'.format(face_features['gender']))
                         face_features_msg.age = face_features['age']
+                        logger.info('age: {0}'.format(face_features['age']))
 
                         if 'happy' in face_features['emotions'] or 'surprise' in face_features['emotions']:
                             #smile_detected_msg = SmileDetected(detected=True)

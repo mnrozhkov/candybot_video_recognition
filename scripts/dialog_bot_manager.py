@@ -5,8 +5,6 @@ conversation with bot
 '''
 
 import rospy
-from pathlib import Path
-TOP = Path(__file__).resolve().parents[1].as_posix()
 
 from std_msgs.msg import String
 from candybot_v2.msg import UserSpeechText, APIAIBotAnswer, BotSpeechText
@@ -15,6 +13,18 @@ import json
 #from apiai_service.bot_client import APIAIBot
 from utils.topic_controller import Lock
 import time
+
+from pathlib import Path
+TOP = Path(__file__).resolve().parents[1].as_posix()
+import os
+
+from utils import app_logger
+log_folder  = TOP + '/logs'
+if os.path.exists(log_folder) is False:
+    os.mkdir(log_folder)
+
+log_file = log_folder + '/' + __file__.split('/')[-1] + '.info'
+logger = app_logger.setup_logger('candybot', filename=log_file)
 
 BOT_NAME = "арнольд"
 
@@ -60,24 +70,25 @@ if __name__ == '__main__':
                     pause_duration = time.time() - rospy.get_param('start_listen_to_speech')
                     rospy.delete_param('start_listen_to_speech')
 
+                    logger.info('user_says: {0}'.format(speech_text))
+                    logger.info('pause_duration: {0}'.format(pause_duration))
+
             print('speech_text: ', speech_text)
 
             d_manager.make_next_intent(speech_text=speech_text, pause_duration=pause_duration)
+
             print('bot text:', d_manager.say_to_user)
             print('bot action:', d_manager.action_name)
-            if len(d_manager.say_to_user):
+            if len(d_manager.say_to_user) > 0:
+                logger.info('bot_says: {0}'.format(d_manager.say_to_user))
+            if len(d_manager.action_name) > 0:
+                logger.info('bot_action: {0}'.format(d_manager.action_name))
+            if len(d_manager.apiai_intent) > 0:
+                logger.info('intent: {0}'.format(d_manager.apiai_intent))
+
+            if len(d_manager.say_to_user) > 0:
                 speech_synthesis_publisher.publish(BotSpeechText(text=d_manager.say_to_user))
             action_publisher.publish(d_manager.action_name)
-
-                # bot_answer = bot.request(user_speech_text_msg.text)
-                # print('bot_answer:', bot_answer)
-                # if isinstance(bot_answer, dict):
-                #     bot_answer_msg = APIAIBotAnswer()
-                #     bot_answer_msg.text = bot_answer['text']
-                #     bot_answer_msg.action_name = bot_answer['action']['name']
-                #     bot_answer_msg.action_parameters_in_json = json.dumps(bot_answer['action']['parameters'])
-                #
-                #     bot_decision_publisher.publish(bot_answer_msg)
 
             if lock_bot_request.message == user_speech_text_msg:
                 lock_bot_request.message = None

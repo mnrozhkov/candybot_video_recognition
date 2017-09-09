@@ -6,6 +6,7 @@ import sys
 sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 
 import rospy
+from std_msgs.msg import Bool
 from candybot_v2.msg import *
 from sensor_msgs.msg import Image
 
@@ -50,15 +51,16 @@ class TopicStat:
 		'''
 		saves audio file with audio data and with timestamp as name
 		'''
-
-		timestamp = time.ctime()
-		#pyaudio_config = json.loads(rospy.get_param('pyaudio'))
-		pyaudio_config = rospy.get_param('pyaudio')
-		wav_data = raw_audio2wav(audio_data, pyaudio_config)
-		topic_name_folder = self._create_topic_folder(topic_name)
-		print(topic_name_folder)
-		with open(topic_name_folder + '/' + timestamp + '.wav', 'wb') as f:
-			f.write(wav_data)
+		if isinstance(audio_data, bytes):
+			timestamp = time.ctime()
+			#pyaudio_config = json.loads(rospy.get_param('pyaudio'))
+			pyaudio_config = json.loads(rospy.get_param('pyaudio'))
+			wav_data = raw_audio2wav(audio_data, pyaudio_config)
+			topic_name_folder = self._create_topic_folder(topic_name)
+			print(topic_name_folder)
+			if isinstance(wav_data, bytes):
+				with open(topic_name_folder + '/' + timestamp + '.wav', 'wb') as f:
+					f.write(wav_data)
 
 	def _save_image(self, topic_name: str, image: numpy.ndarray):
 		'''
@@ -91,9 +93,10 @@ if __name__ == '__main__':
 	rospy.init_node('topic_stat')
 
 	ts = TopicStat()
-	ts.add_subscriber('/audio_capture/audio', Audio, lambda data: ts._save_audio('/audio_capture/audio', data.content))
+	#ts.add_subscriber('/audio_capture/audio', Audio, lambda data: ts._save_audio('/audio_capture/audio', data.content))
 	#ts.add_subscriber('/core_decision_manager/pattern', MotionPattern, lambda data: ts._save_text('/core_decision_manager/pattern', data.name))
 	#ts.add_subscriber('/core_decision_manager/emotion', Emotion, lambda data: ts._save_text('/core_decision_manager/emotion', data.name))
+	ts.add_subscriber('/action_manager/give_candy', Bool, lambda data: ts._save_text('/action_manager/give_candy', str(data.data)))
 	ts.add_subscriber('/speech_recognition/user_speech_text', UserSpeechText, lambda data: ts._save_text('/speech_recognition/user_speech_text', data.text))
 	ts.add_subscriber('/core_decision_manager/bot_speech_text', BotSpeechText, lambda data: ts._save_text('/core_decision_manager/bot_speech_text', data.text))
 	ts.add_subscriber('/motion_body_controller/body_motion', BodyMotion, lambda data: ts._save_text('/motion_body_controller/body_motion', 'angle: {0}, emotion: {1}'.format(data.angle, data.emotion)))
@@ -119,7 +122,7 @@ if __name__ == '__main__':
 	# ts.add_subscriber('/social/vk/newsfeed_scanner/hashtag', String, lambda data: ts._save_text('/social/vk/newsfeed_scanner/hashtag', data.data))
 
 	ts.add_subscriber('/speech_recognition/user_speech_text', UserSpeechText, lambda data: ts._save_text('/speech_recognition/user_speech_text', data.text))
-	ts.add_subscriber('/speech_synthesizer/speech_audio', Audio, lambda data: ts._save_audio('/speech_synthesizer/speech_audio', data.content))
+	#ts.add_subscriber('/speech_synthesizer/speech_audio', Audio, lambda data: ts._save_audio('/speech_synthesizer/speech_audio', data.content))
 
 	# ts.add_subscriber('/vision_camera_capture/image', Image, lambda data: ts._save_image('/vision_camera_capture/image', ros_numpy.numpify(data)))
 	ts.add_subscriber('/vision_face_recognition/face_info', FaceFeatures, lambda data: ts._save_text('/vision_face_recognition/face_info', 'emotions: {0}, gender: {1}, age: {2}'.format(data.emotions, data.gender, str(data.age)) )  )

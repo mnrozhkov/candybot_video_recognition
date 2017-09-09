@@ -8,6 +8,19 @@ from std_msgs.msg import Bool
 
 import time
 
+
+from pathlib import Path
+TOP = Path(__file__).resolve().parents[1].as_posix()
+import os
+
+from utils import app_logger
+log_folder  = TOP + '/logs'
+if os.path.exists(log_folder) is False:
+    os.mkdir(log_folder)
+
+log_file = log_folder + '/' + __file__.split('/')[-1] + '.info'
+logger = app_logger.setup_logger('candybot', filename=log_file)
+
 TIMEOUT = 0.4
 DISPENSER_ROTATES = False
 
@@ -33,6 +46,7 @@ def rotate_dispenser() -> bool:
 
     dispenser.stop()
     DISPENSER_ROTATES = False
+    logger.info('give_candy')
     return candy_is_gave #return candy dispensing result
 
 

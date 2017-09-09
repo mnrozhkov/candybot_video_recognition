@@ -54,6 +54,7 @@ class DialogManager:
 
         self.say_to_user = str()
         self.action_name = str()
+        self.apiai_intent = str()
 
     def _extract_intent_names(self) -> List[str] or None:
         '''
@@ -119,6 +120,10 @@ class DialogManager:
         try:
             bot_answer = self.bot.request(intent_name)
             self._append_say_to_user_text(bot_answer['text'])
+            self.action_name = bot_answer.get('action_name')
+            if self.action_name is None: self.action_name = str()
+            self.apiai_intent = bot_answer.get('intent_name')
+            if self.apiai_intent is None: self.apiai_intent = str()
         except Exception as e:
             ErrorLogger(__file__, e)
 
@@ -189,6 +194,9 @@ class DialogManager:
                             #and process it after complete
                             self._process_intent_after_complete(intent=self.required_intent)
                             self.action_name = bot_answer.get('action_name')
+                            if self.action_name is None: self.action_name = str()
+                            self.apiai_intent = bot_answer.get('intent_name')
+                            if self.apiai_intent is None: self.apiai_intent = str()
                     else: #if it is NOT required to listen to user
                         self.required_intent.run() #run intent and proccess it after complete
                         self._process_intent_after_complete(intent=self.required_intent)
@@ -204,5 +212,8 @@ class DialogManager:
                     else: #if the intent is absent in scheme
                         self._append_say_to_user_text(bot_answer.get('text')) #voice text from bot answer
                         self.action_name = bot_answer.get('action_name')
+                        if self.action_name is None: self.action_name = str()
+                        self.apiai_intent = bot_answer.get('intent_name')
+                        if self.apiai_intent is None: self.apiai_intent = str()
             except Exception as e:
                 ErrorLogger(__file__, e)
