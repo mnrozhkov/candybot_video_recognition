@@ -19,6 +19,7 @@ sys.path.append(top)
 
 from utils import ErrorLogger
 
+import random
 
 class MotionMaker:
     '''
@@ -53,6 +54,7 @@ class MotionMaker:
         self.ask_for_sub = rospy.Subscriber('/core_motion_manager/speech_to_bot_detected', Bool, self.callback_ask_for_bot)
 
         self.eyebrows_position = 0
+        self.head_h_position = 0
         self.eyebrows_pos_switch_time = time.time()
 
 
@@ -204,14 +206,28 @@ class MotionMaker:
 
         if time.time() - self.eyebrows_pos_switch_time > 10:
             print('eyebrows move!')
+            self.eyebrows_position = random.randint(0,2)
+            self.head_h_position = random.randint(0,1)
+
             if self.eyebrows_position == 0:
-                self._eyebrows_publisher.move_down()
-                self.eyebrows_position = 1
-            elif self.eyebrows_position == 1:
+                self._eyebrows_publisher.move_up()
+            elif self.eyebrows_position ==  1:
                 self._eyebrows_publisher.set_center()
-                self.eyebrows_position = 2
             else:
-                pass
+                self._eyebrows_publisher.move_down()
+
+            if self.head_h_position == 0:
+                self._head_publisher.turn_right()
+            else:
+                self._head_publisher.turn_left()            
+            # if self.eyebrows_position == 0:
+            #     self._eyebrows_publisher.move_down()
+            #     self.eyebrows_position = 1
+            # elif self.eyebrows_position == 1:
+            #     self._eyebrows_publisher.set_center()
+            #     self.eyebrows_position = 2
+            # else:
+            #     pass
             self.eyebrows_pos_switch_time = time.time()
 
         '''
