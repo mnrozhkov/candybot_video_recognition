@@ -99,7 +99,7 @@ if __name__ == '__main__':
         except:
             break
         if time.time() - last_give_candy_time >= 60:
-            if DISPENSER_ROTATES is False and data.detected is True:
+            if DISPENSER_ROTATES is False:
                 rotate_dispenser()
                 last_give_candy_time = time.time()
         time.sleep(0.1)

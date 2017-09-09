@@ -35,7 +35,7 @@ class Player:
                 stream = p.open(format = p.get_format_from_width(f.getsampwidth()),
                                 channels = f.getnchannels(),
                                 rate = f.getframerate(),
-                                #output_device_index=2,
+                                output_device_index=2,
                                 output = True)
                 #read data
                 data = f.readframes(chunk)
