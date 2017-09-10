@@ -58,12 +58,14 @@ def callback_smile_detected(data: SmileDetected):
 
 def callback_positive_emotions_detected(data: FaceFeatures):
     print('emotions!')
-    if 'happy' in data.emotions or 'surprise' in data.emotions:
-        print('positive emotion!')
-        if DISPENSER_ROTATES is False:
-            print('rotate!')
-            give_candy_result = rotate_dispenser()
-            print(give_candy_result)
+    if isinstance(data.emotions, list)
+        #if 'happy' in data.emotions or 'surprise' in data.emotions:
+        if data.emotions[0] == 'happy':
+            print('positive emotion!')
+            if DISPENSER_ROTATES is False:
+                print('rotate!')
+                give_candy_result = rotate_dispenser()
+                print(give_candy_result)
 
 
 def callback_vk_topic_published(data: Bool):
