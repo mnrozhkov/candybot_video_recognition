@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
     #subscribers for smile detected and social give candy topic
     smile_detected_subscriber = rospy.Subscriber('/vision_face_tracking/smile_detected', SmileDetected, callback_smile_detected)
-    #face_features_subscriber = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_positive_emotions_detected)
+    face_features_subscriber = rospy.Subscriber('/vision_face_recognition/face_info', FaceFeatures, callback_positive_emotions_detected)
     vk_topic_published_sub = rospy.Subscriber('/social/vk/newsfeed_scanner/give_candy', Bool, callback_vk_topic_published)
     twitter_topic_published_sub = rospy.Subscriber('/social/twitter/code_scanner/give_candy', Bool, callback_twitter_topic_published)
     action_give_candy_sub = rospy.Subscriber('/action_manager/give_candy', Bool, callback_action_give_candy)
