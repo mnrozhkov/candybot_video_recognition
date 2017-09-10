@@ -206,9 +206,10 @@ class MotionMaker:
 
         if time.time() - self.eyebrows_pos_switch_time > 10:
             print('eyebrows move!')
-            self.eyebrows_position = random.randint(0,2)
-            self.head_h_position = random.randint(60,120)
+            #self.head_h_position = random.randint(60,120)
+            #self._head_publisher.set_h_angle(self.head_h_position)
 
+            self.eyebrows_position = random.randint(0,2)
             if self.eyebrows_position == 0:
                 self._eyebrows_publisher.move_up()
             elif self.eyebrows_position ==  1:
@@ -220,7 +221,6 @@ class MotionMaker:
             #     self._head_publisher.turn_right()
             # else:
             #     self._head_publisher.turn_left()
-            self._head_publisher.set_h_angle(self.head_h_position)
             # if self.eyebrows_position == 0:
             #     self._eyebrows_publisher.move_down()
             #     self.eyebrows_position = 1
