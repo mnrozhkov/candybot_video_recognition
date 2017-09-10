@@ -22,9 +22,6 @@ sys.path.insert(1, '/usr/local/lib/python3.5/dist-packages')
 import cv2
 
 import os
-PHOTO_SAVE_PATH = 'photos'
-if os.path.exists(PHOTO_SAVE_PATH) is False:
-    os.mkdir(PHOTO_SAVE_PATH)
 
 from pathlib import Path
 TOP = Path(__file__).resolve().parents[1].as_posix()
@@ -36,6 +33,10 @@ if os.path.exists(log_folder) is False:
 
 log_file = log_folder + '/' + __file__.split('/')[-1] + '.info'
 logger = app_logger.setup_logger('candybot', filename=log_file)
+
+PHOTO_SAVE_PATH = TOP + '/photos'
+if os.path.exists(PHOTO_SAVE_PATH) is False:
+    os.mkdir(PHOTO_SAVE_PATH)
 
 
 if __name__ == '__main__':
