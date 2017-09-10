@@ -58,7 +58,7 @@ def callback_smile_detected(data: SmileDetected):
 
 def callback_positive_emotions_detected(data: FaceFeatures):
     print('emotions!')
-    if isinstance(data.emotions, list)
+    if isinstance(data.emotions, list):
         #if 'happy' in data.emotions or 'surprise' in data.emotions:
         if data.emotions[0] == 'happy':
             print('positive emotion!')
