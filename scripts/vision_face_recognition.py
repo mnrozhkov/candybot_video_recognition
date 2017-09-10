@@ -88,6 +88,7 @@ if __name__ == '__main__':
                         face_info_publisher.publish(face_features_msg)
                     else:
                         #cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + 'nonemotions.png', face_image)
+                        pass
 
             if lock_recognize.message == face_image_msg:
                 lock_recognize.message = None
