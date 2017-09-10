@@ -71,7 +71,7 @@ if __name__ == '__main__':
                     #print(face_features_msg)
                     print('face features request result: ', face_features)
                     if face_features is not None:
-                        cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + '.png', face_image)
+                        #cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + '.png', face_image)
                         face_features_msg = FaceFeatures()
                         face_features_msg.emotions = face_features['emotions']
                         logger.info('emotions: {0}'.format(face_features['emotions']))
@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
                         face_info_publisher.publish(face_features_msg)
                     else:
-                        cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + 'nonemotions.png', face_image)
+                        #cv2.imwrite(PHOTO_SAVE_PATH + '/' + time.ctime() + 'nonemotions.png', face_image)
 
             if lock_recognize.message == face_image_msg:
                 lock_recognize.message = None
