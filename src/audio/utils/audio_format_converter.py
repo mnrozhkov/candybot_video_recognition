@@ -22,7 +22,7 @@ def str2audio(string: str) -> bytes: #depricated
     return base64.b64decode(string.encode('utf-8'))
 
 
-def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
+def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict=None) -> bytes or None:
     '''
     pyaudio_config has the next format:
     "pyaudio":{
@@ -34,6 +34,14 @@ def raw_audio2wav(raw_audio: bytes, pyaudio_config: dict) -> bytes or None:
     },
     '''
     try:
+        if pyaudio_config is None:
+            pyaudio_config={
+                'format': 8,
+                'channels': 1,
+                'rate': 8000,
+                'frames_per_buffer': 1024,
+                'input_device': 10
+            }
         samp_size = pyaudio.PyAudio().get_sample_size(pyaudio_config['format'])
         f = io.BytesIO()
         wave_writer = wave.Wave_write(f)
