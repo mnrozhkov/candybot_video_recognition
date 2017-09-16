@@ -80,12 +80,14 @@ class Recorder:
             ErrorLogger(__file__, e)
             return None
 
-    def listen_audio(self) -> bytes or None:
+    def listen_audio(self, timeout=1000000) -> bytes or None:
         '''
-        Listen sound until silence
+        Listen sound until silence or timeout
+        timeout: max time of waiting
         '''
         try:
-            while True:
+            start = time.time()
+            while time.time() - start < timeout:
                 chunk = self.stream.read(self.chunk_size, exception_on_overflow=False)
                 #if sound detected record raw data until silence
                 if audioop.rms(chunk, 2) >=  self.min_rms:
