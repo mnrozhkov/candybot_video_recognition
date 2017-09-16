@@ -12,7 +12,7 @@ from utils import ErrorLogger
 
 class Recorder:
 
-    def __init__(self, pyaudio_config: dict, min_rms=100):
+    def __init__(self, pyaudio_config: dict=None, min_rms=100):
         '''
         Constructor
         Args:
@@ -29,6 +29,15 @@ class Recorder:
         '''
 
         try:
+            if pyaudio_config is None:
+                pyaudio_config={
+                    'format': 8,
+                    'channels': 1,
+                    'rate': 8000,
+                    'frames_per_buffer': 1024,
+                    'input_device': 10
+                }
+                
             self.set_min_rms(min_rms=min_rms)
             #set up pyaudio configuration and start audio stream
             self.format = pyaudio_config['format']
