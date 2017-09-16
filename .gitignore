@@ -1,14 +1,18 @@
-test/*.jpg
-test/*.png
-
 logs/
 recognized_text/
 photos/
-run/candybot_v2.config
-run/software_config.launch
 
+
+# Configs and logs
+run/software_config.launch
 *.log
-*.pyc
+*.config
+
+
+#images
+*.png
+*.jpg
+
 
 #OS and IDE
 *.DS_Store
@@ -43,6 +47,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+*.pyc
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
